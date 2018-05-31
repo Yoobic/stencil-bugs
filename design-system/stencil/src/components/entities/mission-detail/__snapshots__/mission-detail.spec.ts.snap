@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MissionDetailComponent Rendering Should render 1`] = `
+<yoo-mission-detail
+  class="hydrated"
+  data-yoo-mission-detail-host=""
+>
+  
+  
+</yoo-mission-detail>
+`;
+
+exports[`MissionDetailComponent Rendering Should render with mission 1`] = `
+<yoo-mission-detail
+  class="hydrated"
+  data-yoo-mission-detail-host=""
+>
+  
+  
+</yoo-mission-detail>
+`;

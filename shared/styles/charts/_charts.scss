@@ -1,0 +1,60 @@
+// a[href='http://www.amcharts.com/javascript-charts/'] {
+//     display: none !important;
+// }
+// a[href='http://www.ammap.com/javascript-maps/'] {
+//     display: none !important;
+// }
+//hightcharts
+//
+.highcharts-button {
+    rect {
+        fill: cssvar(light);
+        stroke: cssvar(border-color);
+    }
+    text {
+        color: cssvar(text-header);
+        font-family: $font-family;
+    }
+}
+
+.highcharts-button-hover {
+    text {
+        color: cssvar(dark) !important;
+    }
+}
+
+.pie {
+    .highcharts-data-label {
+        span {
+            white-space: normal !important;
+        }
+    }
+}
+
+.highcharts-label.highcharts-data-label {
+    z-index: 1;
+}
+
+.highcharts-label.highcharts-tooltip {
+    z-index: 10;
+}
+
+.highcharts-data-labels {
+    pointer-events: none;
+}
+
+[title~="JavaScript Charts by ZingChart"] {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+tspan {
+    stroke-width: 0;
+}
+
+.highcharts-point-select {
+    //opacity: 0.5;
+    stroke-width: 2px;
+    stroke: cssvar(balanceddark);
+    stroke-linejoin: round;
+}

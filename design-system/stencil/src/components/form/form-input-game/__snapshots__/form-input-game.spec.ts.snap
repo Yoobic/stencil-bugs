@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooFormInputGameComponent Rendering Should receive phaser as a prop 1`] = `
+<yoo-form-input-game
+  class="hydrated"
+  data-yoo-form-input-game-host=""
+  phaser="phaser"
+>
+  
+  <div
+    data-yoo-form-input-game=""
+  >
+    <div
+      class="container"
+      data-yoo-form-input-game=""
+      id="game-div"
+    />
+  </div>
+</yoo-form-input-game>
+`;
+
+exports[`YooFormInputGameComponent Rendering Should render 1`] = `
+<yoo-form-input-game
+  class="hydrated"
+  data-yoo-form-input-game-host=""
+>
+  
+  <div
+    data-yoo-form-input-game=""
+  >
+    <div
+      class="container"
+      data-yoo-form-input-game=""
+      id="game-div"
+    />
+  </div>
+</yoo-form-input-game>
+`;
+
+exports[`YooFormInputGameComponent Rendering Should render with a name prop 1`] = `
+<yoo-form-input-game
+  class="hydrated"
+  data-yoo-form-input-game-host=""
+  name="Runner"
+>
+  
+  <div
+    data-yoo-form-input-game=""
+  >
+    <div
+      class="container"
+      data-yoo-form-input-game=""
+      id="game-div"
+    />
+  </div>
+</yoo-form-input-game>
+`;
+
+exports[`YooFormInputGameComponent Rendering Should render with a name prop 2`] = `
+<yoo-form-input-game
+  class="hydrated"
+  data-yoo-form-input-game-host=""
+  field-id="game-field-id"
+  name="Runner"
+>
+  
+  <div
+    data-yoo-form-input-game=""
+  >
+    <div
+      class="container"
+      data-yoo-form-input-game=""
+      id="game-field-id"
+    />
+  </div>
+</yoo-form-input-game>
+`;

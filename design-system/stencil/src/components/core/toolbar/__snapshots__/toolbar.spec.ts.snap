@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooToolbarComponent property rendering should render 1`] = `
+<yoo-toolbar
+  class="hydrated"
+  data-yoo-toolbar-host=""
+>
+  
+  <div
+    attr-layout="row"
+    attr-layout-align="space-around center"
+    class="container"
+    data-yoo-toolbar=""
+    data-yoo-toolbar-slot=""
+  >
+    
+  </div>
+</yoo-toolbar>
+`;
+
+exports[`YooToolbarComponent property rendering should render any content in the slot 1`] = `
+<yoo-toolbar
+  class="hydrated"
+  data-yoo-toolbar-host=""
+>
+  
+  
+  <div
+    attr-layout="row"
+    attr-layout-align="space-around center"
+    class="container"
+    data-yoo-toolbar=""
+    data-yoo-toolbar-slot=""
+  >
+    
+    <div>
+      Hey
+    </div>
+  </div>
+</yoo-toolbar>
+`;
+
+exports[`YooToolbarComponent property rendering should render with actions 1`] = `
+<yoo-toolbar
+  class="hydrated"
+  data-yoo-toolbar-host=""
+>
+  
+  <div
+    attr-layout="row"
+    attr-layout-align="space-around center"
+    class="container"
+    data-yoo-toolbar=""
+    data-yoo-toolbar-slot=""
+  >
+    <div
+      attr-layout="row"
+      attr-layout-align="space-between"
+      class="actions"
+      data-yoo-toolbar=""
+    >
+      <div
+        class="action"
+        data-yoo-toolbar=""
+      >
+        <div
+          class="circle-container"
+          data-yoo-toolbar=""
+        >
+          <div
+            class="circle-border border-accent"
+            data-yoo-toolbar=""
+          />
+          <div
+            class="circle accent"
+            data-yoo-toolbar=""
+          >
+            <i
+              data-yoo-toolbar=""
+            />
+          </div>
+        </div>
+        <div
+          class="label"
+          data-yoo-toolbar=""
+        >
+          Action 1
+        </div>
+      </div>
+      <div
+        class="action"
+        data-yoo-toolbar=""
+      >
+        <div
+          class="circle-container"
+          data-yoo-toolbar=""
+        >
+          <div
+            class="circle-border border-danger"
+            data-yoo-toolbar=""
+          />
+          <div
+            class="circle danger"
+            data-yoo-toolbar=""
+          >
+            <i
+              data-yoo-toolbar=""
+            />
+          </div>
+        </div>
+        <div
+          class="label"
+          data-yoo-toolbar=""
+        >
+          Action 2
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-toolbar>
+`;

@@ -1,0 +1,52 @@
+
+
+$fab-btn-size: 2.625rem;
+
+:host {
+    position: absolute;
+    min-height: $fab-btn-size;
+    min-width:  $fab-btn-size;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+
+    &.right {
+        @include flex;
+        flex-direction: row;
+        left: $fab-btn-size + 0.5rem;
+
+        &[mini] {
+            margin: 0.1875rem 0;
+        }
+    }
+
+    &.left {
+        @include flex;        
+        flex-direction: row-reverse;
+        right: $fab-btn-size + 0.5rem;
+
+        &[mini] {
+            margin: 0.1875rem 0;
+        }
+    }
+
+    &.top {
+        @include flex;        
+        top: auto;
+        bottom: $fab-btn-size + 0.5rem;
+        flex-direction: column-reverse;
+
+        &[mini] {
+            margin: 0 0.25rem;            
+        }
+    }
+
+    &.bottom {
+        @include flex;
+        top: $fab-btn-size + 0.5rem;
+
+        &[mini] {
+            margin: 0 0.25rem;            
+        }
+    }
+}

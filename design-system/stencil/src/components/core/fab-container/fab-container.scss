@@ -1,0 +1,36 @@
+
+
+// margin between the fab and the edge of the screen
+$fab-margin: $padding-small;
+$fab-size: 2.625rem;
+
+:host {
+    position: absolute;
+    z-index: 1000;
+
+    &[top] {
+        top: $fab-margin;
+    }
+
+    &[bottom] {
+        bottom: $fab-margin;
+    }
+
+    &[middle]{
+        top: 50%;
+        margin-top: -$fab-size / 2;
+    }
+
+    &[center]{
+        left: 50%;
+        margin-left: -$fab-size / 2  
+    }    
+
+    &[right] {
+        right: $fab-margin;
+    }
+
+    &[left] {
+        left: $fab-margin;
+    }
+}

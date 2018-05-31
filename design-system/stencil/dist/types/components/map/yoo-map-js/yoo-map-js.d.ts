@@ -1,0 +1,37 @@
+import { EventEmitter } from '@stencil/core';
+import { IMapEntry, IMarker, IFilterGroup } from '@shared/interfaces';
+export declare class YooMapJsComponent {
+    filterGroups: IFilterGroup[];
+    mapEntry: IMapEntry;
+    filterGroupsChanged: EventEmitter<IFilterGroup[]>;
+    selected: EventEmitter<IMarker>;
+    selectedMultiple: EventEmitter<IMarker[]>;
+    isLoading: boolean;
+    host: HTMLElement;
+    protected map: any;
+    protected popup: any;
+    private idCounter;
+    private mapId;
+    private layers;
+    private clusterRadius;
+    private isDestroyed;
+    private isLoaded;
+    private legendsOld;
+    componentDidLoad(): void;
+    componentDidUnload(): void;
+    toggleFilterGroup(filterGroup: IFilterGroup, ev: any): void;
+    getMapbox(): Promise<any>;
+    initMap(): void;
+    addControls(L: any): void;
+    initLanguage(): void;
+    initMarkers(): void;
+    fitToMarkers(L: any): void;
+    setOriginalFilterGroups(originalFilterGroups: IFilterGroup[]): void;
+    flyTo(longitude: number, latitude: number, zoom?: number): void;
+    createClusterGroup(clusters?: string[]): void;
+    createCluster(L: any, divClass: string, color: string): any;
+    getOldColor(cluster: string): string;
+    addDirections(profile: string): void;
+    onFilterGroupsChange(): void;
+    render(): JSX.Element;
+}

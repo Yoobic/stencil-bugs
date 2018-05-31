@@ -1,0 +1,296 @@
+@mixin class-style-applicator($class, $color) {
+    :host(.#{$class}) {
+        .bar-container {
+            border-color: cssvar($color);
+            .progress-container {
+                background: cssvar($color);
+            }
+        }
+    } // circle part
+    :host(.#{$class}) {
+        .circle-outer-container {
+            .circle-progress {
+                background: cssvar($color);
+                .circle-center {
+                    background: cssvar(light);
+                }
+            }
+        }
+    }
+}
+
+:host(.rounded) {
+    .bar-container {
+        border-radius: 0.675rem;
+        .progress-container {
+            border-top-left-radius: 0.675rem;
+            border-bottom-left-radius: 0.675rem;
+        }
+    }
+}
+
+:host {
+    display: inline-block;
+    width: 100%;
+    .outer-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .bar-container {
+            display: inline-block; //border-radius: 0.675rem;
+            width: 100%;
+            height: 3px;
+            background-color: cssvar(dark-10);
+            vertical-align: middle;
+            .progress-container {
+                width: 100%;
+                height: 3px;
+            }
+        }
+        .label {
+            color: cssvar(dark);
+            padding-left: 0.5rem;
+            font-size: 0.75rem !important;
+        }
+    }
+}
+
+:host(.small) {
+    .bar-container {
+        width: 5rem !important;
+        height: 0.5rem !important;
+        .progress-container {
+            height: 0.5rem !important;
+        }
+    }
+}
+
+:host(.xsmall) {
+    display: block;
+    .outer-container {
+        margin-top: 0;
+    }
+    .bar-container {
+        height: 0.0625rem !important;
+        .progress-container {
+            height: 0.0625rem !important;
+        }
+    }
+    .label {
+        font-weight: 400;
+        font-size: 0.625rem !important;
+        padding-left: 0.9375rem;
+    }
+}
+
+// circle progress bar
+:host {
+    .wrap {
+    justify-content: flex-start;
+        .circle-outer-container {
+            position: relative;
+            .circle-progress {
+                height: 4.125rem;
+                width: 4.125rem;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 0;
+            }
+            .circle-background {
+                background: cssvar(dark-10);
+                height: 4.125rem;
+                width: 4.125rem;
+                border-radius: 50%;
+                position: absolute;
+                top: 0rem;
+                left: 0rem;
+                //transform: scale(1.02);
+                z-index: 1000;
+                //clip-path: polygon(50% 50%, 50% 0, 0 0, 0% 50%);
+            }
+            .circle-center-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 4.125rem;
+                width: 4.125rem;
+                .circle-center {
+                    height: 4rem;
+                    width: 4rem;
+                    border-radius: 50%;
+                    background: cssvar(light);
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 3000;
+                    .circle-progress-label {
+                        font-size: 1.25rem !important;
+                        color: cssvar(dark);
+                        font-weight: 300;
+                    }
+                    .circle-title {
+                        color: cssvar(dark);
+                    }
+                }
+            }
+            .clipped-circle {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 4.125rem;
+                width: 4.125rem;
+                z-index: 2000;
+                border-radius: 50%;
+                clip-path: polygon(50% 50%, 100% 100%, 0 100%); 
+                background-color: cssvar(light);             
+            }
+        }
+        .circle-label {
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.0625rem;
+            align-self: center;
+            padding-top: 0.625rem;
+        } 
+        &.full {
+            .circle-outer-container {
+                .circle-progress {
+                    .circle-center {
+                        background: transparent !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// reverse progress
+:host(.flipped) {
+    // flip bar
+    .outer-container {
+        .bar-container {
+            transform: scaleX(-1);
+        }
+    } // flip circle
+    .circle-outer-container {
+        .circle-background {
+            transform: scaleX(-1);
+        }
+    }
+}
+
+:host(.large-circle) {
+    .wrap {
+        .circle-outer-container {
+            .circle-progress {
+                height: 13.75rem;
+                width: 13.75rem;
+            }
+            .circle-background {
+                height: 13.75rem;
+                width: 13.75rem;
+            }
+            .circle-center-container {
+                height: 13.75rem;
+                width: 13.75rem;
+                .circle-center {
+                    height: 13rem;
+                    width: 13rem;
+                    .circle-progress-label {
+                        font-size: 3.75rem !important;
+                        line-height: 1.15;
+                    }
+                    .circle-title {
+                        font-size: 0.875rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.0625rem;
+                    }
+                }
+            }
+            .clipped-circle {
+                height: 13.75rem;
+                width: 13.75rem;
+            }
+        }
+        .circle-label {
+            text-transform: none;
+            letter-spacing: normal;
+            font-size: 0.875rem;
+            text-align: center;
+            width: 8.6875rem;
+            color: cssvar(text-color);
+            
+        }
+    }
+    
+}
+
+:host(.clipped-circle) {
+    .wrap {
+        position: relative;
+        height: 15.625rem;
+        .circle-outer-container {
+            .circle-progress {
+                clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%, 50% 50% );
+            }
+            .circle-background {
+                -webkit-transform: rotate(-135deg);
+                -moz-transform: rotate(-135deg);
+                -o-transform: rotate(-135deg);
+                -ms-transform: rotate(-135deg);
+                transform: rotate(-135deg);
+            }
+        }
+        .circle-label {
+            position: absolute;
+            z-index: 5000;
+            bottom: 0;
+        } 
+    }
+}
+
+
+@include class-style-applicator(accent, accent);
+@include class-style-applicator(dark, dark-40);
+@include class-style-applicator(info, info);
+@include class-style-applicator(success, success);
+@include class-style-applicator(danger, danger);
+@include class-style-applicator(warning, warning);
+@include class-style-applicator(gradient-accent, gradient-accent);
+@include class-style-applicator(gradient-dark, gradient-dark);
+@include class-style-applicator(gradient-info, gradient-info);
+@include class-style-applicator(gradient-success, gradient-success);
+@include class-style-applicator(gradient-danger, gradient-danger);
+@include class-style-applicator(gradient-warning, gradient-warning);
+
+:host(.triangle) {
+    .outer-container {
+    position: relative;
+        .bar-container {
+            width: 0;
+            height: 0;
+            border-top: 0.71875rem solid transparent;
+            border-bottom: 0.71875rem solid transparent;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            .progress-container {
+                background-color: transparent;
+                width: 0;
+                height: 0;
+                // border-right: 200px solid cssvar(accent);
+            }
+        }
+    .triangle-cover {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 1.5rem;
+        background-color: cssvar(light);
+    }
+    }
+
+}

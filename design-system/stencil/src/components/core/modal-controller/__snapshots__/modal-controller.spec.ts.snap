@@ -1,0 +1,282 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooModalControllerComponent Generate Component to display should create a single modal with header and footer 1`] = `
+<yoo-modal
+  class="undefined hydrated"
+  data-yoo-modal-host=""
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-modal=""
+  >
+    <div
+      attr-layout="row"
+      attr-layout-align="space-between"
+      class="modal-header"
+      data-yoo-modal=""
+    >
+      <span
+        class="hide-icon"
+        data-yoo-modal=""
+      />
+      <div
+        class="inner-header"
+        data-yoo-modal=""
+      >
+        
+        <span
+          class="modal-heading"
+          data-yoo-modal=""
+        >
+          
+        </span>
+      </div>
+      <span
+        class="close-icon"
+        data-yoo-modal=""
+      >
+        <i
+          class="yo-close"
+          data-yoo-modal=""
+        />
+      </span>
+    </div>
+    <div
+      class="modal-body"
+      data-yoo-modal=""
+    >
+      <div
+        class="modal-scroll-container"
+        data-yoo-modal=""
+      >
+        <yoo-slim-scroll
+          data-yoo-modal=""
+          data-yoo-modal-slot=""
+        >
+          
+        </yoo-slim-scroll>
+      </div>
+    </div>
+    
+  </div>
+</yoo-modal>
+`;
+
+exports[`YooModalControllerComponent Generate Component to display should create a single toast alert 1`] = `
+<yoo-alert
+  class="toast modal accent hydrated"
+  data-yoo-alert-host=""
+>
+  
+  <div
+    class="container"
+    data-yoo-alert=""
+  >
+    <div
+      class="link"
+      data-yoo-alert=""
+    >
+      
+    </div>
+    <div
+      class="inner-container"
+      data-yoo-alert=""
+    >
+      
+      <div
+        class="text-container"
+        data-yoo-alert=""
+      >
+        
+        <span
+          class="value"
+          data-yoo-alert=""
+        >
+          
+        </span>
+      </div>
+    </div>
+    <div
+      class="close-container"
+      data-yoo-alert=""
+    >
+      
+    </div>
+  </div>
+</yoo-alert>
+`;
+
+exports[`YooModalControllerComponent Generate Component to display should create an action sheet 1`] = `
+<yoo-action-sheet
+  class="undefined hydrated"
+  data-yoo-action-sheet-host=""
+>
+  
+  <yoo-modal
+    class="action-sheet"
+    data-yoo-action-sheet=""
+    has-header="false"
+  >
+    <div
+      attr-layout="column"
+      data-yoo-action-sheet=""
+    >
+      <div
+        class="outer-container"
+        data-yoo-action-sheet=""
+      >
+        <div
+          attr-layout="column"
+          class="top-container"
+          data-yoo-action-sheet=""
+        >
+          <div
+            class="heading-container"
+            data-yoo-action-sheet=""
+          >
+            
+          </div>
+        </div>
+        <div
+          class="bottom-container"
+          data-yoo-action-sheet=""
+        >
+          <div
+            class="cancel-container"
+            data-yoo-action-sheet=""
+          >
+            Cancel
+          </div>
+        </div>
+      </div>
+    </div>
+  </yoo-modal>
+</yoo-action-sheet>
+`;
+
+exports[`YooModalControllerComponent Generate Component to display should generate a confirm modal 1`] = `
+<yoo-modal
+  class="accent hydrated"
+  data-yoo-modal-host=""
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-modal=""
+  >
+    <div
+      attr-layout="row"
+      attr-layout-align="space-between"
+      class="modal-header"
+      data-yoo-modal=""
+    >
+      <span
+        class="hide-icon"
+        data-yoo-modal=""
+      />
+      <div
+        class="inner-header"
+        data-yoo-modal=""
+      >
+        
+        <span
+          class="modal-heading"
+          data-yoo-modal=""
+        >
+          
+        </span>
+      </div>
+      <span
+        class="close-icon"
+        data-yoo-modal=""
+      >
+        <i
+          class="yo-close"
+          data-yoo-modal=""
+        />
+      </span>
+    </div>
+    <div
+      class="modal-body"
+      data-yoo-modal=""
+    >
+      <div
+        class="modal-scroll-container"
+        data-yoo-modal=""
+      >
+        <yoo-slim-scroll
+          data-yoo-modal=""
+          data-yoo-modal-slot=""
+        >
+          
+        </yoo-slim-scroll>
+      </div>
+    </div>
+    
+  </div>
+</yoo-modal>
+`;
+
+exports[`YooModalControllerComponent Generate Component to display should populate a single modal with header 1`] = `
+<yoo-modal
+  class="hydrated"
+  data-yoo-modal-host=""
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-modal=""
+  >
+    <div
+      attr-layout="row"
+      attr-layout-align="space-between"
+      class="modal-header"
+      data-yoo-modal=""
+    >
+      <span
+        class="hide-icon"
+        data-yoo-modal=""
+      />
+      <div
+        class="inner-header"
+        data-yoo-modal=""
+      >
+        
+        <span
+          class="modal-heading"
+          data-yoo-modal=""
+        >
+          
+        </span>
+      </div>
+      <span
+        class="close-icon"
+        data-yoo-modal=""
+      >
+        <i
+          class="yo-close"
+          data-yoo-modal=""
+        />
+      </span>
+    </div>
+    <div
+      class="modal-body"
+      data-yoo-modal=""
+    >
+      <div
+        class="modal-scroll-container"
+        data-yoo-modal=""
+      >
+        <yoo-slim-scroll
+          data-yoo-modal=""
+          data-yoo-modal-slot=""
+        >
+          
+        </yoo-slim-scroll>
+      </div>
+    </div>
+    
+  </div>
+</yoo-modal>
+`;

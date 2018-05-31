@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooTransitionComponent Snapshots should have a heading 1`] = `
+<yoo-transition
+  class="accent fade hydrated"
+  data-yoo-transition-host=""
+  heading="TEXT"
+  type="fade"
+>
+  
+  
+  
+  
+  <div
+    class="container"
+    data-yoo-transition=""
+  >
+    <div
+      class="overlay"
+      data-yoo-transition=""
+    >
+      TEXT
+    </div>
+    
+    <div
+      class="slot-container"
+      data-yoo-transition=""
+      data-yoo-transition-slot=""
+    >
+      
+      
+                            
+      <div
+        style="display: flex;"
+      >
+        
+                                
+        <img
+          alt="Image"
+          height="200"
+          src="https://images3.alphacoders.com/823/thumb-1920-82317.jpg"
+        />
+        
+                            
+      </div>
+      
+                        
+    </div>
+  </div>
+</yoo-transition>
+`;
+
+exports[`YooTransitionComponent Snapshots should have a subheading 1`] = `
+<yoo-transition
+  class="accent heading hydrated"
+  data-yoo-transition-host=""
+  heading="TITLE"
+  sub-heading="SUBHEADING"
+  type="heading"
+>
+  
+  
+  
+  
+  <div
+    class="container"
+    data-yoo-transition=""
+  >
+    <div
+      class="overlay"
+      data-yoo-transition=""
+    >
+      TITLE
+    </div>
+    <div
+      class="sub-overlay"
+      data-yoo-transition=""
+    >
+      SUBHEADING
+    </div>
+    <div
+      class="slot-container"
+      data-yoo-transition=""
+      data-yoo-transition-slot=""
+      style="display: flex;"
+    >
+      
+      
+                            
+      <div>
+        
+                                
+        <img
+          alt="Image"
+          height="200"
+          src="https://images3.alphacoders.com/823/thumb-1920-82317.jpg"
+        />
+        
+                            
+      </div>
+      
+                        
+    </div>
+  </div>
+</yoo-transition>
+`;
+
+exports[`YooTransitionComponent Snapshots should have a type 1`] = `
+<yoo-transition
+  class="accent fade hydrated"
+  data-yoo-transition-host=""
+  type="fade"
+>
+  
+  
+  
+  
+  <div
+    class="container"
+    data-yoo-transition=""
+  >
+    <div
+      class="overlay"
+      data-yoo-transition=""
+    >
+      
+    </div>
+    
+    <div
+      class="slot-container"
+      data-yoo-transition=""
+      data-yoo-transition-slot=""
+    >
+      
+      
+                            
+      <div
+        style="display: flex;"
+      >
+        
+                                
+        <img
+          alt="Image"
+          height="200"
+          src="https://images3.alphacoders.com/823/thumb-1920-82317.jpg"
+        />
+        
+                            
+      </div>
+      
+                        
+    </div>
+  </div>
+</yoo-transition>
+`;
+
+exports[`YooTransitionComponent Snapshots should have an icon 1`] = `
+<yoo-transition
+  class="accent icon hydrated"
+  data-yoo-transition-host=""
+  type="icon"
+>
+  
+  
+  
+  
+  <div
+    class="container"
+    data-yoo-transition=""
+  >
+    <div
+      class="overlay"
+      data-yoo-transition=""
+    >
+      
+    </div>
+    
+    <div
+      class="slot-container"
+      data-yoo-transition=""
+      data-yoo-transition-slot=""
+    >
+      
+      
+                            
+      <div
+        style="display: flex;"
+      >
+        
+                                
+        <img
+          alt="Image"
+          height="200"
+          src="https://images3.alphacoders.com/823/thumb-1920-82317.jpg"
+        />
+        
+                            
+      </div>
+      
+                        
+    </div>
+  </div>
+</yoo-transition>
+`;
+
+exports[`YooTransitionComponent Snapshots should have an image 1`] = `
+<yoo-transition
+  class="accent image hydrated"
+  data-yoo-transition-host=""
+  type="image"
+>
+  
+  
+  
+  
+  <div
+    class="container"
+    data-yoo-transition=""
+  >
+    <div
+      class="overlay"
+      data-yoo-transition=""
+    >
+      
+    </div>
+    
+    <div
+      class="slot-container"
+      data-yoo-transition=""
+      data-yoo-transition-slot=""
+    >
+      
+      
+                            
+      <div
+        style="display: flex;"
+      >
+        
+                                
+        <img
+          alt="Image"
+          height="200"
+          src="https://images3.alphacoders.com/823/thumb-1920-82317.jpg"
+        />
+        
+                            
+      </div>
+      
+                        
+    </div>
+  </div>
+</yoo-transition>
+`;

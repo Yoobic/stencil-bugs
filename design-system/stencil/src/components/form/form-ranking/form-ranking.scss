@@ -1,0 +1,49 @@
+
+
+@mixin class-color-applicator($class,$color) {
+    :host(.#{$class}) {
+        .ranking-container {
+            .item-container {
+                .rank-indicator {
+                    background: cssvar($color);
+                }
+            }
+        }
+    }
+}
+
+:host {
+    .ranking-container {
+        border: 1px solid cssvar(dark-40);
+        border-bottom: 0px;
+        .item-container {
+            border-bottom: 1px solid cssvar(dark-40);
+            align-items: center;
+            padding: 0.3rem 0.5rem;
+            color: cssvar(dark);
+            .rank-indicator {
+                margin-right: 0.5rem;
+                border-radius: 50%;
+                background: cssvar(success);
+                color: cssvar(light);
+                height: 1.3rem;
+                width: 1.3rem;
+                text-align: center;
+                font-size: 0.9rem;
+            } 
+        }
+    }
+}   
+
+@include class-color-applicator(accent,accent);
+@include class-color-applicator(danger,danger);
+@include class-color-applicator(info,info);
+@include class-color-applicator(dark,dark);
+@include class-color-applicator(success,success);
+@include class-color-applicator(warning,warning);
+@include class-color-applicator(gradient-accent,gradient-accent);
+@include class-color-applicator(gradient-danger,gradient-danger);
+@include class-color-applicator(gradient-info,gradient-info);
+@include class-color-applicator(gradient-dark,gradient-dark);
+@include class-color-applicator(gradient-warning,gradient-warning);
+@include class-color-applicator(gradient-success,gradient-success);

@@ -1,0 +1,173 @@
+@mixin simple-icon() {
+    padding: 0rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background: transparent;
+    color: cssvar(text-color);
+    border: none;
+}
+
+@mixin input-color($class, $color: $class, $border-color: $color) {
+    :host(.#{$class}) {
+        .input-container {
+            border-color: cssvar($border-color);
+            .icon-prefix {
+                border-right: none;
+                color: cssvar($color);
+            }
+            .icon-suffix {
+                border-left: none;
+                color: cssvar($color);
+            }
+            input {
+                color: cssvar($color);
+                @include placeholder {
+                    color: cssvar($color);
+                }
+            }
+            .label {
+                color: cssvar($color);
+            }
+        }
+    }
+}
+
+:host {
+    display: block; //margin-bottom: 1.5rem;
+    .input-container {
+        border: 1px solid cssvar(stable-30);
+        &.valid {
+            border: 1px solid cssvar(success);
+        }
+        &.invalid {
+            border: 1px solid cssvar(danger);
+        }
+        border-radius: $border-radius-input;
+        display: flex;
+        .icon-prefix,
+        .icon-suffix {
+            padding: 0.5rem 1rem;
+            background: cssvar(dark-10);
+            color: cssvar(dark);
+        }
+        .icon-prefix {
+            align-items: center;
+            border-right: 1px solid cssvar(dark-20);
+        }
+        .icon-suffix {
+            align-items: center;
+            border-left: 1px solid cssvar(dark-20);
+        }
+        input {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: left;
+            position: relative;
+            display: block;
+            flex: 1;
+            width: 100%;
+            border: none;
+            font-weight: 400;
+            color: cssvar(black);
+            box-shadow: white 0px 0px 0px 1000px inset !important;
+            @include box-sizing(border-box);
+            @include placeholder {
+                color: cssvar(dark-20);
+                font-weight: 100;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .placeholderlabel {
+        margin-top: 0.5rem;
+        &.active {
+            margin-top: 0rem;
+        }
+    }
+    .label {
+        font-size: 0.875rem;
+        line-height: 1.5;
+        letter-spacing: 2px;
+        text-align: left;
+        color: cssvar(text-color);
+        margin-bottom: 0.25rem;
+        transform: translateY(1.875rem);
+        transition: transform 0.2s ease-in;
+        padding-left: 0.5rem;
+        &.active {
+            margin-top: 0.25rem;
+            transform: translateY(0rem);
+        }
+        .label-required {
+            margin-left: 0.25rem;
+            color: cssvar(danger);
+        }
+    }
+}
+
+:host(.small) {
+    .input-container {
+        input {
+            padding: 0.1875rem 1rem;
+        }
+        .icon-prefix,
+        .icon-suffix {
+            padding: 0.1875rem 1rem;
+        }
+    }
+}
+
+:host(.simple) {
+    .input-container {
+        border: none;
+        border-bottom: 1px solid cssvar(stable-30);
+        input {
+            padding: 0.5rem 0;
+        }
+        .icon-suffix {
+            @include simple-icon();
+        }
+        .icon-prefix {
+            @include simple-icon();
+        }
+    }
+}
+
+:host(.simple-icon) {
+    .input-container {
+        .icon-suffix {
+            @include simple-icon();
+        }
+        .icon-prefix {
+            @include simple-icon();
+        }
+    }
+}
+
+:host(.round) {
+    .input-container {
+        border-radius: 1.5rem;
+        .icon-prefix {
+            border-top-left-radius: 1.5rem;
+            border-bottom-left-radius: 1.5rem;
+        }
+        .icon-suffix {
+            border-top-right-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+        }
+        input {
+            border-radius: 1.5rem;
+        }
+    }
+}
+
+@include input-color('accent');
+@include input-color('success');
+@include input-color('info');
+@include input-color('warning');
+@include input-color('danger');
+@include input-color('dark');
+@include input-color('stable', 'text-color', 'stable-30');

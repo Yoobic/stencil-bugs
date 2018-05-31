@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ZoomComponent Rendering Should render 1`] = `
+<yoo-zoom
+  class="hydrated"
+  data-yoo-zoom-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="zoom-container"
+    data-yoo-zoom=""
+    style="-webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+  >
+    <div
+      class="zoom-container-child"
+      data-yoo-zoom=""
+      data-yoo-zoom-slot=""
+    >
+      
+    </div>
+  </div>
+</yoo-zoom>
+`;

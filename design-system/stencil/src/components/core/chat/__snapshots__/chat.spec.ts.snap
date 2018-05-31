@@ -1,0 +1,475 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooChatComponent Re-rendering Should re render when heading is updated 1`] = `
+<yoo-chat
+  class="hydrated"
+  data-yoo-chat-host=""
+  heading="Chat Title"
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-chat=""
+  >
+    <div
+      class="chat-header"
+      data-yoo-chat=""
+    >
+      <span
+        data-yoo-chat=""
+      >
+        New Title
+      </span>
+    </div>
+    
+    <div
+      class="scroll-container"
+      data-yoo-chat=""
+    >
+      <yoo-slim-scroll
+        data-yoo-chat=""
+        height="768px"
+      >
+        <div
+          attr-layout="column"
+          class="messages-container"
+          data-yoo-chat=""
+        />
+      </yoo-slim-scroll>
+    </div>
+    <div
+      class="input-container"
+      data-yoo-chat=""
+    >
+      <yoo-input-bar
+        data-yoo-chat=""
+      />
+    </div>
+  </div>
+</yoo-chat>
+`;
+
+exports[`YooChatComponent Rendering Should render 1`] = `
+<yoo-chat
+  class="hydrated"
+  data-yoo-chat-host=""
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-chat=""
+  >
+    <div
+      class="chat-header"
+      data-yoo-chat=""
+    >
+      <span
+        data-yoo-chat=""
+      >
+        
+      </span>
+    </div>
+    
+    <div
+      class="scroll-container"
+      data-yoo-chat=""
+    >
+      <yoo-slim-scroll
+        data-yoo-chat=""
+        height="768px"
+      >
+        <div
+          attr-layout="column"
+          class="messages-container"
+          data-yoo-chat=""
+        />
+      </yoo-slim-scroll>
+    </div>
+    <div
+      class="input-container"
+      data-yoo-chat=""
+    >
+      <yoo-input-bar
+        data-yoo-chat=""
+      />
+    </div>
+  </div>
+</yoo-chat>
+`;
+
+exports[`YooChatComponent Rendering Should render with a heading 1`] = `
+<yoo-chat
+  class="hydrated"
+  data-yoo-chat-host=""
+  heading="Chat Heading"
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-chat=""
+  >
+    <div
+      class="chat-header"
+      data-yoo-chat=""
+    >
+      <span
+        data-yoo-chat=""
+      >
+        Chat Heading
+      </span>
+    </div>
+    
+    <div
+      class="scroll-container"
+      data-yoo-chat=""
+    >
+      <yoo-slim-scroll
+        data-yoo-chat=""
+        height="768px"
+      >
+        <div
+          attr-layout="column"
+          class="messages-container"
+          data-yoo-chat=""
+        />
+      </yoo-slim-scroll>
+    </div>
+    <div
+      class="input-container"
+      data-yoo-chat=""
+    >
+      <yoo-input-bar
+        data-yoo-chat=""
+      />
+    </div>
+  </div>
+</yoo-chat>
+`;
+
+exports[`YooChatComponent Rendering Should render with images inside the messages 1`] = `
+<yoo-chat
+  class="hydrated"
+  data-yoo-chat-host=""
+  heading="Chat Heading"
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-chat=""
+  >
+    <div
+      class="chat-header"
+      data-yoo-chat=""
+    >
+      <span
+        data-yoo-chat=""
+      >
+        Chat Heading
+      </span>
+    </div>
+    
+    <div
+      class="scroll-container"
+      data-yoo-chat=""
+    >
+      <yoo-slim-scroll
+        data-yoo-chat=""
+        height="768px"
+      >
+        <div
+          attr-layout="column"
+          class="messages-container"
+          data-yoo-chat=""
+        >
+          <div
+            attr-layout="column"
+            class="message other-message"
+            data-yoo-chat=""
+          >
+            <div
+              attr-layout="column"
+              class="message-content"
+              data-yoo-chat=""
+            >
+              
+              <span
+                data-yoo-chat=""
+              >
+                First message
+              </span>
+            </div>
+            
+          </div>
+          <div
+            attr-layout="column"
+            class="message other-message"
+            data-yoo-chat=""
+          >
+            <div
+              attr-layout="column"
+              class="message-content last"
+              data-yoo-chat=""
+            >
+              <div
+                class="image-container"
+                data-yoo-chat=""
+              >
+                <div
+                  class="image"
+                  data-yoo-chat=""
+                  style="background-repeat: no-repeat; background-size: cover; background-position-x: 5;0%; background-image: url(./assets/grid/empty-state-1.svg);"
+                />
+                 
+                <br
+                  data-yoo-chat=""
+                />
+              </div>
+              <span
+                data-yoo-chat=""
+              >
+                2nd message: It seems to work fine but I'm sure there is a bug somewhere !
+              </span>
+            </div>
+            <div
+              class="speech-mark"
+              data-yoo-chat=""
+            />
+            <div
+              class="speech-mark-negative"
+              data-yoo-chat=""
+            />
+            <div
+              class="info-container"
+              data-yoo-chat=""
+            >
+              <yoo-avatar
+                class="xsmall"
+                data-yoo-chat=""
+                user="Seb"
+              />
+              <span
+                data-yoo-chat=""
+              >
+                 - 
+              </span>
+            </div>
+          </div>
+          <div
+            attr-layout="column"
+            class="message user-message"
+            data-yoo-chat=""
+          >
+            <div
+              attr-layout="column"
+              class="message-content last"
+              data-yoo-chat=""
+            >
+              <div
+                class="image-container"
+                data-yoo-chat=""
+              >
+                <div
+                  class="image"
+                  data-yoo-chat=""
+                  style="background-repeat: no-repeat; background-size: cover; background-position-x: 5;0%; background-image: url(./assets/grid/empty-state-1.svg);"
+                />
+                 
+                <br
+                  data-yoo-chat=""
+                />
+              </div>
+              <span
+                data-yoo-chat=""
+              >
+                Third message, it is a very very very very long message. Not so long after all !
+              </span>
+            </div>
+            <div
+              class="speech-mark"
+              data-yoo-chat=""
+            />
+            <div
+              class="speech-mark-negative"
+              data-yoo-chat=""
+            />
+            <div
+              class="info-container"
+              data-yoo-chat=""
+            >
+              <yoo-avatar
+                class="xsmall"
+                data-yoo-chat=""
+                user="Mike"
+              />
+              <span
+                data-yoo-chat=""
+              >
+                 - 
+              </span>
+            </div>
+          </div>
+        </div>
+      </yoo-slim-scroll>
+    </div>
+    <div
+      class="input-container"
+      data-yoo-chat=""
+    >
+      <yoo-input-bar
+        data-yoo-chat=""
+      />
+    </div>
+  </div>
+</yoo-chat>
+`;
+
+exports[`YooChatComponent Rendering Should render with messages 1`] = `
+<yoo-chat
+  class="hydrated"
+  data-yoo-chat-host=""
+  heading="Chat Heading"
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-chat=""
+  >
+    <div
+      class="chat-header"
+      data-yoo-chat=""
+    >
+      <span
+        data-yoo-chat=""
+      >
+        Chat Heading
+      </span>
+    </div>
+    
+    <div
+      class="scroll-container"
+      data-yoo-chat=""
+    >
+      <yoo-slim-scroll
+        data-yoo-chat=""
+        height="768px"
+      >
+        <div
+          attr-layout="column"
+          class="messages-container"
+          data-yoo-chat=""
+        >
+          <div
+            attr-layout="column"
+            class="message other-message"
+            data-yoo-chat=""
+          >
+            <div
+              attr-layout="column"
+              class="message-content"
+              data-yoo-chat=""
+            >
+              
+              <span
+                data-yoo-chat=""
+              >
+                First message
+              </span>
+            </div>
+            
+          </div>
+          <div
+            attr-layout="column"
+            class="message other-message"
+            data-yoo-chat=""
+          >
+            <div
+              attr-layout="column"
+              class="message-content last"
+              data-yoo-chat=""
+            >
+              
+              <span
+                data-yoo-chat=""
+              >
+                2nd message: It seems to work fine but I'm sure there is a bug somewhere !
+              </span>
+            </div>
+            <div
+              class="speech-mark"
+              data-yoo-chat=""
+            />
+            <div
+              class="speech-mark-negative"
+              data-yoo-chat=""
+            />
+            <div
+              class="info-container"
+              data-yoo-chat=""
+            >
+              <yoo-avatar
+                class="xsmall"
+                data-yoo-chat=""
+                user="Seb"
+              />
+              <span
+                data-yoo-chat=""
+              >
+                 - 
+              </span>
+            </div>
+          </div>
+          <div
+            attr-layout="column"
+            class="message user-message"
+            data-yoo-chat=""
+          >
+            <div
+              attr-layout="column"
+              class="message-content last"
+              data-yoo-chat=""
+            >
+              
+              <span
+                data-yoo-chat=""
+              >
+                Third message, it is a very very very very long message. Not so long after all !
+              </span>
+            </div>
+            <div
+              class="speech-mark"
+              data-yoo-chat=""
+            />
+            <div
+              class="speech-mark-negative"
+              data-yoo-chat=""
+            />
+            <div
+              class="info-container"
+              data-yoo-chat=""
+            >
+              <yoo-avatar
+                class="xsmall"
+                data-yoo-chat=""
+                user="Mike"
+              />
+              <span
+                data-yoo-chat=""
+              >
+                 - 
+              </span>
+            </div>
+          </div>
+        </div>
+      </yoo-slim-scroll>
+    </div>
+    <div
+      class="input-container"
+      data-yoo-chat=""
+    >
+      <yoo-input-bar
+        data-yoo-chat=""
+      />
+    </div>
+  </div>
+</yoo-chat>
+`;

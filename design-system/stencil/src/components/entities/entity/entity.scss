@@ -1,0 +1,36 @@
+
+:host() {
+    // padding: 0.5rem;
+    // padding-bottom: 0;
+    //margin-bottom: -1px;
+    //background: cssvar(light);
+    //display: block;
+    //width: 100%;
+    .icon-container {
+        margin-right: 1rem;
+        .icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: cssvar(dark-10);
+            border: 1px solid cssvar(dark-20);
+            border-radius: 50%;
+        }
+    }
+    .content-container {
+        text-align: left;
+        .title {
+            font-weight: bold;
+        }
+        .subtitle {
+            opacity: 0.65;
+        }
+    }
+
+    &.child {
+        yoo-card-list {
+            /deep/ .outer-container {
+                padding-left: 2.8125rem;
+            }
+        }
+    }
+}

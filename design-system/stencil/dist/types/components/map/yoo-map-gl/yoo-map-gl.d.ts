@@ -1,0 +1,48 @@
+/// <reference types="mapbox-gl" />
+import { EventEmitter } from '@stencil/core';
+import mapboxgl from 'mapbox-gl';
+import { IActionBar, IMapEntry, IMarker, IFilterGroup } from '@shared/interfaces';
+export declare class YooMapGLComponent {
+    filterGroups: IFilterGroup[];
+    mapEntry: IMapEntry;
+    filterGroupsChanged: EventEmitter<IFilterGroup[]>;
+    selected: EventEmitter<IMarker>;
+    selectedMultiple: EventEmitter<IMarker[]>;
+    isLoading: boolean;
+    host: HTMLElement;
+    directionActions: IActionBar[];
+    protected map: mapboxgl.Map;
+    protected popup: mapboxgl.Popup;
+    private layers;
+    private circleRadius;
+    private clusterRadius;
+    private directions;
+    private isDestroyed;
+    private isLoaded;
+    private legendsOld;
+    toggleFilterGroup(filterGroup: IFilterGroup, ev: any): void;
+    componentDidLoad(): void;
+    componentDidUnload(): void;
+    initMap(): void;
+    handleMapClick(event: mapboxgl.MapMouseEvent | mapboxgl.MapTouchEvent): void;
+    handleMarkerClick(renderedFeatures: any, singleMarker: IMarker[]): IMarker[];
+    handleClusterClick(event: mapboxgl.MapMouseEvent | mapboxgl.MapTouchEvent, markerClusterPoints: IMarker[]): IMarker[];
+    handleMouseMove(event: mapboxgl.MapMouseEvent): void;
+    initLanguage(): void;
+    addControls(): void;
+    initMarkers(): void;
+    removeLayers(): void;
+    addGeoJSONSources(): void;
+    fitToMarkers(): void;
+    addClusteredLayers(): void;
+    addUnClusteredLayers(): void;
+    setOriginalFilterGroups(originalFilterGroups: IFilterGroup[]): void;
+    getColor(layerId: string): string;
+    getIcon(layerId: string): string;
+    getPopupTemplate(properties: Array<any>, collectionName?: string): string;
+    onShowDirections(profile: string): void;
+    onFilterGroupsChange(visible: boolean, layer: IFilterGroup): void;
+    flyTo(longitude: number, latitude: number, zoom: number): void;
+    onResize(): void;
+    render(): JSX.Element;
+}

@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooProgressBarComponent Snapshots Should be displayed as a circle progress 1`] = `
+<yoo-progress-bar
+  circle="true"
+  class="hydrated"
+  data-yoo-progress-bar-host=""
+  progress="34"
+>
+  
+  <div
+    attr-layout="column"
+    attr-layout-align="center center"
+    class="wrap"
+    data-yoo-progress-bar=""
+  >
+    <div
+      attr-layout="column"
+      class="circle-outer-container"
+      data-yoo-progress-bar=""
+    >
+      <div
+        class="circle-progress"
+        data-yoo-progress-bar=""
+      />
+      <div
+        class="circle-background"
+        data-yoo-progress-bar=""
+      />
+      <div
+        attr-layout="row"
+        attr-layout-align="center center"
+        class="circle-center-container"
+        data-yoo-progress-bar=""
+      >
+        <div
+          attr-layout="column"
+          class="circle-center"
+          data-yoo-progress-bar=""
+        >
+          <div
+            class="circle-progress-label"
+            data-yoo-progress-bar=""
+          >
+            34
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    <div
+      class="circle-label"
+      data-yoo-progress-bar=""
+    >
+      
+    </div>
+  </div>
+</yoo-progress-bar>
+`;
+
+exports[`YooProgressBarComponent Snapshots Should be displayed as a circle without progress 1`] = `
+<yoo-progress-bar
+  circle="true"
+  class="hydrated"
+  data-yoo-progress-bar-host=""
+  hide-progress="true"
+  progress="34"
+>
+  
+  <div
+    attr-layout="column"
+    attr-layout-align="center center"
+    class="wrap"
+    data-yoo-progress-bar=""
+  >
+    <div
+      attr-layout="column"
+      class="circle-outer-container"
+      data-yoo-progress-bar=""
+    >
+      <div
+        class="circle-progress"
+        data-yoo-progress-bar=""
+      />
+      <div
+        class="circle-background"
+        data-yoo-progress-bar=""
+      />
+      <div
+        attr-layout="row"
+        attr-layout-align="center center"
+        class="circle-center-container"
+        data-yoo-progress-bar=""
+      >
+        <div
+          attr-layout="column"
+          class="circle-center"
+          data-yoo-progress-bar=""
+        >
+          <div
+            data-yoo-progress-bar=""
+          />
+          
+        </div>
+      </div>
+      
+    </div>
+    <div
+      class="circle-label"
+      data-yoo-progress-bar=""
+    >
+      
+    </div>
+  </div>
+</yoo-progress-bar>
+`;
+
+exports[`YooProgressBarComponent Snapshots Should have  progress displayed 1`] = `
+<yoo-progress-bar
+  class="hydrated"
+  data-yoo-progress-bar-host=""
+  progress="34"
+>
+  
+  <div
+    attr-layout="row"
+    class="outer-container"
+    data-yoo-progress-bar=""
+  >
+    <div
+      attr-layout="row"
+      class="bar-container"
+      data-yoo-progress-bar=""
+    >
+      <div
+        class="progress-container"
+        data-yoo-progress-bar=""
+        style="width: 34%;"
+      />
+    </div>
+    
+    <span
+      class="label"
+      data-yoo-progress-bar=""
+    >
+      34
+    </span>
+  </div>
+</yoo-progress-bar>
+`;

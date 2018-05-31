@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooLoaderComponent Rendering Should render 1`] = `
+<yoo-loader
+  class="hydrated"
+  data-yoo-loader-host=""
+>
+  
+  <div
+    attr-layout="row"
+    attr-layout-align="center center"
+    class="container"
+    data-yoo-loader=""
+  >
+    <div
+      class="value"
+      data-yoo-loader=""
+    >
+      <img
+        data-yoo-loader=""
+        src="assets/loader/loading_dark.svg"
+      />
+    </div>
+  </div>
+</yoo-loader>
+`;

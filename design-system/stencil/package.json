@@ -1,0 +1,21 @@
+{
+  "name": "design-system",
+  "version": "6.0.10",
+  "description": "Yoobic Design System",
+  "main": "../../node_modules/@shared/design-system/index.js",
+  "module": "../../node_modules/@shared/design-system/esm/index.js",
+  "types": "../../node_modules/@shared/design-system/types/components.d.ts",
+  "collection": "../../node_modules/@shared/design-system/collection/collection-manifest.json",
+  "config": {
+    "port": 5555
+  },
+  "files": [
+    "dist/",
+    "assets",
+    "../../node_modules/@shared/design-system"
+  ],
+  "peerDependencies": {
+    "@angular/common": "6.0.0-rc.5",
+    "@angular/core": "6.0.0-rc.5"
+  }
+}

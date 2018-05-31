@@ -1,0 +1,49 @@
+ @mixin text-color($color, $color-20) {
+     :host(.#{$color}) {
+         .hint {
+             color: cssvar($color-20);
+         }
+         .description {
+             color: cssvar($color);
+         }
+     }
+ }
+
+ :host {
+     display: block; //
+     margin-bottom: 1rem;
+     .label {
+         font-size: 0.875rem;
+         font-weight: normal;
+         line-height: 1.5;
+         letter-spacing: 2px;
+         text-align: left;
+         color: cssvar(text-color);
+         margin-bottom: 0.25rem;
+         font-variant-caps: all-petite-caps;
+         .label-required {
+             margin-left: 0.25rem;
+             color: cssvar(danger);
+         }
+     }
+     .hint {
+         font-size: 0.75rem;
+         line-height: 1.33;
+         text-align: left;
+         color: cssvar(text-color);
+         margin-top: 0.25rem;
+         margin-bottom: 0.25rem;
+     }
+     .description {
+         color: cssvar(dark);
+         font-size: 0.875rem;
+     }
+ }
+
+ @include text-color(accent, accent-20);
+ @include text-color(dark, dark-20);
+ @include text-color(danger, danger-20);
+ @include text-color(success, success-20);
+ @include text-color(warning, warning-20);
+ @include text-color(info, info-20);
+ @include text-color(stable, stable);

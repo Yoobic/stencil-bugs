@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooContextMenuComponent Rendering Should render a basic structure 1`] = `
+<yoo-context-menu
+  class="hydrated"
+  data-yoo-context-menu-host=""
+>
+  
+  <span
+    aria-expanded="false"
+    aria-haspopup="true"
+    data-yoo-context-menu=""
+    data-yoo-context-menu-slot=""
+  >
+    
+  </span>
+  <div
+    class="dropdown-content"
+    data-yoo-context-menu=""
+    data-yoo-context-menu-slot=""
+    style="transform: translateY(0%);"
+  >
+    
+    
+  </div>
+</yoo-context-menu>
+`;
+
+exports[`YooContextMenuComponent Rendering Should render with items 1`] = `
+<yoo-context-menu
+  class="hydrated"
+  data-yoo-context-menu-host=""
+>
+  
+  <span
+    aria-expanded="false"
+    aria-haspopup="true"
+    data-yoo-context-menu=""
+    data-yoo-context-menu-slot=""
+  >
+    
+  </span>
+  <div
+    class="dropdown-content"
+    data-yoo-context-menu=""
+    data-yoo-context-menu-slot=""
+    style="transform: translateY(0%);"
+  >
+    <div
+      class="dropdown-entry"
+      data-yoo-context-menu=""
+    >
+      Edit
+    </div>
+    <div
+      class="dropdown-entry"
+      data-yoo-context-menu=""
+    >
+      Preview
+    </div>
+    <div
+      class="border-bottom dropdown-entry"
+      data-yoo-context-menu=""
+    >
+      Expire
+    </div>
+    
+  </div>
+</yoo-context-menu>
+`;
+
+exports[`YooContextMenuComponent Rendering Should render with slots 1`] = `
+<yoo-context-menu
+  class="hydrated"
+  data-yoo-context-menu-host=""
+>
+  
+  
+  
+  
+  
+  
+  <span
+    aria-expanded="false"
+    aria-haspopup="true"
+    data-yoo-context-menu=""
+    data-yoo-context-menu-slot=""
+  >
+    
+    <yoo-button
+      slot="trigger"
+      text="test"
+    />
+  </span>
+  <div
+    class="dropdown-content"
+    data-yoo-context-menu=""
+    data-yoo-context-menu-slot=""
+    style="transform: translateY(0%);"
+  >
+    
+    
+    
+                            
+    
+                            
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam sequi vero laudantium cumque similique consectetur corporis blanditiis error neque ex libero, ipsa nostrum optio pariatur necessitatibus. Quas perferendis provident ipsam.
+    </div>
+    
+                        
+  </div>
+</yoo-context-menu>
+`;

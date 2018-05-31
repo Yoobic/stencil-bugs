@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+    touch-action: manipulation;
+}
+
+a {
+    color: inherit;
+}
+
+*:focus {
+    outline: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: none;
+}
+
+body {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: cssvar(font-medium);
+    color: cssvar(black);
+    background: cssvar(stable); // $gradient;
+    overflow: hidden;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: $font-family;
+}
+
+pre {
+    white-space: normal;
+}
+
+*,
+p {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 0;
+}
+
+.noborder {
+    border: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.disable-interaction {
+    pointer-events: n
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    //-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: cssvar(stable);
+    outline: 1px solid cssvar(dark-40);
+}

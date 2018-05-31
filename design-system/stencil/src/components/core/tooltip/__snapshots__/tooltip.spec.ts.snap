@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooTooltipComponent property rendering should render a basic tooltip with text 1`] = `
+<yoo-tooltip
+  class="hydrated"
+  data-yoo-tooltip-host=""
+  data-yoo-tooltip-slot=""
+  text="this is the title"
+  title="this is the title"
+>
+  
+  
+</yoo-tooltip>
+`;
+
+exports[`YooTooltipComponent property rendering should render a basic tooltip with text around some content 1`] = `
+<yoo-tooltip
+  class="hydrated"
+  data-yoo-tooltip-host=""
+  data-yoo-tooltip-slot=""
+  text="this is the title"
+  title="this is the title"
+>
+  
+  
+  
+  <div>
+    Some content
+  </div>
+</yoo-tooltip>
+`;
+
+exports[`YooTooltipComponent property rendering should render a basic tooltip with text with placement around some content 1`] = `
+<yoo-tooltip
+  class="hydrated"
+  data-yoo-tooltip-host=""
+  data-yoo-tooltip-slot=""
+  placement="right"
+  text="this is the title"
+  title="this is the title"
+>
+  
+  
+  
+  <div>
+    Some content
+  </div>
+</yoo-tooltip>
+`;

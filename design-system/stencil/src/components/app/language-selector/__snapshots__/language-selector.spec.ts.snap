@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooLanguageSelectorComponent Snapshots should have a current language 1`] = `
+<yoo-language-selector
+  class="success hydrated"
+  current-language="en"
+  data-yoo-language-selector-host=""
+>
+  
+  <yoo-modal
+    class="language-selector"
+    data-yoo-language-selector=""
+    has-header="false"
+  >
+    <div
+      class="heading"
+      data-yoo-language-selector=""
+    >
+      Language
+    </div>
+    <div
+      attr-layout="row"
+      attr-layout-align="center center"
+      class="load-contaienr"
+      data-yoo-language-selector=""
+    >
+      <yoo-loader
+        class="large"
+        data-yoo-language-selector=""
+      />
+    </div>
+  </yoo-modal>
+</yoo-language-selector>
+`;
+
+exports[`YooLanguageSelectorComponent Snapshots should have a list of 6 languages 1`] = `
+<yoo-language-selector
+  class="success hydrated"
+  current-language="en"
+  data-yoo-language-selector-host=""
+>
+  
+  <yoo-modal
+    class="language-selector"
+    data-yoo-language-selector=""
+    has-header="false"
+  >
+    <div
+      class="heading"
+      data-yoo-language-selector=""
+    >
+      Language
+    </div>
+    <div
+      attr-layout="row"
+      attr-layout-align="center center"
+      class="load-contaienr"
+      data-yoo-language-selector=""
+    >
+      <yoo-loader
+        class="large"
+        data-yoo-language-selector=""
+      />
+    </div>
+  </yoo-modal>
+</yoo-language-selector>
+`;
+
+exports[`YooLanguageSelectorComponent Snapshots should render 1`] = `
+<yoo-language-selector
+  class="hydrated"
+  data-yoo-language-selector-host=""
+>
+  
+  <yoo-modal
+    class="language-selector"
+    data-yoo-language-selector=""
+    has-header="false"
+  >
+    <div
+      class="heading"
+      data-yoo-language-selector=""
+    >
+      Language
+    </div>
+    <div
+      attr-layout="row"
+      attr-layout-align="center center"
+      class="load-contaienr"
+      data-yoo-language-selector=""
+    >
+      <yoo-loader
+        class="large"
+        data-yoo-language-selector=""
+      />
+    </div>
+  </yoo-modal>
+</yoo-language-selector>
+`;

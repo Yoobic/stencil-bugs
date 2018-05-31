@@ -1,0 +1,307 @@
+{
+  "namespace": "DesignSystem",
+  "fsNamespace": "design-system",
+  "loader": "../design-system.js",
+  "corePolyfilled": "es5-build-disabled.js",
+  "global": "design-system.global.js",
+  "core": "design-system.core.js",
+  "components": {
+    "ion-button": {
+      "ios": "ion-button.ios",
+      "md": "ion-button.md"
+    },
+    "ion-buttons": {
+      "ios": "ion-button.ios",
+      "md": "ion-button.md"
+    },
+    "ion-content": {
+      "$": "ion-content"
+    },
+    "ion-header": {
+      "ios": "ion-header.ios",
+      "md": "ion-header.md"
+    },
+    "ion-ripple-effect": {
+      "ios": "ion-button.ios",
+      "md": "ion-button.md"
+    },
+    "ion-scroll": {
+      "ios": "ion-scroll.ios",
+      "md": "ion-scroll.md"
+    },
+    "ion-slide": {
+      "ios": "ion-slide.ios",
+      "md": "ion-slide.md"
+    },
+    "ion-slides": {
+      "ios": "ion-slide.ios",
+      "md": "ion-slide.md"
+    },
+    "ion-title": {
+      "ios": "ion-button.ios",
+      "md": "ion-button.md"
+    },
+    "ion-toolbar": {
+      "ios": "ion-button.ios",
+      "md": "ion-button.md"
+    },
+    "modal-content": {
+      "$": "modal-content"
+    },
+    "modal-trigger": {
+      "$": "modal-content"
+    },
+    "yoo-accordion": {
+      "$": "yoo-accordion"
+    },
+    "yoo-action-sheet": {
+      "$": "yoo-action-sheet"
+    },
+    "yoo-alert": {
+      "$": "yoo-alert"
+    },
+    "yoo-avatar": {
+      "$": "yoo-avatar"
+    },
+    "yoo-badge": {
+      "$": "yoo-badge"
+    },
+    "yoo-breadcrumbs": {
+      "$": "yoo-breadcrumbs"
+    },
+    "yoo-button": {
+      "$": "yoo-button"
+    },
+    "yoo-button-content": {
+      "$": "yoo-button-content"
+    },
+    "yoo-button-group": {
+      "$": "yoo-button-group"
+    },
+    "yoo-calendar": {
+      "$": "yoo-calendar"
+    },
+    "yoo-card": {
+      "$": "yoo-card"
+    },
+    "yoo-card-feed": {
+      "$": "yoo-card"
+    },
+    "yoo-card-file": {
+      "$": "yoo-card-file"
+    },
+    "yoo-card-list": {
+      "$": "yoo-card"
+    },
+    "yoo-card-placeholder": {
+      "$": "yoo-card-placeholder"
+    },
+    "yoo-card-sticky": {
+      "$": "yoo-card"
+    },
+    "yoo-chat": {
+      "$": "yoo-chat"
+    },
+    "yoo-chat-create": {
+      "$": "yoo-chat-create"
+    },
+    "yoo-context-menu": {
+      "$": "yoo-context-menu"
+    },
+    "yoo-device": {
+      "$": "yoo-device"
+    },
+    "yoo-empty-state": {
+      "$": "yoo-empty-state"
+    },
+    "yoo-entity": {
+      "$": "yoo-card"
+    },
+    "yoo-event-create": {
+      "$": "yoo-event-create"
+    },
+    "yoo-fab-button": {
+      "$": "yoo-fab-button"
+    },
+    "yoo-fab-container": {
+      "$": "yoo-fab-container"
+    },
+    "yoo-fab-list": {
+      "$": "yoo-fab-list"
+    },
+    "yoo-feed-comments": {
+      "$": "yoo-feed-comments"
+    },
+    "yoo-feed-create": {
+      "$": "yoo-feed-create"
+    },
+    "yoo-feed-detail": {
+      "$": "yoo-feed-detail"
+    },
+    "yoo-form-autocomplete": {
+      "$": "yoo-form-autocomplete"
+    },
+    "yoo-form-button-choice": {
+      "$": "yoo-form-autocomplete"
+    },
+    "yoo-form-checkbox": {
+      "$": "yoo-context-menu"
+    },
+    "yoo-form-checklist": {
+      "$": "yoo-form-checklist"
+    },
+    "yoo-form-color-picker": {
+      "$": "yoo-form-color-picker"
+    },
+    "yoo-form-dynamic": {
+      "$": "yoo-form-autocomplete"
+    },
+    "yoo-form-dynamic-dialog": {
+      "$": "yoo-form-autocomplete"
+    },
+    "yoo-form-input": {
+      "$": "yoo-button"
+    },
+    "yoo-form-input-container": {
+      "$": "yoo-button"
+    },
+    "yoo-form-input-game": {
+      "$": "yoo-form-input-game"
+    },
+    "yoo-form-input-validated": {
+      "$": "yoo-form-input-validated"
+    },
+    "yoo-form-progress-indicator": {
+      "$": "yoo-form-progress-indicator"
+    },
+    "yoo-form-radio": {
+      "$": "yoo-form-radio"
+    },
+    "yoo-form-radio-group": {
+      "$": "yoo-form-radio-group"
+    },
+    "yoo-form-range": {
+      "$": "yoo-form-autocomplete"
+    },
+    "yoo-form-ranking": {
+      "$": "yoo-form-ranking"
+    },
+    "yoo-form-recap-step": {
+      "$": "yoo-form-autocomplete"
+    },
+    "yoo-form-signature-pad": {
+      "$": "yoo-form-autocomplete"
+    },
+    "yoo-form-slider": {
+      "$": "yoo-form-autocomplete"
+    },
+    "yoo-form-star-rating": {
+      "$": "yoo-form-autocomplete"
+    },
+    "yoo-form-text-area": {
+      "$": "yoo-form-autocomplete"
+    },
+    "yoo-form-text-editor": {
+      "$": "yoo-form-text-editor"
+    },
+    "yoo-form-timer": {
+      "$": "yoo-form-timer"
+    },
+    "yoo-form-toggle": {
+      "$": "yoo-form-autocomplete"
+    },
+    "yoo-input-bar": {
+      "$": "yoo-chat"
+    },
+    "yoo-language-selector": {
+      "$": "yoo-action-sheet"
+    },
+    "yoo-loader": {
+      "$": "yoo-loader"
+    },
+    "yoo-login": {
+      "$": "yoo-login"
+    },
+    "yoo-mission-detail": {
+      "$": "yoo-mission-detail"
+    },
+    "yoo-mission-results": {
+      "$": "yoo-mission-results"
+    },
+    "yoo-modal": {
+      "$": "yoo-modal"
+    },
+    "yoo-modal-controller": {
+      "$": "yoo-action-sheet"
+    },
+    "yoo-navbar": {
+      "$": "yoo-navbar"
+    },
+    "yoo-pagination": {
+      "$": "yoo-pagination"
+    },
+    "yoo-panel": {
+      "$": "yoo-panel"
+    },
+    "yoo-photo-editor": {
+      "$": "yoo-photo-editor"
+    },
+    "yoo-profile": {
+      "$": "yoo-profile"
+    },
+    "yoo-progress-bar": {
+      "$": "yoo-progress-bar"
+    },
+    "yoo-property-card": {
+      "$": "yoo-property-card"
+    },
+    "yoo-reset-password": {
+      "$": "yoo-reset-password"
+    },
+    "yoo-scroll-spy": {
+      "$": "yoo-scroll-spy"
+    },
+    "yoo-search-page": {
+      "$": "yoo-search-page"
+    },
+    "yoo-service-create": {
+      "$": "yoo-service-create"
+    },
+    "yoo-slim-scroll": {
+      "$": "yoo-slim-scroll"
+    },
+    "yoo-sticky": {
+      "$": "yoo-sticky"
+    },
+    "yoo-tabs": {
+      "$": "yoo-tabs"
+    },
+    "yoo-task-create": {
+      "$": "yoo-task-create"
+    },
+    "yoo-tile": {
+      "$": "yoo-tile"
+    },
+    "yoo-toolbar": {
+      "$": "yoo-toolbar"
+    },
+    "yoo-tooltip": {
+      "$": "yoo-tooltip"
+    },
+    "yoo-transition": {
+      "$": "yoo-transition"
+    },
+    "yoo-vertical-menu": {
+      "$": "yoo-vertical-menu"
+    },
+    "yoo-walkthrough": {
+      "$": "yoo-walkthrough"
+    },
+    "yoo-web-menu": {
+      "$": "yoo-web-menu"
+    },
+    "yoo-zoom": {
+      "$": "yoo-photo-editor"
+    }
+  }
+}

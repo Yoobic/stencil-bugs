@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooFormToggleComponent Snapshots should render 1`] = `
+<yoo-form-toggle
+  class="accent hydrated"
+  data-yoo-form-toggle-host=""
+>
+  
+  <div
+    attr-layout="row"
+    class="outer-container"
+    data-yoo-form-toggle=""
+  >
+    <div
+      class="text-container"
+      data-yoo-form-toggle=""
+    >
+      <span
+        data-yoo-form-toggle=""
+      >
+        
+      </span>
+    </div>
+    <div
+      attr-layout="row"
+      class="toggle-container"
+      data-yoo-form-toggle=""
+    >
+      <div
+        class="inner-container"
+        data-yoo-form-toggle=""
+      />
+    </div>
+  </div>
+</yoo-form-toggle>
+`;

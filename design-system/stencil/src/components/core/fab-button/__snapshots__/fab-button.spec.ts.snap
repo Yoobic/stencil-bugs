@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooFabButtonComponent FabButtonEntry Should have a handler function and call it when clicked 1`] = `
+<yoo-fab-button
+  class="hydrated"
+  data-yoo-fab-button-host=""
+>
+  
+  <div
+    class="fab-button"
+    data-yoo-fab-button=""
+  >
+    <yoo-button
+      class="fab icon-only"
+      data-yoo-fab-button=""
+      icon="yo-fire"
+      text=""
+    />
+  </div>
+</yoo-fab-button>
+`;
+
+exports[`YooFabButtonComponent FabButtonEntry Should have a label 1`] = `
+<yoo-fab-list
+  class="top hydrated"
+  data-yoo-fab-list-host=""
+  data-yoo-fab-list-slot=""
+>
+  
+  
+  
+  
+  
+  
+                
+  <yoo-fab-button
+    class="hydrated"
+    data-yoo-fab-button-host=""
+    label="title"
+  >
+    
+    <div
+      class="fab-button fab-in-list"
+      data-yoo-fab-button=""
+    >
+      <div
+        class="list-button-container"
+        data-yoo-fab-button=""
+      >
+        <yoo-badge
+          data-yoo-fab-button=""
+          text="title"
+        />
+        <yoo-button
+          class="fab icon-only"
+          data-yoo-fab-button=""
+          icon=""
+          text=""
+        />
+      </div>
+    </div>
+  </yoo-fab-button>
+  
+                
+</yoo-fab-list>
+`;
+
+exports[`YooFabButtonComponent FabButtonEntry Should have a title 1`] = `
+<yoo-fab-button
+  class="hydrated"
+  data-yoo-fab-button-host=""
+>
+  
+  <div
+    class="fab-button"
+    data-yoo-fab-button=""
+  >
+    <yoo-button
+      class="fab icon-only"
+      data-yoo-fab-button=""
+      icon=""
+      text=""
+    />
+  </div>
+</yoo-fab-button>
+`;
+
+exports[`YooFabButtonComponent FabButtonEntry Should have an icon 1`] = `
+<yoo-fab-button
+  class="hydrated"
+  data-yoo-fab-button-host=""
+>
+  
+  <div
+    class="fab-button"
+    data-yoo-fab-button=""
+  >
+    <yoo-button
+      class="fab icon-only"
+      data-yoo-fab-button=""
+      icon="yo-fire"
+      text=""
+    />
+  </div>
+</yoo-fab-button>
+`;
+
+exports[`YooFabButtonComponent Rendering Should be in container 1`] = `
+<yoo-fab-container
+  class="hydrated"
+  data-yoo-fab-container-host=""
+  data-yoo-fab-container-slot=""
+>
+  
+  
+  
+  
+  
+  
+                
+  <yoo-fab-button
+    class="hydrated"
+    data-yoo-fab-button-host=""
+    id="btn"
+  >
+    
+    <div
+      class="fab-button"
+      data-yoo-fab-button=""
+    >
+      <yoo-button
+        class="fab icon-only"
+        data-yoo-fab-button=""
+        icon=""
+        text=""
+      />
+    </div>
+  </yoo-fab-button>
+  
+                
+</yoo-fab-container>
+`;
+
+exports[`YooFabButtonComponent Rendering Should be in list 1`] = `
+<yoo-fab-list
+  class="top hydrated"
+  data-yoo-fab-list-host=""
+  data-yoo-fab-list-slot=""
+>
+  
+  
+  
+  
+  
+  
+                
+  <yoo-fab-button
+    class="hydrated"
+    data-yoo-fab-button-host=""
+    id="btn"
+  >
+    
+    <div
+      class="fab-button fab-in-list"
+      data-yoo-fab-button=""
+    >
+      <div
+        class="list-button-container"
+        data-yoo-fab-button=""
+      >
+        
+        <yoo-button
+          class="fab icon-only"
+          data-yoo-fab-button=""
+          icon=""
+          text=""
+        />
+      </div>
+    </div>
+  </yoo-fab-button>
+  
+                
+</yoo-fab-list>
+`;

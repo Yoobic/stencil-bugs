@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooBadgeComponent Re-Rendering Should re-render when closeable is updated 1`] = `
+<yoo-badge
+  class="hydrated"
+  data-yoo-badge-host=""
+  text="Tag"
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-badge=""
+  >
+    <div
+      attr-layout="row"
+      class="inner-container"
+      data-yoo-badge=""
+    >
+      
+      <span
+        class="inner-text"
+        data-yoo-badge=""
+      >
+        Tag
+      </span>
+      
+    </div>
+  </div>
+</yoo-badge>
+`;
+
+exports[`YooBadgeComponent Re-Rendering Should re-render when icon is updated 1`] = `
+<yoo-badge
+  class="hydrated"
+  data-yoo-badge-host=""
+  icon="yo-fire"
+  text="Tag"
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-badge=""
+  >
+    <div
+      attr-layout="row"
+      class="inner-container"
+      data-yoo-badge=""
+    >
+      
+      <span
+        class="inner-text"
+        data-yoo-badge=""
+      >
+        Tag
+      </span>
+      
+    </div>
+  </div>
+</yoo-badge>
+`;
+
+exports[`YooBadgeComponent Re-Rendering Should re-render when text is updated 1`] = `
+<yoo-badge
+  class="hydrated"
+  data-yoo-badge-host=""
+  text="Tag"
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-badge=""
+  >
+    <div
+      attr-layout="row"
+      class="inner-container"
+      data-yoo-badge=""
+    >
+      
+      <span
+        class="inner-text"
+        data-yoo-badge=""
+      >
+        Hey
+      </span>
+      
+    </div>
+  </div>
+</yoo-badge>
+`;
+
+exports[`YooBadgeComponent Rendering Should be displayed with an icon 1`] = `
+<yoo-badge
+  class="hydrated"
+  data-yoo-badge-host=""
+  icon="yo-fire"
+  text="34"
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-badge=""
+  >
+    <div
+      attr-layout="row"
+      class="inner-container"
+      data-yoo-badge=""
+    >
+      
+      <span
+        class="inner-text"
+        data-yoo-badge=""
+      >
+        34
+      </span>
+      
+    </div>
+  </div>
+</yoo-badge>
+`;
+
+exports[`YooBadgeComponent Rendering Should be displayed with the closeable icon 1`] = `
+<yoo-badge
+  class="hydrated"
+  closeable="true"
+  data-yoo-badge-host=""
+  text="34"
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-badge=""
+  >
+    <div
+      attr-layout="row"
+      class="inner-container"
+      data-yoo-badge=""
+    >
+      
+      <span
+        class="inner-text"
+        data-yoo-badge=""
+      >
+        34
+      </span>
+      
+    </div>
+  </div>
+</yoo-badge>
+`;
+
+exports[`YooBadgeComponent Rendering Should display text 1`] = `
+<yoo-badge
+  class="hydrated"
+  data-yoo-badge-host=""
+  text="34"
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-badge=""
+  >
+    <div
+      attr-layout="row"
+      class="inner-container"
+      data-yoo-badge=""
+    >
+      
+      <span
+        class="inner-text"
+        data-yoo-badge=""
+      >
+        34
+      </span>
+      
+    </div>
+  </div>
+</yoo-badge>
+`;

@@ -1,0 +1,963 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooFormProgressIndicatorComponent Status Rendering Should be fully completed 1`] = `
+<yoo-form-progress-indicator
+  class="hydrated"
+  data-yoo-form-progress-indicator-host=""
+  is-completed="true"
+>
+  
+  <div
+    attr-layout="row"
+    class="progress-indicator-container"
+    data-yoo-form-progress-indicator=""
+  />
+</yoo-form-progress-indicator>
+`;
+
+exports[`YooFormProgressIndicatorComponent Status Rendering Should have a current step 1`] = `
+<yoo-form-progress-indicator
+  class="hydrated"
+  current-step="1"
+  data-yoo-form-progress-indicator-host=""
+>
+  
+  <div
+    attr-layout="row"
+    class="progress-indicator-container"
+    data-yoo-form-progress-indicator=""
+  >
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 1
+        </span>
+      </div>
+      <div
+        class="step-circle completed"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          class="completed-icon"
+          data-yoo-form-progress-indicator=""
+        >
+          <i
+            class="yo-check"
+            data-yoo-form-progress-indicator=""
+          />
+        </span>
+      </div>
+      <div
+        class="progress-line"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 2
+        </span>
+      </div>
+      <div
+        class="step-circle current"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          2
+        </span>
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-progress-indicator>
+`;
+
+exports[`YooFormProgressIndicatorComponent Status Rendering Should have progress steps 1`] = `
+<yoo-form-progress-indicator
+  class="hydrated"
+  data-yoo-form-progress-indicator-host=""
+>
+  
+  <div
+    attr-layout="row"
+    class="progress-indicator-container"
+    data-yoo-form-progress-indicator=""
+  >
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 1
+        </span>
+      </div>
+      <div
+        class="step-circle"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          1
+        </span>
+      </div>
+      <div
+        class="progress-line faded"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 2
+        </span>
+      </div>
+      <div
+        class="step-circle"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          2
+        </span>
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-progress-indicator>
+`;
+
+exports[`YooFormProgressIndicatorComponent Step rendering Should be completed after toggling the completed flag 1`] = `
+<yoo-form-progress-indicator
+  class="hydrated"
+  data-yoo-form-progress-indicator-host=""
+>
+  
+  <div
+    attr-layout="row"
+    class="progress-indicator-container"
+    data-yoo-form-progress-indicator=""
+  >
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 1
+        </span>
+      </div>
+      <div
+        class="step-circle completed"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          class="completed-icon"
+          data-yoo-form-progress-indicator=""
+        >
+          <i
+            class="yo-check"
+            data-yoo-form-progress-indicator=""
+          />
+        </span>
+      </div>
+      <div
+        class="progress-line"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 2
+        </span>
+      </div>
+      <div
+        class="step-circle completed"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          class="completed-icon"
+          data-yoo-form-progress-indicator=""
+        >
+          <i
+            class="yo-check"
+            data-yoo-form-progress-indicator=""
+          />
+        </span>
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-progress-indicator>
+`;
+
+exports[`YooFormProgressIndicatorComponent Step rendering Should be completed after toggling the completed flag and while having more than 7 items 1`] = `
+<yoo-form-progress-indicator
+  class="hydrated"
+  data-yoo-form-progress-indicator-host=""
+>
+  
+  <div
+    attr-layout="row"
+    class="progress-indicator-container"
+    data-yoo-form-progress-indicator=""
+  >
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 1
+        </span>
+      </div>
+      <div
+        class="step-circle completed"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          class="completed-icon"
+          data-yoo-form-progress-indicator=""
+        >
+          <i
+            class="yo-check"
+            data-yoo-form-progress-indicator=""
+          />
+        </span>
+      </div>
+      <div
+        class="progress-line"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 2
+        </span>
+      </div>
+      <div
+        class="step-circle completed"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          class="completed-icon"
+          data-yoo-form-progress-indicator=""
+        >
+          <i
+            class="yo-check"
+            data-yoo-form-progress-indicator=""
+          />
+        </span>
+      </div>
+      <div
+        class="progress-line"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 3
+        </span>
+      </div>
+      <div
+        class="step-circle completed"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          class="completed-icon"
+          data-yoo-form-progress-indicator=""
+        >
+          <i
+            class="yo-check"
+            data-yoo-form-progress-indicator=""
+          />
+        </span>
+      </div>
+      <div
+        class="progress-line"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 4
+        </span>
+      </div>
+      <div
+        class="step-circle completed"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          class="completed-icon"
+          data-yoo-form-progress-indicator=""
+        >
+          <i
+            class="yo-check"
+            data-yoo-form-progress-indicator=""
+          />
+        </span>
+      </div>
+      <div
+        class="progress-line"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 5
+        </span>
+      </div>
+      <div
+        class="step-circle completed"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          class="completed-icon"
+          data-yoo-form-progress-indicator=""
+        >
+          <i
+            class="yo-check"
+            data-yoo-form-progress-indicator=""
+          />
+        </span>
+      </div>
+      <div
+        class="progress-line"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 6
+        </span>
+      </div>
+      <yoo-context-menu
+        data-yoo-form-progress-indicator=""
+      >
+        <div
+          class="step-circle completed"
+          data-yoo-form-progress-indicator=""
+          slot="trigger"
+        >
+          <span
+            class="completed-icon"
+            data-yoo-form-progress-indicator=""
+          >
+            <i
+              class="yo-more"
+              data-yoo-form-progress-indicator=""
+            />
+          </span>
+        </div>
+        <div
+          attr-layout="column"
+          class="context-container"
+          data-yoo-form-progress-indicator=""
+        >
+          <span
+            data-yoo-form-progress-indicator=""
+          >
+            Step 6
+            <i
+              class="yo-check"
+              data-yoo-form-progress-indicator=""
+            />
+          </span>
+          <span
+            data-yoo-form-progress-indicator=""
+          >
+            Step7
+            <i
+              class="yo-check"
+              data-yoo-form-progress-indicator=""
+            />
+          </span>
+        </div>
+      </yoo-context-menu>
+      <div
+        class="progress-line"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 8
+        </span>
+      </div>
+      <div
+        class="step-circle completed"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          class="completed-icon"
+          data-yoo-form-progress-indicator=""
+        >
+          <i
+            class="yo-check"
+            data-yoo-form-progress-indicator=""
+          />
+        </span>
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-progress-indicator>
+`;
+
+exports[`YooFormProgressIndicatorComponent Step rendering Should only render a maximum of 7 step-containers 1`] = `
+<yoo-form-progress-indicator
+  class="hydrated"
+  current-step="1"
+  data-yoo-form-progress-indicator-host=""
+>
+  
+  <div
+    attr-layout="row"
+    class="progress-indicator-container"
+    data-yoo-form-progress-indicator=""
+  >
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 1
+        </span>
+      </div>
+      <div
+        class="step-circle completed"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          class="completed-icon"
+          data-yoo-form-progress-indicator=""
+        >
+          <i
+            class="yo-check"
+            data-yoo-form-progress-indicator=""
+          />
+        </span>
+      </div>
+      <div
+        class="progress-line"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 2
+        </span>
+      </div>
+      <div
+        class="step-circle current"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          2
+        </span>
+      </div>
+      <div
+        class="progress-line faded"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 3
+        </span>
+      </div>
+      <div
+        class="step-circle"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="progress-line faded"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 4
+        </span>
+      </div>
+      <div
+        class="step-circle"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          4
+        </span>
+      </div>
+      <div
+        class="progress-line faded"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 5
+        </span>
+      </div>
+      <div
+        class="step-circle"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          5
+        </span>
+      </div>
+      <div
+        class="progress-line faded"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 6
+        </span>
+      </div>
+      <yoo-context-menu
+        data-yoo-form-progress-indicator=""
+      >
+        <div
+          class="step-circle more"
+          data-yoo-form-progress-indicator=""
+          slot="trigger"
+        >
+          <span
+            data-yoo-form-progress-indicator=""
+          >
+            <i
+              class="yo-more"
+              data-yoo-form-progress-indicator=""
+            />
+          </span>
+        </div>
+        <div
+          attr-layout="column"
+          class="context-container"
+          data-yoo-form-progress-indicator=""
+        >
+          <span
+            class=""
+            data-yoo-form-progress-indicator=""
+          >
+            Step 6
+          </span>
+          <span
+            class=""
+            data-yoo-form-progress-indicator=""
+          >
+            Step7
+          </span>
+        </div>
+      </yoo-context-menu>
+      <div
+        class="progress-line faded"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 8
+        </span>
+      </div>
+      <div
+        class="step-circle"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          8
+        </span>
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-progress-indicator>
+`;
+
+exports[`YooFormProgressIndicatorComponent Step rendering Should render the correct number of steps 1`] = `
+<yoo-form-progress-indicator
+  class="hydrated"
+  current-step="1"
+  data-yoo-form-progress-indicator-host=""
+>
+  
+  <div
+    attr-layout="row"
+    class="progress-indicator-container"
+    data-yoo-form-progress-indicator=""
+  >
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 1
+        </span>
+      </div>
+      <div
+        class="step-circle completed"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          class="completed-icon"
+          data-yoo-form-progress-indicator=""
+        >
+          <i
+            class="yo-check"
+            data-yoo-form-progress-indicator=""
+          />
+        </span>
+      </div>
+      <div
+        class="progress-line"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 2
+        </span>
+      </div>
+      <div
+        class="step-circle current"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          2
+        </span>
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-progress-indicator>
+`;
+
+exports[`YooFormProgressIndicatorComponent Step rendering according to parent Should render less steps 1`] = `
+<yoo-form-progress-indicator
+  class="hydrated"
+  current-step="1"
+  data-yoo-form-progress-indicator-host=""
+>
+  
+  <div
+    attr-layout="row"
+    class="progress-indicator-container"
+    data-yoo-form-progress-indicator=""
+  >
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 1
+        </span>
+      </div>
+      <yoo-context-menu
+        data-yoo-form-progress-indicator=""
+      >
+        <div
+          class="step-circle current more"
+          data-yoo-form-progress-indicator=""
+          slot="trigger"
+        >
+          <span
+            data-yoo-form-progress-indicator=""
+          >
+            <i
+              class="yo-more"
+              data-yoo-form-progress-indicator=""
+            />
+          </span>
+        </div>
+        <div
+          attr-layout="column"
+          class="context-container"
+          data-yoo-form-progress-indicator=""
+        >
+          <span
+            class=""
+            data-yoo-form-progress-indicator=""
+          >
+            Step 1
+            <i
+              class="yo-check"
+              data-yoo-form-progress-indicator=""
+            />
+          </span>
+          <span
+            class="context-current"
+            data-yoo-form-progress-indicator=""
+          >
+            Step 2
+          </span>
+          <span
+            class=""
+            data-yoo-form-progress-indicator=""
+          >
+            Step 3
+          </span>
+          <span
+            class=""
+            data-yoo-form-progress-indicator=""
+          >
+            Step 4
+          </span>
+          <span
+            class=""
+            data-yoo-form-progress-indicator=""
+          >
+            Step 5
+          </span>
+          <span
+            class=""
+            data-yoo-form-progress-indicator=""
+          >
+            Step 6
+          </span>
+          <span
+            class=""
+            data-yoo-form-progress-indicator=""
+          >
+            Step7
+          </span>
+        </div>
+      </yoo-context-menu>
+      <div
+        class="progress-line faded"
+        data-yoo-form-progress-indicator=""
+      />
+    </div>
+    <div
+      class="step-container"
+      data-yoo-form-progress-indicator=""
+    >
+      <div
+        class="step-title"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          Step 8
+        </span>
+      </div>
+      <div
+        class="step-circle"
+        data-yoo-form-progress-indicator=""
+      >
+        <span
+          data-yoo-form-progress-indicator=""
+        >
+          8
+        </span>
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-progress-indicator>
+`;

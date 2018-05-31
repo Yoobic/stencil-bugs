@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardFileComponent Rendering Should render with heading 1`] = `
+<yoo-card-file
+  class="hydrated"
+  data-yoo-card-file-host=""
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-card-file=""
+  >
+    
+    <div
+      class="content-container"
+      data-yoo-card-file=""
+    >
+      <div
+        class="top-container"
+        data-yoo-card-file=""
+      >
+        <div
+          class="heading-container"
+          data-yoo-card-file=""
+        >
+          My long title document.docx
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</yoo-card-file>
+`;
+
+exports[`CardFileComponent Rendering Should render with icon 1`] = `
+<yoo-card-file
+  class="hydrated"
+  data-yoo-card-file-host=""
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-card-file=""
+  >
+    
+    <div
+      class="image-container"
+      data-yoo-card-file=""
+    >
+      <i
+        class="yo-file-word"
+        data-yoo-card-file=""
+      />
+    </div>
+    <div
+      class="content-container"
+      data-yoo-card-file=""
+    >
+      <div
+        class="top-container"
+        data-yoo-card-file=""
+      >
+        
+      </div>
+    </div>
+  </div>
+</yoo-card-file>
+`;
+
+exports[`CardFileComponent Rendering Should render with iconClass 1`] = `
+<yoo-card-file
+  class="hydrated"
+  data-yoo-card-file-host=""
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-card-file=""
+  >
+    
+    <div
+      class="image-container"
+      data-yoo-card-file=""
+    >
+      <i
+        class="yo-file-word accent"
+        data-yoo-card-file=""
+      />
+    </div>
+    <div
+      class="content-container"
+      data-yoo-card-file=""
+    >
+      <div
+        class="top-container"
+        data-yoo-card-file=""
+      >
+        
+      </div>
+    </div>
+  </div>
+</yoo-card-file>
+`;
+
+exports[`CardFileComponent Rendering Should render with isClosable 1`] = `
+<yoo-card-file
+  class="hydrated"
+  data-yoo-card-file-host=""
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-card-file=""
+  >
+    <div
+      class="close-btn"
+      data-yoo-card-file=""
+    >
+      <i
+        class="yo-close"
+        data-yoo-card-file=""
+      />
+    </div>
+    
+    <div
+      class="content-container"
+      data-yoo-card-file=""
+    >
+      <div
+        class="top-container"
+        data-yoo-card-file=""
+      >
+        
+      </div>
+    </div>
+  </div>
+</yoo-card-file>
+`;
+
+exports[`CardFileComponent Rendering Should render with subheading 1`] = `
+<yoo-card-file
+  class="hydrated"
+  data-yoo-card-file-host=""
+>
+  
+  <div
+    class="outer-container"
+    data-yoo-card-file=""
+  >
+    
+    <div
+      class="content-container"
+      data-yoo-card-file=""
+    >
+      <div
+        class="top-container"
+        data-yoo-card-file=""
+      >
+        
+        <div
+          class="subheading-container"
+          data-yoo-card-file=""
+        >
+          3.3 Mb
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-card-file>
+`;

@@ -1,0 +1,81 @@
+
+
+@mixin class-color-applicator($class, $color, $colorDark: null){
+    :host(.#{$class}) {
+        .star-rating-container {
+            .star-container {
+                i.solid {
+                    color: cssvar($color);
+                }
+                i.border:hover {
+                    color: cssvar($color);
+                }
+            }
+        }
+        &.button {
+            .star-rating-container {
+                .star-container {
+                    .button {
+                        &.solid {
+                            background: cssvar($color);
+                            color: cssvar(light);
+                            border: 1px solid cssvar($colorDark);   
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}
+
+:host {
+    .star-rating-container {
+        display: flex; 
+        flex-direction: row;
+        .star-container {
+            padding: 0.4rem;
+            color: cssvar(dark);
+            i.solid {
+                color: cssvar(success);
+            }
+            i.border:hover {
+                color: cssvar(success);
+            }
+        }
+        &.readonly {
+            .star-container {
+                i.border:hover {
+                    color: unset;
+                }
+            }
+        }
+    }
+}
+
+:host(.button) {
+    .star-rating-container {
+        .star-container {
+            padding: 0rem;
+            margin: 0 0.1rem;
+            font-weight: 300;
+            font-size: 1rem;
+            .button {
+                padding: 0.2rem 0.4rem;
+                background: cssvar(light);
+                color: cssvar(dark);
+                border: 1px solid cssvar(stable);
+                &.solid {
+                    background: cssvar(success);
+                    color: cssvar(light);
+                    border: 1px solid cssvar(success-120);   
+                }
+            }
+        }
+    }
+}
+
+@include class-color-applicator(accent,accent, accent-120);
+@include class-color-applicator(success,success, success-120);
+@include class-color-applicator(danger,danger, danger-120);
+@include class-color-applicator(info,info, info-120);
+@include class-color-applicator(dark,dark);

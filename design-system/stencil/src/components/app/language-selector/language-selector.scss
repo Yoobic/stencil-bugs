@@ -1,0 +1,69 @@
+:host {
+  opacity: 0;
+    .heading {
+      padding-top: 1.5625rem;
+      padding-left: 1.5625rem;
+      padding-bottom: 1.0625rem;
+      line-height: normal;
+      text-transform: uppercase;    
+    }
+  .load-container {
+    width: 100%;
+    height: 100%;
+  }
+  .lists-container {
+    padding: 0 1.5625rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .item {
+      width: 2rem;
+      height: 3rem;
+      align-items: center;
+      margin-right: 0.75rem;
+      margin-bottom: 0.75rem;
+      justify-content: space-between;
+      .icon {
+        display: flex;
+        position: relative;
+        border-radius: 1rem;
+        height: 2rem;
+        width: 2rem;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-size: 2rem;
+          .icon-class {
+            position: absolute;
+          }
+        }
+        .overlay {
+          position: absolute;
+          width: 2rem;
+          height: 2rem;
+          top: 0%;
+          background-color: cssvar(text-color);
+          opacity: 0.6;
+          border-radius: 1rem;
+        }
+        .check {
+          position: absolute;
+          top: 0.5rem;
+          left: 0.5rem;
+          background-color: cssvar(light);
+          width: 1rem;
+          height: 1rem;
+          border-radius: 0.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 0.75rem;
+        } 
+      }
+      .item-title {
+        font-size: 0.5625rem;
+      }
+    }
+  }
+      

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardPlaceholderComponent Rendering Should render 1`] = `
+<yoo-card-placeholder
+  class="hydrated"
+  data-yoo-card-placeholder-host=""
+>
+  
+  <div
+    data-yoo-card-placeholder=""
+  />
+</yoo-card-placeholder>
+`;

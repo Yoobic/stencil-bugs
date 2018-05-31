@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhotoEditorComponent Rendering Should render 1`] = `
+<yoo-photo-editor
+  class="hydrated"
+  data-yoo-photo-editor-host=""
+>
+  
+  <img
+    class="image"
+    data-yoo-photo-editor=""
+  />
+  <canvas
+    class="canvas"
+    data-yoo-photo-editor=""
+  />
+</yoo-photo-editor>
+`;
+
+exports[`PhotoEditorComponent Rendering Should render with props 1`] = `
+<yoo-photo-editor
+  class="hydrated"
+  data-yoo-photo-editor-host=""
+>
+  
+  <img
+    class="image"
+    data-yoo-photo-editor=""
+  />
+  <canvas
+    class="canvas"
+    data-yoo-photo-editor=""
+  />
+</yoo-photo-editor>
+`;

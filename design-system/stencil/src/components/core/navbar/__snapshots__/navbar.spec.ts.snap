@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooNavbarComponent Rendering  Should have five titles and active title 1`] = `
+<yoo-navbar
+  class="success hydrated"
+  data-yoo-navbar-host=""
+>
+  
+  <div
+    attr-layout="row"
+    class="outer-container"
+    data-yoo-navbar=""
+  >
+    
+  </div>
+  
+</yoo-navbar>
+`;
+
+exports[`YooNavbarComponent Rendering  Should have three titles 1`] = `
+<yoo-navbar
+  class="success hydrated"
+  data-yoo-navbar-host=""
+>
+  
+  <div
+    attr-layout="row"
+    class="outer-container"
+    data-yoo-navbar=""
+  >
+    
+  </div>
+  
+</yoo-navbar>
+`;
+
+exports[`YooNavbarComponent Rendering  Should render 1`] = `
+<yoo-navbar
+  class="hydrated"
+  data-yoo-navbar-host=""
+>
+  
+  <div
+    attr-layout="row"
+    class="outer-container"
+    data-yoo-navbar=""
+  >
+    
+  </div>
+  
+</yoo-navbar>
+`;

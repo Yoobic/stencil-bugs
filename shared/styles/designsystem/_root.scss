@@ -1,0 +1,23 @@
+body {
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: 1.5;
+}
+
+:root {
+    @each $var,
+    $val in $variables-map {
+        --#{$var}: #{$val};
+
+    }
+}
+
+@each $var,
+$val in $colors-map {
+    .bg-#{$var} {
+        background: cssvar(#{$var});
+    }
+    .#{$var} {
+        color: cssvar(#{$var});
+    }
+}

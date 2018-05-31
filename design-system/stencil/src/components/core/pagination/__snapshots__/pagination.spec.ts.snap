@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooPaginationComponent Snapshots should have page numbers and active pages 1`] = `
+<yoo-pagination
+  class="dark hydrated"
+  current-page="3"
+  data-yoo-pagination-host=""
+  items-per-page="10"
+  total-items="100"
+>
+  
+  <div
+    attr-layout="row"
+    class="container show-total-disabled"
+    data-yoo-pagination=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="inner-container"
+      data-yoo-pagination=""
+    >
+      <div
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        <span
+          class="yo-left"
+          data-yoo-pagination=""
+        />
+      </div>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        1
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        2
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        3
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number active"
+        data-yoo-pagination=""
+      >
+        4
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        5
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        6
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        7
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        8
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        9
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        10
+      </span>
+      <div
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        <span
+          class="yo-right"
+          data-yoo-pagination=""
+        />
+      </div>
+    </div>
+  </div>
+</yoo-pagination>
+`;
+
+exports[`YooPaginationComponent Snapshots should have small pager 1`] = `
+<yoo-pagination
+  class="dark hydrated"
+  current-page="3"
+  data-yoo-pagination-host=""
+  items-per-page="10"
+  show-total="true"
+  total-items="100"
+>
+  
+  <div
+    attr-layout="row"
+    class="container show-total-disabled"
+    data-yoo-pagination=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="inner-container"
+      data-yoo-pagination=""
+    >
+      <div
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        <span
+          class="yo-left"
+          data-yoo-pagination=""
+        />
+      </div>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        10
+      </span>
+      <div
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        <span
+          class="yo-right"
+          data-yoo-pagination=""
+        />
+      </div>
+    </div>
+  </div>
+</yoo-pagination>
+`;
+
+exports[`YooPaginationComponent Snapshots should have total shown 1`] = `
+<yoo-pagination
+  class="dark hydrated"
+  current-page="3"
+  data-yoo-pagination-host=""
+  items-per-page="10"
+  total-items="50"
+>
+  
+  <div
+    attr-layout="row"
+    class="container show-total-disabled"
+    data-yoo-pagination=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="inner-container"
+      data-yoo-pagination=""
+    >
+      <div
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        <span
+          class="yo-left"
+          data-yoo-pagination=""
+        />
+      </div>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        1
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        2
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        3
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number active"
+        data-yoo-pagination=""
+      >
+        4
+      </span>
+      <span
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        5
+      </span>
+      <div
+        attr-layout="row"
+        class="page-number"
+        data-yoo-pagination=""
+      >
+        <span
+          class="yo-right"
+          data-yoo-pagination=""
+        />
+      </div>
+    </div>
+  </div>
+</yoo-pagination>
+`;

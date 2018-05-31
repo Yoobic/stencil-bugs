@@ -1,0 +1,950 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooFormSliderComponent Re-Rendering Should re-render when disabled is updated 1`] = `
+<yoo-form-slider
+  class="hydrated"
+  data-yoo-form-slider-host=""
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container disabled"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            disabled=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            disabled=""
+            type="range"
+          />
+          <yoo-progress-bar
+            class="hydrated"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="NaN"
+          />
+        </div>
+        
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Re-Rendering Should re-render when doubleSlider is updated 1`] = `
+<yoo-form-slider
+  class="hydrated"
+  data-yoo-form-slider-host=""
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          <input
+            class="second-slider swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          <yoo-progress-bar
+            class="hydrated"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="NaN"
+          />
+        </div>
+        
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Re-Rendering Should re-render when hideLabel is updated 1`] = `
+<yoo-form-slider
+  class="hydrated"
+  data-yoo-form-slider-host=""
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value label-hidden"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          
+          <yoo-progress-bar
+            class="hydrated"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="NaN"
+          />
+        </div>
+        
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Re-Rendering Should re-render when hideReferences is updated 1`] = `
+<yoo-form-slider
+  class="hydrated"
+  data-yoo-form-slider-host=""
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          
+          <yoo-progress-bar
+            class="hydrated"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="NaN"
+          />
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Re-Rendering Should re-render when initial value is updated 1`] = `
+<yoo-form-slider
+  class="hydrated"
+  data-yoo-form-slider-host=""
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          
+          <yoo-progress-bar
+            class="hydrated"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="NaN"
+          />
+        </div>
+        
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Re-Rendering Should re-render when maximum is updated 1`] = `
+<yoo-form-slider
+  class="hydrated"
+  data-yoo-form-slider-host=""
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        0
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            max="357"
+            min="0"
+            type="range"
+          />
+          
+          <yoo-progress-bar
+            class="hydrated"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="9.523809523809524"
+          />
+        </div>
+        
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        357
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Re-Rendering Should re-render when minimum is updated 1`] = `
+<yoo-form-slider
+  class="hydrated"
+  data-yoo-form-slider-host=""
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        -357
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            max="100"
+            min="-357"
+            type="range"
+          />
+          
+          <yoo-progress-bar
+            class="hydrated"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="85.55798687089715"
+          />
+        </div>
+        
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        100
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Rendering Should have a double slider 1`] = `
+<yoo-form-slider
+  class="accent hydrated"
+  data-yoo-form-slider-host=""
+  double-slider="true"
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          <input
+            class="second-slider swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          <yoo-progress-bar
+            class="accent"
+            data-yoo-form-slider=""
+            hide-progress="true"
+          />
+        </div>
+        
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Rendering Should have a double slider inline 1`] = `
+<yoo-form-slider
+  class="inline accent hydrated"
+  data-yoo-form-slider-host=""
+  double-slider="true"
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+        style="flex-direction: row"
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+          
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          <input
+            class="second-slider swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          <yoo-progress-bar
+            class="inline accent"
+            data-yoo-form-slider=""
+            hide-progress="true"
+          />
+        </div>
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Rendering Should have initial value displayed 1`] = `
+<yoo-form-slider
+  class="accent hydrated"
+  data-yoo-form-slider-host=""
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          
+          <yoo-progress-bar
+            class="accent"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="NaN"
+          />
+        </div>
+        
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Rendering Should have label hidden 1`] = `
+<yoo-form-slider
+  class="accent hydrated"
+  data-yoo-form-slider-host=""
+  hide-label="true"
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value label-hidden"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          
+          <yoo-progress-bar
+            class="accent"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="NaN"
+          />
+        </div>
+        
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Rendering Should have references hidden 1`] = `
+<yoo-form-slider
+  class="accent hydrated"
+  data-yoo-form-slider-host=""
+  hide-references="true"
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            type="range"
+          />
+          
+          <yoo-progress-bar
+            class="accent"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="NaN"
+          />
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Rendering State Validation Should change value only if initial Value between bounds 1`] = `
+<yoo-form-slider
+  class="hydrated"
+  data-yoo-form-slider-host=""
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        0
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            max="100"
+            min="0"
+            type="range"
+          />
+          
+          <yoo-progress-bar
+            class="hydrated"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="0"
+          />
+        </div>
+        
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        100
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;
+
+exports[`YooFormSliderComponent Rendering State Validation Should change value only if initial Value between bounds 2`] = `
+<yoo-form-slider
+  class="hydrated"
+  data-yoo-form-slider-host=""
+  initial-value="34"
+>
+  
+  <div
+    class="wrapper"
+    data-yoo-form-slider=""
+  >
+    
+    <div
+      attr-layout="flex"
+      class="outer-container"
+      data-yoo-form-slider=""
+    >
+      <label
+        data-yoo-form-slider=""
+      >
+        0
+      </label>
+      <div
+        attr-layout="column"
+        class="slider-container"
+        data-yoo-form-slider=""
+      >
+        <div
+          class="label-value"
+          data-yoo-form-slider=""
+        >
+          <input
+            data-yoo-form-slider=""
+            type="number"
+          />
+        </div>
+        <div
+          attr-layout="row"
+          class="range-container"
+          data-yoo-form-slider=""
+        >
+          <input
+            class="swiper-no-swiping"
+            data-yoo-form-slider=""
+            max="100"
+            min="0"
+            type="range"
+          />
+          
+          <yoo-progress-bar
+            class="hydrated"
+            data-yoo-form-slider=""
+            hide-progress="true"
+            progress="0"
+          />
+        </div>
+        
+      </div>
+      <label
+        data-yoo-form-slider=""
+      >
+        100
+      </label>
+    </div>
+  </div>
+</yoo-form-slider>
+`;

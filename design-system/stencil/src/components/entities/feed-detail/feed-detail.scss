@@ -1,0 +1,204 @@
+
+
+
+:host {
+    height: 100%;
+    .feed-details-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        padding: 22px 35px;
+        color: cssvar(black);
+        .feed-header {
+            align-items: center;
+            yoo-avatar {
+                margin-right: 0.8rem;
+                transform: translateY(3px);
+            }
+            .feed-heading {
+                flex: 1;
+                font-size: 0.875rem;
+                font-weight: 700;
+                .feed-subheading {
+                    font-size: 0.75rem;
+                    font-weight: 400;
+                    color: cssvar(stable);
+                    .feed-group {
+                        color: cssvar(dark);
+                    }
+                }
+            }
+        }
+        .overlay {
+            &.overlay-hidden {
+                display: none;
+            }
+        }
+
+        .feed-image {
+            height: 260px;
+            margin-top: 13px;
+            margin-bottom: 30px;
+            .image {
+                height: 100%;
+                width: 100%;
+                border-radius: 3px;
+            }
+        }
+        .feed-interactions {
+            margin-bottom: 1rem;
+            .interaction {
+                display: inline-block;
+                margin: 0rem 1rem 0rem 0rem;
+                display: flex;
+                align-items: center;
+                i {
+                    font-size: 1.2rem;
+                    &.liked {
+                        color: cssvar(danger);
+                    }
+                }
+                &.stable {
+                    color: cssvar(stable);
+                }
+            }
+        }
+        .feed-text {
+    
+            .feed-hashtags {
+                line-height: 1.2rem;
+                color: cssvar(success);
+                display: block;
+            }
+        }
+    }
+}
+
+:host(.mobile) {
+    .feed-details-container {
+        background: cssvar(black);
+        color: cssvar(light) !important;
+        font-weight: 400;
+        padding: 0.9375rem 0.9375rem;
+        .feed-header {
+            order: 2;
+            margin-top: 2rem;
+            flex: 1;
+            align-items: flex-end;
+            .feed-heading {
+                .feed-subheading {
+                    color: cssvar(light);
+                    .feed-group {
+                        color: cssvar(light);
+                    }
+                }
+            }
+        }
+        .feed-image {
+            order: 1;
+            margin: 0px -35px 0px -35px;
+            .image {
+                border-radius: 0px;                
+            }
+        }
+        // .feed-interactions {
+        //     margin-bottom: 0rem;
+        //     order: 5;
+        // }
+        .feed-interactions {
+            order: 4;
+            margin-top: 15px;
+        }
+        .feed-text {
+            margin-top: 15px;
+            order: 3;
+            .feed-description {
+                white-space: normal;
+                line-height: 1.2rem;
+                overflow: hidden;
+                position: relative;
+                color: cssvar(light);
+                &.short-text {
+                  height: 100px;
+                  max-height: 100px;
+                  margin: 0;
+                  padding-right: 50px;
+                  white-space: nowrap;
+                  .description-content {
+                    font-size: inherit;
+                    line-height: inherit;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: normal;
+                    color: inherit;
+                  }
+                  .more {
+                    font-size: 1.2rem;
+                    //color: cssvar(text-color);
+                    position: absolute;
+                    bottom: 0px;
+                    right: 38px;
+                  }
+                }
+                &.long-text {
+                  //max-height: 10rem;
+                  .more {
+                    color: cssvar(text-color);
+                  }
+                }
+                /deep/p {
+                  margin: 0;
+                  overflow: hidden;
+                  font-size: inherit;
+                  line-height: 1.2rem;
+                  white-space: normal;
+                  color: inherit;
+                }
+              }
+        }
+    }
+    &.scroll-display{
+        .overlay {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,0.6);
+            padding: 0 0.9375rem;
+            bottom: 60px;
+            margin: 0 -0.9375rem;
+            display: flex;
+            .scroll-content {
+                align-self: flex-end;
+                height: 60%;
+                //margin-right: 0.9375rem;
+                yoo-slim-scroll {
+                    position: relative;
+                }
+                .feed-text {
+                    .description-content {
+                        opacity: 1;
+                    }
+                    .feed-hashtags {
+                        opacity: 1;
+                    }
+                }
+                .feed-header {
+                    margin-top: 0 !important;
+                    opacity: 1;
+                }
+            }
+        }
+        .feed-text {
+            .description-content {
+                opacity: 0;
+            }
+            .feed-hashtags {
+                opacity: 0;
+            }
+        }
+        .feed-header {
+            opacity: 0;
+        }
+    }
+}

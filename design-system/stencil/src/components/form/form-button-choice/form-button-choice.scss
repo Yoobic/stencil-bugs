@@ -1,0 +1,59 @@
+
+
+@mixin class-color-applicator($class,$color,$color-border) {
+    :host(.#{$class}) {
+        .outer-container {
+            .grid-container {
+                .choice-container {
+                    &.selected {
+                        background: cssvar($color);
+                        border: 1px solid cssvar($color-border);
+                    }
+                }
+            }
+        }
+    }
+}
+
+:host {
+    .outer-container {
+        .grid-container {
+            display: grid;
+            grid-template-columns: 30% 30% 30%;
+            grid-gap: 0.5rem;
+            justify-content: center;
+            .choice-container {
+                background: cssvar(light);
+                border: 1px solid cssvar(dark-20);
+                padding: 0.1rem 0.5rem;
+                text-align: center;
+                color: cssvar(dark);
+                @include text-truncate();
+                &.selected {
+                    background: cssvar(success);
+                    border: 1px solid cssvar(success-110);
+                    color: cssvar(light);
+                }
+            }
+            &.few-items {
+                grid-template-columns: 45% 45%;
+            }
+        }
+    }
+}
+
+:host(.round) {
+    .outer-container {
+        .grid-container {
+            .choice-container {
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+@include class-color-applicator(warning, warning, warning-110);
+@include class-color-applicator(danger, danger, danger-110);
+@include class-color-applicator(info, info, info-110);
+@include class-color-applicator(accent, accent, accent-110);
+@include class-color-applicator(dark, dark, dark-110);

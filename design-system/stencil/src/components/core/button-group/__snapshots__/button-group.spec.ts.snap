@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooButtonGroupComponent Snapshots Should create a dropdown button with the correct title 1`] = `
+<yoo-button-group
+  1"=""
+  button=""
+  class="hydrated"
+  data-yoo-button-group-host=""
+  dropdown-title="Button dropdown>
+                <yoo-button text="
+  is-dropdown="true"
+>
+  
+  
+  
+  
+  <yoo-context-menu
+    data-yoo-button-group=""
+  >
+    <yoo-button
+      data-yoo-button-group=""
+      icon="yo-arrow-dropdown"
+      slot="trigger"
+      text="Button dropdown>
+                <yoo-button text="
+    />
+    <div
+      attr-layout="column"
+      class="context-container"
+      data-yoo-button-group=""
+      data-yoo-button-group-slot=""
+    >
+      
+      
+                
+      <yoo-button
+        text="button 2"
+      />
+      
+                
+    </div>
+  </yoo-context-menu>
+</yoo-button-group>
+`;
+
+exports[`YooButtonGroupComponent Snapshots Should project content correctly 1`] = `
+<yoo-button-group
+  class="hydrated"
+  data-yoo-button-group-host=""
+>
+  
+  
+  
+  
+  
+  
+  <div
+    attr-layout="row"
+    class="group-container"
+    data-yoo-button-group=""
+    data-yoo-button-group-slot=""
+  >
+    
+    
+                
+    <yoo-button
+      text="button 1"
+    />
+    
+                
+    <yoo-button
+      text="button 2"
+    />
+    
+                
+  </div>
+</yoo-button-group>
+`;

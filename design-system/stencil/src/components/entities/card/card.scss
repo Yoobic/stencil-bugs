@@ -1,0 +1,254 @@
+@import '../../core/avatar/avatar.scss';
+
+@mixin border-status($color) {
+    .outer-container {
+        .status-container {
+            background: cssvar($color);
+        }
+        &.active {
+            box-shadow: 0px 0px 3px 1px cssvar($color);
+            border: 1px solid cssvar($color);
+        }
+    }
+}
+
+@mixin border-status-hover($color) {
+    &.hoverable {
+        &:hover {
+            .outer-container {
+                border: 1px solid cssvar($color);
+                box-shadow: 0px 0px 3px 1px cssvar($color);
+            }
+        }
+    }
+}
+
+@mixin badge-position() {
+    yoo-form-checkbox {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+    }
+    yoo-avatar {
+        align-self: center;
+    }
+    .bottom-left {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0.5rem;
+    }
+    .bottom-right {
+        position: absolute;
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+    .top-left {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        &.active {
+            top: 2rem;
+        }
+    }
+    .top-right {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}
+
+:host {
+    display: block;
+    .outer-container {
+        width: 100%;
+        border: 1px solid cssvar(dark-10);
+        border-radius: 2px;
+        box-shadow: 0px 0px 3px 1px cssvar(dark-10); //padding-bottom: 0.5rem;
+        .image-container {
+            height: 10rem;
+            position: relative;
+            justify-content: center;
+            .image {
+                width: 100%;
+                height: 100%;
+                background: cssvar(light);
+            }
+            @include badge-position();
+        }
+        .status-container {
+            background: cssvar(dark-10);
+            height: 1px;
+        }
+        .content-container {
+            padding-left: 0.5rem;
+            padding-top: 0.3rem;
+            padding-right: 0.5rem;
+            padding-bottom: 0.5rem;
+            background: cssvar(light);
+            .heading-container {
+                font-size: 1rem;
+                color: cssvar(dark-120);
+                font-weight: 500;
+                .card-heading {
+                    flex: 1;
+                }
+            }
+            .subheading-container {
+                font-size: 0.9rem;
+                color: cssvar(dark);
+                font-weight: 400;
+            }
+            .badges-container {
+                yoo-badge {
+                    margin-right: 0.3rem;
+                }
+            }
+            .avatar-container {
+                margin-top: 0.5rem;
+                justify-content: flex-end;
+                padding-right: 0.5rem;
+                yoo-avatar {
+                    margin-right: 0.15rem;
+                    margin-left: 0.15rem;
+                }
+            }
+            .action-button-container {
+                justify-content: flex-end;
+            }
+            .slot-container {
+                font-size: 0.9rem;
+                color: cssvar(dark-60);
+            }
+        }
+        &.active {
+            box-shadow: 0px 0px 3px 1px cssvar(accent);
+            border: 1px solid cssvar(accent);
+        }
+    }
+}
+
+:host() {
+    &.horizontal,
+    &.list-mode {
+        .outer-container {
+            max-width: 30rem;
+            .status-container {
+                width: 0.0625em;
+                height: unset;
+            }
+            .image-container {
+                width: 10rem;
+                position: relative;
+                @include badge-position();
+            }
+            .content-container {
+                justify-content: space-between;
+                width: 20rem;
+                padding: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                &.center {
+                    justify-content: center;
+                }
+                .slot-container {
+                    justify-content: space-between;
+                    .inner-container {
+                        justify-content: flex-end;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+:host(.list-mode) {
+    .outer-container {
+        max-width: none;
+        .image-container {
+            width: unset;
+            yoo-avatar {
+                transform: scale(0.7);
+            }
+        }
+        .status-container {
+            display: none;
+        }
+        .content-container {
+            width: 100%;
+            .top-container {
+                .heading-container {
+                    .card-heading {
+                        font-weight: bold;
+                    }
+                    .date-card {
+                        color: cssvar(dark-60);
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+:host(.active) {
+    .outer-container {
+        box-shadow: 0px 0px 3px 1px cssvar(accent);
+        border: 1px solid cssvar(accent);
+    }
+}
+
+:host(.hoverable) {
+    &:hover {
+        .outer-container {
+            box-shadow: 0px 0px 3px 1px cssvar(accent);
+            border: 1px solid cssvar(accent);
+        }
+    }
+}
+
+@mixin class-color-border-status($class, $color) {
+    :host(.#{$class}) {
+        @include border-status($color);
+        @include border-status-hover($color);
+    }
+}
+
+@include class-color-border-status(accent, accent);
+@include class-color-border-status(dark, dark-40);
+@include class-color-border-status(warning, warning);
+@include class-color-border-status(success, success);
+@include class-color-border-status(info, info);
+@include class-color-border-status(danger, danger);
+@include class-color-border-status(g, g);
+@include class-color-border-status(gradient-accent, accent);
+@include class-color-border-status(gradient-dark, dark-40);
+@include class-color-border-status(gradient-warning, warning);
+@include class-color-border-status(gradient-success, success);
+@include class-color-border-status(gradient-info, info);
+@include class-color-border-status(gradient-danger, danger);
+:host(.no-status) {
+    .outer-container {
+        .status-container {
+            background: cssvar(dark-10);
+            height: 1px;
+        }
+    }
+}
+
+// :host(.in-view) {
+//     animation: animate-in-view .6s ease-out forwards;
+// }
+// @keyframes animate-in-view {
+//     0% {
+//         transform: translate(0, 20px) scale(1.1);
+//         opacity: 0;
+//     }
+//     35% {
+//         transform: translate(0, 20px) scale(1.1);
+//         opacity: 0;
+//     }
+//     100% {
+//         opacity: 1;
+//     }
+// }

@@ -1,0 +1,109 @@
+@mixin size-position($width, $height, $top, $left) {
+    .container {
+        .overlay {
+            width: $width;
+            height: $height;
+            top: $top;
+            left: $left;
+        }
+    }
+}
+
+:host{
+    .container {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+            .overlay {
+            display: none;
+            position: absolute;
+            z-index: 1000;
+            background-color: cssvar(dark-20);
+            color: cssvar(dark);
+            opacity: 0.8;
+            font-size: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+        .sub-overlay {
+            display: none;
+            position: absolute;
+            z-index: 1000;
+            background-color: transparent;
+            color: cssvar(dark);
+            opacity: 1;
+            font-size: 2rem;
+            justify-content: center;
+            align-items: center;            
+        }
+    }
+}
+
+:host(.bottom) {
+    @include size-position(100%, 50%, 50%, 0%);
+}
+
+:host(.fade) {
+    @include size-position(95%, 95%, 2.5%, 2.5%);
+}
+
+:host(.icon) {
+    @include size-position(100%, 100%, 0%, 0%);
+    .container {
+        .overlay {
+            font-size: 3rem;
+            background-color: transparent;
+            opacity: 1;
+        }
+    }
+}
+
+:host(.image) {
+    @include size-position(100%, 100%, 0%, 0%);
+    .container {
+        .overlay {
+            background-color: transparent;
+            opacity: 1;
+        }
+    }
+}
+
+:host(.heading) {
+    .container {
+        .overlay {
+            width: 100%;
+            height: 50%;
+            top: 0%;
+            left: 0%;
+            background-color: transparent;
+            opacity: 1;
+        }
+        .sub-overlay {
+            width: 100%;
+            height: 50%;
+            bottom: 0%;
+            left: 0%;
+        }
+    }
+}
+
+@mixin text-color($class, $color) {
+    :host(.#{$class}) {
+        .container {
+           .overlay {
+               color: cssvar($color);
+           }
+           .sub-overlay {
+               color: cssvar($color);
+           }
+        }
+    }
+}
+
+@include text-color(accent, accent);
+@include text-color(dark, dark);
+@include text-color(danger, danger);
+@include text-color(success, success);
+@include text-color(info, info);
+@include text-color(warning, warning);
+@include text-color(light, light);

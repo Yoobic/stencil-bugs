@@ -1,0 +1,72 @@
+
+@mixin position-size() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.125rem;
+    padding: 0 1rem;
+}
+
+@mixin color($color) {
+    :host(.#{$color}) {
+        .outer-container {
+            .top-container {
+                .heading-container {
+                    color: cssvar($color);
+                }
+            }
+        }
+    }
+}
+
+:host() {
+    width: 100%;
+    .outer-container {
+        font-size: 0.85rem;
+        width: 100%;
+        padding: 0.75rem;
+        .top-container {
+            justify-content: center;
+            background-color: cssvar(light);
+            border-radius: 0.8125rem;      
+            width: 100%;
+            .heading-container {
+                color: cssvar(stable);
+                @include position-size();
+                height: 2.875rem;
+                font-size: 0.9rem;
+                font-weight: 400;                
+            }
+            .inner-container {
+                height: 3.625rem;
+                font-size: 1.25rem;
+                border-top: 1px solid cssvar(stable-10);
+                color: cssvar(dark); 
+                @include position-size();
+                font-weight: 400;
+            }
+        }
+        .bottom-container {
+            background-color: transparent;        
+            padding-top: 0.5rem;
+            width: 100%;
+            .cancel-container {
+                font-size: 1.25rem;                
+                background-color: cssvar(light);
+                height: 3.5625rem;        
+                border-radius: 0.8125rem;
+                font-weight: 400;                
+                color: cssvar(danger);
+                @include position-size();            
+            }
+        }
+    }
+}
+
+@include color(accent);
+@include color(success);
+@include color(danger);
+@include color(info);
+@include color(warning);
+@include color(dark);
+@include color(stable);

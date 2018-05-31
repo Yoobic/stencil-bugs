@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MissionResultsComponent Rendering Should render 1`] = `
+<yoo-mission-results
+  class="hydrated"
+  data-yoo-mission-results-host=""
+>
+  
+  <div
+    data-yoo-mission-results=""
+  >
+    MissionResults needs a proper template
+  </div>
+</yoo-mission-results>
+`;

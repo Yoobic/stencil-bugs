@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebMenuComponent Rendering Should render 1`] = `
+<yoo-web-menu
+  class="hydrated"
+  data-yoo-web-menu-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="menu-container"
+    data-yoo-web-menu=""
+  >
+    
+    <yoo-slim-scroll
+      data-yoo-web-menu=""
+    >
+      <div
+        data-yoo-web-menu=""
+      >
+        
+      </div>
+    </yoo-slim-scroll>
+    
+  </div>
+</yoo-web-menu>
+`;
+
+exports[`WebMenuComponent Rendering Should render with an entry 1`] = `
+<yoo-web-menu
+  class="hydrated"
+  data-yoo-web-menu-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="menu-container"
+    data-yoo-web-menu=""
+  >
+    <div
+      class="menu-logo"
+      data-yoo-web-menu=""
+    >
+      <div
+        class="image"
+        data-yoo-web-menu=""
+        style="background-repeat: no-repeat; background-size: cover; background-position-x: 5;0%; background-image: url(assets/logo/operations_simple.svg);"
+      />
+    </div>
+    <yoo-slim-scroll
+      data-yoo-web-menu=""
+    >
+      <div
+        data-yoo-web-menu=""
+      >
+        <div
+          attr-layout="column"
+          class="menu-items"
+          data-yoo-web-menu=""
+        >
+          <div
+            class="item-container"
+            data-yoo-web-menu=""
+          >
+            <div
+              data-yoo-web-menu=""
+            >
+              <yoo-tooltip
+                data-yoo-web-menu=""
+                placement="left"
+                text="action1"
+              >
+                <div
+                  class="menu-icon"
+                  data-yoo-web-menu=""
+                >
+                  <i
+                    class="yo-fire"
+                    data-yoo-web-menu=""
+                  />
+                  
+                </div>
+              </yoo-tooltip>
+            </div>
+          </div>
+          <div
+            class="item-container"
+            data-yoo-web-menu=""
+          >
+            <div
+              data-yoo-web-menu=""
+            >
+              <yoo-tooltip
+                data-yoo-web-menu=""
+                placement="left"
+                text="action2"
+              >
+                <div
+                  class="menu-icon"
+                  data-yoo-web-menu=""
+                >
+                  <i
+                    class="yo-yo"
+                    data-yoo-web-menu=""
+                  />
+                  
+                </div>
+              </yoo-tooltip>
+            </div>
+          </div>
+          <div
+            class="item-container"
+            data-yoo-web-menu=""
+          >
+            <div
+              data-yoo-web-menu=""
+            >
+              <yoo-tooltip
+                data-yoo-web-menu=""
+                placement="left"
+                text="action3"
+              >
+                <div
+                  class="menu-icon"
+                  data-yoo-web-menu=""
+                >
+                  <i
+                    class="yo-more"
+                    data-yoo-web-menu=""
+                  />
+                  
+                </div>
+              </yoo-tooltip>
+            </div>
+          </div>
+          <div
+            class="item-container"
+            data-yoo-web-menu=""
+          >
+            <div
+              data-yoo-web-menu=""
+            >
+              <yoo-tooltip
+                data-yoo-web-menu=""
+                placement="left"
+                text="page1"
+              >
+                <div
+                  class="menu-icon"
+                  data-yoo-web-menu=""
+                >
+                  <i
+                    class="yo-trophy"
+                    data-yoo-web-menu=""
+                  />
+                  
+                </div>
+              </yoo-tooltip>
+            </div>
+          </div>
+          <div
+            class="item-container"
+            data-yoo-web-menu=""
+          >
+            <div
+              data-yoo-web-menu=""
+            >
+              <yoo-tooltip
+                data-yoo-web-menu=""
+                placement="left"
+                text="page2"
+              >
+                <div
+                  class="menu-icon"
+                  data-yoo-web-menu=""
+                >
+                  <i
+                    class="yo-star"
+                    data-yoo-web-menu=""
+                  />
+                  
+                </div>
+              </yoo-tooltip>
+            </div>
+          </div>
+          <div
+            class="item-container"
+            data-yoo-web-menu=""
+          >
+            <div
+              data-yoo-web-menu=""
+            >
+              <yoo-tooltip
+                data-yoo-web-menu=""
+                placement="left"
+                text="page3"
+              >
+                <div
+                  class="menu-icon"
+                  data-yoo-web-menu=""
+                >
+                  <i
+                    class="yo-fire"
+                    data-yoo-web-menu=""
+                  />
+                  
+                </div>
+              </yoo-tooltip>
+            </div>
+          </div>
+        </div>
+      </div>
+    </yoo-slim-scroll>
+    <div
+      class="menu-user"
+      data-yoo-web-menu=""
+    >
+      <yoo-avatar
+        class="small"
+        data-yoo-web-menu=""
+      />
+    </div>
+  </div>
+</yoo-web-menu>
+`;

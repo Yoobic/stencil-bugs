@@ -1,0 +1,125 @@
+:host {
+  /deep/ div.modal-body,
+  div.fixed-container {
+    width: 100%;
+    background-color: cssvar(darkblue);
+    color: cssvar(light);
+    .row {
+      transition: all 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      a {
+        color: cssvar(light);
+        text-decoration: none;
+        flex-grow: 1;
+        &.active {
+          //background-color: cssvar(dark-80);
+          border-left: 0.25rem solid cssvar(accent);
+          padding-left: 0.75rem;
+        }
+        &:hover {
+          background-color: cssvar(darkblue-80);
+        }
+        .item {
+          padding-left: 1rem;
+          padding-top: 0.4rem;
+          padding-bottom: 0.4rem;
+          align-items: center;
+          img {
+            max-height: 1.5rem;
+            max-width: 1.5rem;
+            margin-right: 1rem;
+          }
+          i {
+            margin-left: auto;
+            margin-right: 1rem;
+            transition: all 0.3s;
+            &.chevron-active {
+              transform: rotate(-90deg);
+            }
+          }
+          &.active {
+            background-color: cssvar(darkblue-80);
+            border-left: 0.25rem solid cssvar(accent);
+            padding-left: 0.75rem;
+          }
+          &:hover {
+            background-color: cssvar(darkblue-80);
+          }
+        }
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      .sub-container {
+        overflow: hidden;
+        width: 100%;
+        background: cssvar(darkblue);
+        .row-subitems {
+          overflow: hidden;
+          animation: sub-item-appear 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+          .item {
+            padding-left: 2rem;
+            &.active {
+              padding-left: 1.75rem;
+              background-color: cssvar(darkblue-60);
+            }
+            &:hover {
+              background-color: cssvar(darkblue-60);
+            }
+          }
+        }
+      }
+      &.hidden {
+        .row-subitems {
+          display: none;
+        }
+      }
+      &.sub-display {
+        background: cssvar(darkblue-80);
+      }
+    }
+  }
+  div.fixed-container {
+    height: 100vh;
+    div.menu-header {
+      margin-left: 1rem;
+      background: cssvar(darkblue);
+      color: cssvar(light);
+      span {
+        font-size: 1.4rem;
+      }
+      .header-slot {
+        padding: 1rem;
+        .image {
+          max-width: 90%;
+        }
+      }
+    }
+    .row {
+      margin: 0px;
+      .row-subitems {
+        width: 100%;
+      }
+    }
+  }
+  /deep/ yoo-modal {
+    .outer-container {
+      background: cssvar(darkblue) !important;
+      border: none !important;
+      .modal-body {
+        padding: 0 !important;
+        padding-top: 5.0625rem !important;
+      }
+    }
+  }
+}
+
+@keyframes sub-item-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

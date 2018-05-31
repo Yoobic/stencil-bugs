@@ -1,0 +1,10 @@
+
+
+/deep/ {
+    @import "../../../../../../node_modules/tippy.js/dist/themes/light";
+}
+
+:host {
+    display: block;
+    cursor: pointer;
+}

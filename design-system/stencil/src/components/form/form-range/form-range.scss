@@ -1,0 +1,66 @@
+
+:host {
+    .inputs-container {
+        align-items: center;
+        padding: 0 0.3rem;
+        .separator {
+            margin: 0 0.875rem;
+            width: 0.75rem;
+            height: 0.125rem;
+            border-radius: 1px;
+            background: cssvar(stable);
+        }
+        .input {
+            height: 2.5rem;
+            border-radius: 5px;
+            border: 1px solid cssvar(stable);
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+            &.single {
+                width: 100%;
+            }
+            input[type=number]{
+                -webkit-appearance: none;
+                background: transparent;
+                font-size: 0.875rem;
+                width: 100%;
+                //width: 2rem;
+                outline: none;
+                border-color: transparent;
+                //text-align: center;
+            }
+            input[type=number]::-webkit-inner-spin-button,
+            input[type=number]::-webkit-outer-spin-button{
+                -webkit-appearance: none;
+            }
+            // Firefox:
+            input[type=number] {
+                -moz-appearance:textfield;
+              }
+        }
+    }
+    .slider-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        yoo-form-slider {
+            width: 100%;
+            /deep/ .wrapper {
+                width: 100%;
+                .outer-container {
+                    width: 100%;                    
+                    .slider-container {
+                        width: 100%;                            
+                        .range-container {
+                            width: 100%;
+                            input {
+                                width: 100% !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

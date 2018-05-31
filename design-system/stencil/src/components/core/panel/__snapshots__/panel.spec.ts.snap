@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooPanelComponent Snapshots Should render 1`] = `
+<yoo-panel
+  class="hydrated"
+  data-yoo-panel-host=""
+>
+  
+  <div
+    data-yoo-panel=""
+  >
+    <canvas
+      class="outer-container width height"
+      data-yoo-panel=""
+    />
+  </div>
+</yoo-panel>
+`;
+
+exports[`YooPanelComponent Snapshots Should render with height 1`] = `
+<yoo-panel
+  class="hydrated"
+  data-yoo-panel-host=""
+  height="100"
+>
+  
+  <div
+    data-yoo-panel=""
+  >
+    <canvas
+      class="outer-container width"
+      data-yoo-panel=""
+      height="100"
+    />
+  </div>
+</yoo-panel>
+`;
+
+exports[`YooPanelComponent Snapshots Should render with width 1`] = `
+<yoo-panel
+  class="hydrated"
+  data-yoo-panel-host=""
+  width="100"
+>
+  
+  <div
+    data-yoo-panel=""
+  >
+    <canvas
+      class="outer-container height"
+      data-yoo-panel=""
+      width="100"
+    />
+  </div>
+</yoo-panel>
+`;
+
+exports[`YooPanelComponent Snapshots Should render with width and height 1`] = `
+<yoo-panel
+  class="hydrated"
+  data-yoo-panel-host=""
+  height="100"
+  width="100"
+>
+  
+  <div
+    data-yoo-panel=""
+  >
+    <canvas
+      class="outer-container"
+      data-yoo-panel=""
+      height="100"
+      width="100"
+    />
+  </div>
+</yoo-panel>
+`;

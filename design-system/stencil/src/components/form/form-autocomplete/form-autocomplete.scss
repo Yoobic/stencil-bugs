@@ -1,0 +1,11 @@
+:host {
+    .outer-container {
+        .items-container {
+            display: none;
+            height: 177px;
+            overflow: auto;
+            border: 1px solid cssvar(stable-30);
+            position: relative;
+        }
+    }
+}

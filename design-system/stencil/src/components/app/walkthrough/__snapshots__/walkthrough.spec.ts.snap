@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WalkthroughComponent Rendering Should render 1`] = `
+<yoo-walkthrough
+  class="hydrated"
+  data-yoo-walkthrough-host=""
+>
+  
+  <ion-slides
+    data-yoo-walkthrough=""
+  />
+</yoo-walkthrough>
+`;

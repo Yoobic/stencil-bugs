@@ -1,0 +1,1537 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooTabsComponent content and titles should display correctly when changed Should display with exactly 4 tabs 1`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                    
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab3
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab4
+      </div>
+      
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab3"
+        >
+          Hey3
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab4"
+        >
+          Hey4
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent content and titles should display correctly when changed Should display with exactly 4 tabs 2`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                    
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab3
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab4
+      </div>
+      
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab3"
+        >
+          Hey3
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab4"
+        >
+          Hey4
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent content and titles should display correctly when changed Should display with less than 4 tabs 1`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+  
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent content and titles should display correctly when changed Should display with less than 4 tabs 2`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+  
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent content and titles should display correctly when changed Should display with over 4 tabs 1`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                    
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab3
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab4
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        <yoo-context-menu
+          data-yoo-tabs=""
+        >
+          <div
+            class="tab-title-other"
+            data-yoo-tabs=""
+            slot="trigger"
+          >
+            Other 
+            <span
+              class="yo-arrow-dropdown"
+              data-yoo-tabs=""
+            />
+          </div>
+          <div
+            class="other-title dropdown-entry"
+            data-yoo-context-menu="true"
+            data-yoo-tabs=""
+          >
+            tab5
+          </div>
+          <div
+            class="other-title dropdown-entry border-bottom"
+            data-yoo-context-menu="true"
+            data-yoo-tabs=""
+          >
+            tab6
+          </div>
+        </yoo-context-menu>
+      </div>
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab3"
+        >
+          Hey3
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab4"
+        >
+          Hey4
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab5"
+        >
+          Hey5
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab6"
+        >
+          Hey46
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent content and titles should display correctly when changed Should display with over 4 tabs 2`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                    
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab3
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab4
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        <yoo-context-menu
+          data-yoo-tabs=""
+        >
+          <div
+            class="tab-title-other"
+            data-yoo-tabs=""
+            slot="trigger"
+          >
+            Other 
+            <span
+              class="yo-arrow-dropdown"
+              data-yoo-tabs=""
+            />
+          </div>
+          <div
+            class="other-title dropdown-entry"
+            data-yoo-context-menu="true"
+            data-yoo-tabs=""
+          >
+            tab5
+          </div>
+          <div
+            class="other-title dropdown-entry border-bottom"
+            data-yoo-context-menu="true"
+            data-yoo-tabs=""
+          >
+            tab6
+          </div>
+        </yoo-context-menu>
+      </div>
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab3"
+        >
+          Hey3
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab4"
+        >
+          Hey4
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab5"
+        >
+          Hey5
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab6"
+        >
+          Hey46
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent content and titles should display correctly when changed Should display with over 4 tabs 3`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                    
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab3
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab4
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        <yoo-context-menu
+          data-yoo-tabs=""
+        >
+          <div
+            class="tab-title-other"
+            data-yoo-tabs=""
+            slot="trigger"
+          >
+            Other 
+            <span
+              class="yo-arrow-dropdown"
+              data-yoo-tabs=""
+            />
+          </div>
+          <div
+            class="other-title dropdown-entry"
+            data-yoo-context-menu="true"
+            data-yoo-tabs=""
+          >
+            tab5
+          </div>
+          <div
+            class="other-title dropdown-entry border-bottom"
+            data-yoo-context-menu="true"
+            data-yoo-tabs=""
+          >
+            tab6
+          </div>
+        </yoo-context-menu>
+      </div>
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab3"
+        >
+          Hey3
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab4"
+        >
+          Hey4
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab5"
+        >
+          Hey5
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab6"
+        >
+          Hey46
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent should change when props are updated Should change selected item 1`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                    
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab3
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab4
+      </div>
+      
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab3"
+        >
+          Hey3
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab4"
+        >
+          Hey4
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent should change when props are updated Should change selected item 2`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                    
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab3
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab4
+      </div>
+      
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab3"
+        >
+          Hey3
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab4"
+        >
+          Hey4
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent should change when props are updated Should change tab names 1`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                    
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab3
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab4
+      </div>
+      
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab3"
+        >
+          Hey3
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab4"
+        >
+          Hey4
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent should change when props are updated Should change tab names 2`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                    
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1a
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2a
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab3
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab4
+      </div>
+      
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab3"
+        >
+          Hey3
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab4"
+        >
+          Hey4
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent should change when props are updated Should change visible items 1`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                    
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab3
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab4
+      </div>
+      
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab3"
+        >
+          Hey3
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab4"
+        >
+          Hey4
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;
+
+exports[`YooTabsComponent should change when props are updated Should change visible items 2`] = `
+<yoo-tabs
+  class="hydrated"
+  data-yoo-tabs-host=""
+>
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                        
+  
+  
+                    
+  <div
+    class="outer-container"
+    data-yoo-tabs=""
+  >
+    <div
+      class="tab-selector"
+      data-yoo-tabs=""
+    >
+      <div
+        class="tab-title active-title"
+        data-yoo-tabs=""
+      >
+        tab1
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab2
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab3
+      </div>
+      <div
+        class="tab-title"
+        data-yoo-tabs=""
+      >
+        tab4
+      </div>
+      
+    </div>
+    <div
+      class="tab-content"
+      data-yoo-tabs=""
+    >
+      <div
+        class="selected-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab1"
+        >
+          Hey1
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab2"
+        >
+          Hey2
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab3"
+        >
+          Hey3
+        </div>
+      </div>
+      <div
+        class="undisplayed-tab"
+        data-yoo-tabs=""
+        data-yoo-tabs-slot=""
+      >
+        
+        <div
+          slot="tab4"
+        >
+          Hey4
+        </div>
+      </div>
+    </div>
+  </div>
+</yoo-tabs>
+`;

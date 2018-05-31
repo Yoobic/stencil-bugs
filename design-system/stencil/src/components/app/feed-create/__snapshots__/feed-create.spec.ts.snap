@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeedCreateComponent Rendering Should render 1`] = `
+<yoo-feed-create
+  class="hydrated"
+  data-yoo-feed-create-host=""
+>
+  
+  <div
+    data-yoo-feed-create=""
+  />
+</yoo-feed-create>
+`;

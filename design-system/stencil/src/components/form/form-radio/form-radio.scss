@@ -1,0 +1,151 @@
+@mixin radio-color($class, $color) {
+    :host(.#{$class}) {
+        .container {
+            .icon-container {
+                &.enabled {
+                    border-color: cssvar($color);
+                }
+                .icon {
+                    background: cssvar($color);
+                }
+            }
+            .text-container {
+                color: cssvar(text-color);
+            }
+        }
+    }
+}
+
+@mixin radio-color-gradient($color) {
+    .container {
+        .icon-container {
+            &.enabled {
+                @include gradient-curved-border($color);
+            }
+            &.empty {
+                &.enabled {
+                    background-color: cssvar(light);
+                }
+            }
+            .icon {
+                background-image: -webkit-linear-gradient($color);
+            }
+        }
+    }
+}
+
+:host {
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon-container {
+            transition: all 0.3s;
+            border-radius: 1rem;
+            width: 1rem;
+            height: 1rem;
+            border: 0.0625rem solid;
+            justify-content: center;
+            align-items: center;
+            &.enabled {
+                background-color: cssvar(light);
+                // border-color: cssvar(dark-40);
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            &.disabled {
+                border-color: cssvar(dark-20);
+            }
+            &.empty {
+                &.enabled {
+                    border-color: cssvar(stable);
+                    background-color: cssvar(light);                    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                &.disabled {
+                    background-color: cssvar(light);
+                    border-color: cssvar(dark-20);
+                }
+            }
+            .icon {
+                transition: all 0.3s;
+                width: 0.375rem;
+                height: 0.375rem;
+                border-radius: 0.1875rem;
+                // width: 100%; // added
+                // height: 100%; // added
+                // border-radius: 40%; // added
+                // color: cssvar(light); // added
+                background: cssvar(dark-40);                
+                &.disabled {
+                    background: cssvar(dark-20);
+                }
+                &.empty {
+                    opacity: 0;
+                }
+            }
+        }
+        .text-container {
+            padding-left: 0.5rem;
+            display: flex;
+            justify-content: flex-start;
+            color: cssvar(dark);
+            font-size: 1rem;
+            &.disabled {
+                color: cssvar(dark-20);
+            }
+            &.enabled {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@include radio-color(accent, accent);
+@include radio-color(danger, danger);
+@include radio-color(success, success);
+@include radio-color(info, info);
+@include radio-color(warning, warning);
+@include radio-color(dark, dark-20);
+
+
+:host(.stable) {
+    .container {
+        .text-container {
+            color: cssvar(stable);
+            &.disabled {
+              color: cssvar(dark-20);
+            }
+        }
+        .icon-container {
+            &.disabled {
+                border-color: cssvar(dark-20);
+            }
+
+            &.empty {
+                &.enabled {
+                  border-color: cssvar(stable);
+                }
+                &.disabled {
+                    background-color: cssvar(light);
+                    border-color: cssvar(dark-20);
+                }
+            }
+            .icon {
+                width: 100%; // added
+                height: 100%; // added
+                border-radius: 40%; // added
+                color: cssvar(light); // added
+
+                &.disabled {
+                  background-color: cssvar(dark-20);
+                }
+            }
+        }
+    }
+}

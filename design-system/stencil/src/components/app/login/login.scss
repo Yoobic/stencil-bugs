@@ -1,0 +1,290 @@
+@mixin powered-by-style {
+    .powered-by {
+        font-size: 0.6875rem;
+        justify-content: center;
+        align-items: center;
+        color: cssvar(stable);
+        padding-bottom: 1.375rem;
+        letter-spacing: 0.0625rem;
+        .powered-img {
+            align-items: center;
+            display: flex;
+            padding-left: 0.3125rem;
+            padding-right: 0.25rem;
+        }
+    }
+}
+:host {
+    .outer-container {
+        position: absolute;
+        top: 0rem;
+        right: 0rem;
+        min-height: 25rem;
+        height: 100%;
+        width: 100%;
+
+        .left-panel {
+            position: relative;
+            min-width: 25rem;
+            background-color: cssvar(light);
+            justify-content: space-between;
+            &.mobile {
+                width: 100%;
+                min-width: 0 !important;
+            }
+            .content-container {
+                z-index: 2;
+                justify-content: space-between;
+                height: 100%;
+                .header {
+                    padding: 1.875rem;
+                    justify-content: space-between;
+                    align-items: center;
+                    .language-container {
+                        display: none;
+                        padding-right: 2.5rem;
+                        &.mobile {
+                            display: flex !important;
+                            padding-right: 0rem !important;
+                        }
+                    }
+                }
+                .left-body{
+                    color: cssvar(light);
+                    font-variant-caps: all-petite-caps;
+                    font-weight: 600;
+                    .title-container {
+                        letter-spacing: 0.225rem;
+                        padding-bottom: 1.25rem;
+                        font-size: 0.75rem;
+                    }
+                    .subtitle-container {
+                        letter-spacing: 0.125rem;
+                        text-align: center;
+                        padding: 0 2rem;
+                    }
+                }
+                .footer {
+                    @include powered-by-style();
+                    .powered-by {
+                        color: cssvar(light);
+                    }
+                }
+            }
+            
+
+            .text-container {
+                padding-top: 2rem;
+                font-weight: 600;
+                font-size: 1.25rem;
+                text-align: center;
+            }
+            .background {
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position-x: 50%;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 1;
+            }
+            .background-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 2;
+                opacity: 0.7;
+            }
+        }
+        .right-panel {
+            
+            color: cssvar(text-color);
+            background-color: cssvar(light);
+            position: relative; 
+            overflow: hidden;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            /deep/ yoo-alert {
+                width: 100%;
+                margin-bottom: 5px;
+                .container {
+                    justify-content: center;
+                }
+            }
+            &.mobile {
+                /deep/ yoo-alert {
+                    .container {
+                        padding: 0;
+                        .inner-container {
+                            .text-container {
+                                .value {
+                                    font-size: 0.625rem; 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .right-panel-content {
+                justify-content: space-between;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                .header {
+                    padding-top: 1.875rem;
+                    padding-right: 1.875rem;
+                    padding-left: 1.875rem;                
+                    z-index: 3;
+                    width: 100%;
+                    justify-content: flex-end;
+                    &.reset{
+                        justify-content: space-between;
+                    }
+                    &.mobile {
+                        justify-content: space-between;
+                        padding-right: 1rem;
+                        padding-left: 1rem;
+                        padding-top: 2.1875rem;
+                    }
+                    .close {
+                        opacity: 0;
+                        height: 1.875rem;
+                        width: 1.875rem;
+                        border-radius: 0.9375rem;
+                        border: solid 0.0625rem cssvar(stable);
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .content {
+                    z-index: 3;
+                    max-width: 460px;
+                    width: 100%;
+                    &.mobile {
+                        width: 100%;
+                        height: 100%;
+                        justify-content: center;
+                    }
+                    .login-title {
+                        font-size: 1.5rem;
+                        padding-bottom: 0.75rem;
+                        &.mobile {
+                            height: 25%;
+                            align-items: flex-end;
+                            justify-content: center;
+                        }
+                    }
+                    .login-container {
+                        padding-top: 2.8125rem;
+                        .password-container {
+                            padding: 1.25rem 0;
+                        }
+                        .login-subtitle {
+                            padding-bottom: 2.8125rem;
+                        }
+                        .inner-container {
+                            justify-content: space-between;
+                            .radio {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            /deep/ yoo-button {
+                                .container {
+                                    .value {
+                                        display: flex;
+                                        justify-content: flex-end;                                  
+                                    }
+                                }
+                            }
+                        }
+                        .login-button {
+                            justify-content: center;
+                            padding-top: 2.5rem;
+                        }
+                    }
+                    .login-container-mobile {
+                        padding-right: 2rem;
+                        padding-left: 2rem;
+                        justify-content: center;
+                        height: 100%;
+                        flex-grow: 0;
+                        .password-container {
+                            padding-top: 1rem;
+                        }
+                        .inner-container {
+                            justify-content: space-between;
+                            margin-top: 1rem;
+                            .radio {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            &.mobile {
+                                /deep/ yoo-form-radio {
+                                    .container {
+                                        .text-container {
+                                            font-size: 0.75rem !important;                                    
+                                        }
+                                    }
+                                }
+                                /deep/ yoo-button {
+                                    .container {
+                                        .value {
+                                            font-size: 0.875rem !important; 
+                                            display: flex;
+                                            justify-content: flex-end;                                   
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .login-button {
+                            margin-top: 3.125rem;
+                            margin-bottom: 0.9375rem;
+                        }
+                        @include powered-by-style();
+                    }
+                }
+                .footer {
+                    width: 100%;
+                    @include powered-by-style();
+                    &.web {
+                        padding-bottom: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    :host {
+        .outer-container {
+            .left-panel {
+                .header {
+                    padding: 29px 8px 8px;
+                    display: flex !important;
+                    align-items: flex-end;
+                }
+                .text-container {
+                    padding-top: .5rem;
+                }
+                .login-container {
+                    .inner-container {
+                        display: flex !important;
+                    }
+                    .login-button {
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+}

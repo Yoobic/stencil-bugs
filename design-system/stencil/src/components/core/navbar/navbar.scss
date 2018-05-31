@@ -1,0 +1,166 @@
+@mixin color($color, $color-20, $color-05) {
+    .outer-container {
+        background-color: cssvar(light);
+        .dropdown {
+            border-color: cssvar($color-20);
+            &.active {
+                color: cssvar($color);
+            }
+        }
+        .inner-container {
+            color: cssvar(stable);
+            &.active {
+                color: cssvar($color);
+            } //  &:hover{
+            //      background-color: cssvar($color-05);
+            //  }
+        }
+    }
+}
+
+@mixin negative-color($color, $color-20, $color-05) {
+    .outer-container {
+        background-color: cssvar(dark);
+        .dropdown {
+            background-color: cssvar(dark);
+            color: cssvar(light);
+            border-color: cssvar($color-20);
+            &.active {
+                border-color: cssvar($color);
+            }
+        }
+        .inner-container {
+            color: cssvar(dark-10);
+            border-bottom-color: cssvar(dark);
+            &.active {
+                color: cssvar(light);
+                border-bottom-color: cssvar($color);
+            }
+            &:hover {
+                //background-color: cssvar($color-20);
+            }
+        }
+    }
+}
+
+:host {
+    &[padding-top] {
+        .outer-container {
+            padding-top: 1.75rem;
+            padding-bottom: 1rem;
+        }
+    }
+    .outer-container {
+        padding-top: 1rem;
+        line-height: normal;
+        width: 100%;
+        margin-bottom: 1rem;
+        .dropdown {
+            padding: 0.5rem 1rem;
+            line-height: 1.5;
+            width: 100%;
+            position: relative;
+            border-bottom: 1px solid cssvar(stable);
+            &:hover {
+                cursor: pointer;
+            }
+            &.active {
+                color: ccsvar(stable);
+            }
+        }
+        .inner-container {
+            padding-right: 1rem;
+            color: cssvar(stable);
+            font-weight: 400;
+            font-size: 1.0625rem;
+            .icon {
+                padding: 0.1rem;
+            }
+            &.active {
+                color: cssvar(text-color);
+            }
+            &.last {
+                padding-right: 0;
+            }
+            &:hover {
+                cursor: pointer;
+            }
+            &#dropdown {
+                padding-left: 1rem;
+                padding-right: 0rem;
+            }
+            .notification {
+                height: 0.3125rem;
+                width: 0.3125rem;
+                border-radius: 0.15625rem;
+                background-color: cssvar(danger);
+                align-self: center;
+                margin-right: 0.3125rem; 
+            }
+        }
+        yoo-button {
+            position: absolute;
+            right: 0px;
+            top: 48px;
+        }
+    }
+    .nav-line {
+        flex: 1;
+        height: 2px;
+        border: solid 1px #ececec;
+    }
+}
+
+:host(.items-center) {
+    .outer-container {
+        justify-content: center;
+    }
+}
+
+:host(.accent) {
+    @include color(accent, accent-20, accent-05);
+}
+
+:host(.negative-accent) {
+    @include negative-color(accent, accent-20, accent-05);
+}
+
+:host(.danger) {
+    @include color(danger, danger-20, danger-05);
+}
+
+:host(.negative-danger) {
+    @include negative-color(danger, danger-20, danger-05);
+}
+
+:host(.success) {
+    @include color(success, success-20, success-05);
+}
+
+:host(.negative-success) {
+    @include negative-color(success, success-20, success-05);
+}
+
+:host(.info) {
+    @include color(info, info-20, info-05);
+}
+
+:host(.negative-info) {
+    @include negative-color(info, info-20, info-05);
+}
+
+:host(.warning) {
+    @include color(warning, warning-20, warning-05);
+}
+
+:host(.negative-warning) {
+    @include negative-color(warning, warning-20, warning-05);
+}
+
+:host(.dark) {
+    @include color(dark, dark-20, dark-05);
+}
+
+:host(.negative-dark) {
+    @include negative-color(dark-80, dark-20, dark-05);
+}

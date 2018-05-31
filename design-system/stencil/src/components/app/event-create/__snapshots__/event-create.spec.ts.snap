@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventCreateComponent Rendering Should render 1`] = `
+<yoo-event-create
+  class="hydrated"
+  data-yoo-event-create-host=""
+>
+  
+  <div
+    data-yoo-event-create=""
+  >
+    EventCreate needs a proper template
+  </div>
+</yoo-event-create>
+`;

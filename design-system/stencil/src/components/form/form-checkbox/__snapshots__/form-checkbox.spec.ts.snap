@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooFormCheckboxComponent Snapshots should be disabled 1`] = `
+<yoo-form-checkbox
+  class="hydrated"
+  data-yoo-form-checkbox-host=""
+  disabled="true"
+  text="this is text"
+>
+  
+  <div
+    class="container"
+    data-yoo-form-checkbox=""
+  >
+    <div
+      attr-layout="row"
+      class="icon-container empty disabled"
+      data-yoo-form-checkbox=""
+    >
+      <span
+        class="icon empty"
+        data-yoo-form-checkbox=""
+      >
+        <i
+          class="yo-check-solid"
+          data-yoo-form-checkbox=""
+        />
+      </span>
+    </div>
+    <div
+      class="text-container disabled"
+      data-yoo-form-checkbox=""
+    >
+      this is text
+    </div>
+  </div>
+</yoo-form-checkbox>
+`;
+
+exports[`YooFormCheckboxComponent Snapshots should have checkced state 1`] = `
+<yoo-form-checkbox
+  class="accent hydrated"
+  data-yoo-form-checkbox-host=""
+  state="checked"
+  text="this is text"
+>
+  
+  <div
+    class="container"
+    data-yoo-form-checkbox=""
+  >
+    <div
+      attr-layout="row"
+      class="icon-container enabled"
+      data-yoo-form-checkbox=""
+    >
+      <span
+        class="icon"
+        data-yoo-form-checkbox=""
+      >
+        <i
+          class="yo-check-solid"
+          data-yoo-form-checkbox=""
+        />
+      </span>
+    </div>
+    <div
+      class="text-container enabled"
+      data-yoo-form-checkbox=""
+    >
+      this is text
+    </div>
+  </div>
+</yoo-form-checkbox>
+`;
+
+exports[`YooFormCheckboxComponent Snapshots should have indeterminate 1`] = `
+<yoo-form-checkbox
+  class="accent hydrated"
+  data-yoo-form-checkbox-host=""
+  indeterminate="true"
+  text="this is text"
+>
+  
+  <div
+    class="container"
+    data-yoo-form-checkbox=""
+  >
+    <div
+      attr-layout="row"
+      class="icon-container empty enabled"
+      data-yoo-form-checkbox=""
+    >
+      <span
+        class="icon empty"
+        data-yoo-form-checkbox=""
+      >
+        <i
+          class="yo-check-solid"
+          data-yoo-form-checkbox=""
+        />
+      </span>
+    </div>
+    <div
+      class="text-container enabled"
+      data-yoo-form-checkbox=""
+    >
+      this is text
+    </div>
+  </div>
+</yoo-form-checkbox>
+`;
+
+exports[`YooFormCheckboxComponent Snapshots should have text and class 1`] = `
+<yoo-form-checkbox
+  class="accent hydrated"
+  data-yoo-form-checkbox-host=""
+  text="this is text"
+>
+  
+  <div
+    class="container"
+    data-yoo-form-checkbox=""
+  >
+    <div
+      attr-layout="row"
+      class="icon-container empty enabled"
+      data-yoo-form-checkbox=""
+    >
+      <span
+        class="icon empty"
+        data-yoo-form-checkbox=""
+      >
+        <i
+          class="yo-check-solid"
+          data-yoo-form-checkbox=""
+        />
+      </span>
+    </div>
+    <div
+      class="text-container enabled"
+      data-yoo-form-checkbox=""
+    >
+      this is text
+    </div>
+  </div>
+</yoo-form-checkbox>
+`;

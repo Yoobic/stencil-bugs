@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooFormRadioGroupComponent Snapshots Should render 1`] = `
+<yoo-form-radio-group
+  class="accent hydrated"
+  data-yoo-form-radio-group-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-radio-group=""
+  />
+</yoo-form-radio-group>
+`;
+
+exports[`YooFormRadioGroupComponent Snapshots Should render with multiple selection 1`] = `
+<yoo-form-radio-group
+  class="accent hydrated"
+  data-yoo-form-radio-group-host=""
+  multipleselction="true"
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-radio-group=""
+  />
+</yoo-form-radio-group>
+`;
