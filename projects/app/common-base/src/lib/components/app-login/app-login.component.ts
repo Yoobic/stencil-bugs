@@ -24,8 +24,9 @@ export class AppLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('AppLoginComponent --> ngOnInit');
-    this.onLoginSuccessfull();
+    setTimeout(() => {
+      this.onLoginSuccessfull();
+    }, 1500);
   }
 
   onLoginSuccessfull() {
