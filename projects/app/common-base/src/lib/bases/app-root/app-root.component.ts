@@ -13,9 +13,6 @@ import { debounceTime } from 'rxjs/operators';
 export class AppRootBaseComponent {
 
     public isTranslateInit: boolean = false;
-    public progress: number = 0;
-    public showProgress: boolean = false;
-    public isLoading: boolean = false;
 
     constructor(protected injector: Injector, protected translate: Translate, protected router: Router, protected cd: ChangeDetectorRef,
         protected localStorage: LocalStorage, protected coreConfig: CoreConfig, protected configConstants: ConfigConstants,
@@ -23,10 +20,6 @@ export class AppRootBaseComponent {
         protected utils: UtilsService, protected session: Session, protected files: Files) {
         this.initExtraProviders();
         this.init();
-        this.utils.loading$.subscribe((isLoading) => {
-            this.isLoading = isLoading;
-            this.cd.markForCheck();
-        });
     }
 
     initExtraProviders() { }
@@ -73,16 +66,5 @@ export class AppRootBaseComponent {
                 e.preventDefault();
             });
         }
-
-        this.loadingBar.observable.subscribe((event: LoadingBarEvent) => {
-            if (event.type === LoadingBarEventType.PROGRESS) {
-                if (isPresent(event.value)) {
-                    this.progress = event.value;
-                }
-            } else if (event.type === LoadingBarEventType.VISIBLE) {
-                this.showProgress = event.value;
-            }
-            this.cd.detectChanges();
-        });
     }
 }

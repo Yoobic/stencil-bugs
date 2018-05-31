@@ -1,6 +1,4 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { AppResetPasswordPageComponent } from '@app/common-web';
-
 
 @Component({
     selector: 'login-page',
@@ -12,6 +10,5 @@ export class LoginPageComponent {
 
     public roles: Array<string> = [];
     public menuPath: string = 'menu';
-    public resetPasswordModal: any = AppResetPasswordPageComponent;
 
 }

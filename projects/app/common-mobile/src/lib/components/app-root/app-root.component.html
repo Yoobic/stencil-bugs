@@ -1,22 +1,6 @@
 <ion-app>
-    <ng-template [ngIf]="isFullscreen && isTranslateInit">
+    <ng-template [ngIf]="isTranslateInit">
         <ion-router-outlet></ion-router-outlet>
     </ng-template>
-    <ng-template [ngIf]="!isFullscreen && isTranslateInit">
-        <div class="absolute" attr-layout attr-layout-align="center center">
-            <yoo-device [hideBar]="true">
-                <div>
-                    <ion-router-outlet></ion-router-outlet>
-                </div>
-            </yoo-device>
-        </div>
-        <div class="logo" *ngIf="appLogo">
-            <img [src]="appLogo" />
-        </div>
-        <div class="background"> </div>
-        <div class="image"></div>
-    </ng-template>
 </ion-app>
-<yoo-progress-bar class="gradient-success" *ngIf="showProgress" [hideProgress]="true" [progress]="progress"></yoo-progress-bar>
 <ion-modal-controller></ion-modal-controller>
-<yoo-loader class="absolute large" *ngIf="isLoading"></yoo-loader>

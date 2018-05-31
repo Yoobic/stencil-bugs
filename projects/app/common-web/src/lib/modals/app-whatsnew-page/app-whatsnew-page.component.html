@@ -1,5 +1,0 @@
-<yoo-modal [scrollEnabled]="true" padding #modal heading="{{'WHATSNEW'|translate}}" (closed)="closeModal()">
-    <div >
-        <app-grid #grid [items]="items" displayType="card-feed" entityType="blog" (select)="onBlogSelect($event)" emptyState="blog"></app-grid>
-    </div>
-</yoo-modal>
