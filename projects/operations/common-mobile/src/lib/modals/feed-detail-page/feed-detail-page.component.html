@@ -1,0 +1,16 @@
+<ion-header no-border [class.statusbar-padding]="isCordova">
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-button *ngIf="!imageOnly" color="light" (click)="closeModal({feed: feed})">
+                <i slot="icon-only" class="{{closeIcon || 'yo-close'}}"></i>
+            </ion-button>
+        </ion-buttons>
+        <!-- <ion-title>{{feed?.title|translate}}</ion-title> -->
+    </ion-toolbar>
+</ion-header>
+<ion-content [forceOverscroll]="false" #content [scrollEnabled]="false" no-bounce>
+    <yoo-feed-detail *ngIf="!imageOnly" class="mobile" [feed]="feed" (commentClicked)="onCommentClicked()" (likeClicked)="onLikeClicked()"
+    (commentCountClicked)="onCommentCountClicked()" (imageClicked)="onImageClicked()"
+    (likeCountClicked)="onLikeCountClicked()"></yoo-feed-detail>
+    <yoo-photo-editor *ngIf="imageOnly"  [readonly]="true" (imageClicked)="onImageClicked()" [src]="imageSrc"></yoo-photo-editor>
+</ion-content>

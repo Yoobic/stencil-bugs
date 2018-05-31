@@ -1,10 +1,72 @@
+@mixin button-color($class, $color, $hover-color: $color, $active-color: $color, $opacity: 1) {
+    :host(.#{$class}) {
+        .container {
+            background: cssvar($color);
+            border: 1px solid cssvar($color);
+            opacity: $opacity;
+            &:hover {
+                background: cssvar($hover-color);
+            }
+            &:active {
+                background: cssvar($active-color);
+            }
+            .value {
+                color: cssvar(light);
+                fill: cssvar(light);
+            }
+        }
+    }
+}
 
-$button-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+@mixin button-gradient-color($gradient, $border) {
+    :host(.#{$gradient}) {
+        .container {
+            border: 0px;
+            background: cssvar($gradient); // opacity: 0.8;
+            // &:hover {
+            //     opacity: 0.9;
+            // }
+            &:active {
+                opacity: 1;
+            }
+            .value {
+                color: cssvar(light);
+                fill: cssvar(light);
+            }
+        }
+    }
+}
+
+@mixin link-transparent-color($color) {
+    :host(.link-transparent-#{$color}) {
+        .container {
+            background: cssvar(transparent);
+            border: none;
+            box-shadow: none;
+            fill: cssvar(dark-40);
+            .value {
+                padding: 0;
+                color: cssvar($color);
+            }
+            .icon {
+                color: cssvar($color);
+            }
+            &:hover {
+                background: cssvar(transparent);
+                box-shadow: none;
+                transform: translateY(0px);
+            }
+            &:active {
+                background: cssvar(transparent);
+            }
+        }
+    }
+}
 
 :host {
     .container {
         font-family: 'Lato';
-        box-shadow: $button-shadow;    
+        box-shadow: $button-shadow;
         padding: 0;
         border: none;
         display: block;
@@ -14,7 +76,7 @@ $button-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         min-width: 160px;
         cursor: pointer;
         transition: all 0.3s;
-        background-color: #ffffff;
+        background-color: cssvar(light);
         white-space: nowrap;
         &.loading {
             display: flex;
@@ -47,16 +109,171 @@ $button-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             padding-left: 0.5rem;
         }
         .value {
-            // padding: 15px 58px;
+            padding: 15px 0;
             font-size: 1.0625rem;
             font-weight: 300;
             font-style: normal;
             line-height: normal;
             letter-spacing: normal;
             text-align: center;
-            color: #adadad;
+            color: cssvar(stable);
         }
     }
 }
 
+:host(.large) {
+    .container {
+        min-width: 230px;
+        min-height: 52px;
+        .value {
+            padding: 15px 92px;
+            font-size: 1.0625rem;
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+}
 
+:host(.medium) {
+    .container {
+        min-width: 90px;
+        min-height: 30px;
+        .value {
+            padding: 8px 35px;
+            font-size: 0.75rem;
+            text-align: center;
+        }
+    }
+}
+
+:host(.small) {
+    .container {
+        min-width: 50px;
+        min-height: 24px;
+        .value {
+            padding: 6px 10px;
+            font-size: 0.6875rem;
+            line-height: 1.11;
+            text-align: center;
+            .icon {
+                font-size: 0.6875rem;
+            }
+        }
+    }
+}
+
+:host(.x-small) {
+    .container {
+        min-width: 35px;
+        min-height: 10px;
+        .value {
+            padding: 5px 10px;
+            font-size: 0.5625rem;
+            line-height: 1.11;
+            text-align: center;
+        }
+    }
+}
+
+:host(.squared) {
+    .container {
+        border-radius: 5px;
+    }
+}
+
+:host(.block) {
+    width: 100%;
+    .container {
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        .value {
+            font-size: 0.8125rem;
+            padding-bottom: 0.375rem;
+        }
+    }
+}
+
+:host(.icon-only) {
+    .container {
+        min-width: 0px;
+        min-height: 0px;
+        width: 36px;
+        height: 36px;
+        .value {
+            padding: 0;
+            .icon {
+                display: block;
+                padding: 0;
+            }
+        }
+    }
+}
+
+:host(.fab) {
+    .container {
+        .value {
+            padding: 0;
+        }
+    }
+}
+
+:host(.clear) {
+    .container {
+        background: cssvar(light);
+        border: 1px solid cssvar(dark-20);
+        .value {
+            color: cssvar(dark);
+        }
+    }
+}
+
+@include button-color(accent, accent, accent-110, accent-120);
+@include button-color(dark, dark-20, dark-20, dark-40);
+@include button-color(dark-fab, dark, dark, dark, 0.6);
+@include button-color(danger, danger, danger-110, danger-120);
+@include button-color(success, success, success-110, success-120);
+@include button-color(info, info, info-110, info-120);
+@include button-color(warning, warning, warning-110, warning-120);
+@include link-transparent-color(accent);
+@include link-transparent-color(dark);
+@include link-transparent-color(danger);
+@include link-transparent-color(success);
+@include link-transparent-color(warning);
+@include link-transparent-color(info);
+:host(.link) {
+    .container {
+        background: cssvar(transparent);
+        border: 1px solid cssvar(transparent);
+        &:hover {
+            background: cssvar(accent-05);
+        }
+        &:active {
+            background: cssvar(accent-10);
+        }
+        .value {
+            color: cssvar(accent);
+            fill: cssvar(accent);
+        }
+    }
+}
+
+:host(.stable) {
+    .container {
+        background: cssvar(stable-10);
+        .value {
+            color: cssvar(text-color);
+            font-weight: normal;
+        }
+    }
+}
+
+@include button-gradient-color(gradient-accent, accent);
+@include button-gradient-color(gradient-info, info);
+@include button-gradient-color(gradient-dark, dark);
+@include button-gradient-color(gradient-danger, danger);
+@include button-gradient-color(gradient-warning, warning);
+@include button-gradient-color(gradient-success, success);

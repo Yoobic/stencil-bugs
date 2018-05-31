@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
 import { setAnimation, animations } from '../../../utils/anim';
-import { setValidator, setAsyncValidator, setValueAndValidateInput } from '../../../utils/helpers/form-input-helpers';
-import { IFormToggle, FormToogleType, Validator, AsyncValidator, ValidatorEntry } from '@shared/interfaces';
+import { setValidator, setValueAndValidateInput } from '../../../utils/helpers/form-input-helpers';
+import { IFormToggle, FormDisplayType, Validator, AsyncValidator, ValidatorEntry } from '@shared/interfaces';
 
 @Component({
     tag: 'yoo-form-toggle',
@@ -14,8 +14,7 @@ export class YooFormToggleComponent implements IFormToggle {
     @Prop() validators: Array<Validator<boolean> | ValidatorEntry> = [];
     @Prop() asyncValidators: Array<AsyncValidator<boolean>>;
     @Prop() readonly: boolean;
-    @Prop() type: FormToogleType = 'normal';
-    @Prop() text: string;
+    @Prop() type: FormDisplayType = 'normal';
 
     @Event() validityChanged: EventEmitter<boolean>;
     @Event() inputBlurred: EventEmitter<any>;
@@ -24,13 +23,8 @@ export class YooFormToggleComponent implements IFormToggle {
 
     @Element() host: HTMLStencilElement;
 
-    // Reduced Validators
-    _validator: Validator<string> = (x: string) => true;
-    _asyncValidator: AsyncValidator<string> = async (x: string) => true;
-
     componentWillLoad() {
-        setValidator(this.validators);
-        setAsyncValidator(this.asyncValidators);
+        setValidator(this);
         if (this.type === 'line') {
             this.host.classList.add('line');
         }
@@ -55,9 +49,6 @@ export class YooFormToggleComponent implements IFormToggle {
     renderEditable(): JSX.Element {
         return (
             <div class="outer-container" attr-layout="row">
-                <div class="text-container">
-                    <span>{this.text}</span>
-                </div>
                 <div class={'toggle-container' + (this.value ? ' active' : '')} attr-layout="row" onClick={() => this.onToggle()}>
                     <div class={'inner-container' + (this.value ? ' active' : '')}></div>
                 </div>

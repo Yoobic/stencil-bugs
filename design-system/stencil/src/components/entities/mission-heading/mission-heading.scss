@@ -1,0 +1,19 @@
+:host {
+  .mission-title {
+    font-weight: 600;
+    font-size: 1.6875rem;
+    line-height: 2.0625rem;
+    margin-top: 0.3125rem;
+    margin-bottom: 0.3125rem;
+  }
+
+  .mission-date {
+    line-height: 1.125rem;
+    font-weight: 400;
+    color: $text-color;
+  }
+
+  .mission-progress {
+    margin-top: 0.3125rem;
+  }
+}

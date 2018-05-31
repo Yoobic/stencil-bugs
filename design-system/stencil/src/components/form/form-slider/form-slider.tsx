@@ -12,8 +12,9 @@ export class YooFormSliderComponent {
 
     @Prop() initialValue: number;
     @Prop() initialLowValue: number;
-    @Prop() minimum: number;
-    @Prop() maximum: number;
+    @Prop({mutable: true}) minimum: number;
+    @Prop({mutable: true}) maximum: number;
+    @Prop() step: number = 1;
     @Prop() disabled: boolean = false;
     @Prop() hideLabel: boolean = false;
     @Prop() hideReferences: boolean = false;
@@ -135,7 +136,8 @@ export class YooFormSliderComponent {
                         </label>
                         : null}
                     <div class="slider-container" attr-layout="column">
-                        <div class={'label-value' + ((this.hideLabel) ? ' label-hidden' : '')} >
+                        {this.hideLabel ? null :
+                        <div class={'label-value'} >
                             {this.disabled ?
                                 <input type="number" value={this.value}
                                     onChange={(event) => this.onChange(event)} disabled>
@@ -156,17 +158,18 @@ export class YooFormSliderComponent {
                                     </input>)
                             }
                         </div>
+                        }
                         <div class="range-container" attr-layout="row">
                             {this.disabled ?
-                                <input class="swiper-no-swiping" type="range" min={this.minimum} max={this.maximum} value={this.value}
+                                <input class="swiper-no-swiping" type="range" min={this.minimum} max={this.maximum} step={this.step} value={this.value}
                                     onInput={(event) => this.onChange(event)} disabled>
                                 </input>
                                 :
-                                [<input class="swiper-no-swiping" type="range" min={this.minimum} max={this.maximum} value={this.value}
+                                [<input class="swiper-no-swiping" type="range" min={this.minimum} max={this.maximum} step={this.step} value={this.value}
                                     onInput={(event) => this.onChange(event)}>
                                 </input>,
                                 (this.doubleSlider ?
-                                    <input class="second-slider swiper-no-swiping" type="range" min={this.minimum} max={this.maximum} value={this.secondValue}
+                                    <input class="second-slider swiper-no-swiping" type="range" min={this.minimum} max={this.maximum} step={this.step} value={this.secondValue}
                                         onInput={(event) => this.onChangeSecond(event)}>
                                     </input>
                                     : null)]

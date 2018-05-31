@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shared: data-core: interfaces: operation should create an entity 1`] = `
+IModel {
+  "_formFields": Array [
+    Object {
+      "filterName": "_createdAt",
+      "name": "_createdAt",
+      "readonly": true,
+      "title": "_CREATEDAT",
+      "type": "datetime-local",
+    },
+    Object {
+      "filterName": "count",
+      "name": "count",
+      "readonly": true,
+      "title": "COUNT",
+      "type": "number",
+    },
+  ],
+  "appareance": Map {},
+  "className": "Operation",
+  "collectionName": "operation",
+  "feathersService": undefined,
+  "fields": Array [
+    "*",
+  ],
+  "include": Array [],
+  "isCustom": undefined,
+  "mappingFields": Map {},
+  "searchSubquery": undefined,
+  "searchableFields": Array [
+    "operationId",
+    "operationName",
+    "methodName",
+    "modelName",
+    "_createdAt",
+    "count",
+  ],
+  "type": [Function],
+}
+`;

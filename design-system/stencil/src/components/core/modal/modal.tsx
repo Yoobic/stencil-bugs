@@ -30,10 +30,6 @@ export class YooModalComponent {
 
     @Element() host: HTMLStencilElement;
 
-    componentWillLoad() {
-
-    }
-
     componentDidLoad() {
         this.setContentInModal();
         this.animation(true);

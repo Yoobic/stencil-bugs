@@ -1,0 +1,3 @@
+<yoo-modal [scrollEnabled]=true heading="{{'PROFILE'|translate}}" (closed)="closeModal()">
+    <app-profile *ngIf="config"  [config]="config" (loggedOut)="onLoggedOut()"></app-profile>
+</yoo-modal>

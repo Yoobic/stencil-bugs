@@ -1,8 +1,9 @@
 import { Component, Element, Prop, State, Event, EventEmitter, Method } from '@stencil/core';
-import { IFormField, ISlide, ITranslateService, FormFieldType, ICoreConfig, IFormSearch } from '@shared/interfaces';
+import { IFormField, ISlide, FormFieldType, IFormSearch } from '@shared/interfaces';
 import { hasValue, isVisible, isReadonly, setFieldData, updateFormulas, getFieldValue } from '../../../utils/helpers/form-helpers';
 import { showModal } from '../../../utils/helpers/helpers';
 //import { YooFormDynamicModalComponent } from './form-dynamic-dialog';
+import { services } from '../../../services';
 
 const TABBAR_HEIGHT = 52;
 const KEYBOARD_TOP_PADDING = 100;
@@ -20,6 +21,7 @@ export class YooFormDynamicComponent {
     @Prop() showRecap: boolean;
     @Prop() suffix: string;
     @Prop() forceReadonly: boolean;
+    @Prop() showSave: boolean;
 
     @Element() host: HTMLStencilElement;
 
@@ -31,16 +33,15 @@ export class YooFormDynamicComponent {
     @State() validity: boolean = false;
 
     @Event() dataChanged: EventEmitter<any>;
+    @Event() save: EventEmitter<any>;
     @Event() fieldFetchData: EventEmitter<IFormSearch>;
 
     protected slidesOptions;
-    protected coreConfig: ICoreConfig = (window as any).coreConfigService;
 
     private ionSlides: HTMLIonSlidesElement;
     private currentScrollPositions: number[];
     private fullWindowHeight: number;
     private inputBottomYPosition: number;
-    private translate: ITranslateService = (window as any).translateService;
 
     constructor() {
         this.slidesOptions = {
@@ -69,7 +70,7 @@ export class YooFormDynamicComponent {
         this.ionSlides = this.host.querySelector('ion-slides');
         let slideLength = this.slides ? this.slides.length + 1 : 0;
         this.currentScrollPositions = new Array(slideLength).fill(0);
-        if (this.coreConfig.isIonic()) {
+        if (services.coreConfig.isIonic()) {
             this.fullWindowHeight = window.innerHeight;
             window.addEventListener('resize', () => this.onKeyboardChange());
         }
@@ -94,26 +95,45 @@ export class YooFormDynamicComponent {
         return this.slidesState[slideIndex] || {};
     }
 
-    onInputChanged(event: CustomEvent, field: IFormField) {
+    onFieldChanged(event: CustomEvent, field: IFormField) {
         setFieldData(field, event.detail, this.currentData, this.suffix);
+        if (field.allowTime) {
+            setFieldData(field, new Date(), this.currentData, '.time');
+        }
         this.updateState();
         this.dataChanged.emit(this.currentData);
     }
 
-    onInputValidityChanged(event: CustomEvent, field: IFormField, slideIndex: number) {
+    onFieldCommented(event: CustomEvent, field: IFormField) {
+        setFieldData(field, event.detail, this.currentData, '.comments');
+        let el = this.host.querySelector('[attr-name=f-' + field.name + ']');
+        if (el) {
+            let container = el.closest('yoo-form-input-container') as HTMLYooFormInputContainerElement;
+            container.comments = event.detail;
+        }
+        this.dataChanged.emit(this.currentData);
+    }
+
+    onFieldValidityChanged(event: CustomEvent, field: IFormField, slideIndex: number) {
         this.fieldsState = this.fieldsState || {};
         this.fieldsState[field.name] = this.fieldsState[field.name] || {};
         this.fieldsState[field.name].validity = event.detail;
         this.fieldsState = { ...this.fieldsState };
+        this.updateState();
     }
 
-    onInputFocused(inputIndex: number) {
-        if (this.coreConfig.isCordova()) {
+    onFieldFocused(inputIndex: number) {
+        if (services.coreConfig.isCordova()) {
             let currentSlide = this.host.querySelectorAll('ion-slide')[this.activeIndex];
             let inputDimensions = currentSlide.querySelectorAll('yoo-form-input-container')[inputIndex].getBoundingClientRect();
             this.inputBottomYPosition = inputDimensions.top + inputDimensions.height;
             this.onKeyboardChange();
         }
+    }
+
+    onSave(ev: MouseEvent) {
+        ev.stopPropagation();
+        this.save.emit(this.currentData);
     }
 
     onIonSlideDidChange(ev: CustomEvent) {
@@ -130,11 +150,13 @@ export class YooFormDynamicComponent {
 
     @Method()
     forceFieldUpdate(field: IFormField) {
-        let el = this.host.querySelector('[attr-name=' + field.name + ']') as any;
+        let el = this.host.querySelector('[attr-name=f-' + field.name + ']') as any;
         if (el) {
             switch (field.type) {
                 case FormFieldType.autocomplete:
-                    (el as HTMLYooFormAutocompleteElement).values = field.values;
+                    let auto = (el as HTMLYooFormAutocompleteElement);
+                    auto.values = field.values;
+                    auto.updateDialogValues(field.values);
                     break;
             }
         }
@@ -143,6 +165,13 @@ export class YooFormDynamicComponent {
     @Method()
     isValid() {
         return this.validity;
+    }
+
+    @Method()
+    scrollToPoint(scrollDistance: number) {
+        let currentSlide = this.host.querySelectorAll('ion-slide')[this.activeIndex];
+        let ionScroll = currentSlide.querySelector('ion-scroll') as HTMLIonScrollElement;
+        ionScroll.scrollToPoint(0, (this.currentScrollPositions[this.activeIndex] + scrollDistance), 0);
     }
 
     blurInput() {
@@ -206,7 +235,7 @@ export class YooFormDynamicComponent {
                 retVal.advanced = false;
                 return retVal;
             });
-            let slides = [{ items: fields, title: this.translate.get('ADVANCED') }];
+            let slides = [{ items: fields, title: services.translate.get('ADVANCED') }];
             let form = document.createElement('yoo-form-dynamic-dialog');
             form.slides = slides;
             form.showTabs = false;
@@ -231,10 +260,10 @@ export class YooFormDynamicComponent {
         let total = 0;
         let filed = 0;
         updateFormulas(this.slides, this.currentData, this.suffix);
-        this.slides.forEach((slide, i) => {
+        (this.slides || []).forEach((slide, i) => {
             let isValid = true;
             let slideHasValue = false;
-            slide.items.forEach(field => {
+            (slide.items || []).forEach(field => {
                 if (!field.advanced) {
                     if (field.readonly || field.type === FormFieldType.information) {
                     } else {
@@ -278,9 +307,7 @@ export class YooFormDynamicComponent {
         if (windowHeightWithKeyboard < this.fullWindowHeight) {
             let maximumYPosition = windowHeightWithKeyboard - TABBAR_HEIGHT - KEYBOARD_TOP_PADDING;
             let scrollDistance = this.inputBottomYPosition > maximumYPosition ? (this.inputBottomYPosition - maximumYPosition) : 0;
-            let currentSlide = this.host.querySelectorAll('ion-slide')[this.activeIndex];
-            let ionScroll = currentSlide.querySelector('ion-scroll') as HTMLIonScrollElement;
-            ionScroll.scrollToPoint(0, (this.currentScrollPositions[this.activeIndex] + scrollDistance), 0);
+            this.scrollToPoint(scrollDistance);
         }
     }
 
@@ -307,7 +334,7 @@ export class YooFormDynamicComponent {
                     </div>
                 </ion-scroll>
                 <div class="footer" attr-layout="row" attr-layout-align="center center">
-                    <yoo-button onClick={() => this.onSlideNext()} text={this.translate.get('START')} class="large gradient-success"></yoo-button>
+                    <yoo-button onClick={() => this.onSlideNext()} text={services.translate.get('START')} class="large gradient-success"></yoo-button>
                 </div>
             </ion-slide> : null;
     }
@@ -315,7 +342,7 @@ export class YooFormDynamicComponent {
     renderSlideHeader(slide: ISlide, slideIndex: number) {
         return this.showTabs ? <div attr-layout="row" class={'header ' + (this.getSlideState(slideIndex).validity ? 'success' : '')}>
             {this.activeIndex > 0 ? <i class="yo-left" onClick={() => this.onSlidePrevious()}></i> : null}
-            <div class="title" attr-flex>{this.translate.polyglot(slide.title)}</div>
+            <div class="title" attr-flex>{services.translate.polyglot(slide.title)}</div>
             {this.activeIndex < (this.slides.length - 1 + (this.showRecap ? 1 : 0)) ? <i class="yo-right" onClick={() => this.onSlideNext()}></i> : null}
         </div> : null;
     }
@@ -341,22 +368,33 @@ export class YooFormDynamicComponent {
                                     {slideIndex === 0 ? <slot></slot> : null}
                                     {
                                         slide.items.map((field, inputIndex) => {
+                                            let readonly = this.getFieldState(field).readonly || this.forceReadonly;
+                                            let comments = getFieldValue(field, this.currentData, '.comments');
                                             return this.getFieldState(field).visible !== false && !field.advanced ?
                                                 <yoo-form-input-container
-                                                    label={(field.required ? '* ' : '') + this.translate.polyglot(field.title || field.name.toUpperCase())}
-                                                    description={this.translate.polyglot(field.description)}>
-                                                    {this.renderInput(field, slideIndex, inputIndex)}
+                                                    class={'animated slideInLeft delay-' + inputIndex}
+                                                    field={field}
+                                                    readonly={readonly}
+                                                    comments={comments}
+                                                    onCommented={ev => this.onFieldCommented(ev, field)}
+                                                >
+                                                    {this.renderInput(field, slideIndex, inputIndex, readonly)}
                                                 </yoo-form-input-container> : null;
                                         })
                                     }
                                     {this.slideHasAdvancedFields(slide) ? <div class="toolbar-spacer"></div> : null}
+                                    {slideIndex === this.slides.length - 1 && this.isValid() ? <div class="footer-spacer"></div> : null}
                                 </ion-scroll>
-                                {
-                                    this.slideHasAdvancedFields(slide) ?
-                                        <div class="toolbar">
-                                            <i class="yo-settings" onClick={(ev) => this.onShowAdvancedFields(slide)}></i>
-                                        </div> : null
-                                }
+                                {this.slideHasAdvancedFields(slide) ?
+                                    <div class="toolbar">
+                                        <i class="yo-settings" onClick={(ev) => this.onShowAdvancedFields(slide)}></i>
+                                    </div>
+                                    : null}
+                                {this.showSave && (slideIndex === this.slides.length - 1) && this.isValid() ?
+                                    <div class="footer animated slideInUp" attr-layout="row" attr-layout-align="center center">
+                                        <yoo-button onClick={(ev) => this.onSave(ev)} text={services.translate.get('SAVE')} class="large gradient-success"></yoo-button>
+                                    </div>
+                                    : null}
                             </div>
                         </ion-slide>
                     )}
@@ -366,125 +404,136 @@ export class YooFormDynamicComponent {
         return null;
     }
 
-    renderInput(field: IFormField, slideIndex: number, inputIndex: number) {
+    renderInput(field: IFormField, slideIndex: number, inputIndex: number, readonly: boolean) {
         let validators = field.required ? [{ name: 'required' }] : null;
         let value = getFieldValue(field, this.currentData, this.suffix);
+        let TagType = 'yoo-form-input';
+
+        let attrs = {
+            value: value,
+            readonly: readonly,
+            validators: validators,
+            onInputChanged: (event) => this.onFieldChanged(event, field),
+            onValidityChanged: (event) => this.onFieldValidityChanged(event, field, slideIndex),
+            onInputFocused: () => this.onFieldFocused(inputIndex)
+        };
+
+        let extraAttrs = {};
 
         switch (field.type) {
             case FormFieldType.text:
             case FormFieldType.number:
             case FormFieldType.tel:
             case FormFieldType.password:
-                return <yoo-form-input
-                    attr-name={field.name}
-                    value={value}
-                    readonly={this.getFieldState(field).readonly || this.forceReadonly}
-                    type={this.getInputType(field)}
-                    validators={validators}
-                    onInputChanged={(event) => this.onInputChanged(event, field)}
-                    onValidityChanged={(event) => this.onInputValidityChanged(event, field, slideIndex)}
-                    onInputFocused={() => this.onInputFocused(inputIndex)}></yoo-form-input>;
+                TagType = 'yoo-form-input';
+                extraAttrs = {
+                    min: field.min,
+                    max: field.max,
+                    type: this.getInputType(field)
+                };
+                break;
 
             case FormFieldType.date:
             case FormFieldType.datetime:
             case FormFieldType.time:
-                return <yoo-form-date-time
-                    attr-name={field.name}
-                    value={value}
-                    validators={validators}
-                    type={field.type}
-                    onInputChanged={(event) => this.onInputChanged(event, field)}
-                    onValidityChanged={(event) => this.onInputValidityChanged(event, field, slideIndex)}
-                    onInputFocused={() => this.onInputFocused(inputIndex)}
-                ></yoo-form-date-time>;
+                TagType = 'yoo-form-date-time';
+                extraAttrs = {
+                    minDate: field.minDate,
+                    maxDate: field.maxDate,
+                    type: field.type
+                };
+                break;
 
             case FormFieldType.toggle:
-                return <yoo-form-toggle
-                    attr-name={field.name}
-                    validators={validators}
-                    type={'normal'}
-                    onInputChanged={(event) => this.onInputChanged(event, field)}
-                    onValidityChanged={(event) => this.onInputValidityChanged(event, field, slideIndex)}
-                    ></yoo-form-toggle>;
+                TagType = 'yoo-form-toggle';
+                extraAttrs = {
+                    type: 'line'
+                };
+                break;
+
             case FormFieldType.checkbox:
-                return <yoo-form-checkbox
-                    attr-name={field.name}
-                ></yoo-form-checkbox>;
+                TagType = 'yoo-form-checkbox';
+                extraAttrs = {
+                    type: 'line'
+                };
+                break;
 
             case FormFieldType.range:
-                return <yoo-form-range
-                    attr-name={field.name}
-                    min={field.min}
-                    max={field.max}
-                    value={{ inf: 0, sup: value }}
-                    readonly={this.getFieldState(field).readonly || this.forceReadonly}
-                    double={false}
-                    validators={validators}
-                    onInputChanged={(event) => this.onInputChanged(event, field)}
-                    onValidityChanged={(event) => this.onInputValidityChanged(event, field, slideIndex)}
-                ></yoo-form-range>;
-
+                TagType = 'yoo-form-range';
+                extraAttrs = {
+                    min: field.min,
+                    max: field.max,
+                    type: this.getInputType(field),
+                    double: false
+                };
+                break;
             case FormFieldType.autocomplete:
-                return <yoo-form-autocomplete
-                    attr-name={field.name}
-                    value={value}
-                    readonly={this.getFieldState(field).readonly || this.forceReadonly}
-                    multiple={field.multiple}
-                    useTranslate={field.translate}
-                    validators={validators}
-                    entityType={field.collectionName as any} values={field.values}
-                    onFetchData={(ev) => this.onFetchData(field, ev)}
-                    onInputChanged={(event) => this.onInputChanged(event, field)}
-                    onValidityChanged={(event) => this.onInputValidityChanged(event, field, slideIndex)}
-                ></yoo-form-autocomplete>;
+                TagType = 'yoo-form-autocomplete';
+                extraAttrs = {
+                    multiple: field.multiple,
+                    useTranslate: field.translate,
+                    entityType: field.collectionName as any, values: field.values,
+                    onFetchData: (ev) => this.onFetchData(field, ev)
+                };
+                break;
 
             case FormFieldType.textarea:
-                return <yoo-form-text-area
-                    attr-name={field.name}
-                    value={value}
-                    readonly={this.getFieldState(field).readonly || this.forceReadonly}
-                    validators={validators}
-                    onInputChanged={(event) => this.onInputChanged(event, field)}
-                    onValidityChanged={(event) => this.onInputValidityChanged(event, field, slideIndex)}
-                    onInputFocused={() => this.onInputFocused(inputIndex)}
-                ></yoo-form-text-area>;
+                TagType = 'yoo-form-text-area';
+                break;
 
             case FormFieldType.starrating:
-                return <yoo-form-star-rating class="success"
-                    attr-name={field.name}
-                    value={value}
-                    readonly={this.getFieldState(field).readonly || this.forceReadonly}
-                    validators={validators}
-                    onInputChanged={(event) => this.onInputChanged(event, field)}
-                    onValidityChanged={(event) => this.onInputValidityChanged(event, field, slideIndex)}
-                ></yoo-form-star-rating>;
+                TagType = 'yoo-form-star-rating';
+                extraAttrs = {
+                    class: 'success'
+                };
+                break;
 
             case FormFieldType.signature:
-                return <yoo-form-signature-pad
-                    attr-name={field.name}
-                    value={value}
-                    readonly={this.getFieldState(field).readonly || this.forceReadonly}
-                    validators={validators}
-                    onInputChanged={(event) => this.onInputChanged(event, field)}
-                    onValidityChanged={(event) => this.onInputValidityChanged(event, field, slideIndex)}
-                ></yoo-form-signature-pad>;
+                TagType = 'yoo-form-signature-pad';
+                break;
 
             case FormFieldType.select:
             case FormFieldType.selectbuttons:
             case FormFieldType.selectbuttonsmulti:
             case FormFieldType.selectmulti:
-                return <yoo-form-button-choice
-                    attr-name={field.name}
-                    value={value}
-                    readonly={this.getFieldState(field).readonly || this.forceReadonly}
-                    values={field.values}
-                    validators={validators}
-                    onInputChanged={(event) => this.onInputChanged(event, field)}
-                    onValidityChanged={(event) => this.onInputValidityChanged(event, field, slideIndex)}
-                ></yoo-form-button-choice>;
+                TagType = 'yoo-form-button-choice';
+                extraAttrs = {
+                    values: field.values
+                };
+                break;
+
+            case FormFieldType.photo:
+            case FormFieldType.multiphotos:
+                TagType = 'yoo-form-photo';
+                extraAttrs = {
+                    type: field.type === FormFieldType.video ? 'video' : field.type === FormFieldType.audio ? 'audio' : 'photo',
+                    maxWidth: field.maxWidth,
+                    saveGeoloc: field.saveGeoloc,
+                    multiple: field.type === FormFieldType.multiphotos,
+                    min: field.minPhotos,
+                    max: field.maxPhotos,
+                    duration: field.duration
+                };
+                break;
+
+            case FormFieldType.document:
+            case FormFieldType.image:
+                TagType = 'yoo-form-document';
+                extraAttrs = {
+                    type: field.type === FormFieldType.document ? 'document' : 'image',
+                    document: field.document
+                };
+                break;
+
+            case FormFieldType.formula:
+                TagType = 'yoo-form-formula';
+                break;
+
             default:
-                return <div> FormFieldType.{field.type} is not supported</div>;
+                return <div class="font-small danger" > FormFieldType.{field.type} is not supported</div>;
         }
+
+        return <TagType {...attrs} {...extraAttrs} attr-name={'f-' + field.name} > </TagType>;
     }
 
     renderFooter() {

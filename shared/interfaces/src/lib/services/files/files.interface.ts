@@ -1,0 +1,51 @@
+
+import { IFile } from '../../entities/file/file.interface';
+
+export interface IFilesService {
+    isFile(file): boolean;
+    isBase64(file): boolean;
+    isFileUri(file): boolean;
+    isImageFile(file): boolean;
+    read(nativeFile: IFile | Blob, type: string, encoding?: string): Promise<string>;
+    getExtension(file: IFile | any): string;
+    getMaxSize(extension): number;
+    toPng(value: string): string;
+    isValid(file: IFile): boolean;
+    isImage(file: IFile | any): boolean;
+    isVideo(file: IFile | any): boolean;
+    isAudio(file: IFile | any): boolean;
+    isDocument(file: IFile | any): boolean;
+    getType(file: IFile | any): string;
+    getMimeType(file: IFile | any): string;
+    getIcon(file: IFile): string;
+    getVideoPoster(value: string): string;
+    b64toBlob(b64Data: string, contentType: string, sliceSize: number): Blob;
+    blobToFile(blob): IFile;
+    b64ToFile(data: string, file: IFile): IFile;
+    saveBase64AsImageFile(data: string): Promise<any>;
+    resizeBase64Image(base64: string, maxWidth: number, maxHeight: number): Promise<any>;
+    getBase64MimeType(base64: string): string;
+    getBase64Extension(base64: string): string;
+    resizeImage(file: IFile, maxWidth: Number, maxHeight: Number): Promise<IFile>;
+    getNativeDirectory(subfolder): Promise<any>;
+    resolveFilePath(filePath: string): Promise<any>;
+    fixImageOrientation(path, fileName): Promise<any>;
+    moveToImageDirectory(originalFilePath: string, disableOrientationFix: boolean): Promise<string>;
+    moveToImageDirectoryBase(fileDirPath: string, fileEntry: any, newName: string, originalFilePath: string): Promise<string>;
+    fileNativeWriteFile(path, fileName, text, options): Promise<string>;
+    fileNativeCheckFile(path, fileName): Promise<boolean>;
+    fixAbsolutePath(data: string): Promise<string>;
+    getCloudinaryUrl(retVal: string): string;
+    downloadFile(filename, mediaType, url, options);
+    downloadFileToDevice(source, target);
+    uploadProxy(photoUrl: string);
+    exportToFile(content, type, encoding, filename);
+    getLocalFilePath(): string;
+    getLocalFileName(fileName: string): string;
+    saveToLocalFile(blob, fileName);
+    openBlob(blob, fileName: string, mimeType: string): Promise<any>;
+    afterOpenBlob(filePath, mimeType): Promise<any>;
+    getUrlWithAnnotations(src: string, photo?: any): string;
+    cleanFileName(fileName: string): string;
+    _requestExternalStoragePermission(): Promise<any>;
+}

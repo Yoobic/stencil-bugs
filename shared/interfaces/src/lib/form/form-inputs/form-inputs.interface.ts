@@ -2,16 +2,16 @@
 
 import { ValidatorEntry, Validator, AsyncValidator } from '../../validators/validators.interface';
 import { IGridSearch } from '../../ui/grid/grid.interface';
+import { IFormField } from '../../entities/form-field/form-field.interface';
 
 export interface IEventEmitter<T = any> {
     emit: (data?: T) => void;
 }
 
 export interface IFormInputContainer {
-    label?: string;
-    description?: string;
-    hint?: string;
-    required?: boolean;
+    field?: IFormField;
+    readonly?: boolean;
+    commented: IEventEmitter<string>;
 }
 
 export interface IFormInputBase<T> {
@@ -30,8 +30,8 @@ export interface IFormInputBase<T> {
     host?: HTMLElement;
     borderColor?: string;
 
-    _validator: Validator<string>;
-    _asyncValidator: AsyncValidator<string>;
+    _validator?: Validator<T>;
+    _asyncValidator?: AsyncValidator<T>;
 
     renderReadonly: () => JSX.Element;
     renderEditable: () => JSX.Element;
@@ -44,24 +44,18 @@ export interface IFormDatetime extends IFormInputBase<any> {
 }
 
 export interface IFormCheckbox extends IFormInputBase<boolean> {
-
+    type?: FormDisplayType;
 }
 
 export interface IFormToggle extends IFormInputBase<boolean> {
-    type?: FormToogleType;
-    text?: string;
+    type?: FormDisplayType;
 }
 
-export type FormToogleType = 'line' | 'normal';
+export type FormDisplayType = 'line' | 'normal';
 
-export interface IFormRange extends IFormInputBase<IRangeValue> {
+export interface IFormRange extends IFormInputBase<number | Array<number>> {
     min: number;
     max: number;
-}
-
-export interface IRangeValue {
-    inf: number;
-    sup: number;
 }
 
 export interface IFormStarRating extends IFormInputBase<number> {
@@ -80,4 +74,22 @@ export interface IFormAutocomplete<T> extends IFormInputBase<Array<T>> {
     values?: Array<T>;
     fetchData: IEventEmitter<IGridSearch>;
     useTranslate?: boolean;
+}
+
+export interface IFormPhoto extends IFormInputBase<Array<string> | string> {
+    type: string;
+    multiple: boolean;
+    min: number;
+    max: number;
+    maxWidth: number;
+    duration: number;
+    saveGeoloc: boolean;
+}
+
+export interface IFormDocument {
+    document: any;
+    type: any;
+}
+export interface IFormFormula extends IFormInputBase<number> {
+
 }

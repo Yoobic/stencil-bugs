@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shared: data-core: interfaces: notification should create an entity 1`] = `
+Object {
+  "_formFields": Array [
+    Object {
+      "filterName": "mode",
+      "name": "mode",
+      "required": true,
+      "title": "MODE",
+      "translate": true,
+      "type": "autocomplete",
+      "values": Array [
+        "email",
+        "notification",
+        "allnotification",
+      ],
+    },
+    Object {
+      "filterName": "title",
+      "name": "title",
+      "required": true,
+      "title": "TITLE",
+      "type": "text",
+    },
+    Object {
+      "filterName": "body",
+      "name": "body",
+      "required": true,
+      "title": "BODY",
+      "type": "textarea",
+    },
+    Object {
+      "condition": "mode!=\\"sms\\"",
+      "filterName": "scheduledDate",
+      "minDate": "2000-01-01T00:00:00.000Z",
+      "name": "scheduledDate",
+      "title": "SCHEDULEDDATE",
+      "type": "datetime-local",
+    },
+  ],
+  "appareance": Map {},
+  "className": "Notification",
+  "collectionName": "notifications",
+  "feathersService": undefined,
+  "fields": Array [
+    "*",
+    "sender._id",
+    "sender.firstName",
+    "sender.lastName",
+    "sender.username",
+    "sender.imageData",
+  ],
+  "include": Array [
+    "sender",
+  ],
+  "isCustom": undefined,
+  "mappingFields": Map {},
+  "searchSubquery": undefined,
+  "searchableFields": Array [
+    "title",
+  ],
+  "type": [Function],
+}
+`;

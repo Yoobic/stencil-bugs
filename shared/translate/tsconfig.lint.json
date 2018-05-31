@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/spec",
+    "module": "esnext",
+    "types": []
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
+}

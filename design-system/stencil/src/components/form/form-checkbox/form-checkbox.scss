@@ -1,106 +1,19 @@
 
-@mixin checkbox-color($class, $color) {
-    :host(.#{$class}) {
-        .container {
-            .icon-container {
-                 &.enabled {
-                    background-color: cssvar($color);
-                    border-color: cssvar($color);
-                }
-            }
-        }
-    }
-}
-
 :host {
     .container {
-        display: inline-flex;
-        align-items: center;
-        .icon-container {
-            transition: all 0.3s;
-            border-radius: 5px;
-            min-width: 1.25rem;
-            height: 1.25rem;
-            border: 0.1rem solid;
-            justify-content: center;
-            align-items: center;
-            &.enabled {
-                background-color: cssvar(dark-40);
-                border-color: cssvar(dark-40);
-                    &:hover{
-                        cursor: pointer;
-                        }
-                }
-            &.disabled {
-                background-color: cssvar(dark-20);
-                border-color: cssvar(dark-20);
-            }
-            &.empty {
-                background-color: cssvar(light);
-                &.enabled {
-                    background-color: cssvar(light);
-                    &:hover{
-                        cursor: pointer;
-                        }
-                }
-                &.disabled {
-                    background-color: cssvar(dark-20);
-                    border-color: cssvar(dark-20);
-                }
-            }
-                .icon {
-                    color: cssvar(light);
-                    transition: all 0.3s;
-                    font-size: 0.875rem;
-                    padding-top: 0.125rem;
-                    &.disabled {
-                        color: cssvar(dark-80);
-                    }
-                    &.empty {
-                        opacity: 0;
-                    }
-                }
-        }    
-        .text-container {
-            padding-left: 0.5rem;
-            display: flex;
-            justify-content: flex-start;
-            color: cssvar(dark);
-            &.disabled {
-                color: cssvar(dark-20);
-            }
-            &.enabled {
-                 &:hover{
-                cursor: pointer;
-            }
-            }   
+        height: 1.25rem;
+        font-size: 1.25rem;
+        i.yo-circle {
+            color: cssvar(stable-30);
+        }
+        .yo-circle:hover {
+            color: cssvar(success);
+        }
+        .yo-circle.undefined {
+            color: cssvar(stable-30);
+        }
+        i.yo-check-solid {
+            color: cssvar(success);
         }
     }
 }
-
-:host(.round) {
-    .container {
-        .icon-container {
-            border-radius: 50%;
-        }
-    }
-}
-
-:host(.large) {
-    .container {
-        .icon-container {
-            width: 2rem;
-            height: 2rem;
-            .icon {
-                font-size: 1rem;
-                padding-top: 0rem;
-            }
-        }
-    }
-}
-
-@include checkbox-color(accent, accent);
-@include checkbox-color(danger, danger);
-@include checkbox-color(success, success);
-@include checkbox-color(info, info);
-@include checkbox-color(warning, warning);

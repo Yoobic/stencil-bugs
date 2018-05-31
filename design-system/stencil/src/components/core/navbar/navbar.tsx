@@ -1,6 +1,7 @@
 import { Component, Prop, State, Event, EventEmitter, Element } from '@stencil/core';
-import { INavBarTab, ITranslateService } from '@shared/interfaces';
+import { INavBarTab } from '@shared/interfaces';
 import { getElementDimensions } from '../../../utils/helpers';
+import { services } from '../../../services';
 
 @Component({
     tag: 'yoo-navbar',
@@ -27,7 +28,6 @@ export class YooNavbarComponent {
 
     totalElementWidthArray = [];
 
-    private translate: ITranslateService = (window as any).translateService;
     private elementWidthArray = [];
     private activeTitleInDropDown: boolean;
     private selectedTabIndex: number;
@@ -135,7 +135,7 @@ export class YooNavbarComponent {
                     <yoo-context-menu>
                         {this.activeDropdownTitle()}
                         <div class={'inner-container' + (this.activeTitleInDropDown ? ' active' : '')} slot="trigger" attr-layout="row" id="dropdown">
-                            {this.activeTitleInDropDown ? this.selectedTab.title : (this.translate ? this.translate.get('PREVIOUS') : 'Previous' )} <span class="icon"><i class="yo-arrow-dropdown"></i></span>
+                            {this.activeTitleInDropDown ? this.selectedTab.title : services.translate.get('PREVIOUS')} <span class="icon"><i class="yo-arrow-dropdown"></i></span>
                         </div>
                         {this.tabs.slice(this.numberOfVisibileItemsState, this.tabs.length).map((tab, i) =>
                             <div class={'dropdown' + (this.selectedTab === tab ? ' active' : '') + ' tab' + i} onClick={() => this.onSelectTab(tab, i)}>{tab.title}</div>
@@ -143,7 +143,7 @@ export class YooNavbarComponent {
                     </yoo-context-menu>
                 ]
                     : null}
-                {this.actionBtnText ? <yoo-button class={'medium ' + this.host.className} text={this.actionBtnText} onButtonClicked={() => this.actionBtnClicked()}></yoo-button> : ''}
+                {this.actionBtnText ? <yoo-button class={'medium ' + this.host.className} text={this.actionBtnText} onClick={() => this.actionBtnClicked()}></yoo-button> : ''}
             </div>,
             this.withLine ? <div attr-layout="row" class="nav-line"></div> : ''
         ]);

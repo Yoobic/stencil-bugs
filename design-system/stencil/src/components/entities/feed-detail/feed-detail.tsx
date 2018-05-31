@@ -1,7 +1,8 @@
 import { Component, Element, Prop, State, Event, EventEmitter } from '@stencil/core';
-import { IFeed, ITranslateService, ICoreConfig } from '@shared/interfaces';
-import { getBackImageStyle, cloudinary, getUserDisplayName, getElementDimensions } from '../../../utils/helpers'; //intersectionObserve
+import { IFeed } from '@shared/interfaces';
+import { getBackImageStyle, cloudinary, getUserDisplayName, getElementDimensions, showModal } from '../../../utils/helpers'; //intersectionObserve
 import { pipes } from '../../../utils/pipes';
+import { services } from '../../../services';
 import { QueueController } from '@ionic/core';
 
 @Component({
@@ -10,7 +11,7 @@ import { QueueController } from '@ionic/core';
     scoped: true
 })
 export class YooFeedDetailComponent {
-    MAX_LINE_HEIGHT = 100;
+    MAX_LINE_HEIGHT = 20;
 
     @Prop() feed: IFeed;
 
@@ -30,12 +31,7 @@ export class YooFeedDetailComponent {
     @State() hasMoreBtn: boolean = false;
     @State() textVisible: boolean = false;
 
-    private translate: ITranslateService = (window as any).translateService;
-    private coreConfig: ICoreConfig = (window as any).coreConfigService;
-    private isMobile: boolean;
-
     componentWillLoad() {
-        this.coreConfig ? this.isMobile = this.coreConfig.isIonic() : this.isMobile = false;
         this.isTextOverflowing();
     }
 
@@ -47,10 +43,17 @@ export class YooFeedDetailComponent {
         this.imageWidth = dim ? dim.width : this.imageWidth;
     }
 
-    renderInteraction(icon: string, count: string, click: () => void = () => {}, cssClass: string = ''): JSX.Element {
+    onDocumentClick() {
+        let modal = document.createElement('yoo-form-document-dialog');
+        modal.document = this.feed.document;
+        modal.readonly = true;
+        showModal(modal).then(ret => {});
+    }
+
+    renderInteraction(icon: string, count: string, click: () => void = () => { }, cssClass: string = ''): JSX.Element {
         return (
             <div class={'interaction ' + (cssClass ? cssClass : '')} onClick={() => click()}>
-                {icon ? <i class={icon}/> : null} <span class="interaction-counter">{count}</span>
+                {icon ? <i class={icon} /> : null} <span class="interaction-counter">{count}</span>
             </div>
         );
     }
@@ -96,25 +99,25 @@ export class YooFeedDetailComponent {
 
     renderHeader(): JSX.Element {
         return (<div class="feed-header" attr-layout="row">
-                    <yoo-avatar class="small" user={this.feed ? this.feed.user : null}></yoo-avatar>
-                    <div class="feed-heading" attr-layout="column">
-                        {this.feed && this.feed.user ? <span>{getUserDisplayName(this.feed.user)}</span> : null}
-                        <div>
-                            {this.feed && this.feed.date  ?
-                                <span class="feed-date">{pipes.timeAgo.transform(this.feed._ect)}.</span>
-                                : null}
-                            {this.feed && this.feed.group && this.feed.group.length ?
-                                <span class="feed-subheading"> {'Shared in'}
-                                    {typeof this.feed.group === 'string' ?
-                                        [<span> </span>, <span class="feed-group" onClick={() => this.groupClicked.emit(this.feed.group)}>{this.feed.group}</span>]
-                                    : this.feed.group.length ?
-                                        (this.feed.group as string[]).slice(0, 1).map(g => [<span> </span>, <span class="feed-group" onClick={() => this.groupClicked.emit(g)}>{g}</span>])
-                                    : null }
-                                </span>
-                                : null}
-                        </div>
-                    </div>
+            <yoo-avatar class="small" user={this.feed ? this.feed.user : null}></yoo-avatar>
+            <div class="feed-heading" attr-layout="column">
+                {this.feed && this.feed.user ? <span>{getUserDisplayName(this.feed.user)}</span> : null}
+                <div>
+                    {this.feed && this.feed.date ?
+                        <span class="feed-date">{pipes.timeAgo.transform(this.feed._ect)}.</span>
+                        : null}
+                    {this.feed && this.feed.group && this.feed.group.length ?
+                        <span class="feed-subheading"> {'Shared in'}
+                            {typeof this.feed.group === 'string' ?
+                                [<span> </span>, <span class="feed-group" onClick={() => this.groupClicked.emit(this.feed.group)}>{this.feed.group}</span>]
+                                : this.feed.group.length ?
+                                    (this.feed.group as string[]).slice(0, 1).map(g => [<span> </span>, <span class="feed-group" onClick={() => this.groupClicked.emit(g)}>{g}</span>])
+                                    : null}
+                        </span>
+                        : null}
                 </div>
+            </div>
+        </div>
         );
     }
 
@@ -122,9 +125,9 @@ export class YooFeedDetailComponent {
         return (
             <div class="feed-text" attr-layout="column">
                 {this.feed && this.feed.description ? <div class="feed-description">
-                        <div class="description-content" innerHTML={this.translate.polyglot(this.feed.description)}></div>
-                        {this.hasMoreBtn && this.isMobile ? <span class="more" onClick={(ev) => this.toggleText(ev)}>{!this.textVisible ? '...' : ''}</span> : ''}
-                    </div> : null}
+                    <div class="description-content" innerHTML={services.translate.polyglot(this.feed.description)}></div>
+                    {this.hasMoreBtn && services.coreConfig.isIonic() ? <span class="more" onClick={(ev) => this.toggleText(ev)}>{!this.textVisible ? '...' : ''}</span> : ''}
+                </div> : null}
                 {this.feed && this.feed.tags ?
                     <div class="feed-hashtags">
                         {this.feed && this.feed.tags.map(a => <span class="hashtag" innerHTML={`#${a.toLowerCase()} `}></span>)}
@@ -140,7 +143,7 @@ export class YooFeedDetailComponent {
                 <div class="feed-image">
                     {this.feed && this.feed.image && this.feed.image._downloadURL ?
                         <div class="image" onClick={() => this.imageClicked.emit(true)} style={getBackImageStyle(cloudinary(this.feed.image._downloadURL, this.imageWidth, this.imageHeight))} />
-                    : null }
+                        : null}
                 </div>
                 <div class="feed-image-actions">
                     {/* TO IMPLEMENT */}
@@ -148,15 +151,20 @@ export class YooFeedDetailComponent {
                 <div class="feed-interactions" attr-layout="row">
                     {/* CHANGE ICONS */}
                     {this.feed ?
-                    [this.feed.disableLikes ? null :  this.renderInteraction(this.feed.isLikedByMe ? 'yo-heart-solid liked' : 'yo-heart', '', () => this.likeClicked.emit(true)),
-                    this.feed.disableComments ? null : this.renderInteraction('yo-comment', '', () => this.commentClicked.emit(true)),
-                    this.feed.disableLikes ? null : this.renderInteraction(null, this.feed.likesCount + ' ' + this.translate.get('LIKES'), () => this.likeCountClicked.emit(true)),
-                    this.feed.disableComments ? null : this.renderInteraction(null, this.feed.comments ? this.translate.get('VIEWALLCOMMENTS', { count: this.feed.comments.length }) : this.translate.get('FIRSTCOMMENT'), () => this.commentCountClicked.emit(true), 'stable')//,
-                    //this.renderInteraction('yo-eye', this.feed.viewsCount ? this.feed.viewsCount : 0)
-                    ] : null }
+                        [this.feed.disableLikes ? null : this.renderInteraction(this.feed.isLikedByMe ? 'yo-heart-solid liked' : 'yo-heart', '', () => this.likeClicked.emit(true)),
+                        this.feed.disableComments ? null : this.renderInteraction('yo-comment', '', () => this.commentClicked.emit(true)),
+                        this.feed.disableLikes ? null : this.renderInteraction(null, this.feed.likesCount + ' ' + services.translate.get('LIKES'), () => this.likeCountClicked.emit(true)),
+                        this.feed.disableComments ? null : this.renderInteraction(null, this.feed.comments ? services.translate.get('VIEWALLCOMMENTS', { count: this.feed.comments.length }) : services.translate.get('FIRSTCOMMENT'), () => this.commentCountClicked.emit(true), 'stable')//,
+                            //this.renderInteraction('yo-eye', this.feed.viewsCount ? this.feed.viewsCount : 0)
+                        ] : null}
                 </div>
                 {this.renderText()}
-                <div class={'overlay ' + (!this.isMobile || (this.isMobile && !this.textVisible) ? 'overlay-hidden' : '')} onClick={(ev) => {this.toggleText(ev); }}>
+                {this.feed && this.feed.document ?
+                    <div class="feed-file">
+                        <yoo-form-document class="dark" document={this.feed.document} readonly={true} onClick={() => this.onDocumentClick()}></yoo-form-document>
+                    </div>
+                : null}
+                <div class={'overlay ' + (!services.coreConfig.isIonic() || (services.coreConfig.isIonic() && !this.textVisible) ? 'overlay-hidden' : '')} onClick={(ev) => { this.toggleText(ev); }}>
                     <div class="scroll-content">
                         <yoo-slim-scroll>
                             <div>

@@ -147,6 +147,7 @@ export interface IFormField {
     pageSize?: number;
 
     shareToFeed?: boolean;
+    duration?: number;
 }
 
 export class FormFieldType {

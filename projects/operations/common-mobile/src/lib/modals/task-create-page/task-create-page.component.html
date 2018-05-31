@@ -1,0 +1,13 @@
+<ion-header no-border [class.statusbar-padding]="isCordova">
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="closeModal()">
+                <i slot="icon-only" class="yo-close"></i>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{'TASK'|translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [forceOverscroll]="false" #content>
+    <yoo-task-create></yoo-task-create>
+</ion-content>

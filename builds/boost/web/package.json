@@ -1,0 +1,43 @@
+{
+  "name": "boost-web",
+  "version": "6.0.15",
+  "license": "MIT",
+  "scripts": {
+    "pack:dev": "electron-builder --dir",
+    "pack:prod": "electron-builder --win --mac",
+    "pack:publish": "electron-builder --win --mac -p always"
+  },
+  "private": true,
+  "build": {
+    "appId": "com.ipelia.yooaskdashboard",
+    "productName": "BoostDashboard",
+    "directories": {
+      "buildResources": "dist/",
+      "output": "electron",
+      "app": "dist"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Yoobic",
+        "repo": "Boost-Electron"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "dist/assets/logo/boost_mac"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "dist/assets/logo/boost_win"
+    }
+  }
+}

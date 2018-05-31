@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shared: data-core: interfaces: Group should create an entity 1`] = `
+IModel {
+  "_formFields": Array [
+    Object {
+      "exportOrder": 1,
+      "filterName": "_id",
+      "forceExport": true,
+      "name": "_id",
+      "readonly": "getAttributeValue(\\"_ect\\")",
+      "required": true,
+      "title": "ID",
+      "type": "text",
+    },
+    Object {
+      "filterName": "title",
+      "name": "title",
+      "required": false,
+      "title": "TITLE",
+      "type": "text",
+    },
+    Object {
+      "filterName": "description",
+      "name": "description",
+      "required": false,
+      "title": "DESCRIPTION",
+      "type": "textarea",
+    },
+    Object {
+      "clearable": true,
+      "collectionName": "files",
+      "columnDefinition": Object {
+        "name": "_downloadURL",
+      },
+      "crop": "circle",
+      "filterName": "iconRef",
+      "filterable": false,
+      "filters": Array [
+        Array [
+          Object {
+            "field": "mimeType",
+            "operator": Object {
+              "_id": "inq",
+            },
+            "value": Array [
+              "image/png",
+              "image/jpg",
+              "image/jpeg",
+              "image/gif",
+              "image/bmp",
+            ],
+          },
+          Object {
+            "field": "tags",
+            "operator": Object {
+              "_id": "inq",
+            },
+            "value": Array [
+              "group",
+            ],
+          },
+        ],
+      ],
+      "fixedPosition": true,
+      "forceModal": true,
+      "hiddenFields": Array [
+        "mimeType",
+      ],
+      "maxHeight": 160,
+      "maxWidth": 160,
+      "mode": "tile",
+      "name": "icon",
+      "pageSize": 20,
+      "sortable": false,
+      "title": "ICON",
+      "type": "autocomplete",
+    },
+    Object {
+      "collectionName": "tenants",
+      "columnDefinition": Object {
+        "name": "name",
+      },
+      "condition": Array [
+        Object {
+          "group": Array [
+            "admin",
+          ],
+          "operator": "in",
+          "type": "roles",
+        },
+        "not (isRole == 1)",
+      ],
+      "filterName": "_tenantRef",
+      "multiple": false,
+      "name": "_tenant",
+      "required": true,
+      "title": "TENANT",
+      "type": "autocomplete",
+    },
+    Object {
+      "condition": Array [
+        "not getAttributeValue(\\"_ect\\")",
+        Object {
+          "group": Array [
+            "admin",
+          ],
+          "operator": "in",
+          "type": "roles",
+        },
+      ],
+      "filterName": "team",
+      "name": "team",
+      "title": "TEAM",
+      "type": "toggle",
+    },
+    Object {
+      "condition": Array [
+        Object {
+          "group": Array [
+            "admin",
+          ],
+          "operator": "in",
+          "type": "roles",
+        },
+      ],
+      "filterName": "isRole",
+      "name": "isRole",
+      "title": "ROLE",
+      "type": "toggle",
+    },
+    Object {
+      "condition": Array [
+        "not getAttributeValue(\\"_ect\\")",
+        Object {
+          "group": Array [
+            "admin",
+          ],
+          "operator": "in",
+          "type": "roles",
+        },
+      ],
+      "filterName": "service",
+      "name": "service",
+      "title": "SERVICE",
+      "type": "toggle",
+    },
+    Object {
+      "columnDefinition": Object {
+        "name": "list.length",
+      },
+      "exportOrder": 2,
+      "filterName": "users",
+      "filterable": false,
+      "forceExport": true,
+      "name": "users",
+      "readonly": true,
+      "title": "USERS",
+      "type": "number",
+      "visible": false,
+    },
+    Object {
+      "columnDefinition": Object {
+        "name": "length",
+      },
+      "exportOrder": 3,
+      "filterName": "groups",
+      "filterable": false,
+      "forceExport": true,
+      "name": "groups",
+      "readonly": true,
+      "title": "GROUPS",
+      "type": "number",
+      "visible": false,
+    },
+    Object {
+      "filterName": "_ect",
+      "name": "_ect",
+      "readonly": true,
+      "title": "CREATIONDATE",
+      "type": "date",
+    },
+  ],
+  "appareance": Map {},
+  "className": "Group",
+  "collectionName": "groups",
+  "feathersService": undefined,
+  "fields": Array [
+    "*",
+  ],
+  "include": Array [
+    "_tenant",
+  ],
+  "isCustom": undefined,
+  "mappingFields": Map {},
+  "searchSubquery": undefined,
+  "searchableFields": Array [
+    "_id",
+    "title",
+    "description",
+  ],
+  "type": [Function],
+}
+`;

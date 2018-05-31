@@ -1,0 +1,226 @@
+:host([scroll-enabled=true]) {
+    display: block;
+    overflow: hidden;
+    height: 100%; //background: cssvar(stable);
+    .container {
+        width: 100%;
+    }
+    .body-container {
+        overflow: hidden;
+    }
+}
+
+:host {
+    .absolute {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .container {
+        width: 100%;
+        min-height: 100%;
+    }
+    .container-horizontal {
+        /deep/ {
+            ion-slide {
+                //width: 320px !important;
+                .slide {
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+    .toggle-container {
+        display: flex;
+        justify-content: flex-end;
+        i {
+            margin-right: 1rem;
+        }
+    }
+    ion-item-divider {
+        background: cssvar(light);
+        font-size: 0.8125rem;
+    }
+    yoo-toolbar.top {
+        //margin-bottom: 1rem;
+        background: cssvar(light);
+        display: block;
+        /deep/ .container {
+            border-bottom:none;
+        }
+    }
+    yoo-toolbar.bottom {
+        //margin-top: 1rem;
+        background: cssvar(light);
+        display: block;
+    }
+    .grid-container {
+        overflow: hidden;
+    }
+    .body-container {
+        //overflow: hidden;
+        /deep/ {
+            yoo-entity {
+                border-left: none;
+                border-right: none;
+                &:first-child {
+                    border-top: none;
+                }
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+        &.card-feed /deep/ {
+            .item.item-ios,
+            .item.item-md {
+                padding: 0.5rem 1rem;
+                border: none !important;
+                .item-inner {
+                    padding: 0;
+                    border: none !important;
+                    overflow: visible;
+                    .input-wrapper {
+                        overflow: visible;
+                        yoo-entity {
+                            width: 100%;
+                            max-width: 500px;
+                            margin: auto;
+                        }
+                    }
+                }
+            }
+        }
+        &.card-list /deep/ {
+            margin-left: 1rem;
+            .item.item-ios,
+            .item.item-md {
+                min-height: 34px;
+                padding: 0;
+                border: none !important; //margin-bottom: -1px;
+                color: inherit;
+                .item-inner {
+                    padding: 0;
+                    border: none !important;
+                    overflow: hidden;
+                    .input-wrapper {
+                        overflow: hidden;
+                        yoo-entity {
+                            width: 100%;
+                            max-width: 600px;
+                            margin: auto;
+                            &.selected {
+                                //color: cssvar(success);
+                                font-weight: 600;
+                                &:after {
+                                    font-family: 'yoobicons';
+                                    content: '\e953';
+                                    color: cssvar(success);
+                                    position: absolute;
+                                    right: 10px;
+                                    top: 6px;
+                                    font-size: 1.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+:host(.show-select-circles) {
+    .body-container {
+        &.card-list /deep/ {
+            .item.item-ios,
+            .item.item-md {
+                .item-inner {
+                    yoo-entity {
+                        &:after {
+                            font-family: 'yoobicons';
+                            content: '\e95b';
+                            color: cssvar(dark-10);
+                            position: absolute;
+                            right: 10px;
+                            top: 6px;
+                            font-size: 1.5rem;
+                        }
+                        /deep/ .content-container {
+                            padding-right: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+:host(.bordered) {
+    border: 1px solid cssvar(dark-20);
+}
+
+:host {
+    /deep/ {
+        $active: $accent;
+        $chrome-background: $stable;
+        $foreground-color: $dark;
+        $border-color: $dark-20;
+        @import "../../../../../../node_modules/ag-grid/src/styles/ag-grid.scss";
+        @import "../../../../../../node_modules/ag-grid/src/styles/ag-theme-balham";
+        .ag-theme-balham {
+            .ag-root {
+                border: none;
+            }
+            .ag-cell {
+                padding: 10px;
+            }
+            .ag-header-cell {
+                background: cssvar(stable);
+                padding: 5px;
+            }
+            .ag-cell-image {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                border: 1px solid cssvar(dark-20);
+            }
+        }
+    }
+}
+
+:host {
+    ion-list {
+        ion-item-sliding {
+            ion-item-options {
+                button {
+                    &.danger {
+                        background: cssvar(danger);
+                        color: cssvar(light);
+                        width: 100px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        i {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+:host {
+    .grid-cell {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        yoo-entity {
+            margin: 0 0.9375rem 2.5rem;;
+        }
+    }
+}

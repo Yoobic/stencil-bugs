@@ -2,7 +2,7 @@
     padding: 0rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    background: transparent;
+    background: cssvar(light);
     color: cssvar(text-color);
     border: none;
 }
@@ -60,6 +60,7 @@
         }
         input {
             padding: 0.5rem 1rem;
+            border-radius: $border-radius-input;
             font-size: 1rem;
             line-height: 1.5;
             text-align: left;
@@ -79,6 +80,20 @@
             &:focus {
                 outline: none;
             }
+        }
+        .readonly {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: left;
+            position: relative;
+            display: block;
+            flex: 1;
+            width: 100%;
+            border: none;
+            font-weight: 400;
+            color: cssvar(black);
+            box-shadow: white 0px 0px 0px 1000px inset !important;
         }
     }
     .placeholderlabel {
@@ -160,6 +175,44 @@
         }
         input {
             border-radius: 1.5rem;
+        }
+    }
+}
+
+:host(.search) {
+    .input-container {
+        height: 2.25rem;
+        border-radius: 0.5rem;
+        background: cssvar(stable-light);
+        border: none;
+        .icon-prefix {
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+            border-right: none;
+        }
+        .icon-suffix {
+            border-top-right-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+        input {
+            padding: 0.1875rem 0;
+            padding-right: 1rem;
+            padding-left: 0.625rem;
+            border-radius: 0.5rem;
+            border-top-left-radius: 0rem;
+            border-bottom-left-radius: 0rem;
+            background: cssvar(stable-light);
+            box-shadow: cssvar(stable-light) 0px 0px 0px 1000px inset !important;
+            @include placeholder() {
+                color: cssvar(dark);
+                opacity: 1;
+            }
+        }
+        .icon-prefix,
+        .icon-suffix {
+            padding: 0.1875rem 0;
+            padding-left: 0.75rem;
+            background: cssvar(stable-light);
         }
     }
 }

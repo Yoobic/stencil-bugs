@@ -1,15 +1,15 @@
-import { FormFieldType, IFormInputBase } from '@shared/interfaces';
+import { FormFieldType, IFormInputBase, moment } from '@shared/interfaces';
 import { getReducedValidator, getReducedAsyncValidator } from '../validators';
+import { isPresent } from './helpers';
 
-export function setValidator(validators) {
-    return getReducedValidator<string>(validators);
+export function setValidator(inputElement: IFormInputBase<any>) {
+    let _validator = getReducedValidator<string>(inputElement.validators);
+    let _asyncValidator = getReducedAsyncValidator<string>(inputElement.asyncValidators);
+    inputElement._validator = _validator;
+    inputElement._asyncValidator = _asyncValidator;
+    //we call this to validate the initial value
+    validate(inputElement);
 }
-
-
-export function setAsyncValidator(asyncValidators) {
-    return getReducedAsyncValidator<string>(asyncValidators);
-}
-
 
 function parseNumber(value: any) {
     let val = parseFloat(value);
@@ -22,30 +22,29 @@ export function convertValueForInputType(v: any, type: string): any {
         case FormFieldType.range: {
             return parseNumber(v);
         }
-        // case FormFieldType.date:
-        //     //case FormFieldType.betweendate:
-        //     {
-        //         if (!isPresent(v)) {
-        //             return null;
-        //         }
-        //         let val = moment(v);
-        //         return val.isValid() ? val.format('YYYY-MM-DD') : null;
-        //     }
-        // case FormFieldType.datetime: {
-        //     if (!isPresent(v)) {
-        //         return null;
-        //     }
-        //     let val = moment(v);
-        //     return val.isValid() ? val.format('YYYY-MM-DDTHH:mm') : null; //
-        // }
-        // case FormFieldType.time: {
-        //     if (!isPresent(v)) {
-        //         return null;
-        //     }
-        //     let val = moment(v); //, 'HH:mm'
-        //     return val.isValid() ? val.format('YYYY-MM-DDTHH:mm') : v;
-        // }
-
+        case FormFieldType.date:
+            //case FormFieldType.betweendate:
+            {
+                if (!isPresent(v)) {
+                    return null;
+                }
+                let val = moment(v);
+                return val.isValid() ? val.format('YYYY-MM-DD') : null;
+            }
+        case FormFieldType.datetime: {
+            if (!isPresent(v)) {
+                return null;
+            }
+            let val = moment(v);
+            return val.isValid() ? val.format('YYYY-MM-DDTHH:mm') : null; //
+        }
+        case FormFieldType.time: {
+            if (!isPresent(v)) {
+                return null;
+            }
+            let val = moment(v); //, 'HH:mm'
+            return val.isValid() ? val.format('YYYY-MM-DDTHH:mm') : v;
+        }
         default:
             return v;
     }
@@ -87,13 +86,16 @@ export function onInputClear(ev: any, inputElement: IFormInputBase<any>): void {
     inputElement.iconClicked.emit('clear');
 }
 
-function validate(inputElement): boolean {
-    let currentValidity = inputElement._validator(inputElement.value);
-    if (inputElement.validity !== currentValidity) {
-        inputElement.validityChanged.emit(currentValidity);
+export function validate(inputElement): boolean {
+    if (inputElement._validator) {
+        let currentValidity = inputElement._validator(inputElement.value);
+        if (inputElement.validity !== currentValidity) {
+            inputElement.validityChanged.emit(currentValidity);
+        }
+        inputElement.validity = currentValidity;  // update the validity
+        return inputElement.validity;
     }
-    inputElement.validity = currentValidity;  // update the validity
-    return inputElement.validity;
+    return true;
 }
 
 export function setValueAndValidateInput(value: any, inputElement: any): void {

@@ -1,0 +1,17 @@
+{
+    "APPLICATION": "Application",
+    "QUIT": "Quit",
+    "EDIT": "Edit",
+    "UNDO": "Undo",
+    "REDO": "Redo",
+    "CUT": "Cut",
+    "COPY": "Copy",
+    "PASTE": "Paste",
+    "SELECTALL": "Select All",
+    "ACCEPT": "Ok",
+    "LATER": "Not now",
+    "UPDATEAVAILABLE": "Update Available",
+    "UPDATEDOWNLOADED": "Update Downloaded",
+    "AVAILABLEMESSAGE": "An update is available. Yoobic Dashboard will automatically download and install it.",
+    "DOWNLOADEDMESSAGE": "Update successfully downloaded! Yoobic Dashboard will install the update and restart."
+}

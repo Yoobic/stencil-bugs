@@ -1,11 +1,24 @@
 :host {
     .outer-container {
+        position: relative;
         .items-container {
+            position: absolute !important;
+            width: 100%;
+            left: 0;
             display: none;
-            height: 177px;
+            height: 260px;
             overflow: auto;
             border: 1px solid cssvar(stable-30);
+            border-radius: $border-radius-input;
             position: relative;
+            box-shadow: 0 5px 15px 0 rgba(40, 47, 54, 0.08);
+            top: 2.125rem;
+            flex-direction: column;
+            margin-bottom: 0.5rem;
+            .scroll-container {
+                position: relative;
+                height: 100%;
+            }
         }
     }
 }

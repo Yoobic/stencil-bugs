@@ -1,0 +1,17 @@
+{
+    "APPLICATION": "応用",
+    "QUIT": "終了する",
+    "EDIT": "編集",
+    "UNDO": "元に戻す",
+    "REDO": "やり直す",
+    "CUT": "カット",
+    "COPY": "コピー",
+    "PASTE": "ペースト",
+    "SELECTALL": "すべて選択",
+    "ACCEPT": "オーケー",
+    "LATER": "今はやめろ",
+    "UPDATEAVAILABLE": "利用可能な更新",
+    "UPDATEDOWNLOADED": "アップデートのダウンロード",
+    "AVAILABLEMESSAGE": "アップデートが利用可能です。 Yoobic Dashboardが自動的にダウンロードしてインストールします。",
+    "DOWNLOADEDMESSAGE": "アップデートは正常にダウンロードされました！ Yoobic Dashboardがアップデートをインストールして再起動します。"
+}

@@ -1,16 +1,92 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
     "target": "es5",
+    "module": "esnext",
+    "jsx": "react",
+    "jsxFactory": "h",
+    "typeRoots": [
+      "node_modules/@types",
+      "types"
+    ],
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {    
+      "common": [
+        "node_modules/@shared/common"
+      ],
+      "data-core": [
+        "node_modules/@shared/data-core"
+      ],
+      "data-live": [
+        "node_modules/@shared/data-live"
+      ],
+      "data-form": [
+        "node_modules/@shared/data-form"
+      ],
+      "translate": [
+        "node_modules/@shared/translate"
+      ],
+      "design-system": [
+        "node_modules/@shared/design-system"
+      ],
+      "app-common-base": [
+        "node_modules/@app/common-base"
+      ],
+      "app-common-mobile": [
+        "node_modules/@app/common-mobile"
+      ],
+      "app-common-web": [
+        "node_modules/@app/common-web"
+      ],
+      "app-data": [
+        "node_modules/@app/data"
+      ],
+
+      "operations-common-base": [
+        "node_modules/@operations/common-base"
+      ],
+      "operations-common-web": [
+        "node_modules/@operations/common-web"
+      ],
+      "operations-common-mobile": [
+        "node_modules/@operations/common-mobile"
+      ],
+      "operations-data": [
+        "node_modules/@operations/data"
+      ],
+
+      "boost-common-base": [
+        "node_modules/@boost/common-base"
+      ],
+      "boost-common-web": [
+        "node_modules/@boost/common-web"
+      ],
+      "boost-common-mobile": [
+        "node_modules/@boost/common-mobile"
+      ],
+      "boost-data": [
+        "node_modules/@boost/data"
+      ]
+    }
+  },
+  "exclude": [
+      "**/*.spec.ts",
+      "node_modules",
+      "**/__mocks__/**.ts"
+  ],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": false
   }
 }

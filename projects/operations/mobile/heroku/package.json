@@ -1,0 +1,13 @@
+{
+  "name": "Yoobic",
+  "bundleId": "com.ipelia.yoobic",
+  "description": "Retail Excellence",
+  "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.13.4",
+    "express-sslify": "^1.0.1",
+    "helmet": "3.5.0"
+  },
+  "version": "6.0.16",
+  "prettyName": "Yoobic"
+}

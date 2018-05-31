@@ -1,0 +1,9 @@
+{
+  "name": "yoobic-ionic",
+  "type": "ionic-angular",
+  "watchPatterns": [],
+  "integrations": {
+    "cordova": {}
+  },
+  "pro_id": "122c0397"
+}

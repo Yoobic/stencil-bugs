@@ -53,14 +53,15 @@ export class YooLoginComponent {
     @State() hideMobileLoginTitleAndFooter: boolean = false;
     @State() showSupport: boolean;
 
-     @Element() host: HTMLStencilElement;
+    @Element() host: HTMLStencilElement;
 
     protected coreConfig: ICoreConfig = (window as any).coreConfigService;
     // private deviceHeight: number;
     private rememberMe: boolean = false;
     private userEmail: string;
     private userPassword: string;
-    private isMobile: boolean;
+    private emailFocused: boolean = false;
+    private passwordFocused: boolean = false;
     //private eventSelector: string;
 
     @Listen('languageSelected')
@@ -72,7 +73,7 @@ export class YooLoginComponent {
     @Listen('actionSelected')
     onActionSelected(ev: CustomEvent) {
         setTimeout(() => {
-            if (ev.detail === 'Reset password') {
+            if (ev.detail === 'Reset Password') {
                 this.passwordResetModalRequested.emit(true);
             } else {
                 this.magicLinkModalRequested.emit(true);
@@ -81,7 +82,6 @@ export class YooLoginComponent {
     }
 
     componentWillLoad() {
-        this.coreConfig ? this.isMobile = this.coreConfig.isIonic() : this.isMobile = false;
     }
 
     onAlertClosed() {
@@ -111,6 +111,14 @@ export class YooLoginComponent {
         this.advancedLoginRequested.emit(true);
     }
 
+    onEnterPressed() {
+        this.validateLoginInputs();
+        let loginBtn = this.host.querySelector('#login-btn') as HTMLYooButtonElement;
+        if ( loginBtn.disabled === false ) {
+            this.onLogin();
+        }
+    }
+
     validateLoginInputs() {
         let emailInput = this.host.querySelector('#email-input') as HTMLYooFormInputElement;
         let passwordInput = this.host.querySelector('#password-input') as HTMLYooFormInputElement;
@@ -127,15 +135,19 @@ export class YooLoginComponent {
         if (errorAlert) {
             errorAlert.setAttribute('style', 'display: none;');
         }
-        if (this.isMobile) {
-            this.hideMobileLoginTitleAndFooter = true;
+        if (this.coreConfig.isIonic()) {
+            type === 'password' ? (this.passwordFocused = true) : (this.emailFocused = true);
+            this.hideTitleAndFooter();
         }
     }
 
-    onInputBlurred() {
+    onInputBlurred(type: string) {
         this.validateLoginInputs();
-        if (this.isMobile) {
-            this.hideMobileLoginTitleAndFooter = false;
+        if (this.coreConfig.isIonic()) {
+            setTimeout(() => {
+                type === 'password' ? (this.passwordFocused = false) : (this.emailFocused = false);
+                this.hideTitleAndFooter();
+            }, 100);
         }
     }
 
@@ -152,6 +164,14 @@ export class YooLoginComponent {
 
     componentDidUpdate() {
         this.resizeLanguageSelectorWidth();
+    }
+
+    hideTitleAndFooter() {
+        if (this.emailFocused || this.passwordFocused) {
+            this.hideMobileLoginTitleAndFooter = true;
+        } else {
+            this.hideMobileLoginTitleAndFooter = false;
+        }
     }
 
     resizeLanguageSelectorWidth() {
@@ -178,7 +198,7 @@ export class YooLoginComponent {
     }
 
     onForgotPassword() {
-        this.isMobile ? (
+        this.coreConfig.isIonic() ? (
             this.presentActionSheet()
         ) :
             this.passwordResetModalRequested.emit(true);
@@ -207,50 +227,52 @@ export class YooLoginComponent {
         });
         modalCtrl.show();
         let modal = this.host.querySelector('yoo-language-selector');
-        modal.setAttribute('style', `position: absolute; top: ${this.isMobile ? '4.5625rem' : '4.6875rem'}; right: ${this.isMobile ? '1rem' : '1.875rem'};`);
+        modal.setAttribute('style', `position: absolute; top: ${this.coreConfig.isIonic() ? '4.5625rem' : '4.6875rem'}; right: ${this.coreConfig.isIonic() ? '1rem' : '1.875rem'};`);
     }
 
     renderLoginForm(): JSX.Element {
         return [
             this.hideMobileLoginTitleAndFooter ? null :
-                <div class={'login-title' + (this.isMobile ? ' mobile' : '')} attr-layout="row">
+                <div class={'login-title' + (this.coreConfig.isIonic() ? ' mobile' : '')} attr-layout="row">
                     <div class="inner-title">
                         {this.webLoginFormTitle}
                     </div>
                 </div>,
-            <div class={this.isMobile ? 'login-container-mobile' : 'login-container'} attr-layout="column">
-                {this.isMobile ? null :
+            <div class={this.coreConfig.isIonic() ? 'login-container-mobile' : 'login-container'} attr-layout="column">
+                {this.coreConfig.isIonic() ? null :
                     <div class="login-subtitle">
                         {this.webLoginFormSubtitle}
                     </div>}
-                <yoo-form-input-container label={this.emailLabel}>
+                <yoo-form-input-container field={{ title: this.emailLabel, required: true }}>
                     <yoo-form-input id="email-input" validators={[{ name: 'email' }, { name: 'required' }]} type="email" class="simple" border-color={this.borderClass}
                         onInputChanged={(event) => this.onInputChanged(event, 'email')}
                         onInputFocused={() => this.onInputFocused('email')}
-                        onInputBlurred={() => this.onInputBlurred()}>
+                        onInputBlurred={() => this.onInputBlurred('email')}
+                        onEnterPressed={() => this.onEnterPressed()}>
                     </yoo-form-input>
                 </yoo-form-input-container>
                 <div class="password-container">
-                    <yoo-form-input-container label={this.passwordLabel}>
+                    <yoo-form-input-container field={{ title: this.passwordLabel, required: true }}>
                         <yoo-form-input id="password-input" validators={[{ name: 'required' }]} class="simple" type="password" show-password-toggle="true" show-input-clear="true" border-color={this.borderClass}
                             onInputChanged={(event) => this.onInputChanged(event, 'password')}
                             onInputFocused={() => this.onInputFocused('password')}
-                            onInputBlurred={() => this.onInputBlurred()}
-                            onIconClicked={(ev) => this.onPasswordClear(ev)}>
+                            onInputBlurred={() => this.onInputBlurred('password')}
+                            onIconClicked={(ev) => this.onPasswordClear(ev)}
+                            onEnterPressed={() => this.onEnterPressed()}>
                         </yoo-form-input>
                     </yoo-form-input-container>
                 </div>
-                <div class={'inner-container' + (this.isMobile ? ' mobile' : '')} attr-layout="row">
+                <div class={'inner-container' + (this.coreConfig.isIonic() ? ' mobile' : '')} attr-layout="row">
                     <div class="radio">
                         {this.showRememberMe ? <yoo-form-radio text={this.rememberMeText} class={'stable ' + this.borderClass} onRadioClicked={(event) => this.onRadioClicked(event)}></yoo-form-radio>
                             : null}
                     </div>
                     <yoo-button text={this.forgotPasswordText} onClick={() => this.onForgotPassword()} class={'link-transparent-' + (this.borderClass)}></yoo-button>
                 </div>
-                <div class="login-button" attr-layout="row" attr-layout-align={this.isMobile ? 'center' : 'flex-end'}>
-                    <yoo-button id="login-btn" text={this.loginButtonText} class={(this.isMobile ? 'large ' : '') + (this.buttonClass || '')} disabled={true} onButtonClicked={() => this.onLogin()}></yoo-button>
+                <div class="login-button" attr-layout="row" attr-layout-align={this.coreConfig.isIonic() ? 'center' : 'flex-end'}>
+                    <yoo-button id="login-btn" text={this.loginButtonText} class={(this.coreConfig.isIonic() ? 'large ' : '') + (this.buttonClass || '')} disabled={true} onClick={() => this.onLogin()}></yoo-button>
                 </div>
-                {this.isMobile ? this.renderPoweredBy() : null}
+                {this.coreConfig.isIonic() && !this.hideMobileLoginTitleAndFooter ? this.renderPoweredBy() : null}
             </div>
         ];
     }
@@ -266,7 +288,7 @@ export class YooLoginComponent {
             <div class="powered-by" attr-layout="row">
                 {this.leftPanelFooterText}
                 <div class="powered-img">
-                    <img src={this.isMobile || !this.showLeftPanel ? './assets/logo/yoobic_simple_grey.svg' : './assets/logo/yoobic_simple_white.svg'} height="12.8"></img>
+                    <img src={this.coreConfig.isIonic() || !this.showLeftPanel ? './assets/logo/yoobic_simple_grey.svg' : './assets/logo/yoobic_simple_white.svg'} height="12.8"></img>
                 </div>
                 <div class="yoobic-text">
                     YOOBIC
@@ -277,7 +299,7 @@ export class YooLoginComponent {
 
     renderFooter(): JSX.Element {
         return (
-            this.isMobile ? <yoo-button text="Advanced Log In" onClick={() => this.onAdvancedLogin()} class={'block stable'}></yoo-button>
+            this.coreConfig.isIonic() ? <yoo-button text="Advanced Log In" onClick={() => this.onAdvancedLogin()} class={'block stable'}></yoo-button>
                 : this.renderPoweredBy()
         );
     }
@@ -287,17 +309,17 @@ export class YooLoginComponent {
             backgroundImage: 'url(' + this.backgroundSrc + ')'
         };
         return (
-            <div class={'left-panel' + (this.isMobile ? ' mobile' : '')} attr-layout="column">
+            <div class={'left-panel' + (this.coreConfig.isIonic() ? ' mobile' : '')} attr-layout="column">
                 {[(this.backgroundSrc ?
                     <div class="background" style={backStyle}></div> : ''),
                 <div class={'background-overlay ' + 'bg-' + (this.backgroundColor || 'dark')}></div>]}
                 <div class="content-container" attr-layout="column">
                     <div class="header" attr-layout="row">
-                        {this.isMobile ? <div class="space-fill"></div> : null}
+                        {this.coreConfig.isIonic() ? <div class="space-fill"></div> : null}
                         <div class="logo">
-                            <img src={this.isMobile ? this.leftPanelMobileHeaderIcon : this.leftPanelWebHeaderIcon} height={this.isMobile ? '25' : '32'} alt="Yoobic Logo" />
+                            <img src={this.coreConfig.isIonic() ? this.leftPanelMobileHeaderIcon : this.leftPanelWebHeaderIcon} height={this.coreConfig.isIonic() ? '25' : '32'} alt="Yoobic Logo" />
                         </div>
-                        <div class={'language-container' + (this.isMobile ? ' mobile' : '')}>
+                        <div class={'language-container' + (this.coreConfig.isIonic() ? ' mobile' : '')}>
                             {this.renderLanguageSelector()}
                         </div>
                     </div>
@@ -322,19 +344,19 @@ export class YooLoginComponent {
     renderRightPanel(): JSX.Element {
 
         return (
-            <div class={'right-panel' + (this.isMobile ? ' mobile' : '')} attr-layout="column" justify-content="flex-start">
+            <div class={'right-panel' + (this.coreConfig.isIonic() ? ' mobile' : '')} attr-layout="column" justify-content="flex-start">
                 {this.error ?
                     <yoo-alert id="error-alert" animationName="sticky_up" class="danger embedded centered"
                         text={this.error}
-                        closeable={!this.isMobile}
-                        link={!this.isMobile ? `Problems? We're here to help` : ''}
+                        closeable={!this.coreConfig.isIonic()}
+                        link={!this.coreConfig.isIonic() ? `Problems? We're here to help` : ''}
                         onAlertActionSelected={() => this.onAlertActionSelected()}
                         onAlertClosed={() => this.onAlertClosed()}>
                     </yoo-alert> : ''
                 }
                 <div class="right-panel-content" attr-layout="column" justify-content="space-between">
-                    <div class={'header' + (this.isMobile || !this.showLeftPanel ? ' mobile' : '')} attr-layout="row">
-                        {this.isMobile || !this.showLeftPanel ? [
+                    <div class={'header' + (this.coreConfig.isIonic() || !this.showLeftPanel ? ' mobile' : '')} attr-layout="row">
+                        {this.coreConfig.isIonic() || !this.showLeftPanel ? [
                             <div class="space-fill"></div>,
                             <div class="logo">
                                 <img src={this.leftPanelMobileHeaderIcon} height={'25'} alt="Yoobic Logo" />
@@ -345,12 +367,12 @@ export class YooLoginComponent {
                         ] :
                             (this.renderLanguageSelector())}
                     </div>
-                    <div class={'content ' + (this.isMobile ? 'mobile' : '')} attr-layout="column" justify-content="center">
+                    <div class={'content ' + (this.coreConfig.isIonic() ? 'mobile' : '')} attr-layout="column" justify-content="center">
                         {this.renderLoginForm()}
                     </div>
                     {this.hideMobileLoginTitleAndFooter ? null :
-                        <div class={'footer' + (this.isMobile ? '' : ' web')} attr-layout="row" attr-layout-align="center center">
-                            {this.isMobile || !this.showLeftPanel ? this.renderFooter() : <yoo-button text="Advanced Log In" onClick={() => this.onAdvancedLogin()} class={'small link-transparent-' + (this.borderClass)}></yoo-button>}
+                        <div class={'footer' + (this.coreConfig.isIonic() ? '' : ' web')} attr-layout="row" attr-layout-align="center center">
+                            {this.coreConfig.isIonic() || !this.showLeftPanel ? this.renderFooter() : <yoo-button text="Advanced Log In" onClick={() => this.onAdvancedLogin()} class={'small link-transparent-' + (this.borderClass)}></yoo-button>}
                         </div>}
                 </div>
             </div>
@@ -362,7 +384,7 @@ export class YooLoginComponent {
             <div class="outer-container" attr-layout="row">
                 {this.loading ? <yoo-loader class="absolute large backdrop"></yoo-loader> : ''}
                 <yoo-modal-controller></yoo-modal-controller>
-                {this.isMobile ? null : (this.showLeftPanel ? this.renderLeftPanel() : null)}
+                {this.coreConfig.isIonic() ? null : (this.showLeftPanel ? this.renderLeftPanel() : null)}
                 {this.renderRightPanel()}
             </div>
         );

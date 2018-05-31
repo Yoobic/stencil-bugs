@@ -1,6 +1,7 @@
 import { Component, Element, Prop, Event, EventEmitter, Method, State } from '@stencil/core';
 import { ValidatorEntry, AsyncValidator, Validator, IFormInputBase } from '@shared/interfaces';
-import { setValidator, setAsyncValidator, onInputBlurred, setValueAndValidateInput, onInputFocused } from '../../../utils/helpers/form-input-helpers';
+import { setValidator, onInputBlurred, setValueAndValidateInput, onInputFocused } from '../../../utils/helpers/form-input-helpers';
+import { debounce } from '../../../utils/helpers/helpers';
 
 @Component({
     tag: 'yoo-form-text-area',
@@ -25,13 +26,8 @@ export class YooFormTextAreaComponent implements IFormInputBase<string | number>
 
     @Element() host: HTMLStencilElement;
 
-    // Reduced Validators
-    _validator: Validator<string> = (x: string) => true;
-    _asyncValidator: AsyncValidator<string> = async (x: string) => true;
-
     componentWillLoad() {
-        setValidator(this.validators);
-        setAsyncValidator(this.asyncValidators);
+        setValidator(this);
     }
 
     componentDidLoad() {
@@ -41,14 +37,23 @@ export class YooFormTextAreaComponent implements IFormInputBase<string | number>
         }
     }
 
-    onInputChanged(ev: any): void {
+    // tslint:disable-next-line:member-ordering
+    onInputChanged = debounce((ev: any): void => {
         let value = ev.target.value;
         setValueAndValidateInput(value, this);
-    }
+    }, 500);
 
     @Method()
     isValid() {
         return this.validity;
+    }
+
+    @Method()
+    setFocus() {
+        let textArea = this.host.querySelector('textarea');
+        if (textArea) {
+            textArea.focus();
+        }
     }
 
     renderEditable(): JSX.Element {
@@ -64,7 +69,7 @@ export class YooFormTextAreaComponent implements IFormInputBase<string | number>
     }
 
     renderReadonly() {
-        return <div innerHTML={this.value}></div>;
+        return <div class="readonly">{this.value}</div>;
     }
 
     render(): JSX.Element {

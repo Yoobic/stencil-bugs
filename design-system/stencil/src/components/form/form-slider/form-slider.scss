@@ -107,9 +107,6 @@
             .label-value{
                 text-align: center;
                 width: 11rem;
-                &.label-hidden{
-                    opacity: 0 !important;
-                }
                 input[type=number]{
                     -webkit-appearance: none;
                     background: transparent;
@@ -233,7 +230,7 @@
                         box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
                     }
                     input[type='range']{
-                        width: 15rem;
+                        width: 16rem;
                     }
                 }
             }
@@ -269,11 +266,11 @@
                 }
                 .range-container {
                     display: inline-block;
-                    padding-bottom: 0.625rem;
                     padding-top: 0;
                     input {
                         transform-origin: 7.5rem 7.5rem;
                         transform: rotate(-90deg);
+                        top: 1.875rem;
                     }
                 }
             }

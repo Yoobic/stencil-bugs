@@ -1,5 +1,5 @@
 import { Component, Element, Prop } from '@stencil/core';
-import { ITranslateService } from '@shared/interfaces';
+import { services } from '../../../services';
 
 @Component({
     tag: 'yoo-form-recap-step',
@@ -15,14 +15,12 @@ export class YooFormRecapStepComponent {
 
      @Element() host: HTMLStencilElement;
 
-    private translate: ITranslateService = (window as any).translateService;
-
     render(): JSX.Element {
         return (
             <div class={'container ' + (this.validity === true ? 'valid' : (this.validity === false ? 'invalid' : ''))}>
-                <div class="step">{this.translate.get('STEP') + ' ' + this.stepNumber}</div>
-                <div class="title">{this.translate.get(this.mainTitle)}</div>
-                <div class="subtitle">{this.translate.get(this.subTitle)}</div>
+                <div class="step">{services.translate.get('STEP') + ' ' + this.stepNumber}</div>
+                <div class="title">{services.translate.get(this.mainTitle)}</div>
+                <div class="subtitle">{services.translate.get(this.subTitle)}</div>
             </div>
         );
     }

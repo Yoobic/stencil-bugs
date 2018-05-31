@@ -1,5 +1,5 @@
 import { Component, Element, Prop, State } from '@stencil/core';
-import { ITranslateService } from '@shared/interfaces';
+import { services } from '../../../services';
 
 @Component({
     tag: 'yoo-property-card',
@@ -13,8 +13,6 @@ export class YooPropertyCardComponent {
     @Element() host: HTMLStencilElement;
 
     @State() isInit: boolean;
-
-    private translate: ITranslateService = (window as any).translateService;
 
     componentDidLoad() {
         // let defaultConfig = {
@@ -34,8 +32,6 @@ export class YooPropertyCardComponent {
         //         }
         //     });
         // }
-        this.translate = (window as any).translateService;
-
         this.isInit = true;
     }
 
@@ -70,7 +66,7 @@ export class YooPropertyCardComponent {
                     </div>
                     {(value.title ?
                         <div class="title">
-                            <span>{(this.translate ? this.translate.get(value.title) : value.title)}</span>
+                            <span>{services.translate.get(value.title)}</span>
                         </div>
                         : null)}
                     <div class={'circle bg-' + value.color}></div>
@@ -83,13 +79,13 @@ export class YooPropertyCardComponent {
         return <div>
             <div class="p-row header">
                 {p.headers.map((value) =>
-                    (value.title ? <span class={(value.truncate ? 'break-lines' : null)}>{(this.translate ? this.translate.get(value.title) : value.title)}</span> : null)
+                    (value.title ? <span class={(value.truncate ? 'break-lines' : null)}>{services.translate.get(value.title)}</span> : null)
                 )}
             </div>
             {p.values.map((r) =>
                 <div class={'p-row ' + r.color}>
                     {r.values.map((value) =>
-                        (value ? <span class={(value.truncate ? 'break-lines' : null)}> {(this.isString(value) ? value : (this.translate ? this.translate.get(value.title) : value.title)) } </span> : null)
+                        (value ? <span class={(value.truncate ? 'break-lines' : null)}> {(this.isString(value) ? value : services.translate.get(value.title)) } </span> : null)
                     )}
                 </div>
             )}
@@ -102,7 +98,7 @@ export class YooPropertyCardComponent {
                 <div class="p-row">
                     {(value.title ?
                         <div class="title">
-                            <span>{(this.translate ? this.translate.get(value.title) : value.title)}</span>
+                            <span>{services.translate.get(value.title)}</span>
                         </div>
                         : null)}
                     {(value.value ?
@@ -135,7 +131,7 @@ export class YooPropertyCardComponent {
     renderProperty(p: any): JSX.Element {
         return (this.isVisible(p) ?
             <div class="details">
-                {(p.title ? <div class="details-title">{(this.translate ? this.translate.get(p.title) : p.title)}</div> : null)}
+                {(p.title ? <div class="details-title">{services.translate.get(p.title)}</div> : null)}
                 {(p.type ?
                     <div class={'description p-type-' + p.type}>
                         {(p.type === 'columns' ? this.renderColumns(p) : null)}

@@ -1,6 +1,6 @@
 import { Component, Element, Prop, Event, EventEmitter } from '@stencil/core';
 import { IFormStarRating, FormStarType, Validator, AsyncValidator, ValidatorEntry } from '@shared/interfaces';
-import { setValidator, setAsyncValidator, setValueAndValidateInput } from '../../../utils/helpers/form-input-helpers';
+import { setValidator, setValueAndValidateInput } from '../../../utils/helpers/form-input-helpers';
 
 @Component({
     tag: 'yoo-form-star-rating',
@@ -23,13 +23,8 @@ export class YooFormStarRatingComponent implements IFormStarRating {
 
     @Element() host: HTMLStencilElement;
 
-    // Reduced Validators
-    _validator: Validator<string> = (x: string) => true;
-    _asyncValidator: AsyncValidator<string> = async (x: string) => true;
-
     componentWillLoad() {
-        setValidator(this.validators);
-        setAsyncValidator(this.asyncValidators);
+        setValidator(this);
         if (this.type === 'button') {
             this.host.classList.add('button');
         }

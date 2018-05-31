@@ -1,0 +1,17 @@
+{
+    "APPLICATION": "Anwendung",
+    "QUIT": "Verlassen",
+    "EDIT": "Bearbeiten",
+    "UNDO": "Rückgängig machen",
+    "REDO": "Wiederherstellen",
+    "CUT": "Schneiden",
+    "COPY": "Kopieren",
+    "PASTE": "Einfügen",
+    "SELECTALL": "Alles auswählen",
+    "ACCEPT": "Ok",
+    "LATER": "Nicht jetzt",
+    "UPDATEAVAILABLE": "Update verfügbar",
+    "UPDATEDOWNLOADED": "Update heruntergeladen",
+    "AVAILABLEMESSAGE": "Eine Aktualisierung ist verfügbar. Yoobic Dashboard wird automatisch herunterladen und installieren.",
+    "DOWNLOADEDMESSAGE": "Update erfolgreich heruntergeladen! Yoobic Dashboard wird das Update installieren und neu starten."
+}

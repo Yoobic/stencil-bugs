@@ -134,7 +134,7 @@ export class YooCardListComponent {
                     </yoo-badge></div>) : null,
             this.renderCardImage(),
             this.isActivable ?
-                <yoo-form-checkbox class={this.host.className} onCheckboxToggled={(event) => this.onCheckboxToggled(event)}></yoo-form-checkbox>
+                <yoo-form-checkbox class={this.host.className} onInputChanged={(event) => this.onCheckboxToggled(event)}></yoo-form-checkbox>
                 : null]
         );
     }
@@ -142,8 +142,8 @@ export class YooCardListComponent {
     renderHeadingContainerContent(): JSX.Element {
         return (
             [<div class="heading-container" attr-layout="row">
-                {this.entry && this.entry.heading ? <span class="card-heading">{this.entry.heading}</span> : null}
-                {this.entry && this.entry.date ? <span class="date-card">{this.entry.date}</span> : null}
+                {this.entry && this.entry.heading ? <div class="card-heading"> <span class="card-heading-text">{this.entry.heading}</span></div> : null}
+                {this.entry && this.entry.date ? <div class="date-card"><span class="date-card-text">{this.entry.date}</span></div> : null}
                 {this.hasMenu ?
                     <yoo-context-menu>
                         <div slot="trigger"><span class="menu-icon"><i class="yo-more-v"></i></span></div>

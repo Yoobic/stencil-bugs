@@ -272,7 +272,7 @@
             width: 0;
             height: 0;
             border-top: 0.71875rem solid transparent;
-            border-bottom: 0.71875rem solid transparent;
+            border-bottom: 0.718rem solid transparent;
             background-color: transparent;
             display: flex;
             align-items: center;
@@ -283,14 +283,6 @@
                 // border-right: 200px solid cssvar(accent);
             }
         }
-    .triangle-cover {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 1.5rem;
-        background-color: cssvar(light);
-    }
     }
 
 }

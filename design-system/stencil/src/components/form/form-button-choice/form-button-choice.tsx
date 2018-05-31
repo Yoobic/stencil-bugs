@@ -1,7 +1,8 @@
 import { Component, Element, Prop, Event, EventEmitter, State } from '@stencil/core';
-import { IFormSelect, ValidatorEntry, AsyncValidator, Validator, ITranslateService } from '@shared/interfaces';
-import { setValidator, setAsyncValidator, setValueAndValidateInput } from '../../../utils/helpers/form-input-helpers';
+import { IFormSelect, ValidatorEntry, AsyncValidator, Validator } from '@shared/interfaces';
+import { setValidator, setValueAndValidateInput } from '../../../utils/helpers/form-input-helpers';
 import { findIndex, isEqual } from 'lodash-es';
+import { services } from '../../../services';
 
 @Component({
     tag: 'yoo-form-button-choice',
@@ -29,15 +30,8 @@ export class YooFormButtonChoiceComponent implements IFormSelect {
     @State() validity: boolean;
     @State() selection: Array<string> = [];
 
-    private translate: ITranslateService = (window as any).translateService;
-
-    // Reduced Validators
-    _validator: Validator<string> = (x: string) => true;
-    _asyncValidator: AsyncValidator<string> = async (x: string) => true;
-
     componentWillLoad() {
-        setValidator(this.validators);
-        setAsyncValidator(this.asyncValidators);
+        setValidator(this);
     }
 
     componentDidLoad() {
@@ -78,7 +72,7 @@ export class YooFormButtonChoiceComponent implements IFormSelect {
     renderItem(item: string): JSX.Element {
         return (
             <div class={'choice-container ' + (this.isSelected(item) ? 'selected' : '')} onClick={() => this.onItemSelect(item)}>
-                <span>{this.useTranslate ? this.translate.get(item.toUpperCase()) : item}</span>
+                <span>{this.useTranslate ? services.translate.get(item.toUpperCase()) : item}</span>
             </div>
         );
     }

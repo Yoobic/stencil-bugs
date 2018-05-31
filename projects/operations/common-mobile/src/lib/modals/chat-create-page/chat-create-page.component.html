@@ -1,0 +1,14 @@
+<ion-header class="shadow" no-border [class.statusbar-padding]="isCordova">
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="closeModal()">
+                <i slot="icon-only" class="yo-close"></i>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{'CHAT'|translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [forceOverscroll]="false" #content>
+    <!-- <yoo-chat-create></yoo-chat-create> -->
+    <app-grid #grid collectionName="user" entityType="users" displayType="card-list" emptyState="user"></app-grid>
+</ion-content>

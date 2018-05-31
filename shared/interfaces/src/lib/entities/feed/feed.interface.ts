@@ -1,5 +1,6 @@
 import { IEntity } from '../entity/entity.interface';
 import { IUser } from '../user/user.interface';
+import { IFile } from '../file/file.interface';
 import { IMissionDescription } from '../mission-description/mission-description.interface';
 
 export class IFeed extends IEntity {
@@ -8,7 +9,7 @@ export class IFeed extends IEntity {
     description: string;
     tags?: Array<string>;
     image: any;
-    document: IEntity;
+    document: IFile;
     documentRef: string;
     group: string | Array<string>;
     disableNotifications: boolean;

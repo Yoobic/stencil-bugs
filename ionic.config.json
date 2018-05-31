@@ -1,7 +1,0 @@
-{
-  "name": "ngIfModalBug",
-  "type": "angular",
-  "integrations": {
-    "cordova": {}
-  }
-}

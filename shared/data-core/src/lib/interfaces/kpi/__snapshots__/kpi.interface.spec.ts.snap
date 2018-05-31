@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shared: data-core: interfaces: Kpi should create an entity 1`] = `
+IModel {
+  "_formFields": Array [
+    Object {
+      "advanced": true,
+      "filterName": "pointPadding",
+      "name": "pointPadding",
+      "tab": "ADVANCED",
+      "tabIndex": 2,
+      "title": "POINTPADDING",
+      "type": "number",
+    },
+    Object {
+      "advanced": true,
+      "filterName": "numberPrecision",
+      "min": 1,
+      "name": "numberPrecision",
+      "tab": "ADVANCED",
+      "tabIndex": 2,
+      "title": "NUMBERPRECISION",
+      "type": "number",
+    },
+  ],
+  "appareance": Map {},
+  "className": "BaseKpi",
+  "collectionName": undefined,
+  "feathersService": undefined,
+  "fields": undefined,
+  "include": undefined,
+  "isCustom": undefined,
+  "mappingFields": Map {},
+  "searchSubquery": undefined,
+  "searchableFields": Array [],
+  "type": [Function],
+}
+`;

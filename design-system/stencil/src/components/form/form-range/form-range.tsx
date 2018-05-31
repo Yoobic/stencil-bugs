@@ -1,7 +1,7 @@
 import { Component, Prop, Event, State, EventEmitter, Element, Method } from '@stencil/core';
-import { ValidatorEntry, AsyncValidator, Validator, IFormRange, IRangeValue } from '@shared/interfaces';
-import { setValidator, setAsyncValidator, setValueAndValidateInput } from '../../../utils/helpers/form-input-helpers';
-// import { setValidator, setAsyncValidator, onInputBlurred, onInputChanged, onInputFocused, onFocus } from '../../../utils/helpers/form-input-helpers';
+import { ValidatorEntry, AsyncValidator, Validator, IFormRange } from '@shared/interfaces';
+import { setValidator, setValueAndValidateInput } from '../../../utils/helpers/form-input-helpers';
+import { isArray } from 'lodash-es';
 
 @Component({
     tag: 'yoo-form-range',
@@ -10,9 +10,9 @@ import { setValidator, setAsyncValidator, setValueAndValidateInput } from '../..
 })
 export class YooFormRangeComponent implements IFormRange {
 
-    @Prop({ mutable: true }) value: IRangeValue;
-    @Prop() validators: Array<Validator<IRangeValue> | ValidatorEntry> = [];
-    @Prop() asyncValidators: Array<AsyncValidator<IRangeValue>>;
+    @Prop({ mutable: true }) value: number | Array<number>;
+    @Prop() validators: Array<Validator<number | Array<number>> | ValidatorEntry> = [];
+    @Prop() asyncValidators: Array<AsyncValidator<number | Array<number>>>;
     @Prop() readonly: boolean;
     @Prop() min: number;
     @Prop() max: number;
@@ -27,21 +27,10 @@ export class YooFormRangeComponent implements IFormRange {
 
     @State() validity: boolean;
 
-     @Element() host: HTMLStencilElement;
-
-    // private coreConfig: ICoreConfig = (window as any).coreConfigService;
-
-    // Reduced Validators
-    _validator: Validator<string> = (x: string) => true;
-    _asyncValidator: AsyncValidator<string> = async (x: string) => true;
+    @Element() host: HTMLStencilElement;
 
     componentWillLoad() {
-        setValidator(this.validators);
-        setAsyncValidator(this.asyncValidators);
-    }
-
-    componentDidLoad() {
-        this.value = {...this.value};
+        setValidator(this);
     }
 
     @Method()
@@ -54,64 +43,67 @@ export class YooFormRangeComponent implements IFormRange {
     }
 
     onSliderChange(ev: CustomEvent): void {
-        let oldValue: IRangeValue = this.value;
+        let oldValue = this.value;
         if (ev && ev.detail) {
-            if (ev.detail.lowValue || ev.detail.lowValue === 0) {
-                this.value.inf = ev.detail.lowValue;
+            if ((ev.detail.lowValue || ev.detail.lowValue === 0) && (ev.detail.highValue || ev.detail.highValue === 0)) {
+                this.value = [ev.detail.lowValue, ev.detail.highValue];
             }
-            if (ev.detail.highValue || ev.detail.highValue === 0) {
-                this.value.sup = ev.detail.highValue;
-            }
-        }
-        if (oldValue !== this.value) {
-            setValueAndValidateInput({target: {value: this.value}}, this);
-        }
-        this.value = {...this.value};
-    }
-
-    onSingleSliderChange(ev: CustomEvent): void {
-        let oldValue: IRangeValue = this.value;
-        if (ev && ev.detail) {
-            this.value.sup = ev.detail;
         }
         if (oldValue !== this.value) {
             setValueAndValidateInput(this.value, this);
         }
-        this.value = {...this.value};
+    }
+
+    onSingleSliderChange(ev: CustomEvent): void {
+        let oldValue = this.value;
+        if (ev && ev.detail) {
+            this.value = ev.detail;
+        }
+        if (oldValue !== this.value) {
+            setValueAndValidateInput(this.value, this);
+        }
     }
 
     onInputInfChanged(ev): void {
-        let oldValue: IRangeValue = this.value;
-        this.value.inf = this.value.sup >= ev.target.valueAsNumber ? ev.target.valueAsNumber : this.value.sup;
-        this.value.sup = this.value.sup >= ev.target.valueAsNumber ? this.value.sup : ev.target.valueAsNumber;
-        if (oldValue !== this.value) {
-            setValueAndValidateInput([this.value.inf, this.value.sup], this);
+        let oldValue = this.value;
+        let incomingVal: number = Number(ev.detail.target.value) >= this.max ? this.max : Number(ev.detail.target.value) <= this.min ? this.min : Number(ev.detail.target.value);
+        if (this.double) {
+            let inf: number = this.value[1] >= incomingVal ? incomingVal : this.value[1];
+            this.value = [inf, this.value[1]];
         }
-        this.value = {...this.value};
+        if (oldValue !== this.value) {
+            setValueAndValidateInput(this.value, this);
+        }
     }
 
     onInputSupChanged(ev): void {
-        let oldValue: IRangeValue = this.value;
+        let oldValue = this.value;
+        let incomingVal: number = ev.detail.target.value >= this.max ? this.max : ev.detail.target.value <= this.min ? this.min : Number(ev.detail.target.value);
         if (this.double ) {
-            this.value.sup = this.value.inf <= ev.target.valueAsNumber ? ev.target.valueAsNumber : this.value.inf;
-            this.value.inf = this.value.inf <= ev.target.valueAsNumber ? this.value.inf : ev.target.valueAsNumber;
+            let sup: number = this.value[0] <= incomingVal ? incomingVal : this.value[0];
+            this.value = [this.value[0], sup];
         } else {
-            this.value.sup = ev.target.valueAsNumber;
+            if (incomingVal === this.value && incomingVal === this.max) {
+                this.value = this.min;
+            } else if (incomingVal === this.value && incomingVal === this.min) {
+                this.value = this.max;
+            }
+
+            this.value = incomingVal;
         }
         if (oldValue !== this.value) {
-            setValueAndValidateInput([this.value.inf, this.value.sup], this);
+            setValueAndValidateInput(this.value, this);
         }
-        this.value = {...this.value};
     }
 
     renderReadonly() {
         return (
             <div class="readonly">
                 <div>
-                {this.value ? this.value.inf : null}
+                {this.value && this.double ? this.value[0] : this.value && !this.double ? this.value : null}
                 </div>
                 <div>
-                {this.value ? this.value.inf : null}
+                {this.value && this.double ? this.value[1] : null}
                 </div>
             </div>
         );
@@ -123,12 +115,12 @@ export class YooFormRangeComponent implements IFormRange {
                 <div class="inputs-container" attr-layout="row">
                     {this.double ?
                          [<div class="input">
-                            <input type="number" value={this.value && this.value.inf ? this.value.inf.toString() || null : null} onChange={(ev) => this.onInputInfChanged(ev)}/>
+                            <yoo-form-input value={ isArray(this.value) ? this.value[0] : this.value } onInputBlurred={(ev) => this.onInputInfChanged(ev)}></yoo-form-input>
                         </div>,
                         <div class="separator"></div>]
                     : null}
                     <div class={'input ' + (this.double ? '' : 'single')}>
-                        <input type="number" value={this.value && this.value.sup ? this.value.sup || null : null} onChange={(ev) => this.onInputSupChanged(ev)}/>
+                        <yoo-form-input value={isArray(this.value) ? this.value[1] : this.value } onInputBlurred={(ev) => this.onInputSupChanged(ev)}></yoo-form-input>
                     </div>
                 </div>
                 <div class="slider-container">
@@ -136,8 +128,8 @@ export class YooFormRangeComponent implements IFormRange {
                         hideLabel={true}
                         hideReferences={true}
                         doubleSlider={this.double}
-                        initialLowValue={this.value ? this.value.inf : 0}
-                        initialValue={this.value ? this.value.sup : 0}
+                        initialLowValue={this.value ? this.value[0] || 0 : 0}
+                        initialValue={this.value ? isArray(this.value) ? this.value[1] : this.value : 0}
                         minimum={this.min ? this.min : null}
                         maximum={this.max ? this.max : null}
                         onDoubleSliderChanged={(ev) => this.onSliderChange(ev)}

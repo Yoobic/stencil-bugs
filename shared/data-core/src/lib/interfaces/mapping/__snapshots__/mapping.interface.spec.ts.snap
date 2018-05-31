@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shared: data-core: interfaces: Mapping should create an entity 1`] = `
+IModel {
+  "_formFields": Array [
+    Object {
+      "autoselect": true,
+      "condition": "context!=\\"translation\\"",
+      "conditionalValues": Array [
+        Object {
+          "ADMIN_FILES_TYPE": Array [
+            "locations",
+            "user",
+            "geofilters",
+            "campaignfilters",
+            "products",
+          ],
+          "condition": "context == \\"admin\\"",
+        },
+        Object {
+          "condition": "context == \\"formCreator\\"",
+          "values": Array [
+            "pages",
+          ],
+        },
+      ],
+      "defaultValues": Array [
+        "locations",
+        "user",
+        "geofilters",
+        "campaignfilters",
+        "products",
+      ],
+      "filterName": "type",
+      "name": "type",
+      "required": true,
+      "title": "TYPE",
+      "translate": true,
+      "type": "autocomplete",
+    },
+    Object {
+      "extensions": Array [
+        "csv",
+        "application",
+        "xls",
+        "xlsx",
+      ],
+      "filterName": "document",
+      "filterable": false,
+      "name": "document",
+      "required": true,
+      "title": "DOCUMENT",
+      "type": "documentuploader",
+    },
+  ],
+  "appareance": Map {},
+  "className": "IMapping",
+  "collectionName": undefined,
+  "feathersService": undefined,
+  "fields": undefined,
+  "include": undefined,
+  "isCustom": undefined,
+  "mappingFields": Map {},
+  "searchSubquery": undefined,
+  "searchableFields": Array [],
+  "type": [Function],
+}
+`;

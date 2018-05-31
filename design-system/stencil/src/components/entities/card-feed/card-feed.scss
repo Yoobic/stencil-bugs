@@ -85,6 +85,13 @@
       .badge-top-right {
         @include card-marker-position(true, false, 0.9375rem);
       }
+      .bottom-left-icon, .bottom-right-icon, .top-left-icon, .top-right-icon {
+        height: 1.875rem;
+        width: 1.875rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
     .content-container {
       padding: 0px;

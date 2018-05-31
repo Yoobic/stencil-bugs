@@ -50,12 +50,16 @@
                     .image-container {
                         padding-top: 0.5rem;
                         .image {
-                            min-height: 200px;
+                            min-width: 150px;
                             min-height: 100px;
                             width: 100%;
                             height: 100%;
                             background:cssvar(light);
                         }
+                    }
+                    &.last {
+                        width: fit-content;
+                        align-self: flex-end;
                     }
                 }
                 .info-container{
@@ -100,6 +104,10 @@
                     }
                     .message-content{
                         background: cssvar(dark-10);
+                        &.last {
+                            width: fit-content;
+                            align-self: flex-start;
+                        }
                     }
                 }
             }

@@ -2,6 +2,7 @@ import { Component, Element, Prop, State, Event, EventEmitter } from '@stencil/c
 import { getBackImageStyle, cloudinary, getElementDimensions, execHandlerAndStopEvent } from '../../../utils/helpers'; //intersectionObserve, resizeObserve, debounce
 import { QueueController } from '@ionic/core';
 import { ICardEntry } from '@shared/interfaces';
+import { services } from '../../../services';
 
 @Component({
     tag: 'yoo-card-feed',
@@ -113,7 +114,7 @@ export class YooCardFeedComponent {
                 this.queue.write(() => {
                     descriptionContainer.classList.remove('short-text');
                     descriptionContainer.classList.add('long-text');
-                    span.innerHTML = (window as any).translateService.get('VIEWLESS'); //less '<i class="yo-up"></i>';
+                    span.innerHTML = services.translate.get('VIEWLESS'); //less '<i class="yo-up"></i>';
                     this.hiddenText = !this.hiddenText;
                 });
             } else {

@@ -1,0 +1,12 @@
+<yoo-profile [config]="config" (profileEdit)="onProfileEdit()" (clicked)="onItemClick($event)" (logout)="onLogout()"></yoo-profile>
+<yoo-loader class="absolute" *ngIf="isLoading"></yoo-loader>
+
+<!-- TO BE REMOVED -->
+<!--<div *ngFor="let i of config.links">-->
+    <!--{{i.title}}-->
+    <!--<div *ngFor="let j of i.items" (click)="onItemClick({detail:j})">-->
+        <!--{{j.title}}-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="assertive" (click)="onLogout()">{{'LOGOUT'|translate}}</div>-->

@@ -1,0 +1,20 @@
+<ion-header class="shadow" no-border [class.statusbar-padding]="isCordova">
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="onCancel()">
+                <i slot="icon-only" class="{{closeIcon || 'yo-close'}}"></i>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{title|translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button color="success" (click)="onSave()">
+                {{'SAVE'|translate}}
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [forceOverscroll]="false" #content>
+    <app-grid #grid [items]="items" [pageSize]="pageSize" [hiddenFields]="hiddenFields" [mode]="mode" [filters]="filters" [sorts]="sorts"
+        [collectionName]="collectionName" [displayType]="displayType" [entityType]="entityType" (select)="onItemSelect($event)"
+        [multipleSelect]="multipleSelect" [initialSelection]="initialSelection" [emptyState]="emptyState" [keepSelection]="keepSelection!==false"></app-grid>
+</ion-content>

@@ -141,15 +141,17 @@ export function evalConditionsInContext(conditions: Array<ICondition>, data: any
     return valid;
 }
 
-export function updateFormulas(slides: Array<ISlide>, data, suffix = '') {
+export function updateFormulas(slides: Array<ISlide> = [], data, suffix = '') {
     let fields: Array<IFormField> = [];
     let didUpdate: boolean = false;
-    slides.forEach(slide => {
-        if (slide && slide.items) {
-            fields = fields.concat(slide.items);
+    if (slides) {
+        slides.forEach(slide => {
+            if (slide && slide.items) {
+                fields = fields.concat(slide.items);
 
-        }
-    });
+            }
+        });
+    }
 
     if (fields && fields.length > 0) {
         fields.forEach(field => {

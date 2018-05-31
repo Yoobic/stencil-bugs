@@ -1,7 +1,7 @@
 import { Component, Prop, Element, Method, State, Event, EventEmitter } from '@stencil/core';
 import { YooSlimScrollComponent } from '../../core/slim-scroll/slim-scroll';
 import { IChatMessage } from '@shared/interfaces';
-import { getBackImageStyle, cloudinary, getUserDisplayName, resizeWindow } from '../../../utils/helpers';
+import { getBackImageStyle, cloudinary, getUserDisplayName, resizeWindow, decreaseMaxHeight, getSizeModal } from '../../../utils/helpers';
 import { pipes } from '../../../utils/pipes';
 
 @Component({
@@ -70,24 +70,10 @@ export class YooChatComponent {
 
     getSizeContainer() {
         let maxHeight = window.innerHeight;
-        let body = this.host.parentElement.parentElement.querySelector('.modal-body');
-        if (body) {
-            maxHeight = Math.min(maxHeight, body.clientHeight);
-        } else {
-            maxHeight = this.decreaseMaxHeight(maxHeight, 'ion-header', document);
-            maxHeight = this.decreaseMaxHeight(maxHeight, 'ion-footer', document);
-        }
-        maxHeight = this.decreaseMaxHeight(maxHeight, '.load-more', this.host);
-        maxHeight = this.decreaseMaxHeight(maxHeight, '.input-container', this.host);
+        maxHeight = getSizeModal(this.host, maxHeight);
+        maxHeight = decreaseMaxHeight(maxHeight, '.load-more', this.host);
+        maxHeight = decreaseMaxHeight(maxHeight, '.input-container', this.host);
         return { height: maxHeight + 'px' };
-    }
-
-    decreaseMaxHeight(maxHeight: number, name: string, html) {
-        let comp: HTMLElement = html.querySelector(name);
-        if (comp) {
-            maxHeight -= comp.clientHeight;
-        }
-        return maxHeight;
     }
 
     getLastMessage(index: number): boolean {

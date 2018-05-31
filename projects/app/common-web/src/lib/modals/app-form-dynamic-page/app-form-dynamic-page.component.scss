@@ -1,0 +1,11 @@
+:host {
+    /deep/ yoo-modal {
+        yoo-form-dynamic {
+            position: relative !important;
+            form {
+                position: relative !important;
+                height: 100%;
+            }
+        }
+    }
+}

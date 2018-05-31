@@ -33,6 +33,8 @@ interface Window {
     Ionic?: any;
     translateService?: any;
     coreConfigService?: any;
+    filesService?: any;
+    sessionService?: any;
 }
 
 interface Branch {

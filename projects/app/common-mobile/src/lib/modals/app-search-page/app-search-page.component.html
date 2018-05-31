@@ -1,0 +1,41 @@
+<ion-header class="shadow" no-border [class.statusbar-padding]="isCordova">
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="closeModal()">
+                <i slot="icon-only" class="yo-close"></i>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{'SEARCH'|translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [forceOverscroll]="false" #content padding>
+    <!-- <yoo-search-page></yoo-search-page> -->
+    <!-- <ng-ais-instantsearch [config]="algoliaConfig"> -->
+    <!-- SearchBox -->
+    <!-- <ng-ais-search-box placeholder="{{'SEARCH'|translate}}"></ng-ais-search-box> -->
+
+    <!-- RefinementList -->
+    <!-- <h3>{{'ADDRESS'|translate}}</h3> -->
+    <!-- <ng-ais-refinement-list attribute="address"> </ng-ais-refinement-list> -->
+
+    <!-- CurrentRefinedValues -->
+    <!-- <ng-ais-current-refined-values [clearAll]="false"></ng-ais-current-refined-values> -->
+
+    <!-- ClearAll -->
+    <!-- <ng-ais-clear-all clearAllLabel="Reset everything"> </ng-ais-clear-all> -->
+
+    <!-- Hits -->
+    <!-- <h3>{{'Results'|translate}}</h3> -->
+    <!-- <ng-ais-hits>
+            <ng-template let-hits="hits">
+                <div *ngFor="let hit of hits">
+                    <ng-ais-highlight attribute="title" [hit]="hit"> </ng-ais-highlight>
+                    <ng-ais-highlight attribute="address" [hit]="hit"> </ng-ais-highlight>
+                </div>
+            </ng-template>
+        </ng-ais-hits> -->
+
+    <!-- Pagination -->
+    <!-- <ng-ais-pagination [totalPages]="20"> </ng-ais-pagination> -->
+    <!-- </ng-ais-instantsearch> -->
+</ion-content>

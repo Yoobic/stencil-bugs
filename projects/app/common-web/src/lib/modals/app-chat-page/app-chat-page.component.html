@@ -1,0 +1,3 @@
+<yoo-modal [scrollEnabled]="false" #modal heading="{{getTitle()}}" (closed)="closeModal()">
+    <yoo-chat #chat [messages]="messagesDisplay"  [displayLoadMore]="canLoadMore" (loadMoreClicked)="loadMore()" (sendText)="onSendText($event)"></yoo-chat>
+</yoo-modal>

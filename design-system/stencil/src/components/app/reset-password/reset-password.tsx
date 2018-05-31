@@ -1,4 +1,5 @@
 import { Component, Element, Prop, State, Event, EventEmitter } from '@stencil/core';
+import { services } from '../../../services';
 
 @Component({
     tag: 'yoo-reset-password',
@@ -12,18 +13,16 @@ export class YooResetPasswordComponent {
     @Prop() subheading: string;
     @Prop() borderClass: string;
     @Prop() buttonClass: string;
-    @Prop() buttonText: string;
-    @Prop() inputLabel: string;
     @Prop() isMagicLink: boolean = false;
     @Prop() showTitle: boolean = true;
 
-     @Element() host: HTMLStencilElement;
+    @Element() host: HTMLStencilElement;
 
     @State() validateInput: boolean;
 
-    @Event() passwordResetRequestSubmitted: EventEmitter<{email: string, isMagicLink: boolean}>;
+    @Event() passwordResetRequestSubmitted: EventEmitter<{ email: string, isMagicLink: boolean }>;
 
-    private userEmail: string;
+     private userEmail: string;
 
     componentWillLoad() {
     }
@@ -38,7 +37,7 @@ export class YooResetPasswordComponent {
     }
 
     onSubmit() {
-        this.passwordResetRequestSubmitted.emit({email: this.userEmail, isMagicLink: this.isMagicLink});
+        this.passwordResetRequestSubmitted.emit({ email: this.userEmail, isMagicLink: this.isMagicLink });
     }
 
     onInputChanged(ev: CustomEvent) {
@@ -61,17 +60,15 @@ export class YooResetPasswordComponent {
                     {this.subheading}
                 </div>
                 <div class={'input'}>
-                    <yoo-form-input-container label={this.inputLabel}>
-                        <div >
-                            <yoo-form-input class="simple" border-color={this.borderClass} validators={[{name: 'email' }, {name: 'required'} ]}
+                    <yoo-form-input-container field={{ title: services.translate.get('EMAIL'), required: true }}>
+                        <yoo-form-input class="simple" border-color={this.borderClass} validators={[{ name: 'email' }, { name: 'required' }]}
                             onInputChanged={(event) => this.onInputChanged(event)}
                             onInputBlurred={() => this.onInputBlurred()}>
-                            </yoo-form-input>
-                        </div>
+                        </yoo-form-input>
                     </yoo-form-input-container>
                 </div>
                 <div class={'button'}>
-                    <yoo-button onButtonClicked={() => this.onSubmit()} text={this.buttonText} class={this.buttonClass  + ' large'}></yoo-button>
+                    <yoo-button onClick={() => this.onSubmit()} text={services.translate.get('SUBMIT')} class={this.buttonClass + ' large'}></yoo-button>
                 </div>
             </div>
         );

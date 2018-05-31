@@ -1,0 +1,14 @@
+<ion-header class="shadow" o-border [class.statusbar-padding]="isCordova">
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="closeModal()">
+                <i slot="icon-only" class="{{closeIcon || 'yo-close'}}"></i>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{grid?.total||0}} {{actionName}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [forceOverscroll]="false" #content>
+    <app-grid #grid collectionName="activity" entityType="users" displayType="card-list" [filters]="filters" [mapTransform]="mapTransform"
+        [aggregateOptions]="aggregateOptions" emptyState="user"></app-grid>
+</ion-content>

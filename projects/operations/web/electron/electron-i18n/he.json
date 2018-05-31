@@ -1,0 +1,17 @@
+{
+    "APPLICATION": "יישום",
+    "QUIT": "לְהַפְסִיק",
+    "EDIT": "לַעֲרוֹך",
+    "UNDO": "לבטל",
+    "REDO": "לַעֲשׂוֹת שׁוּב",
+    "CUT": "גזירה",
+    "COPY": "עותק",
+    "PASTE": "לְהַדבִּיק",
+    "SELECTALL": "בחר הכל",
+    "ACCEPT": "בסדר",
+    "LATER": "לא עכשיו",
+    "UPDATEAVAILABLE": "עדכון זמין",
+    "UPDATEDOWNLOADED": "עדכון שהוריד",
+    "AVAILABLEMESSAGE": "קיים עדכון זמין. Yoobic Dashboard יוריד באופן אוטומטי ולהתקין אותה.",
+    "DOWNLOADEDMESSAGE": "עדכון הורד בהצלחה! Yoobic Dashboard יתקין את העדכון ולהפעיל מחדש."
+}

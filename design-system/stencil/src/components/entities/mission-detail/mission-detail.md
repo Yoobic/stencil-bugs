@@ -202,3 +202,7 @@ category: Entities Components
 |`slidesNumber`|string|undefined|the number of steps|
 |`photosNumber`|string|undefined|the number of photos|
 |`questionsNumber`|string|undefined|the number of question|
+
+|Attr|Description|
+|---|---|
+|`book`| emit either 'start', 'unbook' when we click on a button on the footer|

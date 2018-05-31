@@ -1,6 +1,6 @@
 import { Component, Element, Prop, Event, EventEmitter } from '@stencil/core';
 import { ValidatorEntry, AsyncValidator, Validator } from '@shared/interfaces';
-import { setValidator, setAsyncValidator, setValueAndValidateInput } from '../../../utils/helpers/form-input-helpers';
+import { setValidator, setValueAndValidateInput } from '../../../utils/helpers/form-input-helpers';
 import { getBackImageStyle, cloudinary } from '../../../utils/helpers';
 
 import signature_pad from 'signature_pad';
@@ -24,16 +24,12 @@ export class YooFormSignaturePadComponent {
     @Event() inputFocused: EventEmitter<boolean>;
     @Event() inputChanged: EventEmitter<any>;
 
-    @Element() protected host: HTMLElement;
+    @Element() host: HTMLElement;
 
     protected signaturePad: signature_pad;
 
-    _validator: Validator<string> = (x: string) => true;
-    _asyncValidator: AsyncValidator<string> = async (x: string) => true;
-
     componentWillLoad() {
-        setValidator(this.validators);
-        setAsyncValidator(this.asyncValidators);
+        setValidator(this);
     }
 
     componentDidLoad() {

@@ -107,8 +107,11 @@
         //     order: 5;
         // }
         .feed-interactions {
-            order: 4;
+            order: 5;
             margin-top: 15px;
+        }
+        .feed-file {
+            order: 4;
         }
         .feed-text {
             margin-top: 15px;
@@ -120,8 +123,8 @@
                 position: relative;
                 color: cssvar(light);
                 &.short-text {
-                  height: 100px;
-                  max-height: 100px;
+                  height: 20px;
+                  max-height: 20px;
                   margin: 0;
                   padding-right: 50px;
                   white-space: nowrap;

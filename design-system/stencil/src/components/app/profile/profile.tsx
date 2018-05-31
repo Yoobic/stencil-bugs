@@ -1,4 +1,6 @@
 import { Component, Element, Event, EventEmitter, Prop, Listen } from '@stencil/core';
+import { IProfileConfig } from '@shared/interfaces';
+import { services } from '../../../services';
 
 @Component({
   tag: 'yoo-profile',
@@ -7,13 +9,13 @@ import { Component, Element, Event, EventEmitter, Prop, Listen } from '@stencil/
 })
 export class YooProfileComponent {
 
-  @Prop() config: any;
+  @Prop() config: IProfileConfig;
 
   @Event() clicked: EventEmitter<string>;
   @Event() profileEdit: EventEmitter<boolean>;
   @Event() logout: EventEmitter<boolean>;
 
-   @Element() host: HTMLStencilElement;
+  @Element() host: HTMLStencilElement;
 
   @Listen('bottomRightClicked')
   onProfileEdit() {
@@ -36,7 +38,7 @@ export class YooProfileComponent {
             <div class="profile-user">
               <yoo-avatar onClick={() => this.onProfileEdit()} class="large gradient-success large-border" user={this.config.user} bottom-right-icon="yo-pen"></yoo-avatar>
               <div class="profile-user-name">{this.config.user.firstName} {this.config.user.lastName}</div>
-              <div class="profile-user-role">{this.config.user.role}</div>
+              <div class="profile-user-role">{services.translate.get(this.config.user.role)}</div>
             </div>
             <div class="profile-links">
               {this.config.links.map(link => {
@@ -77,10 +79,10 @@ export class YooProfileComponent {
   renderLi(item: { title: string, handler: () => void }): JSX.Element {
     return (
       <span>
-      <li class="profile-links-menu-item" onClick={() => this.onClicked(item)}>
-        {item.title} <i class="yo-right"></i>
-      </li>
-      <div class="border"></div>
+        <li class="profile-links-menu-item" onClick={() => this.onClicked(item)}>
+          {item.title} <i class="yo-right"></i>
+        </li>
+        <div class="border"></div>
       </span>
     );
   }

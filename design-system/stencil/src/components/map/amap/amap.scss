@@ -1,0 +1,33 @@
+@import "../map/map.scss";
+:host {
+    /deep/ {
+        @import "../../../../../../shared/styles/map/_amap.scss";
+    }
+    display: block;
+    width: 100%;
+    height: 100%;
+    .column-container {
+        width: 100%;
+        height: 100%;
+        #map-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            border: $border-width solid cssvar(dark-20);
+            background: cssvar(dark);
+        }
+        .marker-info {
+            background: cssvar(light);
+            text-align: center;
+            border-top: $border-width solid cssvar(border-color);
+            padding-bottom: $padding-small;
+            .title {
+                margin-top: $padding-small;
+                font-weight: 500;
+            }
+        }
+        .filter-group {
+            @include filter-group-styles();
+        }
+    }
+}

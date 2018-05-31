@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>check</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="60.881%" y1="74.0327464%" x2="32.4700625%" y2="-13.3084847%" id="linearGradient-1">
+            <stop stop-color="#15DABA" offset="0%"></stop>
+            <stop stop-color="#13DEB4" offset="20.5%"></stop>
+            <stop stop-color="#0DE8A2" offset="49.01%"></stop>
+            <stop stop-color="#04F884" offset="82.08%"></stop>
+            <stop stop-color="#00FF78" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Approve-Mission-Alert" transform="translate(-163.000000, -244.000000)">
+            <g id="Views/Alerts/Two-Button">
+                <g id="Alert" transform="translate(52.000000, 204.000000)">
+                    <g id="Icon/Approve" transform="translate(111.000000, 40.000000)">
+                        <path d="M21.0169004,32.6064349 C21.4730785,33.0878078 22.0692601,33.3297701 22.6666083,33.3332941 C23.2639566,33.3368199 23.8601382,33.1028832 24.3163162,32.6300144 L35.9832746,20.7960482 C36.894464,19.8929975 36.894464,18.3866745 35.9832746,17.4256659 C35.0720851,16.4616211 33.5950482,16.4077699 32.6838588,17.3109091 L22.6666083,27.4406116 L17.3161412,21.7073735 C16.4049518,20.7204922 14.9279149,20.6800276 14.0167254,21.6224256 C13.105536,22.5678445 13.105536,24.1383222 14.0167254,25.1251385 L21.0169004,32.6064349 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        <g id="success" stroke-width="1" fill-rule="evenodd" fill="url(#linearGradient-1)">
+                            <path d="M25,0 C11.2153846,0 0,11.2144231 0,25 C0,38.7855769 11.2153846,50 25,50 C38.7846154,50 50,38.7855769 50,25 C50,11.2144231 38.7846154,0 25,0 Z M38.9375,16.6625 L23.5528846,33.9701923 C23.1740385,34.3961538 22.6461538,34.6153846 22.1144231,34.6153846 C21.6923077,34.6153846 21.2682692,34.4769231 20.9134615,34.1942308 L11.2980769,26.5019231 C10.4692308,25.8394231 10.3346154,24.6288462 10.9980769,23.7990385 C11.6605769,22.9692308 12.8721154,22.8346154 13.7009615,23.4980769 L21.8903846,30.0490385 L36.0625,14.1057692 C36.7663462,13.3115385 37.9836538,13.2403846 38.7769231,13.9461538 C39.5711538,14.6528846 39.6432692,15.8682692 38.9375,16.6625 Z" id="Shape" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,6 @@
+json_key_file "./fastlane/release-credentials/Google-Play-Release-Key.json" # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
+package_name "com.ipelia.yoobicask" # for Android
+
+app_identifier "com.ipelia.yoobicask" # The bundle identifier of your ios app
+apple_id "dev@ipelia.com" # Your Apple email address
+team_id "83J46LC2FS" # Developer Portal Team ID

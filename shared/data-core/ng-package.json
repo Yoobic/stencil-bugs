@@ -1,0 +1,33 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../node_modules/@shared/data-core",
+  "deleteDestPath": false,
+  "lib": {
+    "entryFile": "src/public_api.ts",
+    "styleIncludePaths": [
+      "../../../shared/styles"
+    ],
+    "umdModuleIds": {
+      "lodash-es": "lodash-es",
+      "localforage": "localForage",
+      "moment": "moment",
+      "moment-timezone": "moment-timezone",
+      "rxjs": "rxjs",
+      "uuid": "uuid",
+      "file-saver": "FileSaver",
+      "ng2-file-upload":"ng2FileUpload",
+      "@shared/common":"@shared/common",
+      "@shared/interfaces": "@shared/interfaces",
+      "@shared/translate":"@shared/translate",
+      "xlsx": "xlsx",
+      "papaparse": "papaparse",
+      "@ionic-native/device/ngx": "Device",
+      "@ionic-native/file/ngx": "File",
+      "@ionic-native/file-opener/ngx": "FileOpener",
+      "@ionic-native/file-transfer/ngx": "FileTransfer",
+      "@ionic-native/onesignal/ngx": "Onesignal",
+      "@ionic-native/push/ngx": "Push",
+      "@auth0/angular-jwt": "angularJWT"
+    }
+  }
+}

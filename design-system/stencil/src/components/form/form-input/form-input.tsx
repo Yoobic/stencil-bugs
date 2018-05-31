@@ -1,7 +1,8 @@
 import { Component, Prop, Event, State, EventEmitter, Element, Method } from '@stencil/core';
 import { ValidatorEntry, AsyncValidator, Validator, IFormInputBase } from '@shared/interfaces';
 
-import { setValidator, setAsyncValidator, onInputBlurred, setValueAndValidateInput, onInputFocused, onInputClear, convertValueForInputType } from '../../../utils/helpers/form-input-helpers';
+import { setValidator, onInputBlurred, setValueAndValidateInput, onInputFocused, onInputClear, convertValueForInputType } from '../../../utils/helpers/form-input-helpers';
+import { debounce } from '../../../utils/helpers/helpers';
 
 @Component({
     tag: 'yoo-form-input',
@@ -20,9 +21,10 @@ export class YooFormInputComponent implements IFormInputBase<string | number> {
     @Prop() iconSuffix: string;
     @Prop() tooltip: string;
     @Prop() type: string = 'text';
-    @Prop({ mutable: true }) borderColor: string;
     @Prop() showPasswordToggle: boolean = false;
     @Prop() showInputClear: boolean = false;
+    @Prop() min: any;
+    @Prop() max: any;
 
     @Event() validityChanged: EventEmitter<boolean>;
     @Event() inputBlurred: EventEmitter<any>;
@@ -30,6 +32,7 @@ export class YooFormInputComponent implements IFormInputBase<string | number> {
     @Event() inputChanged: EventEmitter<any>;
 
     @Event() iconClicked: EventEmitter<string>;
+    @Event() enterPressed: EventEmitter<boolean>;
 
     @State() isLabelAboveVisible: boolean;
     @State() inputTypeState: string;
@@ -37,15 +40,10 @@ export class YooFormInputComponent implements IFormInputBase<string | number> {
 
     @Element() host: HTMLStencilElement;
 
-    // private coreConfig: ICoreConfig = (window as any).coreConfigService;
-
-    // Reduced Validators
-    _validator: Validator<string> = (x: string) => true;
-    _asyncValidator: AsyncValidator<string> = async (x: string) => true;
+    // protected coreConfig: ICoreConfig = (window as any).coreConfigService;
 
     componentWillLoad() {
-        setValidator(this.validators);
-        setAsyncValidator(this.asyncValidators);
+        setValidator(this);
         this.inputTypeState = this.type;
     }
 
@@ -63,9 +61,16 @@ export class YooFormInputComponent implements IFormInputBase<string | number> {
         this.iconClicked.emit(icon);
     }
 
-    onInputChanged(ev: any): void {
+    // tslint:disable-next-line:member-ordering
+    onInputChanged = debounce((ev: any): void => {
         let value = ev.target && ev.target.value && convertValueForInputType(ev.target.value, this.type);
         setValueAndValidateInput(value, this);
+    }, 0);
+
+    onKeyPress(ev: KeyboardEvent) {
+        if (ev.keyCode === 13) {
+            this.enterPressed.emit(true);
+        }
     }
 
     onShowPassword(): void {
@@ -73,7 +78,25 @@ export class YooFormInputComponent implements IFormInputBase<string | number> {
     }
 
     renderReadonly() {
-        return <div class="readonly">{this.value}</div>;
+        return (
+            <div class="input-container" onClick={ev => onInputFocused(ev, this, '.input-container')}>
+                {this.iconPrefix ?
+                    <div class="icon-prefix" attr-layout="row">
+                        <i class={this.iconPrefix}></i>
+                    </div>
+                    : null}
+                <div class="readonly">
+                    {this.value}
+                </div>
+                {this.iconSuffix ?
+                    <div class="icon-suffix" onClick={ev => this.onIconClicked(this.iconSuffix)} attr-layout="row">
+                        <yoo-tooltip>
+                            <i class={this.iconSuffix} title={this.tooltip}></i>
+                        </yoo-tooltip>
+                    </div>
+                    : null}
+            </div>
+        );
     }
 
     renderEditable() {
@@ -102,6 +125,8 @@ export class YooFormInputComponent implements IFormInputBase<string | number> {
                     onBlur={ev => onInputBlurred(ev, this, '.input-container')}
                     onInput={ev => this.onInputChanged(ev)}
                     onFocus={ev => onInputFocused(ev, this, '.input-container')}
+                    onKeyPress={ev => this.onKeyPress(ev)}
+                    min={this.min} max={this.max}
                 />
                 {this.type === 'password' && this.showPasswordToggle ?
                     <div class="icon-suffix" onClick={this.onShowPassword.bind(this)} attr-layout="row">

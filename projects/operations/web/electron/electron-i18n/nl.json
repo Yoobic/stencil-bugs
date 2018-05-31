@@ -1,0 +1,17 @@
+{
+    "APPLICATION": "Applicatie",
+    "QUIT": "Ophouden",
+    "EDIT": "Bewerk",
+    "UNDO": "Ongedaan maken",
+    "REDO": "Opnieuw",
+    "CUT": "Knippen",
+    "COPY": "Kopiëren",
+    "PASTE": "Plakken",
+    "SELECTALL": "Selecteer alles",
+    "ACCEPT": "Okay",
+    "LATER": "Niet nu",
+    "UPDATEAVAILABLE": "Update beschikbaar",
+    "UPDATEDOWNLOADED": "Gedownloade update",
+    "AVAILABLEMESSAGE": "Er is een update beschikbaar is. Yoobic Dashboard wordt automatisch downloaden en installeren.",
+    "DOWNLOADEDMESSAGE": "Succesvol updaten gedownload! Yoobic Dashboard zal de update te installeren en opnieuw te starten."
+}

@@ -30,8 +30,8 @@ import {
   AsyncValidator,
   CardType,
   EntityType,
+  FormDisplayType,
   FormStarType,
-  FormToogleType,
   IActionBar,
   IActionSheet,
   IActionSheetButton,
@@ -39,14 +39,21 @@ import {
   IAnimationProp,
   IBadgeEntry,
   ICalendarMarker,
+  ICardCellEntry,
   ICardEntry,
   ICardListEntry,
   ICardStickyEntry,
+  IChartData,
+  IChartOptions,
   IChatMessage,
+  IColumnDefinition,
   IContextMenuEntry,
   IDateChange,
+  IEntity,
   IEntityAction,
   IFeed,
+  IFile,
+  IFilterGroup,
   IFormField,
   IFormSearch,
   IGridSearch,
@@ -54,11 +61,15 @@ import {
   ILanguage,
   ILanguageSelector,
   ILoginDetails,
+  IMapEntry,
+  IMarker,
+  IMarkerColor,
   IMission,
   IModalEntry,
   INavBarTab,
+  IPosition,
+  IProfileConfig,
   IRadioGroupEntry,
-  IRangeValue,
   ISlide,
   IUser,
   IVerticalMenuEntry,
@@ -301,7 +312,7 @@ declare global {
 
   namespace StencilComponents {
     interface YooProfile {
-      'config': any;
+      'config': IProfileConfig;
     }
   }
 
@@ -324,7 +335,7 @@ declare global {
   }
   namespace JSXElements {
     export interface YooProfileAttributes extends HTMLAttributes {
-      'config'?: any;
+      'config'?: IProfileConfig;
       'onClicked'?: (event: CustomEvent<string>) => void;
       'onLogout'?: (event: CustomEvent<boolean>) => void;
       'onProfileEdit'?: (event: CustomEvent<boolean>) => void;
@@ -339,9 +350,7 @@ declare global {
     interface YooResetPassword {
       'borderClass': string;
       'buttonClass': string;
-      'buttonText': string;
       'heading': string;
-      'inputLabel': string;
       'isMagicLink': boolean;
       'showTitle': boolean;
       'subheading': string;
@@ -369,11 +378,9 @@ declare global {
     export interface YooResetPasswordAttributes extends HTMLAttributes {
       'borderClass'?: string;
       'buttonClass'?: string;
-      'buttonText'?: string;
       'heading'?: string;
-      'inputLabel'?: string;
       'isMagicLink'?: boolean;
-      'onPasswordResetRequestSubmitted'?: (event: CustomEvent<{email: string, isMagicLink: boolean}>) => void;
+      'onPasswordResetRequestSubmitted'?: (event: CustomEvent<{ email: string, isMagicLink: boolean }>) => void;
       'showTitle'?: boolean;
       'subheading'?: string;
     }
@@ -513,6 +520,76 @@ declare global {
     export interface YooWalkthroughAttributes extends HTMLAttributes {
       'config'?: Array<IWalkthroughEntry>;
       'onSlideChanged'?: (event: CustomEvent<IWalkthroughSlideEvent>) => void;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooChartJs {
+      'data': IChartData;
+      'options': IChartOptions;
+      'type': string;
+    }
+  }
+
+  interface HTMLYooChartJsElement extends StencilComponents.YooChartJs, HTMLStencilElement {}
+
+  var HTMLYooChartJsElement: {
+    prototype: HTMLYooChartJsElement;
+    new (): HTMLYooChartJsElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-chart-js': HTMLYooChartJsElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-chart-js': HTMLYooChartJsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-chart-js': JSXElements.YooChartJsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooChartJsAttributes extends HTMLAttributes {
+      'data'?: IChartData;
+      'options'?: IChartOptions;
+      'type'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooChart {
+      'options': any;
+    }
+  }
+
+  interface HTMLYooChartElement extends StencilComponents.YooChart, HTMLStencilElement {}
+
+  var HTMLYooChartElement: {
+    prototype: HTMLYooChartElement;
+    new (): HTMLYooChartElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-chart': HTMLYooChartElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-chart': HTMLYooChartElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-chart': JSXElements.YooChartAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooChartAttributes extends HTMLAttributes {
+      'options'?: any;
     }
   }
 }
@@ -766,46 +843,6 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface YooButtonContent {
-      'disabled': boolean;
-      'icon': string;
-      'isLoading': boolean;
-      'text': string;
-    }
-  }
-
-  interface HTMLYooButtonContentElement extends StencilComponents.YooButtonContent, HTMLStencilElement {}
-
-  var HTMLYooButtonContentElement: {
-    prototype: HTMLYooButtonContentElement;
-    new (): HTMLYooButtonContentElement;
-  };
-  interface HTMLElementTagNameMap {
-    'yoo-button-content': HTMLYooButtonContentElement;
-  }
-  interface ElementTagNameMap {
-    'yoo-button-content': HTMLYooButtonContentElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'yoo-button-content': JSXElements.YooButtonContentAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface YooButtonContentAttributes extends HTMLAttributes {
-      'disabled'?: boolean;
-      'icon'?: string;
-      'isLoading'?: boolean;
-      'onButtonClicked'?: (event: CustomEvent<boolean>) => void;
-      'text'?: string;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
     interface YooButtonGroup {
       'dropdownTitle': string;
       'isDropdown': boolean;
@@ -871,7 +908,6 @@ declare global {
       'disabled'?: boolean;
       'icon'?: string;
       'isLoading'?: boolean;
-      'onButtonClicked'?: (event: CustomEvent<boolean>) => void;
       'text'?: string;
     }
   }
@@ -886,7 +922,7 @@ declare global {
       'displayMode': 'month' | 'week';
       'extraMarkers': ICalendarMarker[];
       'markers': ICalendarMarker[];
-      'markersNoCount': Array<{ _id: string}>;
+      'markersNoCount': Array<{ _id: string }>;
     }
   }
 
@@ -913,7 +949,7 @@ declare global {
       'displayMode'?: 'month' | 'week';
       'extraMarkers'?: ICalendarMarker[];
       'markers'?: ICalendarMarker[];
-      'markersNoCount'?: Array<{ _id: string}>;
+      'markersNoCount'?: Array<{ _id: string }>;
       'onDateChanged'?: (event: CustomEvent<IDateChange>) => void;
     }
   }
@@ -1242,7 +1278,8 @@ declare global {
 
   namespace StencilComponents {
     interface YooLoader {
-
+      'maxValue': number;
+      'progress': number;
     }
   }
 
@@ -1265,40 +1302,8 @@ declare global {
   }
   namespace JSXElements {
     export interface YooLoaderAttributes extends HTMLAttributes {
-
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface ModalContent {
-
-    }
-  }
-
-  interface HTMLModalContentElement extends StencilComponents.ModalContent, HTMLStencilElement {}
-
-  var HTMLModalContentElement: {
-    prototype: HTMLModalContentElement;
-    new (): HTMLModalContentElement;
-  };
-  interface HTMLElementTagNameMap {
-    'modal-content': HTMLModalContentElement;
-  }
-  interface ElementTagNameMap {
-    'modal-content': HTMLModalContentElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'modal-content': JSXElements.ModalContentAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ModalContentAttributes extends HTMLAttributes {
-
+      'maxValue'?: number;
+      'progress'?: number;
     }
   }
 }
@@ -1345,39 +1350,6 @@ declare global {
     export interface YooModalControllerAttributes extends HTMLAttributes {
       'greyContent'?: boolean;
       'onModalCtrlPrimaryButtonClicked'?: (event: CustomEvent<boolean>) => void;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface ModalTrigger {
-
-    }
-  }
-
-  interface HTMLModalTriggerElement extends StencilComponents.ModalTrigger, HTMLStencilElement {}
-
-  var HTMLModalTriggerElement: {
-    prototype: HTMLModalTriggerElement;
-    new (): HTMLModalTriggerElement;
-  };
-  interface HTMLElementTagNameMap {
-    'modal-trigger': HTMLModalTriggerElement;
-  }
-  interface ElementTagNameMap {
-    'modal-trigger': HTMLModalTriggerElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'modal-trigger': JSXElements.ModalTriggerAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ModalTriggerAttributes extends HTMLAttributes {
-
     }
   }
 }
@@ -1643,6 +1615,46 @@ declare global {
   namespace JSXElements {
     export interface YooPropertyCardAttributes extends HTMLAttributes {
       'properties'?: any;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooResultDialog {
+      'buttonText': string;
+      'heading': string;
+      'subheading': string;
+      'success': boolean;
+    }
+  }
+
+  interface HTMLYooResultDialogElement extends StencilComponents.YooResultDialog, HTMLStencilElement {}
+
+  var HTMLYooResultDialogElement: {
+    prototype: HTMLYooResultDialogElement;
+    new (): HTMLYooResultDialogElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-result-dialog': HTMLYooResultDialogElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-result-dialog': HTMLYooResultDialogElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-result-dialog': JSXElements.YooResultDialogAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooResultDialogAttributes extends HTMLAttributes {
+      'buttonText'?: string;
+      'heading'?: string;
+      'onClose'?: (event: CustomEvent<string>) => void;
+      'subheading'?: string;
+      'success'?: boolean;
     }
   }
 }
@@ -2073,6 +2085,39 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface YooCardCell {
+      'entry': ICardCellEntry;
+    }
+  }
+
+  interface HTMLYooCardCellElement extends StencilComponents.YooCardCell, HTMLStencilElement {}
+
+  var HTMLYooCardCellElement: {
+    prototype: HTMLYooCardCellElement;
+    new (): HTMLYooCardCellElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-card-cell': HTMLYooCardCellElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-card-cell': HTMLYooCardCellElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-card-cell': JSXElements.YooCardCellAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooCardCellAttributes extends HTMLAttributes {
+      'entry'?: ICardCellEntry;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface YooCardFeed {
       'entry': ICardEntry;
     }
@@ -2112,6 +2157,7 @@ declare global {
       'heading': string;
       'icon': string;
       'iconClass': string;
+      'imgSrc': string;
       'isClosable': boolean;
       'subheading': string;
     }
@@ -2139,6 +2185,7 @@ declare global {
       'heading'?: string;
       'icon'?: string;
       'iconClass'?: string;
+      'imgSrc'?: string;
       'isClosable'?: boolean;
       'subheading'?: string;
     }
@@ -2446,6 +2493,43 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface YooMissionContents {
+      'photosNumber': number;
+      'questionsNumber': number;
+      'slidesNumber': number;
+    }
+  }
+
+  interface HTMLYooMissionContentsElement extends StencilComponents.YooMissionContents, HTMLStencilElement {}
+
+  var HTMLYooMissionContentsElement: {
+    prototype: HTMLYooMissionContentsElement;
+    new (): HTMLYooMissionContentsElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-mission-contents': HTMLYooMissionContentsElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-mission-contents': HTMLYooMissionContentsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-mission-contents': JSXElements.YooMissionContentsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooMissionContentsAttributes extends HTMLAttributes {
+      'photosNumber'?: number;
+      'questionsNumber'?: number;
+      'slidesNumber'?: number;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface YooMissionDetail {
       'mission': IMission;
       'photosNumber': number;
@@ -2487,8 +2571,44 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface YooMissionHeading {
+      'mission': IMission;
+    }
+  }
+
+  interface HTMLYooMissionHeadingElement extends StencilComponents.YooMissionHeading, HTMLStencilElement {}
+
+  var HTMLYooMissionHeadingElement: {
+    prototype: HTMLYooMissionHeadingElement;
+    new (): HTMLYooMissionHeadingElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-mission-heading': HTMLYooMissionHeadingElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-mission-heading': HTMLYooMissionHeadingElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-mission-heading': JSXElements.YooMissionHeadingAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooMissionHeadingAttributes extends HTMLAttributes {
+      'mission'?: IMission;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface YooMissionResults {
       'mission': IMission;
+      'photosNumber': number;
+      'questionsNumber': number;
+      'slidesNumber': number;
     }
   }
 
@@ -2512,6 +2632,55 @@ declare global {
   namespace JSXElements {
     export interface YooMissionResultsAttributes extends HTMLAttributes {
       'mission'?: IMission;
+      'photosNumber'?: number;
+      'questionsNumber'?: number;
+      'slidesNumber'?: number;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooFormAutocompleteDialog {
+      'displayType': CardType;
+      'entityType': EntityType;
+      'isLocal': boolean;
+      'multiple': boolean;
+      'useTranslate': boolean;
+      'value': Array<any>;
+      'values': any[];
+    }
+  }
+
+  interface HTMLYooFormAutocompleteDialogElement extends StencilComponents.YooFormAutocompleteDialog, HTMLStencilElement {}
+
+  var HTMLYooFormAutocompleteDialogElement: {
+    prototype: HTMLYooFormAutocompleteDialogElement;
+    new (): HTMLYooFormAutocompleteDialogElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-form-autocomplete-dialog': HTMLYooFormAutocompleteDialogElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-form-autocomplete-dialog': HTMLYooFormAutocompleteDialogElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-form-autocomplete-dialog': JSXElements.YooFormAutocompleteDialogAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooFormAutocompleteDialogAttributes extends HTMLAttributes {
+      'displayType'?: CardType;
+      'entityType'?: EntityType;
+      'isLocal'?: boolean;
+      'multiple'?: boolean;
+      'onFetchData'?: (event: CustomEvent<IGridSearch>) => void;
+      'useTranslate'?: boolean;
+      'value'?: Array<any>;
+      'values'?: any[];
     }
   }
 }
@@ -2524,15 +2693,17 @@ declare global {
       'asyncValidators': Array<AsyncValidator<any>>;
       'displayType': CardType;
       'entityType': EntityType;
+      'hideContainer': () => void;
       'isValid': () => boolean;
       'multiple': boolean;
       'pageSize': number;
       'placeholder': string;
       'readonly': boolean;
       'required': boolean;
+      'updateDialogValues': (values: any) => void;
       'useTranslate': boolean;
       'validators': Array<Validator<any> | ValidatorEntry>;
-      'value': Array<any>;
+      'value': Array<any> | any;
       'values': any[];
     }
   }
@@ -2571,7 +2742,7 @@ declare global {
       'required'?: boolean;
       'useTranslate'?: boolean;
       'validators'?: Array<Validator<any> | ValidatorEntry>;
-      'value'?: Array<any>;
+      'value'?: Array<any> | any;
       'values'?: any[];
     }
   }
@@ -2633,11 +2804,12 @@ declare global {
 
   namespace StencilComponents {
     interface YooFormCheckbox {
-      'disabled': boolean;
-      'isIndeterminate': boolean;
+      'asyncValidators': Array<AsyncValidator<boolean>>;
       'onCheckboxClick': () => void;
-      'state': string;
-      'text': string;
+      'readonly': boolean;
+      'type': FormDisplayType;
+      'validators': Array<Validator<boolean> | ValidatorEntry>;
+      'value': boolean;
     }
   }
 
@@ -2660,11 +2832,15 @@ declare global {
   }
   namespace JSXElements {
     export interface YooFormCheckboxAttributes extends HTMLAttributes {
-      'disabled'?: boolean;
-      'isIndeterminate'?: boolean;
-      'onCheckboxToggled'?: (event: CustomEvent<string>) => void;
-      'state'?: string;
-      'text'?: string;
+      'asyncValidators'?: Array<AsyncValidator<boolean>>;
+      'onInputBlurred'?: (event: CustomEvent<any>) => void;
+      'onInputChanged'?: (event: CustomEvent<any>) => void;
+      'onInputFocused'?: (event: CustomEvent<boolean>) => void;
+      'onValidityChanged'?: (event: CustomEvent<boolean>) => void;
+      'readonly'?: boolean;
+      'type'?: FormDisplayType;
+      'validators'?: Array<Validator<boolean> | ValidatorEntry>;
+      'value'?: boolean;
     }
   }
 }
@@ -2742,6 +2918,150 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface YooFormDateTime {
+      'iconPrefix': string;
+      'iconSuffix': string;
+      'isValid': () => boolean;
+      'maxDate': Date;
+      'minDate': Date;
+      'placeholder': string;
+      'placeholdertolabel': boolean;
+      'readonly': boolean;
+      'required': boolean;
+      'showInputClear': boolean;
+      'type': string;
+      'validators': Array<Validator<string> | ValidatorEntry>;
+      'value': any;
+    }
+  }
+
+  interface HTMLYooFormDateTimeElement extends StencilComponents.YooFormDateTime, HTMLStencilElement {}
+
+  var HTMLYooFormDateTimeElement: {
+    prototype: HTMLYooFormDateTimeElement;
+    new (): HTMLYooFormDateTimeElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-form-date-time': HTMLYooFormDateTimeElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-form-date-time': HTMLYooFormDateTimeElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-form-date-time': JSXElements.YooFormDateTimeAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooFormDateTimeAttributes extends HTMLAttributes {
+      'iconPrefix'?: string;
+      'iconSuffix'?: string;
+      'maxDate'?: Date;
+      'minDate'?: Date;
+      'onIconClicked'?: (event: CustomEvent<string>) => void;
+      'onInputBlurred'?: (event: CustomEvent<any>) => void;
+      'onInputChanged'?: (event: CustomEvent<any>) => void;
+      'onInputFocused'?: (event: CustomEvent<boolean>) => void;
+      'onValidityChanged'?: (event: CustomEvent<boolean>) => void;
+      'placeholder'?: string;
+      'placeholdertolabel'?: boolean;
+      'readonly'?: boolean;
+      'required'?: boolean;
+      'showInputClear'?: boolean;
+      'type'?: string;
+      'validators'?: Array<Validator<string> | ValidatorEntry>;
+      'value'?: any;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooFormDocumentDialog {
+      'document': IFile;
+      'readonly': boolean;
+      'type': 'image' | 'document';
+    }
+  }
+
+  interface HTMLYooFormDocumentDialogElement extends StencilComponents.YooFormDocumentDialog, HTMLStencilElement {}
+
+  var HTMLYooFormDocumentDialogElement: {
+    prototype: HTMLYooFormDocumentDialogElement;
+    new (): HTMLYooFormDocumentDialogElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-form-document-dialog': HTMLYooFormDocumentDialogElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-form-document-dialog': HTMLYooFormDocumentDialogElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-form-document-dialog': JSXElements.YooFormDocumentDialogAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooFormDocumentDialogAttributes extends HTMLAttributes {
+      'document'?: IFile;
+      'onInputBlurred'?: (event: CustomEvent<any>) => void;
+      'onInputChanged'?: (event: CustomEvent<any>) => void;
+      'onInputFocused'?: (event: CustomEvent<boolean>) => void;
+      'onValidityChanged'?: (event: CustomEvent<boolean>) => void;
+      'readonly'?: boolean;
+      'type'?: 'image' | 'document';
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooFormDocument {
+      'document': IFile;
+      'isValid': () => boolean;
+      'readonly': boolean;
+      'type': 'image' | 'document';
+    }
+  }
+
+  interface HTMLYooFormDocumentElement extends StencilComponents.YooFormDocument, HTMLStencilElement {}
+
+  var HTMLYooFormDocumentElement: {
+    prototype: HTMLYooFormDocumentElement;
+    new (): HTMLYooFormDocumentElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-form-document': HTMLYooFormDocumentElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-form-document': HTMLYooFormDocumentElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-form-document': JSXElements.YooFormDocumentAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooFormDocumentAttributes extends HTMLAttributes {
+      'document'?: IFile;
+      'onInputBlurred'?: (event: CustomEvent<any>) => void;
+      'onInputChanged'?: (event: CustomEvent<any>) => void;
+      'onInputFocused'?: (event: CustomEvent<boolean>) => void;
+      'onValidityChanged'?: (event: CustomEvent<boolean>) => void;
+      'readonly'?: boolean;
+      'type'?: 'image' | 'document';
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface YooFormDynamicDialog {
       'data': Object;
       'forceReadonly': boolean;
@@ -2792,7 +3112,9 @@ declare global {
       'forceReadonly': boolean;
       'goToRecap': () => void;
       'isValid': () => boolean;
+      'scrollToPoint': (scrollDistance: number) => void;
       'showRecap': boolean;
+      'showSave': boolean;
       'showTabs': boolean;
       'slides': Array<ISlide>;
       'suffix': string;
@@ -2822,7 +3144,9 @@ declare global {
       'forceReadonly'?: boolean;
       'onDataChanged'?: (event: CustomEvent<any>) => void;
       'onFieldFetchData'?: (event: CustomEvent<IFormSearch>) => void;
+      'onSave'?: (event: CustomEvent<any>) => void;
       'showRecap'?: boolean;
+      'showSave'?: boolean;
       'showTabs'?: boolean;
       'slides'?: Array<ISlide>;
       'suffix'?: string;
@@ -2834,11 +3158,60 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface YooFormInputContainer {
-      'description': string;
-      'hint': string;
-      'label': string;
+    interface YooFormFormula {
+      'asyncValidators': Array<AsyncValidator<number>>;
+      'isValid': () => boolean;
+      'placeholder': string;
+      'readonly': boolean;
       'required': boolean;
+      'type': string;
+      'validators': Array<Validator<number> | ValidatorEntry>;
+      'value': number;
+    }
+  }
+
+  interface HTMLYooFormFormulaElement extends StencilComponents.YooFormFormula, HTMLStencilElement {}
+
+  var HTMLYooFormFormulaElement: {
+    prototype: HTMLYooFormFormulaElement;
+    new (): HTMLYooFormFormulaElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-form-formula': HTMLYooFormFormulaElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-form-formula': HTMLYooFormFormulaElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-form-formula': JSXElements.YooFormFormulaAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooFormFormulaAttributes extends HTMLAttributes {
+      'asyncValidators'?: Array<AsyncValidator<number>>;
+      'onInputBlurred'?: (event: CustomEvent<any>) => void;
+      'onInputChanged'?: (event: CustomEvent<any>) => void;
+      'onInputFocused'?: (event: CustomEvent<boolean>) => void;
+      'onValidityChanged'?: (event: CustomEvent<boolean>) => void;
+      'placeholder'?: string;
+      'readonly'?: boolean;
+      'required'?: boolean;
+      'type'?: string;
+      'validators'?: Array<Validator<number> | ValidatorEntry>;
+      'value'?: number;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooFormInputContainer {
+      'comments': string;
+      'field': IFormField;
+      'readonly': boolean;
     }
   }
 
@@ -2861,10 +3234,10 @@ declare global {
   }
   namespace JSXElements {
     export interface YooFormInputContainerAttributes extends HTMLAttributes {
-      'description'?: string;
-      'hint'?: string;
-      'label'?: string;
-      'required'?: boolean;
+      'comments'?: string;
+      'field'?: IFormField;
+      'onCommented'?: (event: CustomEvent<string>) => void;
+      'readonly'?: boolean;
     }
   }
 }
@@ -2953,10 +3326,11 @@ declare global {
   namespace StencilComponents {
     interface YooFormInput {
       'asyncValidators': Array<AsyncValidator<string>>;
-      'borderColor': string;
       'iconPrefix': string;
       'iconSuffix': string;
       'isValid': () => boolean;
+      'max': any;
+      'min': any;
       'placeholder': string;
       'placeholdertolabel': boolean;
       'readonly': boolean;
@@ -2990,9 +3364,11 @@ declare global {
   namespace JSXElements {
     export interface YooFormInputAttributes extends HTMLAttributes {
       'asyncValidators'?: Array<AsyncValidator<string>>;
-      'borderColor'?: string;
       'iconPrefix'?: string;
       'iconSuffix'?: string;
+      'max'?: any;
+      'min'?: any;
+      'onEnterPressed'?: (event: CustomEvent<boolean>) => void;
       'onIconClicked'?: (event: CustomEvent<string>) => void;
       'onInputBlurred'?: (event: CustomEvent<any>) => void;
       'onInputChanged'?: (event: CustomEvent<any>) => void;
@@ -3008,6 +3384,101 @@ declare global {
       'type'?: string;
       'validators'?: Array<Validator<string> | ValidatorEntry>;
       'value'?: string | number;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooFormPhotoWebcamDialog {
+      'device': any;
+    }
+  }
+
+  interface HTMLYooFormPhotoWebcamDialogElement extends StencilComponents.YooFormPhotoWebcamDialog, HTMLStencilElement {}
+
+  var HTMLYooFormPhotoWebcamDialogElement: {
+    prototype: HTMLYooFormPhotoWebcamDialogElement;
+    new (): HTMLYooFormPhotoWebcamDialogElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-form-photo-webcam-dialog': HTMLYooFormPhotoWebcamDialogElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-form-photo-webcam-dialog': HTMLYooFormPhotoWebcamDialogElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-form-photo-webcam-dialog': JSXElements.YooFormPhotoWebcamDialogAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooFormPhotoWebcamDialogAttributes extends HTMLAttributes {
+      'device'?: any;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooFormPhoto {
+      'asyncValidators': Array<AsyncValidator<string>>;
+      'duration': number;
+      'isValid': () => boolean;
+      'max': number;
+      'maxWidth': number;
+      'min': number;
+      'multiple': boolean;
+      'placeholder': string;
+      'readonly': boolean;
+      'required': boolean;
+      'saveGeoloc': boolean;
+      'type': 'video' | 'audio' | 'photo';
+      'validators': Array<Validator<string> | ValidatorEntry>;
+      'value': string | Array<string>;
+    }
+  }
+
+  interface HTMLYooFormPhotoElement extends StencilComponents.YooFormPhoto, HTMLStencilElement {}
+
+  var HTMLYooFormPhotoElement: {
+    prototype: HTMLYooFormPhotoElement;
+    new (): HTMLYooFormPhotoElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-form-photo': HTMLYooFormPhotoElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-form-photo': HTMLYooFormPhotoElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-form-photo': JSXElements.YooFormPhotoAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooFormPhotoAttributes extends HTMLAttributes {
+      'asyncValidators'?: Array<AsyncValidator<string>>;
+      'duration'?: number;
+      'max'?: number;
+      'maxWidth'?: number;
+      'min'?: number;
+      'multiple'?: boolean;
+      'onInputBlurred'?: (event: CustomEvent<any>) => void;
+      'onInputChanged'?: (event: CustomEvent<any>) => void;
+      'onInputFocused'?: (event: CustomEvent<boolean>) => void;
+      'onValidityChanged'?: (event: CustomEvent<boolean>) => void;
+      'placeholder'?: string;
+      'readonly'?: boolean;
+      'required'?: boolean;
+      'saveGeoloc'?: boolean;
+      'type'?: 'video' | 'audio' | 'photo';
+      'validators'?: Array<Validator<string> | ValidatorEntry>;
+      'value'?: string | Array<string>;
     }
   }
 }
@@ -3129,14 +3600,14 @@ declare global {
 
   namespace StencilComponents {
     interface YooFormRange {
-      'asyncValidators': Array<AsyncValidator<IRangeValue>>;
+      'asyncValidators': Array<AsyncValidator<number | Array<number>>>;
       'double': boolean;
       'isValid': () => boolean;
       'max': number;
       'min': number;
       'readonly': boolean;
-      'validators': Array<Validator<IRangeValue> | ValidatorEntry>;
-      'value': IRangeValue;
+      'validators': Array<Validator<number | Array<number>> | ValidatorEntry>;
+      'value': number | Array<number>;
     }
   }
 
@@ -3159,7 +3630,7 @@ declare global {
   }
   namespace JSXElements {
     export interface YooFormRangeAttributes extends HTMLAttributes {
-      'asyncValidators'?: Array<AsyncValidator<IRangeValue>>;
+      'asyncValidators'?: Array<AsyncValidator<number | Array<number>>>;
       'double'?: boolean;
       'max'?: number;
       'min'?: number;
@@ -3169,8 +3640,8 @@ declare global {
       'onInputFocused'?: (event: CustomEvent<boolean>) => void;
       'onValidityChanged'?: (event: CustomEvent<boolean>) => void;
       'readonly'?: boolean;
-      'validators'?: Array<Validator<IRangeValue> | ValidatorEntry>;
-      'value'?: IRangeValue;
+      'validators'?: Array<Validator<number | Array<number>> | ValidatorEntry>;
+      'value'?: number | Array<number>;
     }
   }
 }
@@ -3306,6 +3777,7 @@ declare global {
       'initialValue': number;
       'maximum': number;
       'minimum': number;
+      'step': number;
       'triangleColor': string;
     }
   }
@@ -3339,6 +3811,7 @@ declare global {
       'minimum'?: number;
       'onDoubleSliderChanged'?: (event: CustomEvent<{ lowValue: number, highValue: number }>) => void;
       'onSingleSliderChanged'?: (event: CustomEvent<number>) => void;
+      'step'?: number;
       'triangleColor'?: string;
     }
   }
@@ -3401,6 +3874,7 @@ declare global {
       'placeholder': string;
       'readonly': boolean;
       'resizable': 'both' | 'vertical' | 'horizontal' | 'none';
+      'setFocus': () => void;
       'validators': Array<Validator<string> | ValidatorEntry>;
       'value': string;
     }
@@ -3512,8 +3986,7 @@ declare global {
     interface YooFormToggle {
       'asyncValidators': Array<AsyncValidator<boolean>>;
       'readonly': boolean;
-      'text': string;
-      'type': FormToogleType;
+      'type': FormDisplayType;
       'validators': Array<Validator<boolean> | ValidatorEntry>;
       'value': boolean;
     }
@@ -3544,8 +4017,7 @@ declare global {
       'onInputFocused'?: (event: CustomEvent<boolean>) => void;
       'onValidityChanged'?: (event: CustomEvent<boolean>) => void;
       'readonly'?: boolean;
-      'text'?: string;
-      'type'?: FormToogleType;
+      'type'?: FormDisplayType;
       'validators'?: Array<Validator<boolean> | ValidatorEntry>;
       'value'?: boolean;
     }
@@ -3556,34 +4028,271 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface YooPhotoEditor {
-      'readonly': boolean;
-      'src': string;
+    interface YooGrid {
+      'bottomActions': Array<IEntityAction>;
+      'closeItemsSliding': () => void;
+      'columnDefs': Array<IColumnDefinition>;
+      'direction': 'vertical' | 'horizontal';
+      'displayModes': Array<CardType>;
+      'displayType': CardType;
+      'emptyState': string;
+      'entityType': EntityType;
+      'headerFn': (item, index, records) => string;
+      'hideFooter': boolean;
+      'hideHeader': boolean;
+      'icons': Array<IEntityAction>;
+      'initialSelection': Array<IEntity>;
+      'isLoading': boolean;
+      'isLocal': boolean;
+      'items': Array<IEntity>;
+      'keepSelection': boolean;
+      'looseCount': boolean;
+      'multiple': boolean;
+      'pageSize': number;
+      'pullToRefresh': (refresher: any) => void;
+      'secondaryActions': Array<IEntityAction>;
+      'showCreate': boolean;
+      'showFilters': boolean;
+      'showFiltersSimple': boolean;
+      'topActions': Array<IEntityAction>;
+      'total': number;
+      'type': 'grid' | 'card' | 'tree';
+      'useTranslate': boolean;
     }
   }
 
-  interface HTMLYooPhotoEditorElement extends StencilComponents.YooPhotoEditor, HTMLStencilElement {}
+  interface HTMLYooGridElement extends StencilComponents.YooGrid, HTMLStencilElement {}
 
-  var HTMLYooPhotoEditorElement: {
-    prototype: HTMLYooPhotoEditorElement;
-    new (): HTMLYooPhotoEditorElement;
+  var HTMLYooGridElement: {
+    prototype: HTMLYooGridElement;
+    new (): HTMLYooGridElement;
   };
   interface HTMLElementTagNameMap {
-    'yoo-photo-editor': HTMLYooPhotoEditorElement;
+    'yoo-grid': HTMLYooGridElement;
   }
   interface ElementTagNameMap {
-    'yoo-photo-editor': HTMLYooPhotoEditorElement;
+    'yoo-grid': HTMLYooGridElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      'yoo-photo-editor': JSXElements.YooPhotoEditorAttributes;
+      'yoo-grid': JSXElements.YooGridAttributes;
     }
   }
   namespace JSXElements {
-    export interface YooPhotoEditorAttributes extends HTMLAttributes {
-      'onImageClicked'?: (event: CustomEvent<boolean>) => void;
-      'readonly'?: boolean;
-      'src'?: string;
+    export interface YooGridAttributes extends HTMLAttributes {
+      'bottomActions'?: Array<IEntityAction>;
+      'columnDefs'?: Array<IColumnDefinition>;
+      'direction'?: 'vertical' | 'horizontal';
+      'displayModes'?: Array<CardType>;
+      'displayType'?: CardType;
+      'emptyState'?: string;
+      'entityType'?: EntityType;
+      'headerFn'?: (item, index, records) => string;
+      'hideFooter'?: boolean;
+      'hideHeader'?: boolean;
+      'icons'?: Array<IEntityAction>;
+      'initialSelection'?: Array<IEntity>;
+      'isLoading'?: boolean;
+      'isLocal'?: boolean;
+      'items'?: Array<IEntity>;
+      'keepSelection'?: boolean;
+      'looseCount'?: boolean;
+      'multiple'?: boolean;
+      'onFetchData'?: (event: CustomEvent<IGridSearch>) => void;
+      'onSearchInputFocused'?: (event: CustomEvent<boolean>) => void;
+      'onSelect'?: (event: CustomEvent<Array<IEntity>>) => void;
+      'pageSize'?: number;
+      'secondaryActions'?: Array<IEntityAction>;
+      'showCreate'?: boolean;
+      'showFilters'?: boolean;
+      'showFiltersSimple'?: boolean;
+      'topActions'?: Array<IEntityAction>;
+      'total'?: number;
+      'type'?: 'grid' | 'card' | 'tree';
+      'useTranslate'?: boolean;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooAmap {
+      'filterGroups': IFilterGroup[];
+      'mapEntry': IMapEntry;
+    }
+  }
+
+  interface HTMLYooAmapElement extends StencilComponents.YooAmap, HTMLStencilElement {}
+
+  var HTMLYooAmapElement: {
+    prototype: HTMLYooAmapElement;
+    new (): HTMLYooAmapElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-amap': HTMLYooAmapElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-amap': HTMLYooAmapElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-amap': JSXElements.YooAmapAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooAmapAttributes extends HTMLAttributes {
+      'filterGroups'?: IFilterGroup[];
+      'mapEntry'?: IMapEntry;
+      'onFilterGroupsChanged'?: (event: CustomEvent<IFilterGroup[]>) => void;
+      'onSelected'?: (event: CustomEvent<IMarker>) => void;
+      'onSelectedMultiple'?: (event: CustomEvent<IMarker[]>) => void;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooMapGl {
+      'filterGroups': IFilterGroup[];
+      'mapEntry': IMapEntry;
+    }
+  }
+
+  interface HTMLYooMapGlElement extends StencilComponents.YooMapGl, HTMLStencilElement {}
+
+  var HTMLYooMapGlElement: {
+    prototype: HTMLYooMapGlElement;
+    new (): HTMLYooMapGlElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-map-gl': HTMLYooMapGlElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-map-gl': HTMLYooMapGlElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-map-gl': JSXElements.YooMapGlAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooMapGlAttributes extends HTMLAttributes {
+      'filterGroups'?: IFilterGroup[];
+      'mapEntry'?: IMapEntry;
+      'onFilterGroupsChanged'?: (event: CustomEvent<IFilterGroup[]>) => void;
+      'onSelected'?: (event: CustomEvent<IMarker>) => void;
+      'onSelectedMultiple'?: (event: CustomEvent<IMarker[]>) => void;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooMapJs {
+      'filterGroups': IFilterGroup[];
+      'mapEntry': IMapEntry;
+    }
+  }
+
+  interface HTMLYooMapJsElement extends StencilComponents.YooMapJs, HTMLStencilElement {}
+
+  var HTMLYooMapJsElement: {
+    prototype: HTMLYooMapJsElement;
+    new (): HTMLYooMapJsElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-map-js': HTMLYooMapJsElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-map-js': HTMLYooMapJsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-map-js': JSXElements.YooMapJsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooMapJsAttributes extends HTMLAttributes {
+      'filterGroups'?: IFilterGroup[];
+      'mapEntry'?: IMapEntry;
+      'onFilterGroupsChanged'?: (event: CustomEvent<IFilterGroup[]>) => void;
+      'onSelected'?: (event: CustomEvent<IMarker>) => void;
+      'onSelectedMultiple'?: (event: CustomEvent<IMarker[]>) => void;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface YooMap {
+      'currentLanguage': string;
+      'disableZoom': boolean;
+      'filterGroups': IFilterGroup[];
+      'fitToMarkers': boolean;
+      'groupBy': string;
+      'hideLegend': boolean;
+      'icon': string;
+      'legendColors': IMarkerColor[];
+      'mapEntry': IMapEntry;
+      'markers': IMarker[];
+      'maxZoom': number;
+      'minZoom': number;
+      'position': IPosition;
+      'setProps': (mapEntry: IMapEntry) => void;
+      'showControls': boolean;
+      'showDirections': boolean;
+      'useCluster': boolean;
+      'zoom': number;
+    }
+  }
+
+  interface HTMLYooMapElement extends StencilComponents.YooMap, HTMLStencilElement {}
+
+  var HTMLYooMapElement: {
+    prototype: HTMLYooMapElement;
+    new (): HTMLYooMapElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-map': HTMLYooMapElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-map': HTMLYooMapElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-map': JSXElements.YooMapAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooMapAttributes extends HTMLAttributes {
+      'currentLanguage'?: string;
+      'disableZoom'?: boolean;
+      'filterGroups'?: IFilterGroup[];
+      'fitToMarkers'?: boolean;
+      'groupBy'?: string;
+      'hideLegend'?: boolean;
+      'icon'?: string;
+      'legendColors'?: IMarkerColor[];
+      'mapEntry'?: IMapEntry;
+      'markers'?: IMarker[];
+      'maxZoom'?: number;
+      'minZoom'?: number;
+      'onFilterGroupsChangedParent'?: (event: CustomEvent<IFilterGroup[]>) => void;
+      'onSelectedMultipleParent'?: (event: CustomEvent<IMarker[]>) => void;
+      'onSelectedParent'?: (event: CustomEvent<IMarker>) => void;
+      'position'?: IPosition;
+      'showControls'?: boolean;
+      'showDirections'?: boolean;
+      'useCluster'?: boolean;
+      'zoom'?: number;
     }
   }
 }

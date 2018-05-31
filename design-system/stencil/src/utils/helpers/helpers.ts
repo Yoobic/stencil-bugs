@@ -4,7 +4,7 @@ import postscribe from 'postscribe';
 import { isString } from 'lodash-es';
 
 import ResizeObserver from 'resize-observer-polyfill';
-// import 'intersection-observer';
+import 'intersection-observer';
 import { OverlayEventDetail } from '@ionic/core/dist/types/utils/overlays';
 
 export function loadScript(url?: string) {
@@ -142,11 +142,22 @@ export function debounceEvent(event: EventEmitter, wait: number): EventEmitter {
     } as EventEmitter;
 }
 
-export function debounce(func: Function, wait = 0) {
-    let timer: number;
-    return (...args: any[]): void => {
-        clearTimeout(timer);
-        timer = setTimeout(func, wait, ...args);
+export function debounce(func: Function, wait = 500, immediate = false)  {
+    let timeout;
+    return function (...args) {
+        let context = this;
+        let later = function () {
+            timeout = null;
+            if (!immediate) {
+                func.apply(context, args);
+            }
+        };
+        let callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) {
+            func.apply(context, args);
+        }
     };
 }
 
@@ -161,11 +172,11 @@ export function resizeObserve(target: Element, callback: Function) {
     return ro;
 }
 
-// export function intersectionObserve(target: Element, callback: IntersectionObserverCallback, options?: IntersectionObserverInit) {
-//     let io = new IntersectionObserver(callback, options);
-//     io.observe(target);
-//     return io;
-// }
+export function intersectionObserve(target: Element, callback: IntersectionObserverCallback, options?: IntersectionObserverInit) {
+    let io = new IntersectionObserver(callback, options);
+    io.observe(target);
+    return io;
+}
 
 export function resizeWindow(fn: Function) {
     window.addEventListener('resize', debounce(fn, 500));
@@ -184,6 +195,29 @@ export function isBlank(obj) {
 
 export function isPresent(obj) {
     return obj !== undefined && obj !== null;
+}
+
+export function getSizeModal(host: HTMLStencilElement, maxHeight: number) {
+    let body = host.closest('.modal-body');
+    if (body) {
+        maxHeight = Math.min(maxHeight, body.clientHeight);
+    } else {
+        maxHeight = decreaseMaxHeight(maxHeight, 'ion-header', document);
+        maxHeight = decreaseMaxHeight(maxHeight, 'ion-footer', document);
+    }
+    return maxHeight;
+}
+
+export function decreaseMaxHeight(maxHeight: number, name: string, html): number {
+    let comp: HTMLElement = html.querySelector(name);
+    if (comp) {
+        maxHeight -= comp.clientHeight;
+    }
+    return maxHeight;
+}
+
+export function pixelToRem(pixels: number) {
+    return pixels / 16;
 }
 
 // export async function showModal(component: string | Function | HTMLElement, options?: any, closeComponent: string = 'ion-button.close', closeEvent: string = 'click') {
@@ -209,14 +243,15 @@ export function isPresent(obj) {
 //     modalElement.present();
 // }
 
-export async function showModal(component: string | Function | HTMLElement, options?: any): Promise<OverlayEventDetail> {
+export async function showModal(component: string | Function | HTMLElement, options?: any, cssClass?: string): Promise<OverlayEventDetail> {
     return new Promise((resolve, reject) => {
         // initialize controller
         const modalController = document.querySelector('ion-modal-controller');
         modalController.componentOnReady().then(() => {
             modalController.create({
                 component: component,
-                componentProps: options
+                componentProps: options,
+                cssClass: cssClass
             }).then(modal => {
                 modal.onDidDismiss((ret) => {
                     resolve(ret);
@@ -225,4 +260,17 @@ export async function showModal(component: string | Function | HTMLElement, opti
             });
         });
     });
+}
+
+export function getNextValueInArray<A>(array: Array<A>, value: A) {
+    if (array && array.length > 1) {
+        let currentIndex: number = array.indexOf(value);
+        if (currentIndex >= 0) {
+            if (currentIndex === array.length - 1) {
+                return array[0];
+            } else {
+                return array[currentIndex + 1];
+            }
+        }
+    }
 }

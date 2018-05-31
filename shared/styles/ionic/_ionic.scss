@@ -85,3 +85,11 @@ ion-tabs.shadow {
 .refresher-refreshing-text {
     font-size: 0.8rem;
 }
+
+ion-modal.half {
+    ion-backdrop {
+        display: block !important;
+        z-index: -1;
+    }
+
+}

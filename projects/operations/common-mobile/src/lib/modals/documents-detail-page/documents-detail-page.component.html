@@ -1,0 +1,16 @@
+<ion-header class="shadow" no-border [class.statusbar-padding]="isCordova">
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="closeModal()">
+                <i slot="icon-only" class="{{closeIcon || 'yo-close'}}"></i>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{folder?.name}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [forceOverscroll]="false" #content>
+    <app-grid #grid collectionName="filesFolders" entityType="filesFolders" displayType="card-list" [sorts]="sortModelFilesFolders"
+        [showFiltersSimple]="true" [filters]="filtersFilesFolders" [hiddenFields]="hiddenFields" emptyState="folder_blue" [mapTransform]="mapTransformFilesFolders"
+        [mapTransformAsync]="true" (select)="onSelectFileFolder($event)" [itemButtons]="fileItemButtons" [keepSelection]="false"
+        [displayModes]="['card-list','card-cell']"></app-grid>
+</ion-content>

@@ -1,5 +1,6 @@
 import { Component, Prop, State, Element, Method } from '@stencil/core';
-import { ISlide, ITranslateService } from '@shared/interfaces';
+import { ISlide } from '@shared/interfaces';
+import { services } from '../../../services';
 
 @Component({
     tag: 'yoo-form-dynamic-dialog',
@@ -19,8 +20,6 @@ export class YooFormDynamicModalComponent {
 
     @State() currentData: Object;
     @State() validity: boolean = false;
-
-    protected translate: ITranslateService = (window as any).translateService;
 
     componentWillLoad() {
         this.currentData = this.data || {};
@@ -51,24 +50,23 @@ export class YooFormDynamicModalComponent {
 
     render() {
         return [
-            //<ion-header class="shadow" no-border>
-            <div class="shadow header">
+            //<div class="shadow header">
+            <ion-header class="shadow" no-border>
                 <ion-toolbar color="light">
                     <ion-buttons slot="start">
                         <ion-button class="close" color="dark" onClick={() => this.onCancel()}>
                             <i slot="icon-only" class="yo-close"></i>
                         </ion-button>
                     </ion-buttons>
-                    <ion-title>{this.translate.get('ADVANCED')}</ion-title>
+                    <ion-title>{services.translate.get('ADVANCED')}</ion-title>
                     <ion-buttons slot="end" onClick={() => this.onSave()}>
-                        <ion-button color="success" disabled={!this.isValid()} >{this.translate.get('SAVE')}</ion-button>
+                        <ion-button color="success" disabled={!this.isValid()} >{services.translate.get('SAVE')}</ion-button>
                     </ion-buttons>
                 </ion-toolbar>
-            </div>,
-            //</ion-header>,
-            //
-            //<ion-content>
-            <div class="content">
+            </ion-header>,
+            //</div>,
+            //<div class="content">
+            <ion-content>
                 <yoo-form-dynamic
                     slides={this.slides}
                     data={this.data}
@@ -77,8 +75,8 @@ export class YooFormDynamicModalComponent {
                     forceReadonly={this.forceReadonly}
                     onDataChanged={ev => this.onDataChange(ev)}
                 ></yoo-form-dynamic>
-            </div>
-            //</ion-content>
+            </ion-content>
+            // </div>
         ];
     }
 

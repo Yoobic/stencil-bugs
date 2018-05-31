@@ -1,0 +1,20 @@
+:host {
+    .header {
+        position: relative;
+        z-index: 10;
+        display: block;
+        order: -1;
+        width: 100%;
+    }
+    .content {
+        position: relative;
+        display: block;
+        flex: 1;
+        width: 100%;
+        background: cssvar(light);
+        height: 100%;
+        contain: layout size style;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}

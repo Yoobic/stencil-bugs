@@ -118,7 +118,6 @@ export class YooProgressBarComponent {
                     <div class={'progress-container'} style={this.host.classList.contains('triangle') ? '' : progressStyle}>
                     </div>
                 </div>
-                {this.host.classList.contains('triangle') ? <div class="triangle-cover"></div> : null}
                 {this.hideProgress ? <div></div> : <span class="label">{(this.percentage ? `${this.properProgress().toFixed(0)}%` : this.progress)}</span>}
             </div>
         ));

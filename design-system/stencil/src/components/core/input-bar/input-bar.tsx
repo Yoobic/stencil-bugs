@@ -1,6 +1,7 @@
 import { Component, Element, Event, Prop, EventEmitter, State, Method } from '@stencil/core';
-import { IUser, ITranslateService } from '@shared/interfaces';
+import { IUser } from '@shared/interfaces';
 import { getUserDisplayName } from '../../../utils/helpers';
+import { services } from '../../../services';
 
 @Component({
     tag: 'yoo-input-bar',
@@ -27,8 +28,6 @@ export class YooInputBarComponent {
     @State() rows: number = 1;
     @State() hasTextInside: boolean;
     @State() charPerLine: number = 60;
-
-    private translate: ITranslateService = (window as any).translateService;
 
     updateState(): void {
         let previousRows: number = this.rows;
@@ -90,7 +89,7 @@ export class YooInputBarComponent {
                                 this.topIndication
                                 : this.replyToUser ?
                                     <span>
-                                        {this.translate.get('REPLY_TO') + ' '}<span class="user-indication">{getUserDisplayName(this.replyToUser)}</span>
+                                        {services.translate.get('REPLY_TO') + ' '}<span class="user-indication">{getUserDisplayName(this.replyToUser)}</span>
                                     </span>
                                     : null}
                         </span>

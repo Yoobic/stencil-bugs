@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../node_modules/@app/common-base",
+  "deleteDestPath": false,
+  "lib": {
+    "entryFile": "src/public_api.ts",
+    "styleIncludePaths": [
+      "../../../shared/styles"
+    ],
+    "umdModuleIds": {
+      "lodash-es": "lodash-es",
+      "moment": "moment",
+      "rxjs": "rxjs",
+      "@shared/common": "@shared/common",
+      "@shared/data-core": "@shared/data-core",
+      "@shared/data-live": "@shared/data-live",
+      "@shared/data-form": "@shared/data-form",
+      "@shared/translate": "@shared/translate",
+      "@shared/interfaces": "@shared/interfaces",
+      "@ionic/angular": "@ionic/angular",
+      "@ionic-native/device/ngx": "Device",
+      "@ionic-native/file/ngx": "File",
+      "@ionic-native/photo-library/ngx": "PhotoLibrary",
+      "@ionic-native/image-picker/ngx": "ImagePicker"
+    }
+  }
+}

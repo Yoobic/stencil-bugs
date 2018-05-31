@@ -1,0 +1,15 @@
+:host {
+    .container {
+        padding: 0.5rem 0rem;
+        .camera-container {
+            border: 1px solid cssvar(stable-30);
+            border-radius: 0.5rem;
+            width: 105px;
+            height: 105px;
+            cursor: pointer;
+            i {
+                font-size: 2rem;
+            }
+        }
+    }
+}

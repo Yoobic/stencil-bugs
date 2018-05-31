@@ -1,0 +1,64 @@
+:host {
+    .outer-container {
+        display: flex;
+        justify-content: center;
+        .image-container {
+            height: 5rem;
+            width: 5rem;
+            .image {
+                height: 100%;
+                width: 100%; //border-radius: 0.5rem;
+            }
+            .icon-container {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2.6875rem;
+                border: solid 0.5px cssvar(stable-light);
+                border-radius: 50%;
+            }
+        }
+        .text-container {
+            font-size: 0.625rem;
+            display: flex;
+            justify-content: center;
+            margin-top: 0.5625rem;
+            .text {
+                width: 5rem;
+                @include text-truncate();
+                text-align: center;
+            }
+        }
+        .action-container {
+            font-size: 0.6rem;
+            color: cssvar(stable);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.625rem;
+            .icon-action {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 0.875rem;
+                width: 0.875rem;
+                border: solid 0.5px cssvar(stable-light);
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+:host(.filesFolders) {
+    .outer-container {
+        .image-container {
+            .image {
+                border-radius: 0;
+                background-size: contain !important;
+                background-position-y: 50%;
+            }
+        }
+    }
+}

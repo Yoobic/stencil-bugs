@@ -1,0 +1,6 @@
+<yoo-modal [scrollEnabled]="false" heading="{{'MISSION'|translate}}" (closed)="closeModal()">
+  <app-form-dynamic [readonly]="true" *ngIf="slides?.length>0" [slides]="slides" [data]="missiondata" suffix=".value" [showTabs]="false"
+    [showRecap]="false">
+    <yoo-mission-results [mission]="mission" [slidesNumber]="slidesNumber" [photosNumber]="photosNumber" [questionsNumber]="questionsNumber" ></yoo-mission-results>
+  </app-form-dynamic>
+</yoo-modal>

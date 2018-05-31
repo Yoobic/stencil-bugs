@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shared: data-core: interfaces: TagGroup should create an entity 1`] = `
+IModel {
+  "_formFields": Array [
+    Object {
+      "filterName": "title",
+      "name": "title",
+      "required": true,
+      "title": "TITLE",
+      "type": "text",
+    },
+    Object {
+      "collectionName": "locations",
+      "filterName": "tags",
+      "fixedPosition": true,
+      "multiple": true,
+      "name": "tags",
+      "required": true,
+      "subQuery": Object {
+        "field": "locationRef",
+        "values": "_id",
+      },
+      "tag": true,
+      "title": "LOCATIONTAGS",
+      "type": "autocomplete",
+    },
+    Object {
+      "clearable": false,
+      "collectionName": "groups",
+      "filterName": "group",
+      "filters": Array [
+        Array [
+          Object {
+            "field": "isRole",
+            "operator": Object {
+              "_id": "neq",
+            },
+            "value": true,
+          },
+          Object {
+            "field": "type",
+            "operator": Object {
+              "_id": "nin",
+            },
+            "value": Array [
+              "plan",
+            ],
+          },
+        ],
+      ],
+      "fixedPosition": true,
+      "hiddenFields": Array [
+        "isRole",
+        "type",
+      ],
+      "idOnly": true,
+      "mapTransform": [Function],
+      "multiple": true,
+      "name": "group",
+      "required": true,
+      "title": "GROUPS",
+      "type": "autocomplete",
+    },
+  ],
+  "appareance": Map {},
+  "className": "TagGroup",
+  "collectionName": "tagGroups",
+  "feathersService": undefined,
+  "fields": Array [
+    "*",
+  ],
+  "include": Array [],
+  "isCustom": undefined,
+  "mappingFields": Map {},
+  "searchSubquery": undefined,
+  "searchableFields": Array [
+    "title",
+  ],
+  "type": [Function],
+}
+`;

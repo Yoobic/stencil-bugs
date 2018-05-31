@@ -1,0 +1,17 @@
+{
+    "APPLICATION": "التطبيق",
+    "QUIT": "استقال",
+    "EDIT": "تصحيح",
+    "UNDO": "فك",
+    "REDO": "فعل ثانية",
+    "CUT": "يقطع",
+    "COPY": "نسخ",
+    "PASTE": "معجون",
+    "SELECTALL": "اختر الكل",
+    "ACCEPT": "حسنا",
+    "LATER": "ليس الان",
+    "UPDATEAVAILABLE": "التحديث متاح",
+    "UPDATEDOWNLOADED": "تحديثات التي تم تحميلها",
+    "AVAILABLEMESSAGE": "يتوفر تحديث. سوف Yoobic لوحة تلقائيا تحميل وتثبيته.",
+    "DOWNLOADEDMESSAGE": "تحديث تحميلها بنجاح! ولوحة أجهزة القياس Yoobic تثبيت التحديث وإعادة تشغيل."
+}

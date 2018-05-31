@@ -1,0 +1,4 @@
+<yoo-modal [scrollEnabled]="true" heading="{{grid?.total||0}} {{actionName}}" (closed)="closeModal()">
+    <app-grid #grid collectionName="activity" entityType="users" displayType="card-list" [filters]="filters" [mapTransform]="mapTransform"
+        [aggregateOptions]="aggregateOptions" emptyState="user"></app-grid>
+</yoo-modal>

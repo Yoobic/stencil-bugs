@@ -63,6 +63,7 @@ export * from './lib/ui/animation-prop/animation-prop.interface';
 export * from './lib/ui/calendar/calendar.interface';
 export * from './lib/ui/card/card.interface';
 export * from './lib/ui/card-sticky/card-sticky.interface';
+export * from './lib/ui/card-cell/card-cell.interface';
 export * from './lib/ui/chart-js/chart-js.interface';
 export * from './lib/ui/chat/chat.interface';
 export * from './lib/ui/context-menu/context-menu.interface';
@@ -88,6 +89,8 @@ export * from './lib/validators/validators.interface';
 // Services
 export * from './lib/services/translate/translate.interface';
 export * from './lib/services/core-config/core-config.interface';
+export * from './lib/services/files/files.interface';
+export * from './lib/services/session/session.interface';
 //3Rd party
 export * from './lib/3rdparty/moment/moment';
 //Form

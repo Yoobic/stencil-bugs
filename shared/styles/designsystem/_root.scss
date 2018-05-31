@@ -8,7 +8,6 @@ body {
     @each $var,
     $val in $variables-map {
         --#{$var}: #{$val};
-
     }
 }
 
@@ -20,4 +19,18 @@ $val in $colors-map {
     .#{$var} {
         color: cssvar(#{$var});
     }
+}
+
+@for $i from 0 through 100 {
+    .delay-#{$i} {
+        animation-delay: $i * 100ms;
+    }
+}
+
+.animated {
+    animation-duration: 500ms !important;
+}
+
+.hydrated {
+    visibility: visible !important;
 }

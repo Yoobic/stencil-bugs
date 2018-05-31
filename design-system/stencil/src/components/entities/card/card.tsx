@@ -83,7 +83,7 @@ export class YooCardComponent {
     }
 
     onCheckboxToggled(event): void {
-        event.detail === 'checked' ? this.isActive = true : this.isActive = false;
+        event.detail === true ? this.isActive = true : this.isActive = false;
         this.active.emit(this.isActive);
     }
 
@@ -128,7 +128,7 @@ export class YooCardComponent {
                     </yoo-badge></div>) : null,
             this.renderCardImage(),
             this.isActivable ?
-                <yoo-form-checkbox class={this.host.className} onCheckboxToggled={(event) => this.onCheckboxToggled(event)}></yoo-form-checkbox>
+                <yoo-form-checkbox class={this.host.className} onInputChanged={(event) => this.onCheckboxToggled(event)}></yoo-form-checkbox>
                 : null]
         );
     }

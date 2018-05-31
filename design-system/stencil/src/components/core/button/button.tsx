@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, Element } from '@stencil/core';
+import { Component, Prop, Element } from '@stencil/core';
 
 @Component({
     tag: 'yoo-button',
@@ -8,18 +8,18 @@ import { Component, Prop, Event, EventEmitter, Element } from '@stencil/core';
 export class YooButtonComponent {
 
     @Prop() text: string;
-    @Prop() disabled = false;
+    @Prop() disabled: boolean = false;
     @Prop() isLoading: boolean;
     @Prop() icon: string;
 
-    @Event() buttonClicked: EventEmitter<boolean>;
+    @Element() host: HTMLStencilElement;
 
-    @Element() host: HTMLElement;
-
-    click() {
-        if (!this.disabled) {
-            this.buttonClicked.emit(true);
-        }
+    renderLoadingContainer(): JSX.Element {
+        return (
+            <div class="container loading" >
+                <span class="value"><img src="assets/loader/loading.svg" /></span>
+            </div>
+        );
     }
 
     renderButtonContent(): JSX.Element {
@@ -34,9 +34,12 @@ export class YooButtonComponent {
 
     render(): JSX.Element {
         return (
-            <button class={'container ' + (this.disabled ? 'disabled' : '')} disabled={this.disabled} onClick={() => this.click()}>
+            (this.isLoading ? this.renderLoadingContainer() :
+                //button //disabled={this.disabled}
+                <div class={'container ' + (this.disabled ? 'disabled' : '')} >
                     {this.renderButtonContent()}
-            </button>
+                </div>
+            )
         );
     }
 

@@ -1,0 +1,65 @@
+@import "designsystem/_variables.scss";
+:host {
+    background: transparent;
+    /deep/ .device {
+        width: round(270px * 1.4) !important;
+        height: round(557px * 1.4) !important;
+        >.content {
+            top: 90px !important;
+            width: 335px !important;
+            height: 593px !important;
+        }
+    }
+    yoo-progress-bar {
+        position: fixed;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 99999;
+    }
+}
+
+.absolute {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.logo {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    img {
+        height: 45px;
+        margin: 10px;
+    }
+}
+
+.background {
+    //opacity: 0.97;
+    background: cssvar(darker); //$gradient;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.image {
+    //background: url('resources/background.jpg');
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 50%;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    left: 0;
+    top: 0;
+}

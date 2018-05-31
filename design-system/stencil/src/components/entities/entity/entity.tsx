@@ -1,6 +1,7 @@
 import { Component, Prop, Element } from '@stencil/core';
-import { CardType, ICardEntry, ICardListEntry, EntityType, IMission, IFeed, IUser, ICardStickyEntry, IFile, IFileOrFolder, IEntityAction, IFeedComment, ITranslateService } from '@shared/interfaces';
+import { CardType, ICardEntry, ICardListEntry, EntityType, IMission, IFeed, IUser, ICardStickyEntry, IFile, IFileOrFolder, IEntityAction, IFeedComment, ICardCellEntry } from '@shared/interfaces';
 import { pipes } from '../../../utils/pipes';
+import { services } from '../../../services';
 import { getUserDisplayName } from '../../../utils/helpers';
 import { isString } from 'lodash-es';
 
@@ -23,8 +24,6 @@ export class YooEntityComponent {
 
     @Element() host: string;
 
-    private translate: ITranslateService = (window as any).translateService;
-
     render() {
         if (this.item) {
             if (this.displayType === 'card-sticky') {
@@ -34,7 +33,7 @@ export class YooEntityComponent {
                     entry = {
                         category: feedSticky.tags ? feedSticky.tags[0].toUpperCase() : '',
                         title: feedSticky.title,
-                        buttonText: this.translate.get('READMORE'),
+                        buttonText: services.translate.get('READMORE'),
                         handler: () => { },
                         imgSrc: feedSticky.image ? feedSticky.image._downloadURL : null
                     };
@@ -49,19 +48,20 @@ export class YooEntityComponent {
                     entry = {
                         heading: feed.user && feed.user._id ? getUserDisplayName(feed.user) : feed.missiondescription ? feed.missiondescription.title : '',
                         subheadings: [pipes.timeAgo.transform(feed._ect || new Date())],
-                        description: (feed.title || '') + ' ' + this.translate.polyglot(feed.description),
+                        description: (feed.title || '') + ' ' + services.translate.polyglot(feed.description),
                         tags: feed.tags,
                         imgSrc: feed.image._downloadURL,
                         icon: feed.missiondescription && feed.missiondescription.icon && (!feed.user || !feed.user._id) ? feed.missiondescription.icon._downloadURL : null,
                         user: feed.user,
+                        bottomLeftIcon: feed.document ? 'yo-attachment' : null,
                         type: this.displayType,
                         groups: [].concat(feed.group)
                     };
                 } else if (this.entityType === 'blog') {
                     entry = {
-                        heading: this.translate.polyglot(this.item.title),
+                        heading: services.translate.polyglot(this.item.title),
                         subheadings: [pipes.timeAgo.transform(this.item.pubDate)],
-                        description: this.translate.polyglot(this.item.description),
+                        description: services.translate.polyglot(this.item.description),
                         icon: this.item.background,
                         imgSrc: this.item.background,
                         type: this.displayType
@@ -87,22 +87,22 @@ export class YooEntityComponent {
                 if (this.entityType === 'missions') {
                     let mission: IMission = this.item;
                     entry = {
-                        heading: this.translate.polyglot(mission.title),
+                        heading: services.translate.polyglot(mission.title),
                         subheadings: [mission.address],
                         //imgSrc: mission.icon,
                         tags: mission.tags,
                         badges: [
-                            mission.status === 'booked' ? { text: this.translate.get('BOOKED'), cssClass: 'small round info' } :
-                                mission.status === 'finished' && mission.validated === true ? { text: this.translate.get('VALIDATED'), cssClass: 'small round gradient-success' } :
-                                    mission.status === 'finished' && mission.validated === false ? { text: this.translate.get('REJECTED'), cssClass: 'small round danger' } :
-                                        mission.status === 'finished' ? { text: this.translate.get('PENDING'), cssClass: 'small round warning' } :
-                                            { text: this.translate.get('NEW'), cssClass: 'small round accent' }]
+                            mission.status === 'booked' ? { text: services.translate.get('BOOKED'), cssClass: 'small round info' } :
+                                mission.status === 'finished' && mission.validated === true ? { text: services.translate.get('VALIDATED'), cssClass: 'small round gradient-success' } :
+                                    mission.status === 'finished' && mission.validated === false ? { text: services.translate.get('REJECTED'), cssClass: 'small round danger' } :
+                                        mission.status === 'finished' ? { text: services.translate.get('PENDING'), cssClass: 'small round warning' } :
+                                            { text: services.translate.get('NEW'), cssClass: 'small round accent' }]
                     };
                 } else if (this.entityType === 'users') {
                     let user: IUser = this.item;
                     entry = {
                         heading: getUserDisplayName(user),
-                        subheadings: [this.translate.get('LASTSEEN') + ' ' + pipes.timeAgo.transform(user._lmt)],
+                        subheadings: [services.translate.get('LASTSEEN') + ' ' + pipes.timeAgo.transform(user._lmt)],
                         users: [user]
                     };
                 } else if (this.entityType === 'feedsComments') {
@@ -127,21 +127,21 @@ export class YooEntityComponent {
                     let f: IFileOrFolder = this.item;
                     entry = {
                         heading: f.name,
-                        imgSrc: f.fftype === 'folder' ? './assets/empty-states/folder.svg' : f.imgSrc,
+                        imgSrc: f.fftype === 'folder' ? './assets/empty-states/folder_blue.svg' : f.imgSrc,
                         icon: f.icon,
                         avatarSize: 'list-small',
                         subheadings: []
                     };
                     if (f.stats) {
                         entry.subheadings = [f.stats.map(s => {
-                            return '<span>' + this.translate.get(s.title) + ': ' + pipes.decimal.transform(s.value) + '</span>';
+                            return '<span>' + services.translate.get(s.title) + ': ' + pipes.decimal.transform(s.value) + '</span>';
                         }).join()];
                     }
 
                 } else if (this.entityType === 'notifications') {
                     entry = {
                         heading: this.item.title,
-                        subheadings: [this.translate.polyglot(this.item.body)],
+                        subheadings: [services.translate.polyglot(this.item.body)],
                         date: this.item.scheduledDate || this.item._ect ? pipes.dateFormat.transform(this.item.scheduledDate || this.item._ect, 'fromNow') : null,
                         users: this.item.sender ? [this.item.sender] : null,
                         icon: this.item.mode === 'email' ? 'yo-mail royal' : this.item.mode === 'notification assertive' ? 'yo-notification' : 'yo-paperplane2 balanced'
@@ -179,7 +179,7 @@ export class YooEntityComponent {
                     if (this.item.title === false || this.item._id === false) {
                         defaultTitle = 'false';
                     }
-                    let title = this.useTranslate ? this.translate.get(defaultTitle.toUpperCase()) : defaultTitle;
+                    let title = this.useTranslate ? services.translate.get(defaultTitle.toUpperCase()) : defaultTitle;
                     entry.heading = title;
 
                     if (this.item.description) {
@@ -219,6 +219,72 @@ export class YooEntityComponent {
                     //     ((this.item as IFeedComment).comments || []).map(com =>
                     //         <yoo-entity sub-comment item={com} entityType={'feedsComments'} displayType={'card-list'}></yoo-entity>
                     //     ) : null
+                );
+            } else if (this.displayType === 'card-cell') {
+                let entry: ICardCellEntry;
+                if (this.entityType === 'files' || (this.entityType === 'filesFolders' && this.item.fftype === 'file')) {
+                    let file: IFile = this.item;
+                    entry = {
+                        imgSrc: file._downloadURL,
+                        icon: file.icon,
+                        text: file._filename
+                    };
+                } else if (this.entityType === 'folders' || (this.entityType === 'filesFolders' && this.item.fftype === 'folder')) {
+                    let f: IFileOrFolder = this.item;
+                    entry = {
+                        imgSrc: './assets/empty-states/folder_blue.svg',
+                        icon: f.icon,
+                        text: f.name
+                    };
+                }
+                return (
+                    <yoo-card-cell entry={entry} class={this.entityType}></yoo-card-cell>
+                );
+            } else if (this.displayType === 'card-tag') {
+                let text: string;
+                let closable: boolean;
+                switch (this.entityType) {
+                    case 'users':
+                        let user: IUser = this.item;
+                        text = getUserDisplayName(user);
+                        break;
+                    case 'feeds':
+                        let feed: IFeed = this.item;
+                        text = feed.title;
+                        break;
+                    case 'blog':
+                        text = this.item.title;
+                        break;
+                    case 'missions':
+                        let mission: IMission = this.item;
+                        text = mission.title;
+                        break;
+                    case 'feedsComments':
+                        let comment: IFeedComment = this.item;
+                        text = comment.text;
+                        break;
+                    case 'files':
+                        let file: IFile = this.item;
+                        text = file._filename;
+                        break;
+                    case 'folders':
+                        let f: IFileOrFolder = this.item;
+                        text = f.name;
+                        break;
+                    case 'notifications':
+                        text = this.item.title;
+                        break;
+                    case 'channels':
+                        text = this.item.name;
+                        break;
+                    case 'environnement':
+                        text = this.item.title;
+                        break;
+                    default:
+                        text = 'unsupported';
+                }
+                return (
+                    <yoo-tag class="stable" text={text} closable={closable} ></yoo-tag>
                 );
             } else {
                 return (

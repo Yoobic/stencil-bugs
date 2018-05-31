@@ -22,15 +22,48 @@ $yoobicons-font-path: "./assets/fonts/yoobicons" !default;
     -moz-osx-font-smoothing: grayscale;
 }
 
-.yo-check-solid .path1:before {
-    content: "\e91b";
-    color: rgb(0, 0, 0);
+.yo-microphone:before {
+    content: "\e95f";
 }
 
-.yo-check-solid .path2:before {
+.yo-microphone-solid:before {
+    content: "\e960";
+}
+
+.yo-pin:before {
+    content: "\e95d";
+}
+
+.yo-user:before {
+    content: "\e95e";
+}
+
+.yo-minimize:before {
+    content: "\e947";
+}
+
+.yo-maximize:before {
+    content: "\e95c";
+}
+
+.yo-cross-solid:before {
+    content: "\e959";
+}
+
+.yo-cross:before {
+    content: "\e95a";
+}
+
+.yo-circle:before {
+    content: "\e95b";
+}
+
+.yo-check:before {
+    content: "\e91b";
+}
+
+.yo-check-solid:before {
     content: "\e953";
-    margin-left: -1em;
-    color: rgb(255, 255, 255);
 }
 
 .yo-rejected2:before {
@@ -63,10 +96,6 @@ $yoobicons-font-path: "./assets/fonts/yoobicons" !default;
 
 .yo-rotate-camera:before {
     content: "\e937";
-}
-
-.yo-maximize:before {
-    content: "\e947";
 }
 
 .yo-background-on:before {

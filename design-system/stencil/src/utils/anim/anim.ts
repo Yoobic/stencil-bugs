@@ -308,12 +308,13 @@ export function slideVertical(options: { up?: boolean; distance?: number; durati
 }
 
 const SLIDE_HORIZONTAL = 'slide_horizontal';
-export function slideHorizontal(options: { open?: boolean; distance?: number; start?: number} = {}) {
+export function slideHorizontal(options: { open?: boolean; distance?: number; start?: number, duration?: number} = {}) {
     let start = options.start || 0;
+    let duration = options.duration || 100;
     return {
         translateX: [(options.open ?  start : options.distance) , (options.open ? options.distance : start)],
         easing: 'linear',
-        duration: 100
+        duration
     };
 }
 

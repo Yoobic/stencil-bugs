@@ -1,0 +1,22 @@
+<ion-header class="shadow" no-border [class.statusbar-padding]="isCordova">
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="closeModal()">
+                <i slot="icon-only" class="{{closeIcon || 'yo-close'}}"></i>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{'MISSION'|translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button color="dark">
+                <i slot="icon-only" class="yo-download"></i>
+            </ion-button>
+            <ion-button color="dark">
+                <i slot="icon-only" class="yo-more"></i>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [forceOverscroll]="false" #content>
+    <yoo-mission-detail [mission]="mission" [slidesNumber]="slidesNumber" [photosNumber]="photosNumber" [questionsNumber]="questionsNumber"
+        (book)="onBook($event)"></yoo-mission-detail>
+</ion-content>

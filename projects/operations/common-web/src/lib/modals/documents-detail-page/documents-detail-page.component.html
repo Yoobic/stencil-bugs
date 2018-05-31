@@ -1,0 +1,8 @@
+<yoo-modal heading="{{folder?.name}}" (closed)="closeModal()">
+
+    <app-grid #grid collectionName="filesFolders" entityType="filesFolders" displayType="card-list" [sorts]="sortModelFilesFolders"
+        [showFiltersSimple]="true" [filters]="filtersFilesFolders" [hiddenFields]="hiddenFields" emptyState="folder_blue" [mapTransform]="mapTransformFilesFolders"
+        [mapTransformAsync]="true" (select)="onSelectFileFolder($event)" [itemButtons]="fileItemButtons" [keepSelection]="false"
+        [displayModes]="['list','cell']"></app-grid>
+
+</yoo-modal>

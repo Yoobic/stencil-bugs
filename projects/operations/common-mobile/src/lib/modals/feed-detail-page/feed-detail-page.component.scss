@@ -1,0 +1,12 @@
+@import "designsystem/_variables.scss";
+:host {
+    ion-content {
+        /deep/ ion-scroll {
+            background: cssvar(dark)
+        }
+
+        /deep/ .scroll-inner {
+            height: 100%;
+        }
+    }
+}

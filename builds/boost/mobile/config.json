@@ -1,0 +1,19 @@
+{
+    "codeSignName": "yoobic",
+    "appId": "com.ipelia.yoobicask",
+    "appName":"Boost",
+    "ios": {
+        "debug": {
+            "developmentTeam": "83J46LC2FS",
+            "codeSignIdentity": "iPhone Developer",
+            "packageType": "development",
+            "provisioningProfile": "9e1aca93-d8fc-43c9-8f65-5392146cc536"
+        },
+        "release": {
+            "developmentTeam": "83J46LC2FS",
+            "codeSignIdentity": "iPhone Distribution",
+            "packageType": "ad-hoc",
+            "provisioningProfile": "df7f32f5-cb97-4f77-8a95-3e9f41ebb244"
+        }
+    }
+}

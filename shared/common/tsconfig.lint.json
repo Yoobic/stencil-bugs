@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/spec",
+    "module": "es2015",
+    "types": [ "window" ]
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
+}

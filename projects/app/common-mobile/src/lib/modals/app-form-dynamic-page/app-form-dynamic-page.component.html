@@ -1,0 +1,34 @@
+<ion-header class="shadow" no-border [class.statusbar-padding]="isCordova">
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="onCancel()">
+                <i slot="icon-only" class="{{closeIcon || 'yo-close'}}"></i>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{(title||'FORM')|translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button color="success" (click)="onSave()" [disabled]="!form.isValid()">
+                {{(saveText||'SAVE')|translate}}
+            </ion-button>
+            <!-- <ion-button color="dark">
+                <i slot="icon-only" class="yo-more"></i>
+            </ion-button> -->
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [forceOverscroll]="false" #content [scrollEnabled]="false" no-bounce>
+    <app-form-dynamic #form [collectionName]="collectionName" [formDefinition]="formDefinition" [slides]="slides" [suffix]="suffix"
+        [data]="data" (dataChanged)="onDataChanged($event)"></app-form-dynamic>
+</ion-content>
+<!-- <ion-footer>
+    <ion-toolbar>
+        <ion-buttons slot="primary">
+            <ion-button color="danger" (click)="onCancel()">
+                {{(cancelText||'CANCEL')|translate}}
+            </ion-button>
+            <ion-button color="primary"(click)="onSave()">
+                {{(saveText||'SAVE')|translate}}
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer> -->

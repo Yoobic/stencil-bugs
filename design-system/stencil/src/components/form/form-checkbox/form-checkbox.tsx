@@ -1,57 +1,58 @@
 import { Component, Prop, Event, EventEmitter, Method, Element } from '@stencil/core';
+import { setValidator, setValueAndValidateInput } from '../../../utils/helpers/form-input-helpers';
+import { IFormCheckbox, FormDisplayType, Validator, AsyncValidator, ValidatorEntry } from '@shared/interfaces';
 
 @Component({
     tag: 'yoo-form-checkbox',
     styleUrl: 'form-checkbox.scss',
     scoped: true
 })
-export class YooFormCheckboxComponent {
+export class YooFormCheckboxComponent implements IFormCheckbox {
 
-    @Prop() text: string;
-    @Prop({ mutable: true }) state: string = 'unchecked';
-    @Prop() disabled: boolean;
-    @Prop() isIndeterminate: boolean;
+    @Prop({ mutable: true }) value: boolean;
+    @Prop() validators: Array<Validator<boolean> | ValidatorEntry> = [];
+    @Prop() asyncValidators: Array<AsyncValidator<boolean>>;
+    @Prop() readonly: boolean;
+    @Prop() type: FormDisplayType = 'normal';
 
-    @Event() checkboxToggled: EventEmitter<string>;
+    @Event() validityChanged: EventEmitter<boolean>;
+    @Event() inputBlurred: EventEmitter<any>;
+    @Event() inputFocused: EventEmitter<boolean>;
+    @Event() inputChanged: EventEmitter<any>;
+
 
     @Element() host: HTMLStencilElement;
 
     @Method()
     onCheckboxClick() {
-        this.getNextState();
-        this.checkboxToggled.emit(this.state);
+        this.value = !this.value;
+        setValueAndValidateInput(this.value, this);
     }
 
-    getNextState() {
-        const TRANSITIONS = {
-            checked: 'unchecked',
-            indeterminate: 'checked',
-            unchecked: this.isIndeterminate ? 'indeterminate' : 'checked'
-        };
-        this.state = TRANSITIONS[this.state];
+    componentWillLoad() {
+        setValidator(this);
+        if (this.type === 'line') {
+            this.host.classList.add('line');
+        }
+    }
+
+    renderReadonly(): JSX.Element {
+        return (
+            <div class="readonly" attr-layout="row">
+                {this.value === true ? <i class="yo-check"></i> : (this.value === false ? <i class="yo-cross-danger danger"></i> : <i class="yo-circle"></i>)}
+            </div>
+        );
+    }
+
+    renderEditable(): JSX.Element {
+        return (
+            <div class="container" onClick={() => this.onCheckboxClick()}>
+                    {this.value === true ? <i class="yo-check-solid"></i> : this.value === false ? <i class="yo-circle"></i> : <i class="yo-circle undefined"></i>}
+            </div>
+        );
     }
 
     render(): JSX.Element {
-        return (
-            <div class="container">
-                {this.disabled ?
-                    <div class={this.state === 'unchecked' ? 'icon-container empty disabled' : 'icon-container disabled'} attr-layout="row">
-                        <span class={this.state === 'unchecked' ? 'icon empty' :  'icon disabled'}><i class={this.state === 'indeterminate' ? 'yo-minus' : 'yo-check-solid'}></i></span>
-                    </div>
-                    :
-                    <div class={this.state === 'unchecked' ? 'icon-container empty enabled' : 'icon-container enabled'} attr-layout="row" onClick={() => this.onCheckboxClick()}>
-                        <span class={this.state === 'unchecked' ? 'icon empty' :  'icon'}><i class={this.state === 'indeterminate' ? 'yo-minus' : 'yo-check-solid'}></i></span>
-                    </div>
-                }
-                {this.disabled ?
-                    <div class="text-container disabled">
-                        {this.text}
-                    </div> :
-                    <div class="text-container enabled" onClick={() => this.onCheckboxClick()}>
-                        {this.text}
-                    </div>
-                }
-            </div>
-        );
+        return this.readonly ? this.renderReadonly() : this.renderEditable();
     }
 }

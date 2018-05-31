@@ -33,7 +33,7 @@ export class YooCardStickyComponent {
                             </div>
                         : null}
                         {this.entry && this.entry.buttonText ?
-                            <yoo-button class="gradient-success small" text={this.entry.buttonText} onButtonClicked={() => this.entry.handler ? this.entry.handler() : {}}></yoo-button>
+                            <yoo-button class="gradient-success small" text={this.entry.buttonText} onClick={() => this.entry.handler ? this.entry.handler() : {}}></yoo-button>
                         : null }
                     </div>
                 </div>

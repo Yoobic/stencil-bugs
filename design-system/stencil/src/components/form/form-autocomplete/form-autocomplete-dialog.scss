@@ -1,0 +1,33 @@
+:host {
+    .outer-container {
+        height: 100%;
+        position: relative;
+        .top-container {
+            height: 100%;
+            background-color: transparent;
+        }
+        .bottom-container {
+            height: 305px;
+            transition: 0.3s;
+            .content {
+                height: 100%;
+                ion-scroll {
+                    top: auto;
+                    height: 261px;
+                    transition: 0.3s;
+                }
+            }
+        }
+        .fullscreen-container {
+            position: absolute;
+            bottom: 0.625rem;
+            right: 0.625rem;
+            z-index: 3000;
+            /deep/ yoo-button {
+                .container {
+                    padding-top: 0.3575rem !important;
+                }
+            }
+        }
+    }
+}

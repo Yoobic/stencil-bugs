@@ -13,31 +13,18 @@
         .input {
             height: 2.5rem;
             border-radius: 5px;
-            border: 1px solid cssvar(stable);
             display: flex;
             align-items: center;
-            padding-left: 1rem;
             &.single {
                 width: 100%;
             }
-            input[type=number]{
-                -webkit-appearance: none;
-                background: transparent;
-                font-size: 0.875rem;
+            yoo-form-input {
                 width: 100%;
-                //width: 2rem;
-                outline: none;
-                border-color: transparent;
-                //text-align: center;
+                /deep/ {
+                    .input-container {
+                    }
+                }
             }
-            input[type=number]::-webkit-inner-spin-button,
-            input[type=number]::-webkit-outer-spin-button{
-                -webkit-appearance: none;
-            }
-            // Firefox:
-            input[type=number] {
-                -moz-appearance:textfield;
-              }
         }
     }
     .slider-container {

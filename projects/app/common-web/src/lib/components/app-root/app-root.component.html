@@ -1,0 +1,7 @@
+<ng-template [ngIf]="isTranslateInit">
+    <router-outlet></router-outlet>
+</ng-template>
+
+<yoo-progress-bar class="gradient-success" *ngIf="showProgress" [hideProgress]="true" [progress]="progress"></yoo-progress-bar>
+<ion-modal-controller></ion-modal-controller>
+<yoo-loader class="absolute large" *ngIf="isLoading"></yoo-loader>

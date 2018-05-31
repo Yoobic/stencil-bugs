@@ -1,0 +1,35 @@
+@import "../map/map.scss";
+:host {
+    /deep/ {
+        @import "../../../../../../node_modules/@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
+    }
+    /deep/ {
+        @import "../../../../../../shared/styles/map/_mapbox-core.scss";
+    }
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    .column-container {
+        height: 100%;
+        width: 100%;
+        .map-container {
+            position: relative;
+            border: $border-width solid cssvar(dark-20);
+            background: cssvar(dark);
+        }
+        .marker-info {
+            background: cssvar(light);
+            text-align: center;
+            border-top: $border-width solid cssvar(border-color);
+            padding-bottom: $padding-small;
+            .title {
+                margin-top: $padding-small;
+                font-weight: 500;
+            }
+        }
+        .filter-group {
+            @include filter-group-styles();
+        }
+    }
+}

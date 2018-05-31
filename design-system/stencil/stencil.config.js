@@ -1,6 +1,6 @@
 'use strict';
 const postcss = require('@stencil/postcss');
-const autoprefixer = require('autoprefixer');
+//const autoprefixer = require('autoprefixer');
 const sass = require('@stencil/sass');
 
 exports.config = {
@@ -15,7 +15,7 @@ exports.config = {
     }
   ],
   globalStyle: '../../shared/styles/designsystem/_global.scss',
-  globalScript: 'src/global/index.ts',
+  //globalScript: 'src/global/index.ts',
   sassConfig: {
     includePaths: ['../../shared/styles/designsystem/']
   },
@@ -23,13 +23,14 @@ exports.config = {
   plugins: [
     sass({
       injectGlobalPaths: [
-      '../../shared/styles/designsystem/_variables.scss',
-      '../../shared/styles/designsystem/_mixins.scss'
-    ]
-    }),
-    postcss({
-      plugins: [autoprefixer()]
+        '../../shared/styles/designsystem/_variables.scss',
+        '../../shared/styles/designsystem/_mixins.scss'
+      ]
     })
+    //,
+    // postcss({
+    //   plugins: [autoprefixer()]
+    // })
   ]
 };
 

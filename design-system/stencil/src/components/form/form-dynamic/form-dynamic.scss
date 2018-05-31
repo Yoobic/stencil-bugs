@@ -94,6 +94,9 @@
         box-shadow: $form-slide;
         z-index: 10;
     }
+    .footer-spacer {
+        height: 90px;
+    }
     .header {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -115,5 +118,9 @@
             line-height: 1.5rem;
             text-align: center;
         }
+    }
+
+    .font-small {
+        font-size: 0.7rem;
     }
 }
