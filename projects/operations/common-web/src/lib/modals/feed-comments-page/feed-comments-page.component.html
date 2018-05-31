@@ -1,7 +1,0 @@
-
-<yoo-modal [scrollEnabled]="true" heading="{{'COMMENTS'|translate}}" (closed)="closeModal({feed: feed})"
-    [hasFooter]="true" [primaryButtonText]="null" [secondaryButtonText]="null">
-    <app-grid #grid collectionName="feedsComments" entityType="feedsComments" displayType="card-list" [filters]="filters" [mapTransform]="mapTransform"
-        [mapTransformAsync]="true" emptyState="feed" [icons]="icons" [bottomActions]="bottomActions" [secondaryActions]="secondaryActions"></app-grid>
-    <yoo-input-bar slot="footer-slot" (sendText)="onSendText($event)"></yoo-input-bar>
-</yoo-modal>
