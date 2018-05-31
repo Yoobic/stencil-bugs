@@ -1,0 +1,59 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+dist/
+**/dist/
+/tmp
+/out-tsc
+.ng_pkg_build/
+design-system/doc/dist
+design-system/doc/dist/dist
+design-system/stencil/dist
+design-system/stencil/www
+design-system/stencil/src/components.d.ts
+
+builds/**/mobile/www
+builds/**/mobile/node_modules/
+builds/**/mobile/platforms
+builds/**/mobile/plugins
+builds/**/mobile/bin
+builds/**/web/electron
+builds/**/web/dist
+
+i18n/boost-merged
+i18n/operations-merged
+
+# dependencies
+node_modules/
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
