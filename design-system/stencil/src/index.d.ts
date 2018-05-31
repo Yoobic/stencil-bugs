@@ -17,10 +17,6 @@ export { YooServiceCreateComponent } from './components/app/service-create/servi
 export { YooTaskCreateComponent } from './components/app/task-create/task-create';
 export { YooSearchPageComponent } from './components/app/search-page/search-page';
 
-// CHART components
-export { YooChartComponent } from './components/chart/chart/chart';
-export { YooChartJsComponent } from './components/chart/chart-js/chart-js';
-
 // CORE components
 export { YooAccordionComponent } from './components/core/accordion/accordion';
 export { YooActionSheetComponent } from './components/core/action-sheet/action-sheet';
@@ -96,11 +92,5 @@ export { YooFormToggleComponent } from './components/form/form-toggle/form-toggl
 
 // GRID components
 export { YooGridComponent } from './components/grid/grid/grid';
-
-// MAP components
-export { YooAmapComponent } from './components/map/amap/amap';
-export { YooMapComponent } from './components/map/map/map';
-export { YooMapGLComponent } from './components/map/map-gl/map-gl';
-export { YooMapJsComponent } from './components/map/map-js/map-js';
 
 export * from './components';

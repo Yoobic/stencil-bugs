@@ -2,12 +2,11 @@ import { ChangeDetectorRef, Injectable, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Translate } from '@shared/translate';
-import { Colors, LocalStorage, CoreConfig, ConfigConstants, isPresent } from '@shared/common';
-import { Requestor, LoadingBar, LoadingBarEventType, LoadingBarEvent, LinksService, Files, Session } from '@shared/data-core';
+import { LocalStorage, CoreConfig, ConfigConstants } from '@shared/common';
+import { Requestor, LoadingBar, LinksService, Files, Session } from '@shared/data-core';
 
 import { DialogService } from '../../services/dialog/dialog.service';
 import { UtilsService } from '../../services/utils/utils.service';
-import { debounceTime } from 'rxjs/operators';
 
 @Injectable()
 export class AppRootBaseComponent {
@@ -33,17 +32,6 @@ export class AppRootBaseComponent {
         window.coreConfigService = this.coreConfig;
         window.filesService = this.files;
         window.sessionService = this.session;
-        Colors.setDarkTheme(this.localStorage.getObject('dark-theme') === true);
-        Colors.setBigFonts(this.localStorage.getObject('use-big-fonts') === true);
-
-        Requestor.unauthorizedEmitter.pipe(debounceTime(1000)).subscribe((err) => {
-            this.rq.session.clear(true);
-            this.router.navigate(['/']);
-        });
-
-        Requestor.payloadTooBigEmitter.subscribe((err) => {
-            this.dialog.toast(this.translate.get('QUERYISTOOBIG'));
-        });
 
         if (!this.coreConfig.isUniversal()) {
             document.addEventListener('click', (e) => {

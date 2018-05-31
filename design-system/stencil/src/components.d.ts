@@ -43,8 +43,6 @@ import {
   ICardEntry,
   ICardListEntry,
   ICardStickyEntry,
-  IChartData,
-  IChartOptions,
   IChatMessage,
   IColumnDefinition,
   IContextMenuEntry,
@@ -53,7 +51,6 @@ import {
   IEntityAction,
   IFeed,
   IFile,
-  IFilterGroup,
   IFormField,
   IFormSearch,
   IGridSearch,
@@ -61,13 +58,9 @@ import {
   ILanguage,
   ILanguageSelector,
   ILoginDetails,
-  IMapEntry,
-  IMarker,
-  IMarkerColor,
   IMission,
   IModalEntry,
   INavBarTab,
-  IPosition,
   IProfileConfig,
   IRadioGroupEntry,
   ISlide,
@@ -520,76 +513,6 @@ declare global {
     export interface YooWalkthroughAttributes extends HTMLAttributes {
       'config'?: Array<IWalkthroughEntry>;
       'onSlideChanged'?: (event: CustomEvent<IWalkthroughSlideEvent>) => void;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface YooChartJs {
-      'data': IChartData;
-      'options': IChartOptions;
-      'type': string;
-    }
-  }
-
-  interface HTMLYooChartJsElement extends StencilComponents.YooChartJs, HTMLStencilElement {}
-
-  var HTMLYooChartJsElement: {
-    prototype: HTMLYooChartJsElement;
-    new (): HTMLYooChartJsElement;
-  };
-  interface HTMLElementTagNameMap {
-    'yoo-chart-js': HTMLYooChartJsElement;
-  }
-  interface ElementTagNameMap {
-    'yoo-chart-js': HTMLYooChartJsElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'yoo-chart-js': JSXElements.YooChartJsAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface YooChartJsAttributes extends HTMLAttributes {
-      'data'?: IChartData;
-      'options'?: IChartOptions;
-      'type'?: string;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface YooChart {
-      'options': any;
-    }
-  }
-
-  interface HTMLYooChartElement extends StencilComponents.YooChart, HTMLStencilElement {}
-
-  var HTMLYooChartElement: {
-    prototype: HTMLYooChartElement;
-    new (): HTMLYooChartElement;
-  };
-  interface HTMLElementTagNameMap {
-    'yoo-chart': HTMLYooChartElement;
-  }
-  interface ElementTagNameMap {
-    'yoo-chart': HTMLYooChartElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'yoo-chart': JSXElements.YooChartAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface YooChartAttributes extends HTMLAttributes {
-      'options'?: any;
     }
   }
 }
@@ -4110,189 +4033,6 @@ declare global {
       'total'?: number;
       'type'?: 'grid' | 'card' | 'tree';
       'useTranslate'?: boolean;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface YooAmap {
-      'filterGroups': IFilterGroup[];
-      'mapEntry': IMapEntry;
-    }
-  }
-
-  interface HTMLYooAmapElement extends StencilComponents.YooAmap, HTMLStencilElement {}
-
-  var HTMLYooAmapElement: {
-    prototype: HTMLYooAmapElement;
-    new (): HTMLYooAmapElement;
-  };
-  interface HTMLElementTagNameMap {
-    'yoo-amap': HTMLYooAmapElement;
-  }
-  interface ElementTagNameMap {
-    'yoo-amap': HTMLYooAmapElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'yoo-amap': JSXElements.YooAmapAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface YooAmapAttributes extends HTMLAttributes {
-      'filterGroups'?: IFilterGroup[];
-      'mapEntry'?: IMapEntry;
-      'onFilterGroupsChanged'?: (event: CustomEvent<IFilterGroup[]>) => void;
-      'onSelected'?: (event: CustomEvent<IMarker>) => void;
-      'onSelectedMultiple'?: (event: CustomEvent<IMarker[]>) => void;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface YooMapGl {
-      'filterGroups': IFilterGroup[];
-      'mapEntry': IMapEntry;
-    }
-  }
-
-  interface HTMLYooMapGlElement extends StencilComponents.YooMapGl, HTMLStencilElement {}
-
-  var HTMLYooMapGlElement: {
-    prototype: HTMLYooMapGlElement;
-    new (): HTMLYooMapGlElement;
-  };
-  interface HTMLElementTagNameMap {
-    'yoo-map-gl': HTMLYooMapGlElement;
-  }
-  interface ElementTagNameMap {
-    'yoo-map-gl': HTMLYooMapGlElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'yoo-map-gl': JSXElements.YooMapGlAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface YooMapGlAttributes extends HTMLAttributes {
-      'filterGroups'?: IFilterGroup[];
-      'mapEntry'?: IMapEntry;
-      'onFilterGroupsChanged'?: (event: CustomEvent<IFilterGroup[]>) => void;
-      'onSelected'?: (event: CustomEvent<IMarker>) => void;
-      'onSelectedMultiple'?: (event: CustomEvent<IMarker[]>) => void;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface YooMapJs {
-      'filterGroups': IFilterGroup[];
-      'mapEntry': IMapEntry;
-    }
-  }
-
-  interface HTMLYooMapJsElement extends StencilComponents.YooMapJs, HTMLStencilElement {}
-
-  var HTMLYooMapJsElement: {
-    prototype: HTMLYooMapJsElement;
-    new (): HTMLYooMapJsElement;
-  };
-  interface HTMLElementTagNameMap {
-    'yoo-map-js': HTMLYooMapJsElement;
-  }
-  interface ElementTagNameMap {
-    'yoo-map-js': HTMLYooMapJsElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'yoo-map-js': JSXElements.YooMapJsAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface YooMapJsAttributes extends HTMLAttributes {
-      'filterGroups'?: IFilterGroup[];
-      'mapEntry'?: IMapEntry;
-      'onFilterGroupsChanged'?: (event: CustomEvent<IFilterGroup[]>) => void;
-      'onSelected'?: (event: CustomEvent<IMarker>) => void;
-      'onSelectedMultiple'?: (event: CustomEvent<IMarker[]>) => void;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface YooMap {
-      'currentLanguage': string;
-      'disableZoom': boolean;
-      'filterGroups': IFilterGroup[];
-      'fitToMarkers': boolean;
-      'groupBy': string;
-      'hideLegend': boolean;
-      'icon': string;
-      'legendColors': IMarkerColor[];
-      'mapEntry': IMapEntry;
-      'markers': IMarker[];
-      'maxZoom': number;
-      'minZoom': number;
-      'position': IPosition;
-      'setProps': (mapEntry: IMapEntry) => void;
-      'showControls': boolean;
-      'showDirections': boolean;
-      'useCluster': boolean;
-      'zoom': number;
-    }
-  }
-
-  interface HTMLYooMapElement extends StencilComponents.YooMap, HTMLStencilElement {}
-
-  var HTMLYooMapElement: {
-    prototype: HTMLYooMapElement;
-    new (): HTMLYooMapElement;
-  };
-  interface HTMLElementTagNameMap {
-    'yoo-map': HTMLYooMapElement;
-  }
-  interface ElementTagNameMap {
-    'yoo-map': HTMLYooMapElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'yoo-map': JSXElements.YooMapAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface YooMapAttributes extends HTMLAttributes {
-      'currentLanguage'?: string;
-      'disableZoom'?: boolean;
-      'filterGroups'?: IFilterGroup[];
-      'fitToMarkers'?: boolean;
-      'groupBy'?: string;
-      'hideLegend'?: boolean;
-      'icon'?: string;
-      'legendColors'?: IMarkerColor[];
-      'mapEntry'?: IMapEntry;
-      'markers'?: IMarker[];
-      'maxZoom'?: number;
-      'minZoom'?: number;
-      'onFilterGroupsChangedParent'?: (event: CustomEvent<IFilterGroup[]>) => void;
-      'onSelectedMultipleParent'?: (event: CustomEvent<IMarker[]>) => void;
-      'onSelectedParent'?: (event: CustomEvent<IMarker>) => void;
-      'position'?: IPosition;
-      'showControls'?: boolean;
-      'showDirections'?: boolean;
-      'useCluster'?: boolean;
-      'zoom'?: number;
     }
   }
 }

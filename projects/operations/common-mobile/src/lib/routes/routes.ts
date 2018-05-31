@@ -13,7 +13,7 @@ export const routes: Routes = [
     {
         path: 'menu',
         component: MenuPageComponent,
-        data: { state: 'menu' },
+        // data: { state: 'menu' },
         children: [
             { path: 'home', outlet: 'home', component: StoreManagerHomePageComponent, data: { state: 'home' } },
             { path: 'feeds', outlet: 'feeds', component: FeedsPageComponent, data: { state: 'feeds' } },
