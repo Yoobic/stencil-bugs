@@ -1,24 +1,12 @@
 <ion-header class="shadow" [class.statusbar-padding]="isCordova">
     <ion-toolbar color="light">
         <ion-buttons slot="start">
-            <yoo-avatar class="profile" [user]="currentUser" (click)="onShowProfile()"></yoo-avatar>
-            <!-- <ion-button color="dark" (click)="onShowProfile()">
-                <i slot="icon-only" class="yo-profile"></i>
-            </ion-button> -->
+            <yoo-avatar class="profile" imgSrc="https://res.cloudinary.com/www-yoobic-com/image/upload/w_1020,h_480,c_fill,q_auto:low,f_auto,fl_lossy/a_exif/v1522152485/k7dedr96ainrdhmkzlgj.png" (click)="onShowProfile()"></yoo-avatar>
         </ion-buttons>
         <ion-title>
             <img class="header-logo" src="assets/logo/operations_simple.svg" (click)="onScrollToTop()" />
         </ion-title>
         <ion-buttons slot="end">
-            <ion-button color="dark" (click)="onShowTestForm()">
-                <i slot="icon-only" class="yo-list-view"></i>
-            </ion-button>
-            <ion-button color="dark" (click)="onShowCalendar()">
-                <i slot="icon-only" class="yo-calendar"></i>
-            </ion-button>
-            <ion-button color="dark" (click)="onShowSearch()">
-                <i slot="icon-only" class="yo-search"></i>
-            </ion-button>
             <ion-button color="dark" (click)="onShowCreate()">
                 <i slot="icon-only" class="yo-plus"></i>
             </ion-button>

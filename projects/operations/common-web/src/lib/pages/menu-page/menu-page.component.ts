@@ -22,7 +22,6 @@ export class MenuPageComponent extends MenuBasePageComponent implements OnInit {
     this.profilePage = ProfilePageComponent;
     this.entry = {
       logo: 'assets/logo/operations_simple.svg',
-      user: this.session.user,
       items: [
         { label: this.translate.get('HOME2'), icon: 'yo-home', iconSelected: 'yo-home-solid', href: '/menu/home', name: 'home', separator: true },
         { label: this.translate.get('FEEDS'), icon: 'yo-feed', iconSelected: 'yo-feed-solid', href: '/menu/feeds', name: 'feeds' },
