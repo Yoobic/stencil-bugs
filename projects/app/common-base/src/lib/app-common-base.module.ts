@@ -11,13 +11,8 @@ import { DialogService } from './services/dialog/dialog.service';
 import { UtilsService } from './services/utils/utils.service';
 
 import { AppLoginComponent } from './components/app-login/app-login.component';
-import { AppGridComponent } from './components/app-grid/app-grid.component';
-import { AppProfileComponent } from './components/app-profile/app-profile.component';
-import { AppFormDynamicComponent } from './components/app-form-dynamic/app-form-dynamic.component';
 
-import { AppResultDialogPageComponent } from './modals/app-result-dialog-page/app-result-dialog-page.component';
-
-const COMPONENTS = [AppProfileComponent, AppLoginComponent, AppGridComponent, AppFormDynamicComponent, AppResultDialogPageComponent];
+const COMPONENTS = [ AppLoginComponent];
 
 import { Activity } from '@shared/data-core';
 const SERVICES = [Activity];

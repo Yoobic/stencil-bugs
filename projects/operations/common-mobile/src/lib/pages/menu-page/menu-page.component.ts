@@ -17,12 +17,9 @@ import { ProfilePageComponent } from '../../modals/profile-page/profile-page.com
 })
 export class MenuPageComponent extends MenuBasePageComponent implements OnInit {
   public profilePage: any;
-  public enableCustomModel: boolean;
 
   ngOnInit() {
-    this.enableCustomModel = true;
     this.profilePage = ProfilePageComponent;
-    
     super.ngOnInit();
   }
 

@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 
-import { AuthenticationGuard, CanDeactivateGuard, CurrentSessionResolver } from '@shared/data-core';
-
 import { LoginPageComponent } from '../pages/login-page/login-page.component';
 import { MenuPageComponent } from '../pages/menu-page/menu-page.component';
 import { FeedsPageComponent } from '../pages/feeds-page/feeds-page.component';
@@ -11,17 +9,14 @@ import { NotfoundPageComponent } from '../pages/notfound-page/notfound-page.comp
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'login' },
-    { path: 'login', component: LoginPageComponent, data: { state: 'login' } },
-    { path: 'login/:accessToken', component: LoginPageComponent, data: { state: 'login' } },
+    { path: 'login', component: LoginPageComponent },
     {
         path: 'menu',
-        canActivate: [AuthenticationGuard],
         component: MenuPageComponent,
-        resolve: { currentSession: CurrentSessionResolver },
         children: [
-            { path: 'home', component: StoreManagerHomePageComponent, canActivate: [AuthenticationGuard], canDeactivate: [CanDeactivateGuard], data: { state: 'home' } },
-            { path: 'feeds', component: FeedsPageComponent, canActivate: [AuthenticationGuard], canDeactivate: [CanDeactivateGuard], data: { state: 'feeds' } },
-            { path: 'mystore', component: StoreManagerStorePageComponent, canActivate: [AuthenticationGuard], canDeactivate: [CanDeactivateGuard], data: { state: 'mystore' } },
+            { path: 'home', component: StoreManagerHomePageComponent, data: { state: 'home' } },
+            { path: 'feeds', component: FeedsPageComponent, data: { state: 'feeds' } },
+            { path: 'mystore', component: StoreManagerStorePageComponent, data: { state: 'mystore' } },
             { path: '', redirectTo: '/menu/home', pathMatch: 'full' }
         ]
     },

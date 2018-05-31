@@ -18,7 +18,6 @@ export class MenuPageComponent extends MenuBasePageComponent implements OnInit {
   public profilePage: any;
 
   ngOnInit() {
-    this.enableCustomModel = true;
     this.profilePage = ProfilePageComponent;
     this.entry = {
       logo: 'assets/logo/operations_simple.svg',

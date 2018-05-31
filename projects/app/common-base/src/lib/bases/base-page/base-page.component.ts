@@ -8,7 +8,6 @@ import { Filters } from '@shared/interfaces';
 
 import { DialogService } from '../../services/dialog/dialog.service';
 import { UtilsService } from '../../services/utils/utils.service';
-import { AppGridComponent } from '../../components/app-grid/app-grid.component';
 
 import { NavParams, Refresher, Content } from '@ionic/angular';
 
@@ -17,7 +16,6 @@ import { takeWhile } from 'rxjs/operators';
 @Injectable()
 export class BasePageBaseComponent implements OnInit, OnDestroy {
     @ViewChild('content') contentEl: ElementRef<Content>;
-    @ViewChild('grid') grid: AppGridComponent;
     public isCordova: boolean = false;
     public isModal: boolean;
     public isLoading: boolean;

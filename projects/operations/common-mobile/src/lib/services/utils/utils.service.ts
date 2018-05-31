@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AppResultDialogPageComponent } from '@app/common-base';
 import { UtilsService as BaseUtilsService } from '@operations/common-base';
 import { AppChatPageComponent } from '@app/common-mobile';
 import { FeedDetailPageComponent } from '../../modals/feed-detail-page/feed-detail-page.component';
@@ -13,9 +12,5 @@ export class UtilsService extends BaseUtilsService {
 
     protected getChatPageComponent() {
         return AppChatPageComponent;
-    }
-
-    protected getResultDialogPageComponent() {
-        return AppResultDialogPageComponent;
     }
 }

@@ -8,7 +8,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class LoginPageComponent {
 
-    public roles: Array<string> = [];
     public menuPath: string = 'menu';
 
 }
