@@ -28,16 +28,36 @@ System:
 
 ## Bug Description
 
+Using Stencil version 0.9.7 produces an error when building stencil:
 
-**Version Affected**: `MOBILE OR WEB OR BOTH`
+```shell
+[ ERROR ]  typescript: ...nts/Phonegap/yoobic-ng-6/node_modules/@ionic/core/dist/types/utils/overlays.d.ts, line: 9
+          Type ‘keyof B’ does not satisfy the constraint ‘string’. Type ‘string | number |
+          symbol’ is not assignable to type ‘string’. Type ‘number’ is not assignable to
+          type ‘string’.
 
-Bug description here
+     L8:  };
+     L9:  ction createOverlay<T extends HTMLIonOverlayElement & Requires<keyof B>, B>(element: T, opts: B): Promise<T>;
+    L10:  export declare function dismissOverlay(data: any, role: string | undefined, overlays: OverlayMap, id: number): Promise<void>;
+```
+
+This can be solved by removing `& Requires<keyof B>` from the L9 in the relevant file inside the `node_modules`.
+
+Then the build will work but upon serving the app, nothing renders in the browser and an error is thrown on the console:
+
+![NotSupportedError](/images/NotSupportedError.png?raw=true)
+
+**Version Affected**: `MOBILE`
 
 ## Steps to Reproduce
 
-Steps to reproduce the behaviour here (subdivide by version if necessary)
+1. Initialize the repo
+2. Serve the mobile version of the app
+3. Open **https://localhost:6003**
+4. Open the console in the dev tools
+
 
 ## Expected Behavior
 
-Expected behavior here (subdivide by version if necessary)
+The app should render normally.
 
