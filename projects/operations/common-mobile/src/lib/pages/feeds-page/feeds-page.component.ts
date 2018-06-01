@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FeedPageBaseComponent } from '@operations/common-base';
 import { gridPageTransition } from '@app/common-base';
+import { UtilsService } from '../../services/utils/utils.service';
 
 @Component({
   selector: 'feeds-page',
@@ -11,4 +12,10 @@ import { gridPageTransition } from '@app/common-base';
   animations: [gridPageTransition]
 })
 export class FeedsPageComponent extends FeedPageBaseComponent {
+
+  openIonModal() {
+    (this.utils as UtilsService).showModal().then(rep => {
+      console.log(rep);
+    });
+  }
 }

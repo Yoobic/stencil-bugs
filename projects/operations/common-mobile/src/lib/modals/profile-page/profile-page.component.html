@@ -7,6 +7,9 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content [forceOverscroll]="false" #content nopadding>
-    THIS IS THE PROFILE
-</ion-content>
+<div class="content">
+    Since there is no `ion-content` present, *ngIf works as expected
+
+    <div *ngIf="true">This should be rendered correctly inside the ion-content</div>
+    <div *ngIf="false">This should not be rendered</div>
+</div>

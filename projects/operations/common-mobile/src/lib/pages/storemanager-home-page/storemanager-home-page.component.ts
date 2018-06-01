@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { StoreManagerPageBaseComponent } from '@operations/common-base';
 import { gridPageTransition } from '@app/common-base';
-import { UtilsService } from '../../services/utils/utils.service';
 
 @Component({
   selector: 'storemanager-home-page',
@@ -13,9 +12,4 @@ import { UtilsService } from '../../services/utils/utils.service';
 })
 export class StoreManagerHomePageComponent extends StoreManagerPageBaseComponent {
 
-  openIonModal() {
-    (this.utils as UtilsService).showModal().then(rep => {
-      console.log(rep);
-    });
-  }
 }

@@ -5,9 +5,15 @@
                 <i slot="icon-only" class="{{closeIcon || 'yo-close'}}"></i>
             </ion-button>
         </ion-buttons>
-        <ion-title>Ion Modal</ion-title>
+        <ion-title *ngIf="true">Ion Modal</ion-title>
+        <ion-title *ngIf="false">Hidden Title</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content [forceOverscroll]="false" #content [scrollEnabled]="false" no-bounce>
     THIS IS THE FEED PAGE
+    
+    Inside this modal there is some code controlled with *ngIf.
+
+    <div *ngIf="true">This should be rendered correctly inside the ion-content</div>
+    <div *ngIf="false">This should not be rendered</div>
 </ion-content>
