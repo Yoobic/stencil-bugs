@@ -1,3 +1,0 @@
-git_url "https://github.com/Yoobic/yoobic-certificates"
-
-type "adhoc" # The default type, can be: appstore, adhoc, enterprise or development
