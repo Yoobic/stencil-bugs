@@ -31,26 +31,23 @@ System:
 
 **Version Affected**: `MOBILE`
 
-When using the `IonModalController` to open a component as a modal, if the component has an `ion-content` inside of it all the `*ngIf` statements inside of it break. Any *ngIf controlled code outside the `ion-content` works as expected. Upon inspecting the DOM the following appears:
+Note that this bug could be linked to Chrome/Angular and seems to arise when running a Stencil build or making changes that cause an already served app to be rebuilt. If the application is already served and we build the `stencil` related libraries, this will cause the `body` tag in the Chrome Dev Tools (when inspecting) to be blocked and impossible to open as seen in the image below:
 
-![brokenNgIF](/images/ngIf_broken.png?raw=true)
+![Body Issue](/images/body_issue.png?raw=true)
 
-Removing the `ion-content` and replacing it with a `<div>` fixes the issue. When inspecting the DOM, we can see that the `*ngIf` controlled code works correctly. Inspecting the DOM, we can see that the statement is broken.
-
-![workingNgIF](/images/ngIf_Working_Profile.png?raw=true)
+This only seems to occur on the first rebuild after the app has been served.
 
 ## Steps to Reproduce
 
 1. Initialize the repo
 2. Serve the mobile app --> `ng serve --project operations-mobile`
 3. Go to `https://localhost:6003/
-4. Navigate to the `News Feed` tab
-5. Press the button to open the modal - this will open the faulty modal
-6. Close the modal.
-7. Click on the circle on the top left of the `ion-toolbar` to open a working version of the modal (without `ion-content`)
+4. Open the Chrome dev tools (everything works fine)
+5. Build stencil - `npm run build:stencil`
+6. Open the Chrome dev tools
 
 
 ## Expected Behavior
 
-*ngIf statements should work normally inside `ion-content` when opened in a modal.
+The Chrome Dev tools should not be affected by rebuilding the app.
 
