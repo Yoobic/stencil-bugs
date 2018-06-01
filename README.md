@@ -33,12 +33,11 @@ System:
 
 When using the `IonModalController` to open a component as a modal, if the component has an `ion-content` inside of it all the `*ngIf` statements inside of it break. Any *ngIf controlled code outside the `ion-content` works as expected. Upon inspecting the DOM the following appears:
 
-[[images/ngIf_broken]]
+![brokenNgIF](/images/ngIf_broken.png?raw=true)
 
 Removing the `ion-content` and replacing it with a `<div>` fixes the issue. When inspecting the DOM, we can see that the `*ngIf` controlled code works correctly. Inspecting the DOM, we can see that the statement is broken.
 
-[[images/ngIf_Working_Profile]]
-
+![workingNgIF](/images/ngIf_Working_Profile.png?raw=true)
 
 ## Steps to Reproduce
 
