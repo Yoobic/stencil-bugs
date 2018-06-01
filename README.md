@@ -34,7 +34,7 @@ If we upgrade the version of `ng-packgr` to 3.0.0. we can no longer build the ap
 
 The following error appears when building the `operations-common-mobile` library:
 
-![ngPackgrBug]((/images/ngPackagr3.png?raw=true))
+![ngPackgrBug](/images/ngPackagr3.png?raw=true)
 
 **Version Affected**: `MOBILE AND WEB`
 
