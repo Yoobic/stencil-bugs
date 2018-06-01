@@ -1,1 +1,0 @@
-web: bash ./recovery_replace.sh ; node index.js
