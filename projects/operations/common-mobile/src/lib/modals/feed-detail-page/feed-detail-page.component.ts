@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { FeedDetailPageBaseComponent } from '@operations/common-base';
 
 @Component({
@@ -8,6 +8,11 @@ import { FeedDetailPageBaseComponent } from '@operations/common-base';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { 'class': 'ion-page' }
 })
-export class FeedDetailPageComponent extends FeedDetailPageBaseComponent {
+export class FeedDetailPageComponent extends FeedDetailPageBaseComponent implements OnInit {
 
+  imageOnly: boolean;
+
+  ngOnInit() {
+    this.imageOnly = true;
+  }
 }

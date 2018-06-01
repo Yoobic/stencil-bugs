@@ -23,4 +23,8 @@ export class MenuPageComponent extends MenuBasePageComponent implements OnInit {
     super.ngOnInit();
   }
 
+  onScrollToTop() {
+    
+  }
+
 }

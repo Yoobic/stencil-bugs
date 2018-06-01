@@ -163,7 +163,7 @@
     "marked": "0.4.0",
     "mcfly-semantic-release": "1.1.0",
     "mkdirp": "0.5.1",
-    "ng-packagr": "2.4.5",
+    "ng-packagr": "3.0.0",
     "node-dir": "0.1.17",
     "node-fetch": "2.1.2",
     "node-notifier": "5.2.1",

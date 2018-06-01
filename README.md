@@ -28,16 +28,23 @@ System:
 
 ## Bug Description
 
+If we upgrade the version of `ng-packgr` to 3.0.0. we can no longer build the application.
 
-**Version Affected**: `MOBILE OR WEB OR BOTH`
+The following error appears when building the `operations-common-mobile` library:
 
-Bug description here
+![ngPackgrBug]((/images/ngPackagr3.png?raw=true))
+
+**Version Affected**: `MOBILE AND WEB`
 
 ## Steps to Reproduce
 
-Steps to reproduce the behaviour here (subdivide by version if necessary)
+Attempt to build `operations-common-mobile` - `ng build --project operations-common-mobile`. 
+
+Seems to be related to this: https://stackoverflow.com/questions/50405930/aot-angular-6-directive-somecomponent-expected-0-arguments-but-got-1-for.
+
+The faulty pattern is found in the ionic angular code [here](https://github.com/ionic-team/ionic/blob/master/angular/src/directives/navigation/tab-delegate.ts)
 
 ## Expected Behavior
 
-Expected behavior here (subdivide by version if necessary)
+Should build normally.
 
