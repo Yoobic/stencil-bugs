@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { UtilsService as BaseUtilsService  } from '@app/common-base';
-import { Feed } from '@operations/data';
 
 @Injectable()
 export class UtilsService extends BaseUtilsService {
@@ -10,8 +9,8 @@ export class UtilsService extends BaseUtilsService {
         super.initExtraProviders();
     }
 
-    showFeedDetail(feed: Feed) {
-        return this.dialog.modal(this.getFeedDetailComponent(), { feed }, 'modal-full-height');
+    showModal() {
+        return this.dialog.modal(this.getFeedDetailComponent(), {}, 'modal-full-height');
     }
 
     protected getFeedDetailComponent() {

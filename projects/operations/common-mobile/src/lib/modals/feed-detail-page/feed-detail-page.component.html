@@ -1,11 +1,11 @@
 <ion-header no-border [class.statusbar-padding]="isCordova">
-    <ion-toolbar color="dark">
+    <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-button *ngIf="!imageOnly" color="light" (click)="closeModal({feed: feed})">
+            <ion-button *ngIf="!imageOnly" color="dark" (click)="closeModal()">
                 <i slot="icon-only" class="{{closeIcon || 'yo-close'}}"></i>
             </ion-button>
         </ion-buttons>
-        <!-- <ion-title>{{feed?.title|translate}}</ion-title> -->
+        <ion-title>Ion Modal</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content [forceOverscroll]="false" #content [scrollEnabled]="false" no-bounce>
