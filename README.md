@@ -31,15 +31,27 @@ System:
 
 **Version Affected**: `MOBILE`
 
-When using the `IonModalController` to open a component as a modal, if the component has an `ion-content` inside of it all the `*ngIf` statements inside of it break. Any *ngIf controlled code outside the `ion-content` works as expected.
+When using the `IonModalController` to open a component as a modal, if the component has an `ion-content` inside of it all the `*ngIf` statements inside of it break. Any *ngIf controlled code outside the `ion-content` works as expected. Upon inspecting the DOM the following appears:
 
-Removing the `ion-content` and replacing it with a `<div>` fixes the issue.
+[[images/ngIf_broken]]
+
+Removing the `ion-content` and replacing it with a `<div>` fixes the issue. When inspecting the DOM, we can see that the `*ngIf` controlled code works correctly. Inspecting the DOM, we can see that the statement is broken.
+
+[[images/ngIf_Working_Profile]]
+
 
 ## Steps to Reproduce
 
-Steps to reproduce the behaviour here (subdivide by version if necessary)
+1. Initialize the repo
+2. Serve the mobile app --> `ng serve --project operations-mobile`
+3. Go to `https://localhost:6003/
+4. Navigate to the `News Feed` tab
+5. Press the button to open the modal - this will open the faulty modal
+6. Close the modal.
+7. Click on the circle on the top left of the `ion-toolbar` to open a working version of the modal (without `ion-content`)
+
 
 ## Expected Behavior
 
-Expected behavior here (subdivide by version if necessary)
+*ngIf statements should work normally inside `ion-content` when opened in a modal.
 
