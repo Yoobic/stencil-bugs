@@ -4,7 +4,9 @@ The aim of this repo is to help reproduce bugs that are affecting the developmen
 
 To initialize the repo please run the following commands after cloning:
 
-1. `npm install && npm run build:all`
+Note that we cannot fully initialize the repo in this case since the build breaks as part of the bug being reported.
+
+1. `npm install && npm run build:libs && npm run build:app`
 2. `ng serve --project operations-mobile` --> serve mobile version of the app (**https://localhost:6003**)
 3. `ng serve --project operations-web` --> serve the web version of the app (**https://localhost:6004**)
 
@@ -38,7 +40,7 @@ The following error appears when building the `operations-common-mobile` library
 
 ## Steps to Reproduce
 
-Attempt to build `operations-common-mobile` - `ng build --project operations-common-mobile`. 
+Attempt to build operations-related libraries - `npm run build:operations` 
 
 Seems to be related to this: https://stackoverflow.com/questions/50405930/aot-angular-6-directive-somecomponent-expected-0-arguments-but-got-1-for.
 
