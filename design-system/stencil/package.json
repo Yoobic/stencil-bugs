@@ -13,9 +13,5 @@
     "dist/",
     "assets",
     "../../node_modules/@shared/design-system"
-  ],
-  "peerDependencies": {
-    "@angular/common": "6.0.2",
-    "@angular/core": "6.0.2"
-  }
+  ]
 }
