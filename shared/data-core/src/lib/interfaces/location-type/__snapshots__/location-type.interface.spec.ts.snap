@@ -67,6 +67,27 @@ IModel {
       "type": "number",
       "visible": false,
     },
+    Object {
+      "collectionName": "tenants",
+      "columnDefinition": Object {
+        "name": "name",
+      },
+      "condition": Array [
+        Object {
+          "group": Array [
+            "admin",
+          ],
+          "operator": "in",
+          "type": "roles",
+        },
+      ],
+      "filterName": "_tenantRef",
+      "multiple": false,
+      "name": "_tenant",
+      "required": true,
+      "title": "TENANT",
+      "type": "autocomplete",
+    },
   ],
   "appareance": Map {},
   "className": "LocationType",
@@ -75,7 +96,9 @@ IModel {
   "fields": Array [
     "*",
   ],
-  "include": Array [],
+  "include": Array [
+    "_tenant",
+  ],
   "isCustom": undefined,
   "mappingFields": Map {},
   "searchSubquery": undefined,

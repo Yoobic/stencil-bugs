@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { IPosition } from '@shared/common';
 import { Broker } from '../broker/broker.service';
 import { Smartloc } from '../smartloc/smartloc.service';
+import { Requestor } from '../requestor/requestor.service';
+import { Config } from '../config/config.service';
 import { Location } from '../../interfaces/location/location.interface';
 import { LocationType } from '../../interfaces/location-type/location-type.interface';
 import { ResponseObject } from '../../interfaces/response-object/response-object.interface';
-import { Filters, SubQuery } from '@shared/interfaces';
+import { Filters, SubQuery, IHealthscore } from '@shared/interfaces';
 
 import { Observable, Observer } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -14,7 +16,7 @@ import { isNumber } from 'lodash-es';
 @Injectable()
 export class Locations {
 
-    constructor(private geoloc: Smartloc, private broker: Broker) { }
+    constructor(private geoloc: Smartloc, private broker: Broker, protected rq: Requestor, protected config: Config) { }
 
     loadMarkers(position: IPosition, maxPoints = 5000) {
         position = position || this.geoloc.defaultPosition;
@@ -154,6 +156,11 @@ export class Locations {
             }
         }];
         return this.broker.aggregateQuery('locations', filters, options);
+    }
+
+    getHealthscore(locationId: string): Observable<IHealthscore> {
+        let url = this.config.apiUrl + 'locations/healthScore?storeId=' + locationId;
+        return this.rq.get(url).pipe(map(ret => ret.data));
     }
 
 }

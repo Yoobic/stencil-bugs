@@ -3,6 +3,7 @@
 import { ValidatorEntry, Validator, AsyncValidator } from '../../validators/validators.interface';
 import { IGridSearch } from '../../ui/grid/grid.interface';
 import { IFormField } from '../../entities/form-field/form-field.interface';
+import { IAlgorithm } from '../../entities/algorithm/algorithm.interface';
 
 export interface IEventEmitter<T = any> {
     emit: (data?: T) => void;
@@ -33,9 +34,9 @@ export interface IFormInputBase<T> {
     _validator?: Validator<T>;
     _asyncValidator?: AsyncValidator<T>;
 
-    renderReadonly: () => JSX.Element;
-    renderEditable: () => JSX.Element;
-    render: () => JSX.Element;
+    renderReadonly: () => any; //JSX.Element;
+    renderEditable: () => any; //JSX.Element;
+    render: () => any; //JSX.Element;
 }
 export interface IFormDatetime extends IFormInputBase<any> {
     type: string;
@@ -84,6 +85,11 @@ export interface IFormPhoto extends IFormInputBase<Array<string> | string> {
     maxWidth: number;
     duration: number;
     saveGeoloc: boolean;
+    allowLibrary: boolean;
+    allowAnnotate: boolean;
+    isImageRecognition: boolean;
+    isBackgroundProcess: boolean;
+    algorithm?: IAlgorithm;
 }
 
 export interface IFormDocument {

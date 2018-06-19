@@ -1,0 +1,16 @@
+@import "designsystem/_variables.scss";
+:host {
+    ion-content {
+        background: cssvar(light);
+    }
+    ion-content.absolute {
+        @include abs-pos(0, auto, 0, auto);        
+        
+        
+        
+        z-index: 100;
+    }
+    ion-header {
+        min-height: unset;
+    }
+}

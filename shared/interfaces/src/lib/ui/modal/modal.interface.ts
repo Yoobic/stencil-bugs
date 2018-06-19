@@ -1,5 +1,6 @@
 import { IFormField } from '../../entities/form-field/form-field.interface';
 import { ISlide } from '../../entities/slide/slide.interface';
+import { IEntityAction } from '../../entities/entity/entity.interface';
 
 export interface IModalEntry {
     heading?: string;
@@ -23,6 +24,8 @@ export interface IModalUpsertConfig {
     formDefinition?: Array<IFormField>;
     slides?: Array<ISlide>;
     suffix?: string;
+    editable?: boolean;
+    secondaryActions?: Array<IEntityAction>;
     //extra options
     extraValidators?: Array<any>;
     extraButtons?: any;

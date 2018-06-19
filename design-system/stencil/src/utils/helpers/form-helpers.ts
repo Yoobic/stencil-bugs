@@ -5,6 +5,7 @@ import { isBlank, isPresent } from './helpers';
 import { IFormField, FormFieldType, ISlide, ICondition } from '@shared/interfaces';
 
 import { isArray, indexOf, get, isString, isNull, isUndefined, isObject, isEmpty, map, clone, isNumber, isBoolean, concat, intersection, isEqual, result, set, sortBy } from 'lodash-es';
+import { services } from '../../services';
 
 export function isVisible(field: IFormField | ISlide, readonly = false, data, suffix = '', session: any = {}) {
     let retVal = !(field.visible === false);
@@ -352,4 +353,26 @@ function getNameAndData(field: IFormField, initialData: Object, suffix) {
     let name = getFieldPath(field, suffix);
     let data = getFieldValue(field, initialData, suffix);
     return { name: name, data: data };
+}
+
+
+/**
+ * Generates the field label name
+ */
+export function generateLabel(field) {
+    let label;
+    if (!field.description) {
+        if (field.title) {
+            label = services.translate.get(field.title);
+        } else {
+            label = field.name || '';
+            if (label && label.toString) {
+                label = label.toString();
+            }
+            if (label && isString(label)) {
+                label = services.translate.get(label.toUpperCase());
+            }
+        }
+    }
+    return label;
 }

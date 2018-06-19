@@ -6,6 +6,7 @@ import { Network, CoreConfig, LocalStorage, LocalForageService } from '@shared/c
 import { Authentication, Config, Session, Broker, Users, Smartloc } from '@shared/data-core';
 import { Intercom, Channel } from '@shared/data-live';
 import { Translate } from '@shared/translate';
+import { IModalUpsertConfig } from '@shared/interfaces';
 
 import { DialogService } from '../dialog/dialog.service';
 import { slideXEnterAnimation, slideXLeaveAnimation } from '../../animations/animations';
@@ -69,5 +70,13 @@ export class UtilsService {
         // this.clearLocalBadges();
         // this.setLoading(false);
         // this.pubnub.disconnect();
+    }
+
+    showFormDynamic<T = {}>(data: Object, options?: IModalUpsertConfig): Promise<{ data?: T; role?: string }> {
+        return this.dialog.modal(this.getFormDynamicPageComponent(), { data, ...options, closeIcon: 'yo-left' }, null, slideXEnterAnimation, slideXLeaveAnimation);
+    }
+
+    protected getFormDynamicPageComponent() {
+        return null;
     }
 }

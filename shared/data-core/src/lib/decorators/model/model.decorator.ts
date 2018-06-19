@@ -8,6 +8,7 @@ export interface IModelConfig {
     include?: any;
     searchSubquery?: { collectionName: string; field: string; values: string };
     feathersService?: string;
+    detailComponent?: string;
 }
 
 export function Model(config: IModelConfig) {

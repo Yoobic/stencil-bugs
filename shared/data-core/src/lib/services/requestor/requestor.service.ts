@@ -67,7 +67,7 @@ export class Requestor {
                 this.slimbarComplete();
                 return this.errorHandler(e, url);
             })
-            );
+        );
     }
 
     patch(url: string, body: any, token?: string, withCount: boolean = false, isTempToken: boolean = false, looseCount: boolean = false, partialUrl: boolean = false): Observable<any> {
@@ -91,7 +91,7 @@ export class Requestor {
                 this.slimbarComplete();
                 return this.errorHandler(e, url);
             })
-            );
+        );
     }
 
     postRaw(url: string, body: any, blob?: boolean, includeToken?: boolean) {
@@ -109,7 +109,7 @@ export class Requestor {
                 this.slimbarComplete();
                 return this.errorHandler(e, url);
             })
-            );
+        );
     }
 
     postMultiPart(url: string, data: Object) {
@@ -124,10 +124,10 @@ export class Requestor {
                 this.slimbarComplete();
                 return ret.body;
             })).pipe(
-            catchError(e => {
-                this.slimbarComplete();
-                throw e;
-            }));
+                catchError(e => {
+                    this.slimbarComplete();
+                    throw e;
+                }));
     }
 
     postFile(url: string, file: File): Observable<any> {
@@ -168,7 +168,7 @@ export class Requestor {
                 this.updateToken(res);
                 return this.formatResponse(res, withCount);
             })
-            );
+        );
     }
 
     getBinaryContent(url: string): Observable<any> {
@@ -178,10 +178,10 @@ export class Requestor {
                 this.slimbarComplete();
                 return retVal;
             })).pipe(
-            catchError(e => {
-                this.slimbarComplete();
-                return this.errorHandler(e, url);
-            }));
+                catchError(e => {
+                    this.slimbarComplete();
+                    return this.errorHandler(e, url);
+                }));
     }
 
     put(url: string, body: any): Observable<any> {
@@ -199,7 +199,7 @@ export class Requestor {
                 this.slimbarComplete();
                 return this.errorHandler(e, url);
             })
-            );
+        );
     }
 
     delete(url: string, body?: any): Observable<any> {
@@ -218,7 +218,7 @@ export class Requestor {
                 this.slimbarComplete();
                 return this.errorHandler(e, url);
             })
-            );
+        );
     }
 
     downloadFile(filename: string, mediaType: string, url: string, options: any): Promise<any> {
@@ -284,6 +284,8 @@ export class Requestor {
                 headers = headers.set('x-loose-count', 'true');
             }
             headers = headers.set('x-total-count', 'true');
+        } else {
+            headers = headers.set('x-loose-count', 'true');
         }
         if (suppressToken !== true) {
             if (token) {

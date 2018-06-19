@@ -2,7 +2,7 @@ import {  IActionSheetButton } from '../action-sheet/action-sheet.interface';
 import { IBadgeEntry } from '../badge/badge.interface';
 import { IUser } from '../../entities/user/user.interface';
 
-export type CardType = 'card-feed' | 'card-list' | 'card-default' | 'card-sticky' | 'card-cell' | 'card-tag';
+export type CardType = 'card-feed' | 'card-list' | 'card-default' | 'card-sticky' | 'card-cell' | 'card-tag' | 'card-tag-single' | 'card-image';
 
 export interface ICardEntry {
     heading?: string;

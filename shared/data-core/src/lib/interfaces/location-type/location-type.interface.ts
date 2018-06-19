@@ -2,13 +2,14 @@ import { ILocationType, FormFieldType } from '@shared/interfaces';
 import { Model } from '../../decorators/model/model.decorator';
 import { Searchable } from '../../decorators/searchable/searchable.decorator';
 import { Editable } from '../../decorators/editable/editable.decorator';
-import { getGroupsTransform } from '../condition/condition.interface';
+import { ROLES_CONDITIONS, getGroupsTransform } from '../condition/condition.interface';
+import { Tenant } from '../tenant/tenant.interface';
 
 @Model({
     className: 'LocationType',
     collectionName: 'locationtypes',
     fields: ['*'],
-    include: []
+    include: ['_tenant']
 })
 export class LocationType extends ILocationType {
     // export class LocationType implements IEntity {
@@ -30,5 +31,9 @@ export class LocationType extends ILocationType {
 
     @Editable('LocationType', { type: FormFieldType.number, readonly: true, visible: false, forceExport: true, exportOrder: 4 })
     count?: number;
+
+    @Editable('LocationType', { required: true, title: 'TENANT', type: FormFieldType.autocomplete, condition: [ROLES_CONDITIONS.isAdmin], collectionName: 'tenants', multiple: false, columnDefinition: { name: 'name' } })
+    _tenant: Tenant;
+    _tenantRef?: string;
 
 }

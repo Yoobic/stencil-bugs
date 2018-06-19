@@ -3,4 +3,5 @@ export interface ITranslateService {
     polyglot: (text: string, options?: any) => string;
     getCurrentLanguage: () => string;
     getCurrentLanguageFull: (separator?: any) => string;
+    isCurrentLanguageChinese: () => boolean;
 }

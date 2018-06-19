@@ -1,5 +1,5 @@
 import { startCase } from 'lodash-es';
-import { IUser } from '@shared/interfaces';
+import { IUser, IEntity } from '@shared/interfaces';
 
 export function getUserDisplayName(user: IUser): string {
     if (user) {
@@ -12,4 +12,8 @@ export function getUserDisplayName(user: IUser): string {
         return displayName;
     }
     return '';
+}
+
+export function convertItem(value: any): IEntity {
+    return {_id: value};
 }

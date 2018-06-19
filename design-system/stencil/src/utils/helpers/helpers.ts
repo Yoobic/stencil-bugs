@@ -6,6 +6,8 @@ import { isString } from 'lodash-es';
 import ResizeObserver from 'resize-observer-polyfill';
 import 'intersection-observer';
 import { OverlayEventDetail } from '@ionic/core/dist/types/utils/overlays';
+import { services } from '../../services';
+
 
 export function loadScript(url?: string) {
     return new Promise((resolve) => {
@@ -142,7 +144,7 @@ export function debounceEvent(event: EventEmitter, wait: number): EventEmitter {
     } as EventEmitter;
 }
 
-export function debounce(func: Function, wait = 500, immediate = false)  {
+export function debounce(func: Function, wait = 500, immediate = false) {
     let timeout;
     return function (...args) {
         let context = this;
@@ -199,9 +201,11 @@ export function isPresent(obj) {
 
 export function getSizeModal(host: HTMLStencilElement, maxHeight: number) {
     let body = host.closest('.modal-body');
+    let ionModal = host.closest('.modal-wrapper');
     if (body) {
         maxHeight = Math.min(maxHeight, body.clientHeight);
     } else {
+        if (ionModal) { maxHeight = Math.min(maxHeight, ionModal.clientHeight); }
         maxHeight = decreaseMaxHeight(maxHeight, 'ion-header', document);
         maxHeight = decreaseMaxHeight(maxHeight, 'ion-footer', document);
     }
@@ -216,37 +220,19 @@ export function decreaseMaxHeight(maxHeight: number, name: string, html): number
     return maxHeight;
 }
 
-export function pixelToRem(pixels: number) {
-    return pixels / 16;
+export function isBase64(file) {
+    let retVal = file && file.indexOf && file.indexOf('data:') === 0;
+    return retVal;
 }
 
-// export async function showModal(component: string | Function | HTMLElement, options?: any, closeComponent: string = 'ion-button.close', closeEvent: string = 'click') {
-//     // initialize controller
-//     const modalController = document.querySelector('ion-modal-controller');
-//     await modalController.componentOnReady();
-
-//     // // create component to open
-//     // const element = document.createElement('div');
-//     // element.innerHTML = component;
-
-//     // // listen for close event
-//     // const button = element.querySelector(closeComponent);
-//     // button.addEventListener(closeEvent, () => {
-//     //     modalController.dismiss();
-//     // });
-
-//     // present the modal
-//     const modalElement = await modalController.create({
-//         component: component,
-//         componentProps: options
-//     });
-//     modalElement.present();
-// }
 
 export async function showModal(component: string | Function | HTMLElement, options?: any, cssClass?: string): Promise<OverlayEventDetail> {
     return new Promise((resolve, reject) => {
-        // initialize controller
-        const modalController = document.querySelector('ion-modal-controller');
+        let modalController = document.querySelector('ion-modal-controller');
+        // if (!modalController) {
+        //     modalController = document.createElement('ion-modal-controller');
+        //     document.body.appendChild(modalController);
+        // }
         modalController.componentOnReady().then(() => {
             modalController.create({
                 component: component,
@@ -260,6 +246,63 @@ export async function showModal(component: string | Function | HTMLElement, opti
             });
         });
     });
+}
+
+export function closeModal(result) {
+    let ctrl = document.querySelector('ion-modal-controller');
+    ctrl.dismiss(result);
+}
+
+export async function showAlert(header: string, buttonText: string[] = [services.translate.get('CANCEL'), services.translate.get('CONFIRM')], subHeader?: string, message?: string, cssClass?: string): Promise<OverlayEventDetail> {
+    return new Promise((resolve, reject) => {
+        let confirm: boolean = false;
+        let alertController = document.querySelector('ion-alert-controller');
+        // if (!alertController) {
+        //     alertController = document.createElement('ion-alert-controller');
+        //     document.body.appendChild(alertController);
+        // }
+        alertController.componentOnReady().then(() => {
+            alertController.create({
+                header: header,
+                subHeader: subHeader,
+                message: message,
+                buttons: [{
+                    text: buttonText[0],
+                    role: 'cancel',
+                    handler: () => {
+                        confirm = false;
+                    }
+                },
+                {
+                    text: buttonText[1],
+                    handler: () => {
+                        confirm = true;
+                    }
+                }
+                ],
+                cssClass: cssClass
+            }).then(alert => {
+                alert.onDidDismiss(() => {
+                    resolve(confirm);
+                });
+                alert.present();
+            });
+        });
+    });
+}
+
+export async function showActionSheet(buttons: Array<any>) {
+     let actionSheetController = document.querySelector('ion-action-sheet-controller');
+    // if (!actionSheetController) {
+    //     actionSheetController = document.createElement('ion-action-sheet-controller');
+    //     document.body.appendChild(actionSheetController);
+    // }
+    await actionSheetController.componentOnReady();
+
+    const actionSheetElement = await actionSheetController.create({
+        buttons: buttons
+    });
+    await actionSheetElement.present();
 }
 
 export function getNextValueInArray<A>(array: Array<A>, value: A) {

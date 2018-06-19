@@ -5,6 +5,7 @@ export * from './lib/bases/app-menu-page/app-menu-page.component';
 export * from './lib/bases/app-root/app-root.component';
 
 export * from './lib/bases/base-page/base-page.component';
+export * from './lib/bases/app-form-dynamic-page/app-form-dynamic-page.component';
 
 export * from './lib/components/app-login/app-login.component';
 

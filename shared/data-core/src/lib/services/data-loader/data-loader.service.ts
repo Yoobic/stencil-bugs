@@ -1,7 +1,8 @@
 import { Translate } from '@shared/translate';
-import { Broker, ResponseObject } from '../broker/broker.service';
+import { Broker } from '../broker/broker.service';
 import { Models } from '../models/models.service';
 
+import { ResponseObject } from '../../interfaces/response-object/response-object.interface';
 import { Entity } from '../../interfaces/entity/entity.interface';
 import { FilterPipe } from '../../pipes/filter/filter.pipe';
 import { Query } from '@shared/interfaces';

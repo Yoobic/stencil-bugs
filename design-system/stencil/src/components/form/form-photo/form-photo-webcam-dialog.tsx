@@ -1,6 +1,8 @@
 import { Component, Element, Prop } from '@stencil/core';
 import { services } from '../../../services';
+import { closeModal } from '../../../utils/helpers/helpers';
 import * as JpegCamera from 'jpeg-camera/dist/jpeg_camera_no_flash';
+
 @Component({
     tag: 'yoo-form-photo-webcam-dialog',
     styleUrl: 'form-photo-webcam-dialog.scss',
@@ -62,8 +64,7 @@ export class YooFormPhotoWebcamDialogComponent {
 
     onCancel() {
         this.cleanUpCamera();
-        let ctrl = document.querySelector('ion-modal-controller');
-        ctrl.dismiss(null);
+        closeModal(null);
     }
 
     onSave() {
@@ -74,8 +75,7 @@ export class YooFormPhotoWebcamDialogComponent {
                     let canvasData = canvas.toDataURL('image/jpeg', 0.7);
                     //this.cleanUpCamera();
                     if (canvasData && canvasData.length > 10) {
-                        let ctrl = document.querySelector('ion-modal-controller');
-                        ctrl.dismiss(canvasData);
+                        closeModal(canvasData);
                     }
                 });
             } catch (err) { }
@@ -84,8 +84,8 @@ export class YooFormPhotoWebcamDialogComponent {
 
     render() {
         return [
-            //<ion-header class="shadow" no-border>
-            <div class="shadow header">
+            //<div class={'shadow header ' + (services.coreConfig.isIphoneX() ? 'iphone-x' : '')}>
+            <ion-header class="shadow" no-border>
                 <ion-toolbar color="light">
                     <ion-buttons slot="start">
                         <ion-button class="close" color="dark" onClick={() => this.onCancel()}>
@@ -97,13 +97,13 @@ export class YooFormPhotoWebcamDialogComponent {
                         <ion-button color="success">{services.translate.get('SAVE')}</ion-button>
                     </ion-buttons>
                 </ion-toolbar>
-            </div>,
-            //</ion-header>,
-            //<ion-content>
-            <div class="content">
+            </ion-header>,
+            //</div>,
+            //<div class="content">
+            <ion-content scrollEnabled={false} class="bg-light">
                 <div id="webcamHolder">Webcam</div>
-            </div>
-            //</ion-content>
+            </ion-content>
+            //</div>
         ];
     }
 }

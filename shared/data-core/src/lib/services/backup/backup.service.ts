@@ -14,7 +14,7 @@ export class BackupService {
         return this.config.apiUrl + 'AdminDashboard/';
     }
 
-    constructor(private rq: Requestor, private config: Config) { }
+    constructor(protected rq: Requestor, protected config: Config) { }
 
     getAll(date?: Date) {
         let url = this.apiUrl + 'listBackup';

@@ -1,6 +1,7 @@
 import { ICondition } from '../condition/condition.interface';
 import { SubQuery, Filters } from '../filters/filters.interface';
 import { IColumnDefinition } from '../column-definition/column-definition.interface';
+import { IAlgorithm } from '../algorithm/algorithm.interface';
 import { uniqBy } from 'lodash-es';
 
 export interface IFormField {
@@ -103,6 +104,8 @@ export interface IFormField {
     isImage?: boolean;
     hideMobile?: boolean;
     isImageRecognition?: boolean;
+    imageRecognitionAlgorithm?: IAlgorithm;
+    isBackgroundProcess?: boolean;
     handler?: (value, controls, data, form?, requestor?, dialog?, viewContainerRef?, changeDetectorRef?) => void;
     color?: string;
     size?: number;
@@ -148,6 +151,8 @@ export interface IFormField {
 
     shareToFeed?: boolean;
     duration?: number;
+
+    secondary?: boolean;
 }
 
 export class FormFieldType {

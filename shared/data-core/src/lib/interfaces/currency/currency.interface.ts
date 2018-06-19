@@ -3,6 +3,7 @@ import { Searchable } from '../../decorators/searchable/searchable.decorator';
 import { Editable } from '../../decorators/editable/editable.decorator';
 import { FormFieldType, ICurrency } from '@shared/interfaces';
 import { Translate } from '@shared/translate';
+import { IAcl } from '../entity/entity.interface';
 
 @Model({
     className: 'Currency',
@@ -12,6 +13,10 @@ import { Translate } from '@shared/translate';
 })
 
 export class Currency extends ICurrency {
+    _id?: string;
+    _acl?: IAcl;
+    _lmt?: string;
+    _ect?: string;
 
     @Editable('Currency', { required: true, type: FormFieldType.autocomplete, title: 'LANGUAGE', translate: true, values: Translate.availablesLanguage, clearable: false })
     @Searchable('Currency') currency: string;

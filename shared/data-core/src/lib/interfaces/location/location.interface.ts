@@ -6,6 +6,7 @@ import { Searchable } from '../../decorators/searchable/searchable.decorator';
 import { Editable } from '../../decorators/editable/editable.decorator';
 import { Mapping } from '../../decorators/mapping/mapping.decorator';
 import { ROLES_CONDITIONS } from '../condition/condition.interface';
+import { Tenant } from '../tenant/tenant.interface';
 
 export const LOCATION_GEOCODESTATUS = ['file', 'geocoder', 'place', 'prediction', 'error'];
 
@@ -30,7 +31,7 @@ export function onTypeChange(value: LocationType, controls, data: Location) {
     className: 'Location',
     collectionName: 'locations',
     fields: ['*', 'type.name'],
-    include: ['type']
+    include: ['type', '_tenant']
 })
 export class Location implements ILocation {
 
@@ -112,4 +113,7 @@ export class Location implements ILocation {
     distance: number;
     stats: Array<{ title: string; value: number; color: string }>;
 
+    @Editable('Location', { required: true, title: 'TENANT', type: FormFieldType.autocomplete, condition: [ROLES_CONDITIONS.isAdmin], collectionName: 'tenants', multiple: false, columnDefinition: { name: 'name' } })
+    _tenant: Tenant;
+    _tenantRef?: string;
 }

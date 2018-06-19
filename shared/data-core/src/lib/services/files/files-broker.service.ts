@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 
 import { Files } from '../files/files.service';
-import { Broker, ResponseObject } from '../broker/broker.service';
-import { Folder } from '../../interfaces/folder/folder.interface';
+import { Broker } from '../broker/broker.service';
 import { Dashboard } from '../dashboard/dashboard.service';
+
+import { ResponseObject } from '../../interfaces/response-object/response-object.interface';
+import { Folder } from '../../interfaces/folder/folder.interface';
 
 import { Observable, Observer } from 'rxjs';
 
@@ -56,7 +58,7 @@ export class FilesBroker {
     }
 
     cleanupFolder(folderId) {
-        return this.broker.deleteAll('files', { where: { 'folder': { 'eq': folderId } } });
+        return this.broker.deleteAll('files', { where: { 'folder': folderId } });
     }
 
     updateFileIcon(f) {

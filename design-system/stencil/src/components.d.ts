@@ -13,9 +13,12 @@ declare global {
   }
   namespace JSXElements {}
 
+  interface HTMLElement {
+    componentOnReady?: () => Promise<this | null>;
+  }
+
   interface HTMLStencilElement extends HTMLElement {
     componentOnReady(): Promise<this>;
-    componentOnReady(done: (ele?: this) => void): void;
 
     forceUpdate(): void;
   }
@@ -36,6 +39,7 @@ import {
   IActionSheet,
   IActionSheetButton,
   IAlertEntry,
+  IAlgorithm,
   IAnimationProp,
   IBadgeEntry,
   ICalendarMarker,
@@ -61,6 +65,7 @@ import {
   IMission,
   IModalEntry,
   INavBarTab,
+  IPhotoEditorData,
   IProfileConfig,
   IRadioGroupEntry,
   ISlide,
@@ -3315,6 +3320,49 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface YooFormPhotoViewDialog {
+      'allowAnnotate': boolean;
+      'edit': any;
+      'imageRecognitionResults': Array<{ title: string; value: any; color: string; hidden?: boolean; }>;
+      'isStitch': boolean;
+      'label': string;
+      'preview': any;
+    }
+  }
+
+  interface HTMLYooFormPhotoViewDialogElement extends StencilComponents.YooFormPhotoViewDialog, HTMLStencilElement {}
+
+  var HTMLYooFormPhotoViewDialogElement: {
+    prototype: HTMLYooFormPhotoViewDialogElement;
+    new (): HTMLYooFormPhotoViewDialogElement;
+  };
+  interface HTMLElementTagNameMap {
+    'yoo-form-photo-view-dialog': HTMLYooFormPhotoViewDialogElement;
+  }
+  interface ElementTagNameMap {
+    'yoo-form-photo-view-dialog': HTMLYooFormPhotoViewDialogElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'yoo-form-photo-view-dialog': JSXElements.YooFormPhotoViewDialogAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface YooFormPhotoViewDialogAttributes extends HTMLAttributes {
+      'allowAnnotate'?: boolean;
+      'edit'?: any;
+      'imageRecognitionResults'?: Array<{ title: string; value: any; color: string; hidden?: boolean; }>;
+      'isStitch'?: boolean;
+      'label'?: string;
+      'preview'?: any;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface YooFormPhotoWebcamDialog {
       'device': any;
     }
@@ -3349,14 +3397,22 @@ declare global {
 
   namespace StencilComponents {
     interface YooFormPhoto {
+      'algorithm': IAlgorithm;
+      'allowAnnotate': boolean;
+      'allowLibrary': boolean;
       'asyncValidators': Array<AsyncValidator<string>>;
       'duration': number;
+      'extraData': any;
+      'isBackgroundProcess': boolean;
+      'isImageRecognition': boolean;
       'isValid': () => boolean;
+      'label': string;
       'max': number;
       'maxWidth': number;
       'min': number;
       'multiple': boolean;
       'placeholder': string;
+      'processImageRecognitionResults': (retVal: any) => void;
       'readonly': boolean;
       'required': boolean;
       'saveGeoloc': boolean;
@@ -3385,12 +3441,21 @@ declare global {
   }
   namespace JSXElements {
     export interface YooFormPhotoAttributes extends HTMLAttributes {
+      'algorithm'?: IAlgorithm;
+      'allowAnnotate'?: boolean;
+      'allowLibrary'?: boolean;
       'asyncValidators'?: Array<AsyncValidator<string>>;
       'duration'?: number;
+      'extraData'?: any;
+      'isBackgroundProcess'?: boolean;
+      'isImageRecognition'?: boolean;
+      'label'?: string;
       'max'?: number;
       'maxWidth'?: number;
       'min'?: number;
       'multiple'?: boolean;
+      'onImageRecognition'?: (event: CustomEvent<any>) => void;
+      'onImageSaved'?: (event: CustomEvent<IPhotoEditorData>) => void;
       'onInputBlurred'?: (event: CustomEvent<any>) => void;
       'onInputChanged'?: (event: CustomEvent<any>) => void;
       'onInputFocused'?: (event: CustomEvent<boolean>) => void;

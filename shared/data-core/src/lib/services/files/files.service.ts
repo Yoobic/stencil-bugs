@@ -76,6 +76,12 @@ export class Files implements IFilesService {
         return '';
     }
 
+    changeExtension(filename: string, extension: string): string {
+        let split = filename.split('.');
+        split[split.length - 1] = extension;
+        return split.reduce((a, b) => a + '.' + b);
+    }
+
     getMaxSize(extension) {
         // if (Files.images.indexOf(extension) >= 0) {
         //     return 10000000;

@@ -6,6 +6,7 @@ import { Editable } from '../../decorators/editable/editable.decorator';
 import { ROLES_CONDITIONS, Condition, getGroupsTransform } from '../condition/condition.interface';
 import { Searchable } from '../../decorators/searchable/searchable.decorator';
 import { FORM_FILES_IMAGE_FILTER } from '../constants/constants.interface';
+import { Tenant } from '../tenant/tenant.interface';
 
 export const MISSION_TYPES_NO_ADMIN = ['mission'];
 export const MISSION_TYPES = ['mission', 'service', 'poll', 'todo', 'lesson', 'memo']; //'template',
@@ -42,9 +43,10 @@ export function onMissionDescriptionTypeChange(value, controls, data, field, for
     fields: [
         'title', 'text', '_id', '_ect', '_lmt', 'icon', 'background', 'group', 'type', 'archived', 'tags', 'missionTags',
         'scoring', 'versionmin', 'skipValidation', 'allowSameUserValidation', 'allowMultiple', 'quizz', 'quizzMode', 'showAnswers',
-        'audit', 'recurring', 'category', 'categoryRef', 'language', 'submittext', 'successtext', 'finishedGroups', 'notificationemail', 'pdfMode'
+        'audit', 'recurring', 'category', 'categoryRef', 'language', 'submittext', 'successtext', 'finishedGroups', 'notificationemail', 'pdfMode',
+        '_tenant', '_tenantRef'
     ],
-    include: [] //'category',
+    include: ['_tenant'] //'category',
 })
 
 export class MissionDescription extends IMissionDescription {
@@ -85,11 +87,11 @@ export class MissionDescription extends IMissionDescription {
     //@Editable('MissionDescription', { required: false, title: 'MISSIONGROUPS', flex: 100, type: FormFieldType.autocomplete, condition: conditions.isService, sessionValues: 'groups', multiple: true, clearable: false })
     serviceGroups: Array<string>;
 
-    @Editable('MissionDescription', { title: 'CAMPAIGNTAGS', type: 'autocomplete', tag: true, collectionName: 'missiondescriptions', multiple: true, subQuery: { field: 'descriptionRef', values: '_id' }, icon: 'yo-flag', condition: ROLES_CONDITIONS.isNotTrial, advanced: true })
+    @Editable('MissionDescription', { title: 'CAMPAIGNTAGS', type: FormFieldType.autocomplete, tag: true, collectionName: 'missiondescriptions', multiple: true, subQuery: { field: 'descriptionRef', values: '_id' }, icon: 'yo-flag', condition: ROLES_CONDITIONS.isNotTrial, advanced: true })
     @Searchable('MissionDescription')
     tags: Array<string>;
 
-    @Editable('MissionDescription', { title: 'CATEGORIES', type: 'autocomplete', tag: true, collectionName: 'missions', multiple: true, subQuery: { field: 'descriptionRef', values: '_id' }, icon: 'yo-flag', condition: ROLES_CONDITIONS.isNotTrial, filterable: false })
+    @Editable('MissionDescription', { title: 'CATEGORIES', type: FormFieldType.autocomplete, tag: true, collectionName: 'missions', multiple: true, subQuery: { field: 'descriptionRef', values: '_id' }, icon: 'yo-flag', condition: ROLES_CONDITIONS.isNotTrial, filterable: false })
     @Searchable('MissionDescription')
     missionTags: Array<string>;
 
@@ -162,6 +164,10 @@ export class MissionDescription extends IMissionDescription {
 
     conditions: Array<Condition>;
     scoring: Array<Scoring>;
+
+    @Editable('MissionDescription', { required: true, title: 'TENANT', type: FormFieldType.autocomplete, condition: [ROLES_CONDITIONS.isAdmin], collectionName: 'tenants', multiple: false, columnDefinition: { name: 'name' } })
+    _tenant: Tenant;
+    _tenantRef?: string;
 }
 
 let scoringConditions = {

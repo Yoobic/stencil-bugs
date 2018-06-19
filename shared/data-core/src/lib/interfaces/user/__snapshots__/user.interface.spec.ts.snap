@@ -143,15 +143,6 @@ IModel {
       "type": "autocomplete",
     },
     Object {
-      "condition": Array [
-        Object {
-          "group": Array [
-            "admin",
-          ],
-          "operator": "in",
-          "type": "roles",
-        },
-      ],
       "exportOrder": 15,
       "filterName": "role",
       "filterableAdvanced": true,

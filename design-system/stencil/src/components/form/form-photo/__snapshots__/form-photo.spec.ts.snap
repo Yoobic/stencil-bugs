@@ -1,0 +1,528 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YooFormPhotoComponent Rendering Should render 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        
+        <i
+          class="yo-camera-solid success"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render as readonly 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render as required 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        <span
+          class="required"
+          data-yoo-form-photo=""
+        >
+          *
+        </span>
+        
+        <i
+          class="yo-camera-solid success"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render with a value prop 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        
+        <div
+          class="preview"
+          data-yoo-form-photo=""
+          style="background-repeat: no-repeat; background-size: cover; background-position-x: 5;0%;"
+        />
+        
+        <div
+          class="overlay"
+          data-yoo-form-photo=""
+        />
+        <i
+          class="yo-camera-solid light"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render with allow annotate 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        
+        <i
+          class="yo-camera-solid success"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render with allow library 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        
+        <i
+          class="yo-camera-solid success"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render with audio type 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        
+        <i
+          class="success yo-microphone-solid"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render with extraData prop 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        
+        <i
+          class="yo-camera-solid success"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render with image recognition button 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        
+        <i
+          class="yo-camera-solid success"
+          data-yoo-form-photo=""
+        />
+      </div>
+      <div
+        attr-layout="row"
+        attr-layout-align="center center"
+        class="button-container"
+        data-yoo-form-photo=""
+      >
+        <button
+          class="button balanced"
+          data-yoo-form-photo=""
+          type="button"
+        >
+          PHOTOLIVECOUNTER
+        </button>
+      </div>
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render with label 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        
+        <i
+          class="yo-camera-solid success"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render with multiple 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="multiple"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <i
+          class="yo-plus"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render with photo type 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        
+        <i
+          class="yo-camera-solid success"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render with placeholder prop 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        
+        <i
+          class="yo-camera-solid success"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;
+
+exports[`YooFormPhotoComponent Rendering Should render with video type 1`] = `
+<yoo-form-photo
+  class="hydrated"
+  data-yoo-form-photo-host=""
+>
+  
+  <div
+    attr-layout="column"
+    class="container"
+    data-yoo-form-photo=""
+  >
+    
+    <div
+      attr-layout="row"
+      class="single"
+      data-yoo-form-photo=""
+    >
+      <div
+        class="camera-container"
+        data-yoo-form-photo=""
+      >
+        <input
+          accept="accept"
+          data-yoo-form-photo=""
+          type="file"
+        />
+        
+        <i
+          class="success yo-videocamera-solid"
+          data-yoo-form-photo=""
+        />
+      </div>
+      
+    </div>
+  </div>
+</yoo-form-photo>
+`;

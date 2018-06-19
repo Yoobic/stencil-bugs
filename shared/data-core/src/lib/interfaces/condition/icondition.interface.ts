@@ -15,3 +15,28 @@ export interface ICondition {
     value?: any;
     key?: string;
 }
+
+export const ROLES = [
+    'dashboard', 'admin', 'manager', 'team', 'teamplus', 'creator', 'service', 'supervisor', 'quora', 'kiosk', 'score', 'nochat', 'anonymous', 'stat', 'todo',
+    'serviceuser', 'polluser', 'newsuser', 'newscreator', 'documentsuser', 'calendaruser', 'store', 'clientadmin', 'missionanalysis', 'missionviewer', 'followup', 'followupnouser', 'profilenoedit',
+    'workplace', 'trial', 'videocall', 'academy', 'pharmaone', 'instagram'
+];
+
+export const ROLES_ASK = [
+    'manager', 'creator', 'quora', 'academy', 'academyplus'
+];
+
+export const ROLES_CONDITIONS = {
+    isAdmin: { type: 'roles', operator: 'in', group: ['admin'] },
+    isClientAdmin: { type: 'roles', operator: 'in', group: ['clientadmin'] },
+    isAdminOrClientAdmin: { type: 'roles', operator: 'in', group: ['admin', 'clientadmin'] },
+    isNotAdmin: { type: 'roles', operator: 'nin', group: ['admin'] },
+    isNeitherAdminNorClientAdmin: { type: 'roles', operator: 'nin', group: ['admin', 'clientadmin'] },
+    isManager: { type: 'roles', operator: 'in', group: ['manager'] },
+    isTeam: { type: 'roles', operator: 'in', group: ['team'] },
+    isWorkplace: { type: 'roles', operator: 'in', group: ['admin', 'workplace'] },
+    isTrial: { type: 'roles', operator: 'in', group: ['trial'] },
+    isNotTrial: { type: 'roles', operator: 'nin', group: ['trial'] },
+    hasTodo: { type: 'roles', operator: 'in', group: ['todo'] },
+    hasService: { type: 'roles', operator: 'in', group: ['admin', 'service'] }
+};

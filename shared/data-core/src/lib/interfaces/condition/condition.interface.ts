@@ -2,34 +2,12 @@ import { IFormField, MOBILE_FORM_FIELDS_ALL, FormFieldType, ICondition, IConditi
 
 import { Editable } from '../../decorators/editable/editable.decorator';
 import { Model } from '../../decorators/model/model.decorator';
-import { CONDITION_TYPES } from './icondition.interface';
+import { CONDITION_TYPES, ROLES, ROLES_ASK, ROLES_CONDITIONS } from './icondition.interface';
 import { ResponseObject } from '../../interfaces/response-object/response-object.interface';
 
 import { map } from 'lodash-es';
 
-export const ROLES = [
-    'dashboard', 'admin', 'manager', 'team', 'teamplus', 'creator', 'service', 'supervisor', 'quora', 'kiosk', 'score', 'nochat', 'anonymous', 'stat', 'todo',
-    'serviceuser', 'polluser', 'newsuser', 'newscreator', 'documentsuser', 'calendaruser', 'store', 'clientadmin', 'missionanalysis', 'missionviewer', 'followup', 'followupnouser', 'profilenoedit',
-    'workplace', 'trial', 'videocall', 'academy', 'pharmaone', 'instagram'
-];
-
-export const ROLES_ASK = [
-    'manager', 'creator', 'quora', 'academy', 'academyplus'
-];
-
-export const ROLES_CONDITIONS = {
-    isAdmin: { type: 'roles', operator: 'in', group: ['admin'] },
-    isClientAdmin: { type: 'roles', operator: 'in', group: ['clientadmin'] },
-    isAdminOrClientAdmin: { type: 'roles', operator: 'in', group: ['admin', 'clientadmin'] },
-    isNotAdmin: { type: 'roles', operator: 'nin', group: ['admin'] },
-    isManager: { type: 'roles', operator: 'in', group: ['manager'] },
-    isTeam: { type: 'roles', operator: 'in', group: ['team'] },
-    isWorkplace: { type: 'roles', operator: 'in', group: ['admin', 'workplace'] },
-    isTrial: { type: 'roles', operator: 'in', group: ['trial'] },
-    isNotTrial: { type: 'roles', operator: 'nin', group: ['trial'] },
-    hasTodo: { type: 'roles', operator: 'in', group: ['todo'] },
-    hasService: { type: 'roles', operator: 'in', group: ['admin', 'service'] }
-};
+export { CONDITION_TYPES, ROLES, ROLES_ASK, ROLES_CONDITIONS };
 
 // export const CLIENTS_CONDITIONS = {
 //     isNotGmi: { type: 'groups', operator: 'nin', group: ['gmi_france'] }

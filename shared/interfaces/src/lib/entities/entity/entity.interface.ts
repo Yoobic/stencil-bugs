@@ -20,7 +20,12 @@ export interface IProperty {
 
 export interface IProperties extends Array<IProperty> { }
 
-export type EntityType = 'missions' | 'channel' | 'channels' | 'environnement' | 'feeds' | 'feedsComments' | 'blog' | 'users' | 'notifications' | 'files' | 'folders' | 'filesFolders' | 'groups';
+export type EntityType =
+    'missions' | 'channel' | 'channels' | 'environnement'
+    | 'feeds' | 'feedsComments' | 'blog' | 'users'
+    | 'notifications' | 'files' | 'folders' | 'filesFolders'
+    | 'groups' | 'translations' | 'missiondescriptions'
+    | 'contacts' | 'notes';
 
 export interface IEntityAction {
     isVisible?: (item: IEntity) => boolean;

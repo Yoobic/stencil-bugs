@@ -8,6 +8,7 @@ export interface IFilesService {
     isImageFile(file): boolean;
     read(nativeFile: IFile | Blob, type: string, encoding?: string): Promise<string>;
     getExtension(file: IFile | any): string;
+    changeExtension(filename: string, extension: string): string;
     getMaxSize(extension): number;
     toPng(value: string): string;
     isValid(file: IFile): boolean;

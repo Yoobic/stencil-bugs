@@ -16,6 +16,7 @@ export interface ICardListEntry {
     date?: string;
     badges?: IBadgeEntry[];
     users?: Array<IUser>;
+    usersInline?: Array<IUser>;
     tags?: Array<string>;
     icons?: Array<{ icon: string, value?: string, handler?: () => void }>;
     actions?: Array<IActionSheetButton>;

@@ -68,7 +68,7 @@ export class User extends IUser {
     @Editable('User', { title: 'USERTAGS', type: FormFieldType.autocomplete, tag: true, collectionName: 'user', condition: ROLES_CONDITIONS.isAdmin, multiple: true, icon: 'yo-flag', subQuery: { field: 'ownerRef', values: '_id' }, exportOrder: 13 })
     tags?: Array<string>;
 
-    @Editable('User', { flex: 100, required: true,  type: FormFieldType.autocomplete, exportOrder: 15, condition: [ROLES_CONDITIONS.isAdmin], values: ['ROLEADMIN', 'ROLEEDITOR', 'ROLEVIEWER', 'ROLEMANAGER', 'ROLEFIELD', 'ROLESTOREMANAGER', 'ROLESTORE'], translate: true, filterableAdvanced: true })
+    @Editable('User', { flex: 100, required: true, readonly: ROLES_CONDITIONS.isNeitherAdminNorClientAdmin, type: FormFieldType.autocomplete, exportOrder: 15, values: ['ROLEADMIN', 'ROLEEDITOR', 'ROLEVIEWER', 'ROLEMANAGER', 'ROLEFIELD', 'ROLESTOREMANAGER', 'ROLESTORE'], translate: true, filterableAdvanced: true })
     role?: string;
 
     @Editable('User', { flex: 50, type: FormFieldType.tel, exportOrder: 7, filterableAdvanced: true, advanced: true })
@@ -196,7 +196,7 @@ export class UserSettings extends IUserSettings {
     @Editable('UserSettings', { type: FormFieldType.toggle, flex: 100, suppressExport: true, filterable: false, sortable: false })
     disablePhotoOrientationAutoFix: boolean;
 
-    @Editable('UserSettings', { title: 'MAXWIDTH', type: FormFieldType.number, suppressExport: true, filterable: false, min: 600, max: 2048 })
+    @Editable('UserSettings', { title: 'MAXWIDTH', type: FormFieldType.number, suppressExport: true, filterable: false, min: 600, max: 10240 })
     photoMaxWidth?: number;
 
     @Editable('UserSettings', { type: FormFieldType.toggle, flex: 100, header: 'SERVICES', suppressExport: true, filterable: false, sortable: false })

@@ -1,15 +1,108 @@
 :host {
     .container {
+        align-items: start;
         padding: 0.5rem 0rem;
+        yoo-progress-bar {
+            padding-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
         .camera-container {
+            position: relative;
             border: 1px solid cssvar(stable-30);
             border-radius: 0.5rem;
             width: 105px;
             height: 105px;
             cursor: pointer;
+            .required {
+                font-size: 15px;
+                color: cssvar(success);
+                @include abs-pos(auto, auto, auto, 0.625rem);
+                
+                
+            }
             i {
+                @include abs-pos(2.1875rem, auto, auto, 2.1875rem);
+                
+                // top: 35px;
+                // left: 35px;
                 font-size: 2rem;
             }
+            .preview,
+            .edit,
+            .overlay {
+                @include abs-pos(0, auto, auto, auto);
+                
+                
+                border-radius: 0.5rem;
+                width: 105px;
+                height: 105px;
+            }
+            .overlay {
+                opacity: 0.5;
+                background: cssvar(dark-60)
+            }
+            input[type=file] {
+                @include abs-pos(0, auto, auto, 50%);
+                
+                
+                
+                display: block;
+                width: 105px;
+                height: 105px;
+                border-radius: 50%;
+                margin-left: -50px;
+                text-align: right;
+                filter: alpha(opacity=0);
+                opacity: 0;
+                outline: none;
+                background: cssvar(light);
+                cursor: inherit;
+                pointer-events: none;
+            }
+        }
+        .multiple {
+            .camera-container {
+                display: inline-block;
+                margin-right: 0.5rem;
+                margin-bottom: 0.5rem;
+                .yo-plus {
+                    width: 25px;
+                    height: 25px;
+                    font-size: 1rem;
+                    top: 40px;
+                    left: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: cssvar(success);
+                    border-radius: 20px;
+                    &:before {
+                        color: cssvar(light);
+                    }
+                }
+            }
+        }
+        .button-container {
+            margin-left: 30px;
+            .balanced {
+                background-image: $gradient-success;
+            }
+        }
+        button {
+            font-size: 14px;
+            font-weight: bold;
+            color: cssvar(light);
+            width: 160px;
+            height: 52px;
+            border-radius: 26px;
+        }
+    }
+    .readonly {
+        .preview {
+            width: 100%;
+            height: 250px;
+            margin-bottom: 0.5rem;
+            border-radius: $border-radius-input;
         }
     }
 }

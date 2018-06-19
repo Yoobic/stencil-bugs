@@ -3,6 +3,7 @@ import { isPresent } from '@shared/common';
 import { Filters, FilterField, FilterOperator, SubQuery, IFormField, MOBILE_FORM_FIELDS_ALL, FormFieldType, moment } from '@shared/interfaces';
 import { ResponseObject } from '../../interfaces/response-object/response-object.interface';
 import { IModel } from '../../interfaces/model/model.interface';
+import { ROLES_CONDITIONS } from '../../interfaces/condition/icondition.interface';
 
 import { cloneDeep, compact, uniq, union, isArray, isObject, isString, map, pull, assign, isEmpty, get } from 'lodash-es';
 
@@ -35,6 +36,7 @@ export class Models {
     public static addFormField(className: string, field: IFormField) {
         let model = this.createOrGetModel(className);
         let formFields = model.formFields;
+        formFields = formFields.filter(f => f.name !== field.name);
         formFields.push(field);
         model.formFields = formFields;
         this.updateModel(className, model);
@@ -591,6 +593,20 @@ export class Models {
     }
 
     private static updateModel(className: string, model: IModel) {
+        let formFields = model.formFields || [];
+        if (formFields.findIndex(f => f.name === '_tenant') < 0 && model.collectionName) {
+            formFields.push({
+                required: true,
+                name: '_tenant',
+                title: 'TENANT',
+                type: FormFieldType.autocomplete,
+                condition: [ROLES_CONDITIONS.isAdmin],
+               collectionName: 'tenants',
+                multiple: false,
+               columnDefinition: { name: 'name' }
+            });
+           model.formFields = formFields;
+        }
         Models._models.set(className, model);
     }
 }

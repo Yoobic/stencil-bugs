@@ -150,9 +150,9 @@ export class Authentication {
         }));
     }
 
-    inviteUsers(users: Array<{ email: string; roles: Array<string>; locationRef?: string }>, groups: Array<string>, password: string = null, sendPassword: boolean = true, appName?: string, appleStoreUrl?: string, playStoreUrl?: string): Observable<any> {
-        let url = this.broker.getApiUrl() + 'usertrial/inviteUsers';
-        return this.rq.post(url, { users, groups, password, sendPassword, appName, appleStoreUrl, playStoreUrl });
+    inviteUsers(users: Array<{ email: string; roles: Array<string>; locationRef?: string }>, groups: Array<string>, password: string = null, sendPassword: boolean = true, appName?: string, appleStoreUrl?: string, playStoreUrl?: string, _tenantRef?: string): Observable<any> {
+        let url = this.broker.getApiUrl() + 'user/invite';
+        return this.rq.post(url, { users, groups, password, sendPassword, appName, appleStoreUrl, playStoreUrl, _tenantRef });
     }
 
     isLoggedIn() {
