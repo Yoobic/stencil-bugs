@@ -1,43 +1,7 @@
-The aim of this repo is to help reproduce bugs that are affecting the development of our application but that seem to be unrelated to our code.
-
-# Initializing the repo
-
-To initialize the repo please run the following commands after cloning:
-
-1. `npm install && npm run build:all`
-2. `ng serve --project operations-mobile` --> serve mobile version of the app (**https://localhost:6003**)
-3. `ng serve --project operations-web` --> serve the web version of the app (**https://localhost:6004**)
-
-Note that there are two versions of the app in this repo, a mobile version and a web version (both are served on a browser). Some bugs are exclusively observed on one of the two versions - the version on which to reproduce the bug is always specified.
-
-
-# Bug Report
-
-`ionic info` output:
-
-```
-@ionic/cli-utils: 2.0.0-rc.6
-ionic (Ionic CLI): 4.0.0-rc.6
-
-System:
-- NodeJS: v8.9.4
-- npm: 6.1.0
-- OS: macOS High Sierra
-```
-
-
-## Bug Description
-
-
-**Version Affected**: `MOBILE OR WEB OR BOTH`
-
-Bug description here
-
-## Steps to Reproduce
-
-Steps to reproduce the behaviour here (subdivide by version if necessary)
-
-## Expected Behavior
-
-Expected behavior here (subdivide by version if necessary)
-
+## Steps to reproduce:
+1. Switch to branch `broken-events`
+2. Run `npm install && npm run fix-ionic && npm run build:all`
+3. Then serve the app `ng serve —projects operations-mobile` , open `https://localhost:6003/` (if there are console errors refresh the page)
+4. Click the icon in the top right corner to open a modal, focus the first input this will emit an event form the input and send it to the parent component. This can be seen in the console. Change the value in the input, this also triggers and event in the input and is received by the parent component (again can be seen in the console).
+5. In the `package.json` change the stencil version to 0.9.7 and run `npm run reset:modules && npm run fix-ionic && npm run build:all`
+6. Repeat steps 3 and 4. This time the parent component does not receive the events as can be seen in the console.
