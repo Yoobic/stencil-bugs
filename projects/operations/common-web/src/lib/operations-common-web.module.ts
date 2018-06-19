@@ -7,34 +7,20 @@ import { TranslateModule } from '@shared/translate';
 import { AppCommonWebModule } from '@app/common-web';
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { MenuPageComponent } from './pages/menu-page/menu-page.component';
-import { FeedsPageComponent } from './pages/feeds-page/feeds-page.component';
 import { StoreManagerHomePageComponent } from './pages/storemanager-home-page/storemanager-home-page.component';
-import { StoreManagerStorePageComponent } from './pages/storemanager-store-page/storemanager-store-page.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 
 let PAGES = [
-  LoginPageComponent,
   MenuPageComponent,
-  FeedsPageComponent,
   StoreManagerHomePageComponent,
-  StoreManagerStorePageComponent,
   NotfoundPageComponent
 ];
 
-import { ProfilePageComponent } from './modals/profile-page/profile-page.component';
-import { FeedDetailPageComponent } from './modals/feed-detail-page/feed-detail-page.component';
-
-
-let ENTRY_COMPONENTS = [
-  ProfilePageComponent,
-  FeedDetailPageComponent
-];
 
 @NgModule({
-  declarations: [...PAGES, ...ENTRY_COMPONENTS],
-  entryComponents: [...ENTRY_COMPONENTS],
+  declarations: [...PAGES],
+  entryComponents: [],
   imports: [
     IonicModule, CommonModule, AppCommonModule, TranslateModule, AppCommonWebModule
   ],

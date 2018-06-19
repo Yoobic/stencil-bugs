@@ -1,6 +1,5 @@
 export { AppCommonBaseModule } from './lib/app-common-base.module';
 
-export * from './lib/bases/app-chat-page/app-chat-page.component';
 export * from './lib/bases/app-menu-page/app-menu-page.component';
 export * from './lib/bases/app-root/app-root.component';
 

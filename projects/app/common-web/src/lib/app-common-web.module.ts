@@ -9,21 +9,15 @@ import { AppCommonBaseModule } from '@app/common-base';
 import { AppRootComponent } from './components/app-root/app-root.component';
 let PAGES = [AppRootComponent];
 
-import { AppChatPageComponent } from './modals/app-chat-page/app-chat-page.component';
-
-
-let ENTRY_COMPONENTS = [
-  AppChatPageComponent
-];
 
 import { IonicModule } from '@ionic/angular';
 import { NgAisModule } from 'angular-instantsearch';
 
 @NgModule({
-  declarations: [...PAGES, ...ENTRY_COMPONENTS],
+  declarations: [...PAGES],
   imports: [RouterModule, IonicModule, CommonModule, AppCommonModule, TranslateModule, AppCommonBaseModule, NgAisModule],
-  exports: [RouterModule, IonicModule, CommonModule, AppCommonModule, TranslateModule, AppCommonBaseModule, ...PAGES, ...ENTRY_COMPONENTS],
-  entryComponents: [...ENTRY_COMPONENTS],
+  exports: [RouterModule, IonicModule, CommonModule, AppCommonModule, TranslateModule, AppCommonBaseModule, ...PAGES],
+  entryComponents: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppCommonWebModule { }

@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { routerTransition } from '@app/common-base';
 import { MenuBasePageComponent } from '@operations/common-base';
-import { ProfilePageComponent } from '../../modals/profile-page/profile-page.component';
 import { ITabEntry, IWebMenuEntry } from '@shared/interfaces';
 
 @Component({
@@ -15,10 +14,8 @@ import { ITabEntry, IWebMenuEntry } from '@shared/interfaces';
 export class MenuPageComponent extends MenuBasePageComponent implements OnInit {
   public tabs: Array<ITabEntry>;
   public entry: IWebMenuEntry;
-  public profilePage: any;
 
   ngOnInit() {
-    this.profilePage = ProfilePageComponent;
     this.entry = {
       logo: 'assets/logo/operations_simple.svg',
       items: [

@@ -39,10 +39,10 @@ export class YooFormInputContainerComponent implements IFormInputContainer {
     }
 
     onFocusComments() {
-        let comment = this.host.querySelector('yoo-form-text-area');
-        if (comment) {
-            comment.setFocus();
-        }
+        // let comment = this.host.querySelector('yoo-form-text-area');
+        // if (comment) {
+        //     comment.setFocus();
+        // }
     }
 
     // tslint:disable-next-line:member-ordering
@@ -64,14 +64,7 @@ export class YooFormInputContainerComponent implements IFormInputContainer {
             (this.field.allowComments || this.field.allowTask) && !this.readonly ?
                 <div class="footer">
                     {this.field.allowComments ? <i class="yo-comment" onClick={() => this.onToggleComments()}></i> : null}
-                </div> : null,
-            this.showComments || this.readonly && this.comments ?
-                <yoo-form-text-area
-                    onInputChanged={ev => this.onCommentsChange(ev)}
-                    readonly={this.readonly}
-                    value={this.comments}
-                    class={'animated fadeIn ' + (this.readonly ? 'italic' : '')}
-                ></yoo-form-text-area> : null
+                </div> : null
         ] : null;
     }
 }

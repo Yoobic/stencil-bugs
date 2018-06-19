@@ -9,11 +9,9 @@ import { AppCommonBaseModule } from '@app/common-base';
 import { AppRootComponent } from './components/app-root/app-root.component';
 let PAGES = [AppRootComponent];
 
-import { AppChatPageComponent } from './modals/app-chat-page/app-chat-page.component';
 import { AppFormDynamicPageComponent } from './modals/app-form-dynamic-page/app-form-dynamic-page.component';
 
 let ENTRY_COMPONENTS = [
-  AppChatPageComponent,
   AppFormDynamicPageComponent
 ];
 

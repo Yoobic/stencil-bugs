@@ -156,7 +156,7 @@ export class YooFormDynamicComponent {
         if (el) {
             switch (field.type) {
                 case FormFieldType.autocomplete:
-                    let auto = (el as HTMLYooFormAutocompleteElement);
+                    let auto = (el as any);
                     auto.values = field.values;
                     auto.updateDialogValues(field.values);
                     break;

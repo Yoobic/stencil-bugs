@@ -5,7 +5,6 @@ import { MenuBasePageComponent } from '@operations/common-base';
 //import { Feed } from '@operations/data';
 //import { ITabEntry } from '@shared/interfaces';
 // import { FormFieldType } from '@shared/interfaces';
-import { ProfilePageComponent } from '../../modals/profile-page/profile-page.component';
 
 @Component({
   selector: 'menu-page',
@@ -16,10 +15,8 @@ import { ProfilePageComponent } from '../../modals/profile-page/profile-page.com
   animations: [routerTransition]
 })
 export class MenuPageComponent extends MenuBasePageComponent implements OnInit {
-  public profilePage: any;
 
   ngOnInit() {
-    this.profilePage = ProfilePageComponent;
     super.ngOnInit();
   }
 
