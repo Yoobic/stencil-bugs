@@ -1,0 +1,17 @@
+<yoo-form-dynamic #form *ngIf="slides && slides.length>0" 
+    [slides]="slides" 
+    [data]="data" 
+    [history]="history"
+    [showTabs]="finalShowTabs" 
+    [showRecap]="finalshowRecap"
+    [forceReadonly]="readonly" 
+    [suffix]="suffix" 
+    [showSave]="showSave"
+    [detailComponent]="detailComponent"
+    (dataChanged)="onDataChanged($event)"
+    (fieldFetchData)="onFieldFetchData($event)"
+    (imageRecognition)="onImageRecognition($event)"
+    (imageSaved)="onImageSaved($event)"
+    (save)="onSave($event)">
+    <ng-content></ng-content>
+</yoo-form-dynamic>

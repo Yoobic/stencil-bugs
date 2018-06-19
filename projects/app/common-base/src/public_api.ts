@@ -8,6 +8,7 @@ export * from './lib/bases/base-page/base-page.component';
 export * from './lib/bases/app-form-dynamic-page/app-form-dynamic-page.component';
 
 export * from './lib/components/app-login/app-login.component';
+export * from './lib/components/app-form-dynamic/app-form-dynamic.component';
 
 export * from './lib/services/dialog/dialog.service';
 export * from './lib/services/utils/utils.service';

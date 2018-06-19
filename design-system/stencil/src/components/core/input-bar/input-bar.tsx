@@ -74,6 +74,7 @@ export class YooInputBarComponent {
     }
 
     onInput(ev: Event) {
+        console.log('event being recieved');
         this.value = (ev.target as any).value;
         this.updateState();
     }
@@ -102,7 +103,8 @@ export class YooInputBarComponent {
                         </div>
                     </div>
                     <div class="input-zone">
-                        <textarea value={this.value} rows={this.rows} placeholder={this.placeholder} onInput={(ev) => this.onInput(ev)}></textarea>
+                        {/* <textarea value={this.value} rows={this.rows} placeholder={this.placeholder} onInput={(ev) => this.onInput(ev)}></textarea> */}
+                        <yoo-form-text-area value={this.value} placeholder={this.placeholder} onInputChanged={(ev) => this.onInput(ev)}></yoo-form-text-area>
                         <div class="input-action" onClick={() => this.onActionClick()}>
                             <div>
                                 <span>{this.hasTextInside ? this.actionText : <i class={this.iconAction} />}</span>

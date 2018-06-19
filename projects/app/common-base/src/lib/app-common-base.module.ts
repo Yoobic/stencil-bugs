@@ -11,8 +11,9 @@ import { DialogService } from './services/dialog/dialog.service';
 import { UtilsService } from './services/utils/utils.service';
 
 import { AppLoginComponent } from './components/app-login/app-login.component';
+import { AppFormDynamicComponent } from './components/app-form-dynamic/app-form-dynamic.component';
 
-const COMPONENTS = [ AppLoginComponent];
+const COMPONENTS = [ AppLoginComponent, AppFormDynamicComponent];
 
 import { Activity } from '@shared/data-core';
 const SERVICES = [Activity];

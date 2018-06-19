@@ -91,6 +91,7 @@ export function onFocus(ev: any, inputElement: IFormInputBase<any>): void {
 }
 
 export function onInputFocused(ev: any, inputElement: IFormInputBase<any>, borderContainerSelector: string = '.input-container', type: string = 'text'): void {
+    console.log('input focused event being emitted');
     // this.isLabelAboveVisible = true;
     inputElement.inputFocused.emit(true);
     focusIcons(inputElement, borderContainerSelector);
@@ -155,6 +156,7 @@ export function validate(inputElement): boolean {
 export function setValueAndValidateInput(value: any, inputElement: any): void {
     inputElement.value = value;
     if (validate(inputElement)) {   // only emit new value if it is valid
+        console.log('input change event being emited');
         inputElement.inputChanged.emit(inputElement.value);
     }
 }

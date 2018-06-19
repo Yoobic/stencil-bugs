@@ -31,7 +31,8 @@
     "serve:operations:web": "ng serve --project operations-web",
     "serve:stencil": "npm run build:stencil && npm run copy:to:www && npm run stencil:dev:server",
     "stencil:watch:es6": "$(npm bin)/stencil build --dev --watch --config=\"design-system/stencil/stencil.config.js\"",
-    "update": "npm i && npm run build:libs"
+    "update": "npm i && npm run build:libs",
+    "fix-ionic": "cp -R ./overlays.d.ts ./node_modules/@ionic/core/dist/types/utils/overlays.d.ts "
   },
   "private": true,
   "dependencies": {
@@ -72,7 +73,7 @@
     "@mapbox/mapbox-gl-directions": "3.1.3",
     "@ngx-translate/core": "10.0.2",
     "@ngx-translate/http-loader": "3.0.1",
-    "@stencil/core": "0.9.7",
+    "@stencil/core": "0.9.5",
     "ag-grid": "17.1.1",
     "ag-grid-angular": "17.1.0",
     "ag-grid-enterprise": "17.1.1",

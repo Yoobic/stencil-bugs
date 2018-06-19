@@ -96,6 +96,7 @@ export class YooFormDynamicComponent {
     }
 
     onFieldChanged(event: CustomEvent, field: IFormField) {
+        console.log('field data changed being recieved');
         setFieldData(field, event.detail, this.currentData, this.suffix);
         if (field.allowTime) {
             setFieldData(field, new Date(), this.currentData, '.time');
@@ -123,6 +124,7 @@ export class YooFormDynamicComponent {
     }
 
     onFieldFocused(inputIndex: number) {
+        console.log('field focused being recieved');
         if (services.coreConfig.isCordova()) {
             let currentSlide = this.host.querySelectorAll('ion-slide')[this.activeIndex];
             let inputDimensions = currentSlide.querySelectorAll('yoo-form-input-container')[inputIndex].getBoundingClientRect();
