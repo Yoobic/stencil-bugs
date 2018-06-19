@@ -8,8 +8,7 @@ import { StoreManagerStorePageComponent } from '../pages/storemanager-store-page
 import { NotfoundPageComponent } from '../pages/notfound-page/notfound-page.component';
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'login' },
-    { path: 'login', component: LoginPageComponent },
+    { path: '', pathMatch: 'full', redirectTo: 'menu' },
     {
         path: 'menu',
         component: MenuPageComponent,
