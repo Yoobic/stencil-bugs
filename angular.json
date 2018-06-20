@@ -522,11 +522,6 @@
                 "glob": "**/*",
                 "input": "node_modules/@ionic/angular/dist/ionic/svg",
                 "output": "/svg"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@shared/design-system",
-                "output": "/"
               }
             ],
             "styles": [
@@ -540,9 +535,6 @@
             "scripts": [
               {
                 "input": "node_modules/core-js/client/core.js"
-              },
-              {
-                "input": "node_modules/@shared/design-system/design-system.js"
               }
             ]
           },
@@ -602,9 +594,6 @@
             "scripts": [
               {
                 "input": "node_modules/core-js/client/core.js"
-              },
-              {
-                "input": "node_modules/@shared/design-system/design-system.js"
               }
             ],
             "assets": [
@@ -663,11 +652,6 @@
                 "glob": "**/*",
                 "input": "projects/operations/mobile/src/svg",
                 "output": "/svg"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@shared/design-system",
-                "output": "/"
               }
             ],
             "styles": [
@@ -687,9 +671,6 @@
             "scripts": [
               {
                 "input": "node_modules/core-js/client/core.js"
-              },
-              {
-                "input": "node_modules/@shared/design-system/design-system.js"
               }
             ]
           },
@@ -749,9 +730,6 @@
             "scripts": [
               {
                 "input": "node_modules/core-js/client/core.js"
-              },
-              {
-                "input": "node_modules/@shared/design-system/design-system.js"
               }
             ],
             "assets": [

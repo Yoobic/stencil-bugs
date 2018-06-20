@@ -7,6 +7,10 @@ exports.config = {
   namespace: 'design-system',
   outputTargets: [
     {
+      type: 'dist',
+      dir: '../../node_modules/design-system'
+    },
+    {
       type: 'www'
     }
   ],

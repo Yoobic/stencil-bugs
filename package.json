@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "node --max_old_space_size=8096 $(npm bin)/ng build",
-    "build:all": "npm run build:libs && npm run build:stencil && npm run build:app && npm run build:operations",
+    "build:all": "npm run build:stencil && npm run build:app && npm run build:operations",
     "build:all:prod": "npm run build:libs:prod && npm run build:app:prod && npm run build:operations:prod",
     "build:app": "npm run build -- --project app-common-base",
     "build:app:prod": "npm run build -- --project app-common-base --prod && npm run build -- --project app-common-mobile --prod",
@@ -14,8 +14,8 @@
     "build:operations": "npm run build -- --project operations-common-mobile",
     "build:operations:full": "npm run build:operations:prod && npm run build -- --project operations-mobile --prod",
     "build:operations:prod": "npm run build -- --project operations-data --prod && npm run build -- --project operations-common-base --prod && npm run build -- --project operations-common-mobile --prod",
-    "build:stencil": "npm run build -- --project interfaces &&  $(npm bin)/stencil build --dev --es5 --config=\"design-system/stencil/stencil.config.js\"",
-    "build:stencil:es6": "npm run build -- --project interfaces &&  $(npm bin)/stencil build --dev --config=\"design-system/stencil/stencil.config.js\"",
+    "build:stencil": "$(npm bin)/stencil build --dev --es5 --config=\"design-system/stencil/stencil.config.js\" && npm run fix-stencil",
+    "build:stencil:es6": "$(npm bin)/stencil build --dev --config=\"design-system/stencil/stencil.config.js\"",
     "build:stencil:only": "$(npm bin)/stencil build --dev --es5 --config=\"design-system/stencil/stencil.config.js\"",
     "build:stencil:prod": "npm run build -- --project interfaces && $(npm bin)/stencil build --prerender --config=\"design-system/stencil/stencil.config.js\"",
     "e2e": "ng e2e",
@@ -30,8 +30,8 @@
     "serve:stencil": "npm run build:stencil && npm run copy:to:www && npm run stencil:dev:server",
     "stencil:watch:es6": "$(npm bin)/stencil build --dev --watch --config=\"design-system/stencil/stencil.config.js\"",
     "update": "npm i && npm run build:libs",
-    "fix-stencil": "cp -f ./design-system/stencil/package.release.json ./node_modules/@shared/design-system/package.json",
-    "fix-ionic": "cp -R ./overlays.d.ts ./node_modules/@ionic/core/dist/types/utils/overlays.d.ts "
+    "fix-ionic": "cp -R ./overlays.d.ts ./node_modules/@ionic/core/dist/types/utils/overlays.d.ts ",
+    "fix-stencil": "cp -f ./design-system/stencil/package.release.json ./node_modules/design-system/package.json"
   },
   "private": true,
   "dependencies": {

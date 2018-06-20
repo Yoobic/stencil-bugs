@@ -1,0 +1,127 @@
+@media only screen and (min-height: 600px) and (min-width: 768px) {
+    .modal-full-height {
+        .modal-wrapper {
+            top: 2rem;
+            bottom: 2rem;
+            height: inherit;
+        }
+    }
+}
+
+.modal-full-screen {
+    .modal-wrapper {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        border-radius: 0 !important;
+        .outer-container {
+            border: none;
+            border-radius: 0 !important;
+            .modal-header {
+                border-radius: 0 !important;
+            }
+        }
+    }
+}
+
+ion-scroll {
+    overflow-y: auto;
+}
+
+.alert-button.assertive {
+    color: cssvar(danger) !important;
+}
+
+.action-sheet-button {
+    color: cssvar(black) !important;
+    contain: content !important;
+    min-height: 56px;
+    height: auto !important;
+}
+
+.action-sheet-cancel {
+    color: cssvar(danger) !important;
+}
+
+.action-sheet-title {
+    color: cssvar(success) !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+}
+
+.action-sheet-group {
+    overflow: auto !important;
+}
+
+.app-ios.statusbar-padding .ion-page>ion-content:first-child ion-scroll {
+    padding-top: 0 !important;
+}
+
+ion-header.shadow {
+    ion-toolbar {
+        box-shadow: $input-bar-shadow;
+    }
+}
+
+ion-header.device-min-height {
+    min-height: 64px;
+}
+
+ion-header {
+    ion-button {
+        .button,
+        .bar-button-ios {
+            padding: 0 0.5625rem;
+        }
+    }
+}
+
+ion-tabs.shadow {
+    ion-tabbar {
+        box-shadow: $input-bar-shadow;
+        border: none;
+    }
+}
+
+.refresher-pulling-text,
+.refresher-refreshing-text {
+    font-size: 0.8rem;
+}
+
+ion-modal.half {
+    ion-backdrop {
+        display: block !important;
+        z-index: -1;
+    }
+}
+
+ion-list.list-ios {
+    margin-bottom: 42px;
+}
+
+.item-options-ios {
+    border-bottom-color: $dark-10 !important; 
+}
+
+@mixin color-alert($class) {
+    ion-alert.#{$class} {
+        .alert-wrapper {
+            .alert-button-group {
+                button {
+                    &:last-child {
+                        color: cssvar($class);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include color-alert(danger);
+@include color-alert(success);
+
