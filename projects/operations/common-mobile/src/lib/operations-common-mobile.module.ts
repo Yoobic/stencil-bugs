@@ -5,10 +5,12 @@ import { IonicModule } from '@ionic/angular';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { MenuPageComponent } from './pages/menu-page/menu-page.component';
 import { StoreManagerHomePageComponent } from './pages/storemanager-home-page/storemanager-home-page.component';
+import { StoreManagerStorePageComponent } from './pages/storemanager-store-page/storemanager-store-page.component';
 
 let PAGES = [
   MenuPageComponent,
   StoreManagerHomePageComponent,
+  StoreManagerStorePageComponent,
   NotfoundPageComponent
 ];
 

@@ -10,11 +10,15 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content [forceOverscroll]="false" [scrollEnabled]="false">
+<!-- <ion-content [forceOverscroll]="false" [scrollEnabled]="false"> -->
     <ion-tabs class="shadow" color="light" [class.statusbar-padding]="isCordova">
         <ion-tab [@routerTransition]="getActivePath()" label="Home" icon="{{isActive('/menu/(home:home)')? 'yo-home-solid':'yo-home'}}"
             href="/menu/(home:home)">
             <ion-router-outlet [animated]="true" name="home"></ion-router-outlet>
         </ion-tab>
+        <ion-tab [@routerTransition]="getActivePath()" label="Store" icon="{{isActive('/menu/(mystore:mystore)')? 'yo-chart-solid':'yo-chart'}}"
+            href="/menu/(mystore:mystore)">
+            <ion-router-outlet [animated]="true" name="mystore"></ion-router-outlet>
+        </ion-tab>
     </ion-tabs>
-</ion-content>
+<!-- </ion-content> -->

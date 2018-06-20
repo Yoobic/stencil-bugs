@@ -1,12 +1,8 @@
 <ion-header no-border>
-        I AM THE HEADER HERE
-    </ion-header>
+    I AM THE HEADER HERE
+</ion-header>
 <ion-content [forceOverscroll]="false" #content>
-    <ion-refresher #refresher slot="fixed" [disabled]="false">
-            <ion-refresher-content pulling-icon="arrow-down" [pullingText]="'refreshing'" refreshing-spinner="circles" [refreshingText]="">
-            </ion-refresher-content>
-        </ion-refresher>
-    There is a ion-refresher and item slidings
+        There is no ion-refresher and item slidings
     <ion-list>
         <ion-item-sliding>
             <ion-item>
@@ -69,5 +65,4 @@
             </ion-item-options>
         </ion-item-sliding>
     </ion-list>
-
 </ion-content>
