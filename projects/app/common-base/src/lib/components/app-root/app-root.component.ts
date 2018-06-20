@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, AfterViewInit } from '@angular/core';
 
-//import { IonicConfigurator } from '@shared/ui-core/dist/ui-core.ionic';
 //import { DeployBase, Utils } from '../../../services/base';
 import { AppRootBaseComponent } from '../../bases/app-root/app-root-base.component';
 
@@ -31,7 +30,7 @@ export class AppRootComponent extends AppRootBaseComponent implements AfterViewI
                 window.open = (<any>window.cordova).InAppBrowser.open;
             }
         }
-        this.linksService.onReadyOrResume();
+        // this.linksService.onReadyOrResume();
     }
 
     ngAfterViewInit() {

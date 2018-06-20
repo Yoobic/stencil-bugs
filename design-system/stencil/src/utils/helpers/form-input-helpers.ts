@@ -1,11 +1,17 @@
-import { FormFieldType, IFormInputBase, moment } from '@shared/interfaces';
 import { getReducedValidator, getReducedAsyncValidator } from '../validators';
 import { isPresent } from './helpers';
 import { services } from '../../services';
 
+import * as moment_ from 'moment';
+const moment = (moment_ as any).default;
+
+import * as momentTimeZone_ from 'moment-timezone';
+const momentTimeZone = momentTimeZone_;
+
+export { moment, momentTimeZone };
 let inputBlur: boolean = true;
 
-export function setValidator(inputElement: IFormInputBase<any>) {
+export function setValidator(inputElement:  any) {
     let _validator = getReducedValidator<string>(inputElement.validators);
     let _asyncValidator = getReducedAsyncValidator<string>(inputElement.asyncValidators);
     inputElement._validator = _validator;
@@ -30,7 +36,7 @@ export function parseStringToNumber(value: any): string {
     return val;
 }
 
-function focusIcons(inputElement: IFormInputBase<any>, borderContainerSelector: string = '.input-container'): void {
+function focusIcons(inputElement:  any, borderContainerSelector: string = '.input-container'): void {
     if (inputElement.host.querySelector('.invalid-message')) { inputElement.host.querySelector('.invalid-message').classList.remove('invalid'); }
     if (inputElement.host.querySelector(borderContainerSelector)) {inputElement.host.querySelector(borderContainerSelector).classList.add('focused'); }
     if (inputElement.host.querySelector('.valid-icon')) { inputElement.host.querySelector('.valid-icon').classList.remove('valid'); }
@@ -82,7 +88,7 @@ export function convertValueForInputType(v: any, type: string): any {
     }
 }
 
-export function onFocus(ev: any, inputElement: IFormInputBase<any>): void {
+export function onFocus(ev: any, inputElement:  any): void {
     let inputEl = inputElement.host ? inputElement.host.querySelector('input') : null;
     if (inputEl) {
         inputEl.focus();
@@ -90,14 +96,14 @@ export function onFocus(ev: any, inputElement: IFormInputBase<any>): void {
     if (ev && ev.target && ev.target.value) { inputElement.iconClicked.emit(ev.target.value); }
 }
 
-export function onInputFocused(ev: any, inputElement: IFormInputBase<any>, borderContainerSelector: string = '.input-container', type: string = 'text'): void {
+export function onInputFocused(ev: any, inputElement:  any, borderContainerSelector: string = '.input-container', type: string = 'text'): void {
     console.log('input focused event being emitted');
     // this.isLabelAboveVisible = true;
     inputElement.inputFocused.emit(true);
     focusIcons(inputElement, borderContainerSelector);
 }
 
-export function onInputBlurred(ev: any, inputElement: IFormInputBase<any>, borderContainerSelector: string = '.input-container', type: string = 'text'): void {
+export function onInputBlurred(ev: any, inputElement:  any, borderContainerSelector: string = '.input-container', type: string = 'text'): void {
     inputBlur = true;
     inputElement.inputBlurred.emit(ev);
     let iconContainers = inputElement.host.querySelectorAll('.icon-suffix-focus');
@@ -127,14 +133,14 @@ export function onInputBlurred(ev: any, inputElement: IFormInputBase<any>, borde
     }, 150);
 }
 
-export function onInputClear(ev: any, inputElement: IFormInputBase<any>,  borderContainerSelector: string = '.input-container'): void {
+export function onInputClear(ev: any, inputElement:  any,  borderContainerSelector: string = '.input-container'): void {
     inputElement.value = '';
     inputElement.iconClicked.emit('clear');
     inputElement.host.querySelector('input').focus();
     inputBlur = false;
 }
 
-export function onIconClicked(icon: any, inputElement: IFormInputBase<any>): void {
+export function onIconClicked(icon: any, inputElement:  any): void {
     inputElement.iconClicked.emit(icon);
     inputElement.host.querySelector('input').focus();
     inputBlur = false;
@@ -166,6 +172,82 @@ export function cleanupWKWebViewImagePath(value: string) {
         return value.replace('file://', '');
     }
     return value;
+}
+
+export type Validator<A> = (x: A) => boolean;
+
+export type AsyncValidator<A> = (x: A) => Promise<boolean>;
+
+export interface ValidatorEntry {
+    name?: string;
+    options?: any;
+}
+
+export class FormFieldType {
+    static audio: string = 'audio';
+    static autocomplete: string = 'autocomplete';
+    static barcode: string = 'barcode';
+    static checkbox: string = 'checkbox';
+    static date: string = 'date';
+    static time: string = 'time';
+    static datetime: string = 'datetime-local';
+    static document: string = 'document';
+    static documentuploader: string = 'documentuploader';
+    static email: string = 'email';
+    static emailreport: string = 'emailreport';
+    static information: string = 'information';
+    static image: string = 'image';
+    static json: string = 'json';
+    static number: string = 'number';
+    static missionfield: string = 'missionfield';
+    static missionscore: string = 'missionscore';
+    static password: string = 'password';
+    static photo: string = 'photo';
+    static multiphotos: string = 'multiphotos';
+    static range: string = 'range';
+    static ranking: string = 'ranking';
+    static select: string = 'select';
+    static selectimage: string = 'selectimage';
+    static selectmulti: string = 'selectmulti';
+    static selectbuttons: string = 'selectbuttons';
+    static selectbuttonsmulti: string = 'selectbuttonsmulti';
+    static selectchat: string = 'selectchat';
+    static swipeselect: string = 'swipeselect';
+    static signature: string = 'signature';
+    static starrating: string = 'starrating';
+    static tel: string = 'tel';
+    static text: string = 'text';
+    static textarea: string = 'textarea';
+    static toggle: string = 'toggle';
+    static video: string = 'video';
+    static grid: string = 'grid';
+    static daterange: string = 'daterange';
+    static filter: string = 'filter';
+    static betweennumber: string = 'between-number';
+    static betweendate: string = 'between-date';
+    static betweendatetime: string = 'between-datetime';
+    static betweentime: string = 'between-time';
+    static timer: string = 'timer';
+    static location: string = 'location';
+    static catalog: string = 'catalog';
+    static todo: string = 'todo';
+    static button: string = 'button';
+    static stripecard: string = 'stripecard';
+    static invite: string = 'invite';
+    static inttel: string = 'inttel';
+    static color: string = 'color';
+    static productcheck: string = 'productcheck';
+    static missingword: string = 'missingword';
+    static knob: string = 'knob';
+    static connect: string = 'connect';
+    static videoplayer: string = 'videoplayer';
+    static game: string = 'game';
+    static checklist: string = 'checklist';
+    static task: string = 'task';
+    static formula: string = 'formula';
+    static schedule: string = 'schedule';
+    static address: string = 'address';
+
 }
 
 // @Method()

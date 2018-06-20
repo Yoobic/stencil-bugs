@@ -6,7 +6,6 @@ import { isString } from 'lodash-es';
 import ResizeObserver from 'resize-observer-polyfill';
 import 'intersection-observer';
 import { OverlayEventDetail } from '@ionic/core/dist/types/utils/overlays';
-import { services } from '../../services';
 
 
 export function loadScript(url?: string) {
@@ -253,7 +252,7 @@ export function closeModal(result) {
     ctrl.dismiss(result);
 }
 
-export async function showAlert(header: string, buttonText: string[] = [services.translate.get('CANCEL'), services.translate.get('CONFIRM')], subHeader?: string, message?: string, cssClass?: string): Promise<OverlayEventDetail> {
+export async function showAlert(header: string, buttonText: string[] = [('CANCEL'), ('CONFIRM')], subHeader?: string, message?: string, cssClass?: string): Promise<OverlayEventDetail> {
     return new Promise((resolve, reject) => {
         let confirm: boolean = false;
         let alertController = document.querySelector('ion-alert-controller');

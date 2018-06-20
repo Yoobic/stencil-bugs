@@ -1,9 +1,9 @@
-import { ChangeDetectorRef, Injectable, Injector } from '@angular/core';
+import { ChangeDetectorRef, Injectable, Injector} from '@angular/core';
 import { Router } from '@angular/router';
+// import { LinksService } from '../../services/links/links.service';
+import { CoreConfig } from '../../services/core-config/core-config.service';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
-import { Translate } from '@shared/translate';
-import { LocalStorage, CoreConfig, ConfigConstants } from '@shared/common';
-import { Requestor, LoadingBar, LinksService, Files, Session } from '@shared/data-core';
 
 import { DialogService } from '../../services/dialog/dialog.service';
 import { UtilsService } from '../../services/utils/utils.service';
@@ -13,10 +13,9 @@ export class AppRootBaseComponent {
 
     public isTranslateInit: boolean = false;
 
-    constructor(protected injector: Injector, protected translate: Translate, protected router: Router, protected cd: ChangeDetectorRef,
-        protected localStorage: LocalStorage, protected coreConfig: CoreConfig, protected configConstants: ConfigConstants,
-        protected rq: Requestor, protected loadingBar: LoadingBar, protected dialog: DialogService, protected linksService: LinksService,
-        protected utils: UtilsService, protected session: Session, protected files: Files) {
+    constructor(protected injector: Injector, protected router: Router, protected cd: ChangeDetectorRef,
+        protected dialog: DialogService, protected coreConfig: CoreConfig,
+        protected utils: UtilsService) {
         this.initExtraProviders();
         this.init();
     }
@@ -24,14 +23,9 @@ export class AppRootBaseComponent {
     initExtraProviders() { }
 
     init() {
-        this.translate.init().then(() => {
-            this.isTranslateInit = true;
-            this.cd.markForCheck();
-        });
-        window.translateService = this.translate;
-        window.coreConfigService = this.coreConfig;
-        window.filesService = this.files;
-        window.sessionService = this.session;
+
+        this.isTranslateInit = true;
+        this.cd.markForCheck();
 
         if (!this.coreConfig.isUniversal()) {
             document.addEventListener('click', (e) => {

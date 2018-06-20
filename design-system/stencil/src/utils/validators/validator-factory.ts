@@ -1,7 +1,12 @@
-import { Validator, ValidatorEntry } from '@shared/interfaces';
 import { emailValidator } from './email/email.validator';
 import { requiredValidator } from './required/required.validator';
 import { getNumberValidator } from './number/number.validator';
+
+type Validator<A> = (x: A) => boolean;
+interface ValidatorEntry {
+    name?: string;
+    options?: any;
+}
 
 export const VALIDATORS: any = {
     email: 'email',

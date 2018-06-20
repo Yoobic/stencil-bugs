@@ -1,10 +1,7 @@
 import { Injectable, OnInit, OnDestroy, ChangeDetectorRef, Injector, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Translate } from '@shared/translate';
-import { CoreConfig } from '@shared/common';
-import { Session, ISort, Authentication, Push, Broker, Smartloc } from '@shared/data-core';
-import { Filters } from '@shared/interfaces';
+import { CoreConfig } from '../../services/core-config/core-config.service';
 
 import { DialogService } from '../../services/dialog/dialog.service';
 import { UtilsService } from '../../services/utils/utils.service';
@@ -22,15 +19,15 @@ export class BasePageBaseComponent implements OnInit, OnDestroy {
     public isAlive: boolean = true;
     public closeIcon: string;
 
-    public sorts: Array<ISort>;
-    public filters: Filters;
+    public sorts: Array<any>;
+    public filters: any;
     public hiddenFields: Array<string>;
     public aggregateOptions: (skip, limit) => Array<any>;
     public mapTransform: any;
     protected navParams: NavParams;
 
-    constructor(protected session: Session, protected authentication: Authentication, protected geoloc: Smartloc, protected push: Push, protected broker: Broker,
-        protected route: ActivatedRoute, protected cd: ChangeDetectorRef, protected coreConfig: CoreConfig, protected translate: Translate,
+    constructor(
+        protected route: ActivatedRoute, protected cd: ChangeDetectorRef, protected coreConfig: CoreConfig,
         protected dialog: DialogService, protected utils: UtilsService, protected injector: Injector) {
         this.isCordova = this.coreConfig.isCordova();
         try {

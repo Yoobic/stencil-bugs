@@ -1,0 +1,182 @@
+//
+//Fonts
+// 
+$font-family: 'Lato' !important;
+$font-size: 16px;
+//
+//Paddings
+//
+$padding: 1rem;
+$padding-small: 0.625rem; // 10px
+$padding-15: 0.9375rem;
+$padding-25: 1.5625rem;
+//
+//Border Radius
+//
+$border-radius: 1px;
+$border-width: 1px;
+$border-radius-input: 2px;
+//
+//Colors
+//
+$backdrop:transparentize(#312c57, 0.4);
+$light: #FFFFFF;
+$black: #000000;
+$stable: #adadad;
+$stable-alt: #d0d0d0;
+$stable-light: #f1f1f1;
+$stable-30: rgba(173, 173, 173, 0.3);
+$stable-10: rgba(173, 173, 173, 0.1);
+$accent: #1FB6FF;
+$accent-110: scale-color($accent, $lightness: -10%);
+$accent-120: scale-color($accent, $lightness: -20%);
+$accent-20: scale-color($accent, $lightness: 80%);
+$accent-10: scale-color($accent, $lightness: 90%);
+$accent-05: scale-color($accent, $lightness: 95%);
+$danger: #ff625f;
+$danger-110: scale-color($danger, $lightness: -10%);
+$danger-120: scale-color($danger, $lightness: -20%);
+$danger-20: scale-color($danger, $lightness: 80%);
+$danger-10: scale-color($danger, $lightness: 90%);
+$danger-05: scale-color($danger, $lightness: 95%);
+$success: #2EDBB7;
+$success-110: scale-color($success, $lightness: -10%);
+$success-120: scale-color($success, $lightness: -20%);
+$success-20: scale-color($success, $lightness: 80%);
+$success-10: scale-color($success, $lightness: 90%);
+$success-05: scale-color($success, $lightness: 95%);
+$warning: #ff6402;
+$warning-110: scale-color($warning, $lightness: -10%);
+$warning-120: scale-color($warning, $lightness: -20%);
+$warning-20: scale-color($warning, $lightness: 80%);
+$warning-10: scale-color($warning, $lightness: 90%);
+$warning-05: scale-color($warning, $lightness: 95%);
+$info: #fc459e;
+$info-110: #c7367c; //scale-color($info, $lightness: -10%);
+$info-120: #9c2860; //scale-color($info, $lightness: -20%);
+$info-20: scale-color($info, $lightness: 80%);
+$info-10: scale-color($info, $lightness: 90%);
+$info-05: scale-color($info, $lightness: 95%);
+$dark: #444;
+$dark-110: scale-color($dark, $lightness: -10%);
+$dark-120: scale-color($dark, $lightness: -20%);
+$dark-80: scale-color($dark, $lightness: 20%);
+$dark-60: scale-color($dark, $lightness: 40%);
+$dark-40: scale-color($dark, $lightness: 60%);
+$dark-20: scale-color($dark, $lightness: 80%);
+$dark-10: scale-color($dark, $lightness: 90%);
+$dark-05: scale-color($dark, $lightness: 95%);
+$darkblue: #3a4361;
+$darkblue-60: scale-color($darkblue, $lightness: 40%);
+$darkblue-80: scale-color($darkblue, $lightness: 20%);
+$text-color: #807f83;
+$transparent: transparent;
+//$dark: #3a4361;
+//$balanced: #44c3aa;
+$royal: $info;
+$energized: $warning;
+//$calm: #097be5;
+$assertive: $danger;
+$border-stable: #d0d0d0;
+$border-placeholder: #e5e6e9 #dfe0e4 #d0d1d5;
+//
+//Gradients
+//
+$gradient-accent: linear-gradient(90deg, #1C76FC 0%, #D6E7FF 160.99%);
+$gradient-danger: linear-gradient(264deg, #ff625f, #c73634);
+$gradient-info: linear-gradient(264deg, #fc459e, #9c2860);
+$gradient-success: linear-gradient(309deg, #15daba, #13deb4 20%, #0de8a2 49%, #04f884 82%, #00ff78);
+$gradient-success-end: #00ff78;
+//$gradient-success: linear-gradient(264deg, #07cac2, #09f094); //linear-gradient(90deg, #07CCC0 0%, #87FFF8 160.99%); //linear-gradient(264deg, #87bbfd, #44c3aa);
+$gradient-warning: linear-gradient(90deg, #F2C83A 0%, #FFE385 160.99%); //
+$gradient-dark: linear-gradient(90deg, #3A3569 0%, #4334A3 102.47%);
+//
+//Shadows
+//
+$button-shadow_old:0 3px 6px 0 rgba(58, 67, 97, 0.2);
+$button-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+$tile-shadow: 0 5px 15px 0 rgba(40, 47, 54, 0.15);
+$card-shadow: 0 5px 15px 0 rgba(40, 47, 54, 0.15);
+$input-bar-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.3);
+$form-slide: 0 1px 10px 0 rgba(0, 0, 0, 0.4); //Variables Map
+//
+$colors-map: ( //
+backdrop: $backdrop, //
+light: $light, //
+black: $black, //dark: $dark, //
+//balanced: $balanced, //
+//royal: $royal, //
+stable: $stable, 
+stable-10: $stable-10,
+stable-30: $stable-30,
+stable-light: $stable-light,
+stable-alt: $stable-alt,
+//energized: $energized, //
+//assertive: $assertive, //
+//calm: $calm, //
+text-color: $text-color, //
+dark: $dark, //
+dark-110: $dark-110, //
+dark-120: $dark-120, //
+dark-80: $dark-80, //
+dark-60: $dark-60, //
+dark-40: $dark-40, //
+dark-20: $dark-20, //
+dark-10: $dark-10, //
+dark-05: $dark-05, //
+darkblue: $darkblue, //
+darkblue-60: $darkblue-60, //
+darkblue-80: $darkblue-80, //
+accent: $accent, //
+accent-110:$accent-110, //
+accent-120:$accent-120, //
+accent-20: $accent-20, //
+accent-10: $accent-10, //
+accent-05: $accent-05, //
+danger: $danger, //
+danger-110:$danger-110, //
+danger-120:$danger-120, //
+danger-20: $danger-20, //
+danger-10: $danger-10, //
+danger-05: $danger-05, //
+success: $success, //
+success-110:$success-110, //
+success-120:$success-120, //
+success-20: $success-20, //
+success-10: $success-10, //
+success-05: $success-05, //
+gradient-success-end: $gradient-success-end,
+warning: $warning, //
+warning-110:$warning-110, //
+warning-120:$warning-120, //
+warning-20: $warning-20, //
+warning-10: $warning-10, //
+warning-05: $warning-05, //
+info: $info, //
+info-110:$info-110, //
+info-120:$info-120, //
+info-20: $info-20, //
+info-10: $info-10, //
+info-05: $info-05, //
+transparent: $transparent, //
+gradient-accent: $gradient-accent, //
+gradient-danger: $gradient-danger, //
+gradient-info: $gradient-info, //
+gradient-success: $gradient-success, //
+gradient-warning: $gradient-warning, //
+gradient-dark: $gradient-dark, //
+ion-color-primary: $accent, //
+ion-color-secondary: $success, //
+ion-color-tertiary: $royal, //
+ion-color-success: $success, //
+ion-color-warning: $energized, //
+ion-color-danger: $assertive, //
+ion-color-light: $light, //
+ion-color-medium: $stable, //
+ion-color-dark: $black, //
+ion-text-color: $black //
+);
+$variables-map: map-merge(( //
+font-size: $font-size //
+), $colors-map); //
+@import './_mixins.scss';

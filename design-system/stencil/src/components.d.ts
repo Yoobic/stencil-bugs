@@ -27,15 +27,9 @@ declare global {
 
 import {
   AsyncValidator,
-  IFormField,
-  IFormSearch,
-  ISlide,
   Validator,
   ValidatorEntry,
-} from '@shared/interfaces';
-import {
-  EventEmitter,
-} from '@stencil/core';
+} from './utils/helpers/form-input-helpers';
 
 declare global {
 
@@ -46,7 +40,7 @@ declare global {
       'isValid': () => boolean;
       'showRecap': boolean;
       'showTabs': boolean;
-      'slides': Array<ISlide>;
+      'slides': Array<any>;
       'suffix': string;
     }
   }
@@ -74,7 +68,7 @@ declare global {
       'forceReadonly'?: boolean;
       'showRecap'?: boolean;
       'showTabs'?: boolean;
-      'slides'?: Array<ISlide>;
+      'slides'?: Array<any>;
       'suffix'?: string;
     }
   }
@@ -86,7 +80,7 @@ declare global {
   namespace StencilComponents {
     interface YooFormDynamic {
       'data': Object;
-      'forceFieldUpdate': (field: IFormField) => void;
+      'forceFieldUpdate': (field: any) => void;
       'forceReadonly': boolean;
       'goToRecap': () => void;
       'isValid': () => boolean;
@@ -94,7 +88,7 @@ declare global {
       'showRecap': boolean;
       'showSave': boolean;
       'showTabs': boolean;
-      'slides': Array<ISlide>;
+      'slides': Array<any>;
       'suffix': string;
     }
   }
@@ -121,12 +115,12 @@ declare global {
       'data'?: Object;
       'forceReadonly'?: boolean;
       'onDataChanged'?: (event: CustomEvent<any>) => void;
-      'onFieldFetchData'?: (event: CustomEvent<IFormSearch>) => void;
+      'onFieldFetchData'?: (event: CustomEvent<any>) => void;
       'onSave'?: (event: CustomEvent<any>) => void;
       'showRecap'?: boolean;
       'showSave'?: boolean;
       'showTabs'?: boolean;
-      'slides'?: Array<ISlide>;
+      'slides'?: Array<any>;
       'suffix'?: string;
     }
   }
@@ -138,7 +132,7 @@ declare global {
   namespace StencilComponents {
     interface YooFormInputContainer {
       'comments': string;
-      'field': IFormField;
+      'field': any;
       'readonly': boolean;
     }
   }
@@ -163,7 +157,7 @@ declare global {
   namespace JSXElements {
     export interface YooFormInputContainerAttributes extends HTMLAttributes {
       'comments'?: string;
-      'field'?: IFormField;
+      'field'?: any;
       'onCommented'?: (event: CustomEvent<string>) => void;
       'readonly'?: boolean;
     }

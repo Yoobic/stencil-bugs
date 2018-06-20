@@ -3,8 +3,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { routerTransition } from '@app/common-base';
 import { MenuBasePageComponent } from '../../bases/menu-page/menu-page.component';
 //import { Feed } from '@operations/data';
-//import { ITabEntry } from '@shared/interfaces';
-// import { FormFieldType } from '@shared/interfaces';
+
 
 @Component({
   selector: 'menu-page',

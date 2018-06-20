@@ -1,16 +1,15 @@
 import { Injectable, OnInit, Input } from '@angular/core';
 import { BasePageBaseComponent } from '../base-page/base-page.component';
-import { IFormField, ISlide, IEntityAction } from '@shared/interfaces';
 
 @Injectable()
 export class AppFormDynamicBasePageComponent extends BasePageBaseComponent implements OnInit {
 
     @Input() collectionName: string | any;
-    @Input() formDefinition: Array<IFormField>;
-    @Input() slides: Array<ISlide>;
+    @Input() formDefinition: Array<any>;
+    @Input() slides: Array<any>;
     @Input() suffix: string;
     @Input() data: Object;
-    @Input() secondaryActions: Array<IEntityAction>;
+    @Input() secondaryActions: Array<any>;
     @Input() history: Array<any>;
     //extra options
     @Input() extraValidators: Array<any>;

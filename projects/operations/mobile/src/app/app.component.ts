@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ConfigConstants } from '@shared/common';
-import { environment } from '../../../../../shared/environments/src/environment';
+import { ConfigConstants } from '../services/config-constants/config-constants.service';
+import { environment } from '../environment';
 
 // import { defineCustomElements } from '@shared/design-system/esm/es5/design-system.define';
 

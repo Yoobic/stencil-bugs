@@ -1,4 +1,4 @@
-import { Validator } from '@shared/interfaces';
+type Validator<A> = (x: A) => boolean;
 
 export const emailValidator: Validator<string> =  (email: string) => {
     let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$/i;

@@ -1,7 +1,6 @@
 import { Component, Prop, Event, State, EventEmitter, Element, Method } from '@stencil/core';
-import { ValidatorEntry, AsyncValidator, Validator, IFormInputBase } from '@shared/interfaces';
 
-import { setValidator, onInputBlurred, setValueAndValidateInput, onInputFocused, onInputClear, convertValueForInputType } from '../../../utils/helpers/form-input-helpers';
+import { setValidator, onInputBlurred, setValueAndValidateInput, onInputFocused, onInputClear, convertValueForInputType, Validator, ValidatorEntry, AsyncValidator } from '../../../utils/helpers/form-input-helpers';
 import { debounce } from '../../../utils/helpers/helpers';
 
 @Component({
@@ -9,7 +8,7 @@ import { debounce } from '../../../utils/helpers/helpers';
     styleUrl: 'form-input.scss',
     scoped: true
 })
-export class YooFormInputComponent implements IFormInputBase<string | number> {
+export class YooFormInputComponent {
     @Prop({ mutable: true }) value: string | number;
     @Prop() validators: Array<Validator<string> | ValidatorEntry> = [];
     @Prop() asyncValidators: Array<AsyncValidator<string>>;
