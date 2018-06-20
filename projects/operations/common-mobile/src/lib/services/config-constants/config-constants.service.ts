@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ConfigConstantsBase } from '@operations/common-base';
+import { ConfigConstants } from '@shared/common';
 
 @Injectable()
-export class ConfigConstants extends ConfigConstantsBase {
+export class ConfigConstantsBase extends ConfigConstants {
     public configIsIonic2 = true;
     public configIsWeb = false;
     public configPlatform = 'IONIC';
+    public appName: string = 'yoobic';
+
 }

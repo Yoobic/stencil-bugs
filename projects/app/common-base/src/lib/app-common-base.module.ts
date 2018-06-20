@@ -15,6 +15,13 @@ import { AppFormDynamicComponent } from './components/app-form-dynamic/app-form-
 
 const COMPONENTS = [ AppLoginComponent, AppFormDynamicComponent];
 
+import { AppFormDynamicPageComponent } from './modals/app-form-dynamic-page/app-form-dynamic-page.component';
+
+let ENTRY_COMPONENTS = [
+  AppFormDynamicPageComponent
+];
+
+
 import { Activity } from '@shared/data-core';
 const SERVICES = [Activity];
 
@@ -25,11 +32,11 @@ import { File as FileNative } from '@ionic-native/file/ngx';
 const IONIC = [Device, PhotoLibrary, ImagePicker, FileNative];
 
 @NgModule({
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, ...ENTRY_COMPONENTS],
   imports: [RouterModule, IonicModule, AppCommonModule, TranslateModule, CommonModule],
-  exports: [RouterModule, IonicModule, AppCommonModule, TranslateModule, CommonModule, ...COMPONENTS],
+  exports: [RouterModule, IonicModule, AppCommonModule, TranslateModule, CommonModule, ...COMPONENTS, ...ENTRY_COMPONENTS],
   providers: [...IONIC],
-  entryComponents: [...COMPONENTS],
+  entryComponents: [...COMPONENTS, ...ENTRY_COMPONENTS],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 

@@ -11,8 +11,7 @@ import { DataFormModule } from '@shared/data-form';
 import { TranslateModule } from '@shared/translate';
 
 import { AppCommonBaseModule, UtilsService as AppUtilsService } from '@app/common-base';
-import { UtilsService as UtilsServiceOperations } from '@operations/common-base';
-import { OperationsCommonMobileModule, routes, ConfigConstants as ConfigConstantsMobile, UtilsService } from '@operations/common-mobile';
+import { OperationsCommonMobileModule, routes, ConfigConstantsBase as ConfigConstantsMobile, UtilsService } from '@operations/common-mobile';
 import { OperationsDataModule, Session as SessionOperations } from '@operations/data';
 
 import { TranslateModule as NgxTranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -49,7 +48,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     IonicModule.forRoot(),
     AppCommonBaseModule.forRoot([
       { provide: AppUtilsService, useExisting: UtilsService },
-      { provide: UtilsServiceOperations, useExisting: UtilsService }
+      { provide: UtilsService, useExisting: UtilsService }
     ]),
     OperationsCommonMobileModule.forRoot([]),
     OperationsDataModule.forRoot([]),

@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { StoreManagerPageBaseComponent } from '@operations/common-base';
+import { StoreManagerPageBaseComponent } from '../../bases/storemanager-home-page/storemanager-home-page.component';
 import { gridPageTransition } from '@app/common-base';
 import { UtilsService } from '../../services/utils/utils.service';
 
