@@ -1,6 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ConfigConstants } from '@shared/common';
-import { environment } from '../../../../../shared/environments/src/environment';
+import { ConfigConstants } from '../services/config-constants/config-constants.service';
+import { environment } from '../environment';
+
+import { defineCustomElements } from 'design-system/esm/es5/design-system.define';
 
 @Component({
   selector: 'app',
@@ -12,5 +14,6 @@ export class AppComponent {
 
   constructor(protected configConstants: ConfigConstants) {
     this.configConstants.setConfig(environment);
+    defineCustomElements(window);
   }
 }

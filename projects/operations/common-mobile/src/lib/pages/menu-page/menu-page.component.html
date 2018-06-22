@@ -1,31 +1,24 @@
 <ion-header class="shadow" [class.statusbar-padding]="isCordova">
     <ion-toolbar color="light">
-        <ion-buttons slot="start">
-            <yoo-avatar class="profile" imgSrc="https://res.cloudinary.com/www-yoobic-com/image/upload/w_1020,h_480,c_fill,q_auto:low,f_auto,fl_lossy/a_exif/v1522152485/k7dedr96ainrdhmkzlgj.png" (click)="onShowProfile()"></yoo-avatar>
-        </ion-buttons>
         <ion-title>
-            <img class="header-logo" src="assets/logo/operations_simple.svg" (click)="onScrollToTop()" />
+            <img class="header-logo" src="assets/logo/operations_simple.svg" />
         </ion-title>
         <ion-buttons slot="end">
-            <ion-button color="dark" (click)="onShowCreate()">
-                <i slot="icon-only" class="yo-plus"></i>
+            <ion-button color="dark" (click)="onShowTestForm()">
+                <i slot="icon-only" class="yo-list-view"></i>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content [forceOverscroll]="false" [scrollEnabled]="false">
+<!-- <ion-content [forceOverscroll]="false" [scrollEnabled]="false"> -->
     <ion-tabs class="shadow" color="light" [class.statusbar-padding]="isCordova">
-        <ion-tab [@routerTransition]="getActivePath()" label="{{'HOME2'|translate}}" icon="{{isActive('/menu/(home:home)')? 'yo-home-solid':'yo-home'}}"
+        <ion-tab [@routerTransition]="getActivePath()" label="Home" icon="{{isActive('/menu/(home:home)')? 'yo-home-solid':'yo-home'}}"
             href="/menu/(home:home)">
             <ion-router-outlet [animated]="true" name="home"></ion-router-outlet>
         </ion-tab>
-        <ion-tab [@routerTransition]="getActivePath()" label="{{'FEEDS'|translate}}" icon="{{isActive('/menu/(feeds:feeds)')? 'yo-feed-solid':'yo-feed'}}"
-            href="/menu/(feeds:feeds)">
-            <ion-router-outlet [animated]="true" name="feeds"></ion-router-outlet>
-        </ion-tab>
-        <ion-tab [@routerTransition]="getActivePath()" label="{{'MYSTORE'|translate}}" icon="{{isActive('/menu/(mystore:mystore)')? 'yo-chart-solid':'yo-chart'}}"
+        <ion-tab [@routerTransition]="getActivePath()" label="Store" icon="{{isActive('/menu/(mystore:mystore)')? 'yo-chart-solid':'yo-chart'}}"
             href="/menu/(mystore:mystore)">
             <ion-router-outlet [animated]="true" name="mystore"></ion-router-outlet>
         </ion-tab>
     </ion-tabs>
-</ion-content>
+<!-- </ion-content> -->

@@ -5,18 +5,12 @@
   "lib": {
     "entryFile": "src/public_api.ts",
     "styleIncludePaths": [
-      "../../../shared/styles"
+      "../../../styles"
     ],
     "umdModuleIds": {
       "lodash-es": "lodash-es",
       "moment": "moment",
       "rxjs": "rxjs",
-      "@shared/common": "@shared/common",
-      "@shared/data-core": "@shared/data-core",
-      "@shared/data-live": "@shared/data-live",
-      "@shared/data-form": "@shared/data-form",
-      "@shared/translate": "@shared/translate",
-      "@shared/interfaces": "@shared/interfaces",
       "@ionic/angular": "@ionic/angular",
       "@ionic-native/device/ngx": "Device",
       "@ionic-native/file/ngx": "File",

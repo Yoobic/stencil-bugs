@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { CoreConfig } from '@shared/common';
-import { Translate } from '@shared/translate';
+import { CoreConfig } from '../core-config/core-config.service';
 
 import { ModalController, PopoverController, ToastController, ActionSheetController, LoadingController, AlertController, PickerController } from '@ionic/angular';
 import { AnimationBuilder, ActionSheetOptions } from '@ionic/core';
@@ -9,15 +8,15 @@ import { AnimationBuilder, ActionSheetOptions } from '@ionic/core';
 @Injectable()
 export class DialogService {
 
-    constructor(protected translate: Translate, protected coreConfig: CoreConfig, protected modalCtrl: ModalController, protected popoverCtrl: PopoverController, protected toastCtrl: ToastController, protected actionsheetCtrl: ActionSheetController, protected loadingCtrl: LoadingController, protected alertCtrl: AlertController, protected pickerCtrl: PickerController) { }
+    constructor(protected coreConfig: CoreConfig, protected modalCtrl: ModalController, protected popoverCtrl: PopoverController, protected toastCtrl: ToastController, protected actionsheetCtrl: ActionSheetController, protected loadingCtrl: LoadingController, protected alertCtrl: AlertController, protected pickerCtrl: PickerController) { }
 
     alert(header: string, message: string) {
         return new Promise((resolve, reject) => {
             this.alertCtrl.create({
-                header: this.translate.get(header),
-                message: this.translate.get(message),
+                header:  (header),
+                message:  (message),
                 buttons: [
-                    { text: this.translate.get('OK'), handler: () => resolve(true) }
+                    { text:  ('OK'), handler: () => resolve(true) }
                 ]
             }).then((alert) => {
                 alert.present();
@@ -32,15 +31,15 @@ export class DialogService {
     rename(header: string, message: string, value: string) {
         return new Promise((resolve, reject) => {
             this.alertCtrl.create({
-                header: this.translate.get(header),
-                message: this.translate.get(message),
+                header:  (header),
+                message:  (message),
                 inputs: [{
                     value: value,
                     type: 'text',
                     name: 'textinput'
                 }],
                 buttons: [{
-                    text: this.translate.get('OK'),
+                    text:  ('OK'),
                     handler: (ret) => {
                         resolve(ret.textinput);
                         return true;
@@ -59,11 +58,11 @@ export class DialogService {
     confirm(header: string, message: string): Promise<boolean> {
         return new Promise((resolve, reject) => {
             this.alertCtrl.create({
-                header: this.translate.get(header),
-                message: this.translate.get(message),
+                header:  (header),
+                message:  (message),
                 buttons: [
-                    { text: this.translate.get('CANCEL'), role: 'cancel', cssClass: 'assertive', handler: () => resolve(false) },
-                    { text: this.translate.get('OK'), handler: () => resolve(true) }
+                    { text:  ('CANCEL'), role: 'cancel', cssClass: 'assertive', handler: () => resolve(false) },
+                    { text:  ('OK'), handler: () => resolve(true) }
                 ]
             }).then((alert) => {
                 alert.present();
@@ -76,7 +75,7 @@ export class DialogService {
     }
 
     toast(message: string) {
-        return this.toastCtrl.create({ message: this.translate.get(message) }).then((alert) => {
+        return this.toastCtrl.create({ message:  (message) }).then((alert) => {
             return alert.present();
         });
     }

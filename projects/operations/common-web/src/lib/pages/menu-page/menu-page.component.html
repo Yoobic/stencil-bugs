@@ -1,7 +1,0 @@
-<div class="menu">
-    <yoo-web-menu [entry]="entry" (profilClicked)="onShowProfile()" (itemClicked)="onItemClicked($event)" [activePage]="getActivePath()">
-    </yoo-web-menu>
-</div>
-<div class="content" attr-flex [@routerTransition]="getActivePath()">
-    <router-outlet></router-outlet>
-</div>

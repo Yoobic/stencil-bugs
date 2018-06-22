@@ -29,15 +29,27 @@ System:
 ## Bug Description
 
 
-**Version Affected**: `MOBILE OR WEB OR BOTH`
+**Version Affected**: `MOBILE`
 
 Bug description here
+
+Item Sliding can't not be swipped if the is an ion-refresher in the ion-content when you are at the top (not started to scroll).
 
 ## Steps to Reproduce
 
 Steps to reproduce the behaviour here (subdivide by version if necessary)
 
+Go on the first tab and try to scroll the items -> You can't if you don't scroll a little bit.
+Go on the last tab and try to scroll the items -> You can.
+
+Diff: There is an ion-refresher in the ion-content of the first one.
+
+Pages: storemanager-store-page & storemanager-home-page
+
+
 ## Expected Behavior
 
 Expected behavior here (subdivide by version if necessary)
+
+You can slide the item sliding even when you use a ion-refresher.
 

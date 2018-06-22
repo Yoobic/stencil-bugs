@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { StoreManagerStorePageBaseComponent } from '@operations/common-base';
+import { StoreManagerStorePageBaseComponent } from '../../bases/storemanager-store-page/storemanager-store-page.component';
 import { slideInTransition } from '@app/common-base';
 
 @Component({

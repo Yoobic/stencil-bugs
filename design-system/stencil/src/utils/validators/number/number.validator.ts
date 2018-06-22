@@ -1,5 +1,4 @@
-import { Validator } from '@shared/interfaces';
-
+type Validator<A> = (x: A) => boolean;
 
 export function getNumberValidator(options: any): Validator<number> {
     return (val: number) => {

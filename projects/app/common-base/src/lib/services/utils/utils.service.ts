@@ -2,10 +2,6 @@ import { Injectable, EventEmitter, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { Network, CoreConfig, LocalStorage, LocalForageService } from '@shared/common';
-import { Authentication, Config, Session, Broker, Users, Smartloc } from '@shared/data-core';
-import { Intercom, Channel } from '@shared/data-live';
-import { Translate } from '@shared/translate';
 
 import { DialogService } from '../dialog/dialog.service';
 import { slideXEnterAnimation, slideXLeaveAnimation } from '../../animations/animations';
@@ -13,6 +9,29 @@ import { slideXEnterAnimation, slideXLeaveAnimation } from '../../animations/ani
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { File as FileNative } from '@ionic-native/file/ngx';
 
+export interface IModalUpsertConfig {
+    collectionName?: string | any;
+    formDefinition?: Array<any>;
+    slides?: Array<any>;
+    suffix?: string;
+    editable?: boolean;
+    secondaryActions?: Array<any>;
+    //extra options
+    extraValidators?: Array<any>;
+    extraButtons?: any;
+    ignoreRequired?: boolean;
+    readonly?: boolean;
+    //text options
+    title?: string;
+    saveText?: string;
+    cancelText?: string;
+    allowEdit?: boolean;
+    //visual options
+    width?: string;
+    height?: any;
+    isFullscreen?: boolean;
+    canMove?: boolean;
+}
 
 @Injectable()
 export class UtilsService {
@@ -21,53 +40,19 @@ export class UtilsService {
     public loading$ = new EventEmitter<boolean>();
 
     constructor(
-        protected dialog: DialogService, protected config: Config, protected coreConfig: CoreConfig, protected session: Session, protected translate: Translate, protected broker: Broker, protected channel: Channel,
-        protected network: Network, protected authentication: Authentication, protected users: Users, protected router: Router, protected intercom: Intercom, protected imagePicker: ImagePicker, protected file: FileNative,
-        protected localStorage: LocalStorage, protected localForage: LocalForageService, protected geolocatio: Smartloc,
-        protected sanitizer: DomSanitizer, protected injector: Injector) {
+        protected dialog: DialogService,
+        protected router: Router, protected file: FileNative,
+        protected injector: Injector) {
         this.initExtraProviders();
     }
 
     initExtraProviders() { }
 
-    logout() {
-        if (this.network.isOffline() === false) {
-            return this.dialog.confirm('LOGOUT', 'LOGOUTCONFIRM').then((retVal) => {
-                if (retVal) {
-                    return this._dologout();
-                }
-                return retVal;
-            });
-        }
-        return Promise.resolve(false);
+    showFormDynamic<T = {}>(data: Object, options?: IModalUpsertConfig): Promise<{ data?: T; role?: string }> {
+        return this.dialog.modal(this.getFormDynamicPageComponent(), { data, ...options, closeIcon: 'yo-left' }, null, slideXEnterAnimation, slideXLeaveAnimation);
     }
 
-    goToLogin() {
-        this.router.navigateByUrl('');
-    }
-
-    showChat() {
-        return this.dialog.modal(this.getChatPageComponent(), { closeIcon: 'yo-left' }, null, slideXEnterAnimation, slideXLeaveAnimation);
-    }
-
-    protected getChatPageComponent() {
+    protected getFormDynamicPageComponent() {
         return null;
-    }
-
-    private _dologout() {
-        if (this.network.isOffline() === false) {
-            return this.authentication.logout().then(() => this._afterLogout(), () => this._afterLogout()).then(() => {
-                return true;
-            });
-        }
-        return Promise.resolve(false);
-    }
-
-    private _afterLogout() {
-        this.goToLogin();
-        // this.menuItemActive = null;
-        // this.clearLocalBadges();
-        // this.setLoading(false);
-        // this.pubnub.disconnect();
     }
 }

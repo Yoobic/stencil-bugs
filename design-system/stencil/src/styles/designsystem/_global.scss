@@ -1,0 +1,54 @@
+@import './_variables.scss';
+@import './_layout.scss';
+// Override font paths to fix issues inside the doc
+$yoobicons-font-path: "./assets/fonts/yoobicons";
+//$sans-font-path: "./assets/fonts/sans";
+$lato-font-path: "./assets/fonts/lato";
+@import '../fonts/_lato.scss';
+@import '../fonts/_yoobicons.scss';
+@import './_root.scss';
+//
+h1 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    line-height: 1.29;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.33;
+    letter-spacing: -0.3px;
+}
+
+h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.33;
+    letter-spacing: -0.2px;
+}
+
+.caption {
+    font-size: 0.875rem;
+    line-height: 1.71;
+}
+
+.tiny {
+    font-size: 0.75rem;
+    line-height: 1.33;
+}
+
+.label {
+    font-size: 0.75rem; //font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.33;
+    font-weight: bold;
+}
+
+*,
+*:after,
+*:before {
+    @include box-sizing(border-box);
+}

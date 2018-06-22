@@ -1,6 +1,4 @@
 import { Component, Prop, State, Element, Method } from '@stencil/core';
-import { ISlide } from '@shared/interfaces';
-import { services } from '../../../services';
 
 @Component({
     tag: 'yoo-form-dynamic-dialog',
@@ -9,7 +7,7 @@ import { services } from '../../../services';
 })
 export class YooFormDynamicModalComponent {
 
-    @Prop() slides: Array<ISlide>;
+    @Prop() slides: Array<any>;
     @Prop() data: Object;
     @Prop() showTabs: boolean;
     @Prop() showRecap: boolean;
@@ -58,9 +56,9 @@ export class YooFormDynamicModalComponent {
                             <i slot="icon-only" class="yo-close"></i>
                         </ion-button>
                     </ion-buttons>
-                    <ion-title>{services.translate.get('ADVANCED')}</ion-title>
+                    <ion-title>{('ADVANCED')}</ion-title>
                     <ion-buttons slot="end" onClick={() => this.onSave()}>
-                        <ion-button color="success" disabled={!this.isValid()} >{services.translate.get('SAVE')}</ion-button>
+                        <ion-button color="success" disabled={!this.isValid()} >{('SAVE')}</ion-button>
                     </ion-buttons>
                 </ion-toolbar>
             </ion-header>,

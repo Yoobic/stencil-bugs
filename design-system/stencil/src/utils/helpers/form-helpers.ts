@@ -2,11 +2,10 @@
 import * as filtrex_ from 'filtrex';
 const filtrex = (filtrex_ as any).default;
 import { isBlank, isPresent } from './helpers';
-import { IFormField, FormFieldType, ISlide, ICondition } from '@shared/interfaces';
 
 import { isArray, indexOf, get, isString, isNull, isUndefined, isObject, isEmpty, map, clone, isNumber, isBoolean, concat, intersection, isEqual, result, set, sortBy } from 'lodash-es';
 
-export function isVisible(field: IFormField | ISlide, readonly = false, data, suffix = '', session: any = {}) {
+export function isVisible(field:  any |  any, readonly = false, data, suffix = '', session: any = {}) {
     let retVal = !(field.visible === false);
     if (field.visible === false && !field.condition) {
         retVal = false;
@@ -32,7 +31,7 @@ export function isVisible(field: IFormField | ISlide, readonly = false, data, su
     return retVal;
 }
 
-export function isRequired(field: IFormField, data, visible, suffix = '', session: any = {}) {
+export function isRequired(field:  any, data, visible, suffix = '', session: any = {}) {
     let retVal = false;
     if (!visible) {
         retVal = false;
@@ -48,7 +47,7 @@ export function isRequired(field: IFormField, data, visible, suffix = '', sessio
     return retVal;
 }
 
-export function isReadonly(field: IFormField, data, suffix = '', session: any = {}) {
+export function isReadonly(field:  any, data, suffix = '', session: any = {}) {
     let retVal = false;
     if (field.readonly === true) {
         retVal = true;
@@ -63,7 +62,7 @@ export function isReadonly(field: IFormField, data, suffix = '', session: any = 
     return retVal;
 }
 
-export function hasValue(field: IFormField, data, suffix = '') {
+export function hasValue(field:  any, data, suffix = '') {
     if (field.type === FormFieldType.image || field.type === FormFieldType.document || field.type === FormFieldType.videoplayer) { //field.type === FormFieldType.information ||
         return true;
     }
@@ -85,7 +84,7 @@ export function hasValue(field: IFormField, data, suffix = '') {
     return retVal;
 }
 
-export function evalConditionsInContext(conditions: Array<ICondition>, data: any, suffix = '', session: any = {}) {
+export function evalConditionsInContext(conditions: Array< any>, data: any, suffix = '', session: any = {}) {
     let valid = true;
     for (let condition of conditions) {
         if (isString(condition)) {
@@ -141,8 +140,8 @@ export function evalConditionsInContext(conditions: Array<ICondition>, data: any
     return valid;
 }
 
-export function updateFormulas(slides: Array<ISlide> = [], data, suffix = '') {
-    let fields: Array<IFormField> = [];
+export function updateFormulas(slides: Array< any> = [], data, suffix = '') {
+    let fields: Array< any> = [];
     let didUpdate: boolean = false;
     if (slides) {
         slides.forEach(slide => {
@@ -160,7 +159,7 @@ export function updateFormulas(slides: Array<ISlide> = [], data, suffix = '') {
                 if (formula) {
                     let toReplace: Array<{ original: string; replacement: string }> = [];
                     for (let name in fields) {
-                        let f: IFormField = fields[name];
+                        let f:  any = fields[name];
                         if (formula.indexOf(f.title) >= 0) {
                             toReplace.push({ original: f.title, replacement: f.name });
                             //formula = formula.replace(new RegExp(f.title, 'g'), 'getAttributeValue("' + f.name + '")');
@@ -186,7 +185,7 @@ export function updateFormulas(slides: Array<ISlide> = [], data, suffix = '') {
     return didUpdate;
 }
 
-export function setFieldData(field: IFormField, value, data, suffix) {
+export function setFieldData(field:  any, value, data, suffix) {
     let nameAndData = getNameAndData(field, data, suffix);
     set(data, nameAndData.name, value);
 }
@@ -340,16 +339,105 @@ function slenderizeObject(fatObject) {
     return slenderObject;
 }
 
-export function getFieldPath(field: IFormField, suffix: string) {
+export function getFieldPath(field:  any, suffix: string) {
     return field.name + (suffix ? suffix : '');
 }
-export function getFieldValue(field: IFormField, initialData: Object, suffix: string): any {
+export function getFieldValue(field:  any, initialData: Object, suffix: string): any {
     let name = getFieldPath(field, suffix);
     let data = result(initialData, name);
     return data;
 }
-function getNameAndData(field: IFormField, initialData: Object, suffix) {
+function getNameAndData(field:  any, initialData: Object, suffix) {
     let name = getFieldPath(field, suffix);
     let data = getFieldValue(field, initialData, suffix);
     return { name: name, data: data };
+}
+
+
+/**
+ * Generates the field label name
+ */
+export function generateLabel(field) {
+    let label;
+    if (!field.description) {
+        if (field.title) {
+            label = (field.title);
+        } else {
+            label = field.name || '';
+            if (label && label.toString) {
+                label = label.toString();
+            }
+            if (label && isString(label)) {
+                label = (label.toUpperCase());
+            }
+        }
+    }
+    return label;
+}
+
+export class FormFieldType {
+    static audio: string = 'audio';
+    static autocomplete: string = 'autocomplete';
+    static barcode: string = 'barcode';
+    static checkbox: string = 'checkbox';
+    static date: string = 'date';
+    static time: string = 'time';
+    static datetime: string = 'datetime-local';
+    static document: string = 'document';
+    static documentuploader: string = 'documentuploader';
+    static email: string = 'email';
+    static emailreport: string = 'emailreport';
+    static information: string = 'information';
+    static image: string = 'image';
+    static json: string = 'json';
+    static number: string = 'number';
+    static missionfield: string = 'missionfield';
+    static missionscore: string = 'missionscore';
+    static password: string = 'password';
+    static photo: string = 'photo';
+    static multiphotos: string = 'multiphotos';
+    static range: string = 'range';
+    static ranking: string = 'ranking';
+    static select: string = 'select';
+    static selectimage: string = 'selectimage';
+    static selectmulti: string = 'selectmulti';
+    static selectbuttons: string = 'selectbuttons';
+    static selectbuttonsmulti: string = 'selectbuttonsmulti';
+    static selectchat: string = 'selectchat';
+    static swipeselect: string = 'swipeselect';
+    static signature: string = 'signature';
+    static starrating: string = 'starrating';
+    static tel: string = 'tel';
+    static text: string = 'text';
+    static textarea: string = 'textarea';
+    static toggle: string = 'toggle';
+    static video: string = 'video';
+    static grid: string = 'grid';
+    static daterange: string = 'daterange';
+    static filter: string = 'filter';
+    static betweennumber: string = 'between-number';
+    static betweendate: string = 'between-date';
+    static betweendatetime: string = 'between-datetime';
+    static betweentime: string = 'between-time';
+    static timer: string = 'timer';
+    static location: string = 'location';
+    static catalog: string = 'catalog';
+    static todo: string = 'todo';
+    static button: string = 'button';
+    static stripecard: string = 'stripecard';
+    static invite: string = 'invite';
+    static inttel: string = 'inttel';
+    static color: string = 'color';
+    static productcheck: string = 'productcheck';
+    static missingword: string = 'missingword';
+    static knob: string = 'knob';
+    static connect: string = 'connect';
+    static videoplayer: string = 'videoplayer';
+    static game: string = 'game';
+    static checklist: string = 'checklist';
+    static task: string = 'task';
+    static formula: string = 'formula';
+    static schedule: string = 'schedule';
+    static address: string = 'address';
+
 }

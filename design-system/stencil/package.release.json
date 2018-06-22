@@ -1,0 +1,17 @@
+{
+  "name": "design-system",
+  "version": "6.0.15",
+  "description": "Yoobic Design System",
+  "module": "esm/index.js",
+  "main": "index.js",
+  "types": "types/components.d.ts",
+  "collection": "collection/collection-manifest.json",
+  "config": {
+    "port": 5555
+  },
+  "files": [
+    "dist/",
+    "assets",
+    "."
+  ]
+}

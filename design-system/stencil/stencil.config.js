@@ -8,23 +8,23 @@ exports.config = {
   outputTargets: [
     {
       type: 'dist',
-      dir: '../../node_modules/@shared/design-system'
+      dir: '../../node_modules/design-system'
     },
     {
       type: 'www'
     }
   ],
-  globalStyle: '../../shared/styles/designsystem/_global.scss',
+  globalStyle: './src/styles/designsystem/_global.scss',
   //globalScript: 'src/global/index.ts',
   sassConfig: {
-    includePaths: ['../../shared/styles/designsystem/']
+    includePaths: ['./src/styles/designsystem/']
   },
   enableCache: true,
   plugins: [
     sass({
       injectGlobalPaths: [
-        '../../shared/styles/designsystem/_variables.scss',
-        '../../shared/styles/designsystem/_mixins.scss'
+        './src/styles/designsystem/_variables.scss',
+        './src/styles/designsystem/_mixins.scss'
       ]
     })
     //,

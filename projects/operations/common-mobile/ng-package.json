@@ -5,19 +5,13 @@
   "lib": {
     "entryFile": "src/public_api.ts",
     "styleIncludePaths": [
-      "../../../shared/styles"
+      "../../../styles"
     ],
     "umdModuleIds": {
       "lodash-es": "lodash-es",
       "moment": "moment",
       "rxjs": "rxjs",
-      "@shared/common": "@shared/common",
-      "@shared/data-core": "@shared/data-core",
-      "@shared/translate": "@shared/translate",
-      "@shared/interfaces": "@shared/interfaces",
       "@app/common-base": "@app/common-base",
-      "@app/common-mobile": "@app/common-mobile",
-      "@operations/common-base": "@operations/common-base",
       "@ionic/angular": "@ionic/angular",
       "angular-instantsearch": "Instantsearch"
     }

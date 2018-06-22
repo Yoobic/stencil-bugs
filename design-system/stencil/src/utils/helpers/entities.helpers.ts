@@ -1,7 +1,6 @@
 import { startCase } from 'lodash-es';
-import { IUser } from '@shared/interfaces';
 
-export function getUserDisplayName(user: IUser): string {
+export function getUserDisplayName(user: any): string {
     if (user) {
         let displayName = user.username;
         if (user.firstName && user.lastName) {
@@ -12,4 +11,8 @@ export function getUserDisplayName(user: IUser): string {
         return displayName;
     }
     return '';
+}
+
+export function convertItem(value: any): any {
+    return {_id: value};
 }

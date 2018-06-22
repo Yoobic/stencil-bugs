@@ -1,5 +1,4 @@
 import { Component, Element, Prop, State, Event, EventEmitter, Method } from '@stencil/core';
-import { IFormField, ISlide, FormFieldType, IFormSearch } from '@shared/interfaces';
 import { hasValue, isVisible, isReadonly, setFieldData, updateFormulas, getFieldValue } from '../../../utils/helpers/form-helpers';
 import { showModal } from '../../../utils/helpers/helpers';
 //import { YooFormDynamicModalComponent } from './form-dynamic-dialog';
@@ -15,7 +14,7 @@ const KEYBOARD_TOP_PADDING = 100;
 })
 export class YooFormDynamicComponent {
 
-    @Prop() slides: Array<ISlide>;
+    @Prop() slides: Array<any>;
     @Prop() data: Object;
     @Prop() showTabs: boolean;
     @Prop() showRecap: boolean;
@@ -34,7 +33,7 @@ export class YooFormDynamicComponent {
 
     @Event() dataChanged: EventEmitter<any>;
     @Event() save: EventEmitter<any>;
-    @Event() fieldFetchData: EventEmitter<IFormSearch>;
+    @Event() fieldFetchData: EventEmitter<any>;
 
     protected slidesOptions;
 
@@ -83,11 +82,11 @@ export class YooFormDynamicComponent {
         }
     }
 
-    getFieldState(field: IFormField) {
+    getFieldState(field: any) {
         return this.fieldsState[field.name] || {};
     }
 
-    setFieldState(field: IFormField, state) {
+    setFieldState(field: any, state) {
         this.fieldsState[field.name] = state;
     }
 
@@ -95,7 +94,8 @@ export class YooFormDynamicComponent {
         return this.slidesState[slideIndex] || {};
     }
 
-    onFieldChanged(event: CustomEvent, field: IFormField) {
+    onFieldChanged(event: CustomEvent, field: any) {
+        console.log('field data changed being recieved');
         setFieldData(field, event.detail, this.currentData, this.suffix);
         if (field.allowTime) {
             setFieldData(field, new Date(), this.currentData, '.time');
@@ -104,7 +104,7 @@ export class YooFormDynamicComponent {
         this.dataChanged.emit(this.currentData);
     }
 
-    onFieldCommented(event: CustomEvent, field: IFormField) {
+    onFieldCommented(event: CustomEvent, field: any) {
         setFieldData(field, event.detail, this.currentData, '.comments');
         let el = this.host.querySelector('[attr-name=f-' + field.name + ']');
         if (el) {
@@ -114,7 +114,7 @@ export class YooFormDynamicComponent {
         this.dataChanged.emit(this.currentData);
     }
 
-    onFieldValidityChanged(event: CustomEvent, field: IFormField, slideIndex: number) {
+    onFieldValidityChanged(event: CustomEvent, field: any, slideIndex: number) {
         this.fieldsState = this.fieldsState || {};
         this.fieldsState[field.name] = this.fieldsState[field.name] || {};
         this.fieldsState[field.name].validity = event.detail;
@@ -123,6 +123,7 @@ export class YooFormDynamicComponent {
     }
 
     onFieldFocused(inputIndex: number) {
+        console.log('field focused being recieved');
         if (services.coreConfig.isCordova()) {
             let currentSlide = this.host.querySelectorAll('ion-slide')[this.activeIndex];
             let inputDimensions = currentSlide.querySelectorAll('yoo-form-input-container')[inputIndex].getBoundingClientRect();
@@ -149,12 +150,12 @@ export class YooFormDynamicComponent {
     }
 
     @Method()
-    forceFieldUpdate(field: IFormField) {
+    forceFieldUpdate(field: any) {
         let el = this.host.querySelector('[attr-name=f-' + field.name + ']') as any;
         if (el) {
             switch (field.type) {
                 case FormFieldType.autocomplete:
-                    let auto = (el as HTMLYooFormAutocompleteElement);
+                    let auto = (el as any);
                     auto.values = field.values;
                     auto.updateDialogValues(field.values);
                     break;
@@ -201,7 +202,7 @@ export class YooFormDynamicComponent {
         return this.activeIndex === 0;
     }
 
-    slideHasAdvancedFields(slide: ISlide) {
+    slideHasAdvancedFields(slide: any) {
         return slide.items.some((field) => {
             return field.advanced && this.getFieldState(field).visible !== false;
         });
@@ -227,7 +228,7 @@ export class YooFormDynamicComponent {
         // let slides = this.host.querySelector('ion-slides');
     }
 
-    onShowAdvancedFields(slide: ISlide) {
+    onShowAdvancedFields(slide: any) {
         let fields = slide.items.filter(field => field.advanced && this.getFieldState(field).visible !== false);
         if (fields.length > 0) {
             fields = fields.map(field => {
@@ -235,7 +236,7 @@ export class YooFormDynamicComponent {
                 retVal.advanced = false;
                 return retVal;
             });
-            let slides = [{ items: fields, title: services.translate.get('ADVANCED') }];
+            let slides = [{ items: fields, title: ('ADVANCED') }];
             let form = document.createElement('yoo-form-dynamic-dialog');
             form.slides = slides;
             form.showTabs = false;
@@ -251,7 +252,7 @@ export class YooFormDynamicComponent {
         }
     }
 
-    fieldHasValue(field: IFormField) {
+    fieldHasValue(field: any) {
         return hasValue(field, this.currentData, this.suffix);
     }
 
@@ -291,7 +292,7 @@ export class YooFormDynamicComponent {
         this.validity = this.slidesState.every(state => state.validity);
     }
 
-    getInputType(field: IFormField) {
+    getInputType(field: any) {
         switch (field.type) {
             case FormFieldType.text:
             case FormFieldType.number:
@@ -311,7 +312,7 @@ export class YooFormDynamicComponent {
         }
     }
 
-    onFetchData(field: IFormField, ev: CustomEvent) {
+    onFetchData(field: any, ev: CustomEvent) {
         ev.stopPropagation();
         this.fieldFetchData.emit({ field, search: ev.detail });
     }
@@ -334,15 +335,15 @@ export class YooFormDynamicComponent {
                     </div>
                 </ion-scroll>
                 <div class="footer" attr-layout="row" attr-layout-align="center center">
-                    <yoo-button onClick={() => this.onSlideNext()} text={services.translate.get('START')} class="large gradient-success"></yoo-button>
+                    <yoo-button onClick={() => this.onSlideNext()} text={('START')} class="large gradient-success"></yoo-button>
                 </div>
             </ion-slide> : null;
     }
 
-    renderSlideHeader(slide: ISlide, slideIndex: number) {
+    renderSlideHeader(slide: any, slideIndex: number) {
         return this.showTabs ? <div attr-layout="row" class={'header ' + (this.getSlideState(slideIndex).validity ? 'success' : '')}>
             {this.activeIndex > 0 ? <i class="yo-left" onClick={() => this.onSlidePrevious()}></i> : null}
-            <div class="title" attr-flex>{services.translate.polyglot(slide.title)}</div>
+            <div class="title" attr-flex>{(slide.title)}</div>
             {this.activeIndex < (this.slides.length - 1 + (this.showRecap ? 1 : 0)) ? <i class="yo-right" onClick={() => this.onSlideNext()}></i> : null}
         </div> : null;
     }
@@ -392,7 +393,7 @@ export class YooFormDynamicComponent {
                                     : null}
                                 {this.showSave && (slideIndex === this.slides.length - 1) && this.isValid() ?
                                     <div class="footer animated slideInUp" attr-layout="row" attr-layout-align="center center">
-                                        <yoo-button onClick={(ev) => this.onSave(ev)} text={services.translate.get('SAVE')} class="large gradient-success"></yoo-button>
+                                        <yoo-button onClick={(ev) => this.onSave(ev)} text={('SAVE')} class="large gradient-success"></yoo-button>
                                     </div>
                                     : null}
                             </div>
@@ -404,7 +405,7 @@ export class YooFormDynamicComponent {
         return null;
     }
 
-    renderInput(field: IFormField, slideIndex: number, inputIndex: number, readonly: boolean) {
+    renderInput(field: any, slideIndex: number, inputIndex: number, readonly: boolean) {
         let validators = field.required ? [{ name: 'required' }] : null;
         let value = getFieldValue(field, this.currentData, this.suffix);
         let TagType = 'yoo-form-input';
@@ -549,4 +550,71 @@ export class YooFormDynamicComponent {
             </form>
         );
     }
+}
+
+export class FormFieldType {
+    static audio: string = 'audio';
+    static autocomplete: string = 'autocomplete';
+    static barcode: string = 'barcode';
+    static checkbox: string = 'checkbox';
+    static date: string = 'date';
+    static time: string = 'time';
+    static datetime: string = 'datetime-local';
+    static document: string = 'document';
+    static documentuploader: string = 'documentuploader';
+    static email: string = 'email';
+    static emailreport: string = 'emailreport';
+    static information: string = 'information';
+    static image: string = 'image';
+    static json: string = 'json';
+    static number: string = 'number';
+    static missionfield: string = 'missionfield';
+    static missionscore: string = 'missionscore';
+    static password: string = 'password';
+    static photo: string = 'photo';
+    static multiphotos: string = 'multiphotos';
+    static range: string = 'range';
+    static ranking: string = 'ranking';
+    static select: string = 'select';
+    static selectimage: string = 'selectimage';
+    static selectmulti: string = 'selectmulti';
+    static selectbuttons: string = 'selectbuttons';
+    static selectbuttonsmulti: string = 'selectbuttonsmulti';
+    static selectchat: string = 'selectchat';
+    static swipeselect: string = 'swipeselect';
+    static signature: string = 'signature';
+    static starrating: string = 'starrating';
+    static tel: string = 'tel';
+    static text: string = 'text';
+    static textarea: string = 'textarea';
+    static toggle: string = 'toggle';
+    static video: string = 'video';
+    static grid: string = 'grid';
+    static daterange: string = 'daterange';
+    static filter: string = 'filter';
+    static betweennumber: string = 'between-number';
+    static betweendate: string = 'between-date';
+    static betweendatetime: string = 'between-datetime';
+    static betweentime: string = 'between-time';
+    static timer: string = 'timer';
+    static location: string = 'location';
+    static catalog: string = 'catalog';
+    static todo: string = 'todo';
+    static button: string = 'button';
+    static stripecard: string = 'stripecard';
+    static invite: string = 'invite';
+    static inttel: string = 'inttel';
+    static color: string = 'color';
+    static productcheck: string = 'productcheck';
+    static missingword: string = 'missingword';
+    static knob: string = 'knob';
+    static connect: string = 'connect';
+    static videoplayer: string = 'videoplayer';
+    static game: string = 'game';
+    static checklist: string = 'checklist';
+    static task: string = 'task';
+    static formula: string = 'formula';
+    static schedule: string = 'schedule';
+    static address: string = 'address';
+
 }

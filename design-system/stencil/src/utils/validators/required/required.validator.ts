@@ -1,4 +1,4 @@
-import { Validator } from '@shared/interfaces';
+type Validator<A> = (x: A) => boolean;
 
 export const requiredValidator: Validator<string> =  (text: string) => {
     if (!text) {

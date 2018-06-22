@@ -38,9 +38,6 @@
       "translate": [
         "node_modules/@shared/translate"
       ],
-      "design-system": [
-        "node_modules/@shared/design-system"
-      ],
       "app-common-base": [
         "node_modules/@app/common-base"
       ],

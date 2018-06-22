@@ -1,10 +1,4 @@
 
-import { ITranslateService, ICoreConfig, IFilesService, ISessionService } from '@shared/interfaces';
-
-const defaultTranslate = {
-    get: (x: string) => x,
-    polyglot: (x: string) => x
-};
 
 const defaultCoreConfig = {
     isIonic: () => true,
@@ -31,7 +25,6 @@ const defaultSession = {
 };
 
 const defaultServices = {
-    translateService: defaultTranslate,
     coreConfigService: defaultCoreConfig,
     filesService: defaultFile,
     sessionService: defaultSession
@@ -46,8 +39,7 @@ function getService(name: string) {
 }
 
 export const services = {
-    translate: getService('translateService') as ITranslateService,
-    coreConfig: getService('coreConfigService') as ICoreConfig,
-    files: getService('filesService') as IFilesService,
-    session: getService('sessionService') as ISessionService
+    coreConfig: getService('coreConfigService') as  any,
+    files: getService('filesService') as  any,
+    session: getService('sessionService') as  any
 };
