@@ -18,4 +18,8 @@ export class StoreManagerHomePageComponent extends StoreManagerPageBaseComponent
       console.log(rep);
     });
   }
+
+  downloadToDevice() {
+    this.utils.downloadFileToDevice('pdf', 'pdf');
+  }
 }

@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Provider, ModuleWithProviders } from 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -48,6 +49,7 @@ export class AppCommonBaseModule {
         FormDynamicBuilder,
         Models,
         CoreConfig,
+        FileTransfer,
         ...configuredProviders
       ]
     };

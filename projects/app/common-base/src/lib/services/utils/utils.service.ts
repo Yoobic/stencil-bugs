@@ -8,6 +8,7 @@ import { slideXEnterAnimation, slideXLeaveAnimation } from '../../animations/ani
 
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { File as FileNative } from '@ionic-native/file/ngx';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 
 export interface IModalUpsertConfig {
     collectionName?: string | any;
@@ -41,7 +42,7 @@ export class UtilsService {
 
     constructor(
         protected dialog: DialogService,
-        protected router: Router, protected file: FileNative,
+        protected router: Router, protected file: FileNative, protected transfer: FileTransfer,
         protected injector: Injector) {
         this.initExtraProviders();
     }
@@ -54,5 +55,10 @@ export class UtilsService {
 
     protected getFormDynamicPageComponent() {
         return null;
+    }
+
+    downloadFileToDevice(sourceUrl, targetDirectory) {
+        let fileTransfer = this.transfer.create();
+        return fileTransfer.download(sourceUrl, targetDirectory);
     }
 }
