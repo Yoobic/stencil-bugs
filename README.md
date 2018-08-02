@@ -4,7 +4,7 @@ The aim of this repo is to help reproduce bugs that are affecting the developmen
 
 To initialize the repo please run the following commands after cloning:
 
-1. `npm install && npm run build:all`
+1. `npm install && npm run fix-ionic && npm run build:all`
 2. `ng serve --project operations-mobile` 
 
 Note that there are two versions of the app in this repo, a mobile version and a web version (both are served on a browser). Some bugs are exclusively observed on one of the two versions - the version on which to reproduce the bug is always specified.
