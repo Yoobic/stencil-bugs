@@ -5,8 +5,7 @@ The aim of this repo is to help reproduce bugs that are affecting the developmen
 To initialize the repo please run the following commands after cloning:
 
 1. `npm install && npm run build:all`
-2. `ng serve --project operations-mobile` --> serve mobile version of the app (**https://localhost:6003**)
-3. `ng serve --project operations-web` --> serve the web version of the app (**https://localhost:6004**)
+2. `ng serve --project operations-mobile` 
 
 Note that there are two versions of the app in this repo, a mobile version and a web version (both are served on a browser). Some bugs are exclusively observed on one of the two versions - the version on which to reproduce the bug is always specified.
 
@@ -28,28 +27,29 @@ System:
 
 ## Bug Description
 
+In this example, we have a <yoo-readonly> component with two Props : readonly and isReadonly.
+`readonly` prop cannot be passed, from Angular to a Stencil component whereas `isReadonly` is passed properly.
 
 **Version Affected**: `MOBILE`
 
-Bug description here
-
-Item Sliding can't not be swipped if the is an ion-refresher in the ion-content when you are at the top (not started to scroll).
-
 ## Steps to Reproduce
 
-Steps to reproduce the behaviour here (subdivide by version if necessary)
+Go on the first tab
+You will see the text bellow :
+readonly value : undefined <br/>
+isReadonly value : true
 
-Go on the first tab and try to scroll the items -> You can't if you don't scroll a little bit.
-Go on the last tab and try to scroll the items -> You can.
+readonly value : undefined <br/>
+isReadonly value : false
 
-Diff: There is an ion-refresher in the ion-content of the first one.
-
-Pages: storemanager-store-page & storemanager-home-page
+Pages: storemanager-home-page
 
 
 ## Expected Behavior
 
-Expected behavior here (subdivide by version if necessary)
+The text should be like this:
+readonly value : true <br/>
+isReadonly value : true
 
-You can slide the item sliding even when you use a ion-refresher.
-
+readonly value : false <br/>
+isReadonly value : false
