@@ -35,21 +35,14 @@ In this example, we have a <yoo-readonly> component with two Props : `readonly` 
 ## Steps to Reproduce
 
 - Go on the first tab
-- You will see the text bellow
-readonly value : undefined <br/>
-isReadonly value : true <br/>
+- You will see the text bellow <br/>
+myTemperature value : 12 <br/>
+myTemperature value : 12 <br/>
 
-readonly value : undefined <br/>
-isReadonly value : false <br/>
-
-Pages: storemanager-home-page
+Page: storemanager-home-page
 
 
 ## Expected Behavior
 
 The text should be like this: <br/>
-readonly value : true <br/>
-isReadonly value : true <br/>
 
-readonly value : false <br/>
-isReadonly value : false <br/>
