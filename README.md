@@ -27,29 +27,29 @@ System:
 
 ## Bug Description
 
-In this example, we have a <yoo-readonly> component with two Props : readonly and isReadonly.
-`readonly` prop cannot be passed, from Angular to a Stencil component whereas `isReadonly` is passed properly.
+In this example, we have a <yoo-readonly> component with two Props : `readonly` and `isReadonly`.
+`readonly` prop cannot be passed, from Angular to a Stencil component. Whereas `isReadonly` is passed properly.
 
 **Version Affected**: `MOBILE`
 
 ## Steps to Reproduce
 
-Go on the first tab
-You will see the text bellow :
+- Go on the first tab
+- You will see the text bellow
 readonly value : undefined <br/>
-isReadonly value : true
+isReadonly value : true <br/>
 
 readonly value : undefined <br/>
-isReadonly value : false
+isReadonly value : false <br/>
 
 Pages: storemanager-home-page
 
 
 ## Expected Behavior
 
-The text should be like this:
+The text should be like this: <br/>
 readonly value : true <br/>
-isReadonly value : true
+isReadonly value : true <br/>
 
 readonly value : false <br/>
-isReadonly value : false
+isReadonly value : false <br/>
