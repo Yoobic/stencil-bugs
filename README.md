@@ -35,7 +35,7 @@ In this example, we have a <yoo-readonly> component with two Props : `readonly` 
 ## Steps to Reproduce
 
 - Go on the first tab
-- You will see the text bellow
+- You will see the text bellow <br/>
 readonly value : undefined <br/>
 isReadonly value : true <br/>
 
